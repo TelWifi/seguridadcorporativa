@@ -37,7 +37,7 @@
     <ProductName>Inicio de Sesión Corporativo [DEV]</ProductName>
     <PublisherName>Grupo Romero</PublisherName>
     <WebPage>index.htm</WebPage>
-    <ApplicationRevision>44</ApplicationRevision>
+    <ApplicationRevision>45</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
