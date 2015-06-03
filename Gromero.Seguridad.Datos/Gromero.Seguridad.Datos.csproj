@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09FAA615-ACF4-4946-9F87-29D41F0426B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gromero.Seguridad.Datos</RootNamespace>
+    <AssemblyName>Gromero.Seguridad.Datos</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>GrupoRomero.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aplicaciones.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cargo.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CargoSociedad.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CargoSociedadComplex.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Claves.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empresas.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gromero.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gromero.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gromero.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gromero.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gromero.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="GROMEROEntities.cs" />
+    <Compile Include="OpcionUI.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilMasivo.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilUsuario.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilUsuarioComplex.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permiso.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Plantilla.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlantillaComplex.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Recurso.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecursoAplicacion.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecursoDetalle.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecursoPerfil.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportePermiso.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Roles.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RolesPerfiles.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectPerfilUsuarioInfo_Result.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectPermiso_Result.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectPlantilla_Result.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectRecursoAplicacion_Result.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectRecursoDetalle_Result.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectRecursoPerfil_Result.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectRolesPerfil_Result.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioComplex.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosCOMEX.cs">
+      <DependentUpon>Gromero.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Gromero.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Gromero.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="GrupoRomero.snk" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\GROMEROEntities.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Gromero.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Gromero.Context.cs</LastGenOutput>
+      <DependentUpon>Gromero.edmx</DependentUpon>
+    </Content>
+    <Content Include="Gromero.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Gromero.cs</LastGenOutput>
+      <DependentUpon>Gromero.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,719 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gromero.Utilidades.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:ErickOrlando.Utilidades.Windows.Criterios">
+            <summary>
+            Criterios de Búsqueda
+            </summary>
+            <remarks>Erick Orlando © 2008</remarks>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows.Criterios.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows.Criterios.#ctor(System.String)">
+            <summary>
+            Constructor en base a un valor
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows.Criterios.ToString">
+            <summary>
+            Implementacion de ToString
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Criterios.Valor">
+            <summary>
+            Valor de Inicio
+            </summary>
+        </member>
+        <member name="T:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton">
+            <summary>
+            Plantilla de Boton como parte del Estandar SCE,
+            utilice las propiedad Imagen para cambiar por los distintos tipos de Botón
+            </summary>
+            <remarks>Erick Orlando © 2008-2012</remarks>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.Click">
+            <summary>
+            Evento Click del Botón
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.Imagen">
+            <summary>
+            Especifica la Imagen que se mostrará en el botón
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.CajaTexto">
+            <summary>
+            Especifica el cuadro de Texto que está asociado a este botón
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.CajaTextoConBoton">
+            <summary>
+            Especifica el control ButtonEdit que está asociado a este botón
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.BotonInterno">
+            <summary>
+            Obtiene el Boton interno de este Control
+            </summary>
+        </member>
+        <member name="T:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.BotonClick">
+            <summary>
+            Delegado Click del Boton
+            </summary>
+        </member>
+        <member name="T:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.TipoBoton">
+            <summary>
+            Tipo de Boton
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.TipoBoton.Buscar">
+            <summary>
+            Buscar
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.TipoBoton.BuscarPrompt">
+            <summary>
+            Busqueda de Prompts
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.TipoBoton.Agregar">
+            <summary>
+            Agregar
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.TipoBoton.Modificar">
+            <summary>
+            Modificar
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.TipoBoton.Eliminar">
+            <summary>
+            Eliminar
+            </summary>
+        </member>
+        <member name="T:ErickOrlando.Utilidades.Windows.Controles.PlantillaBotonActionList">
+            <summary>
+            Lista de Acciones para PlantillaBoton
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows.Controles.PlantillaBotonActionList.#ctor(System.ComponentModel.IComponent)">
+            <summary>
+            Constructor de PlantillaBotonActionList
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows.Controles.PlantillaBotonActionList.GetSortedActionItems">
+            <summary>
+            GetSortedActionItems
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Controles.PlantillaBotonActionList.CajaTexto">
+            <summary>
+            Caja de Texto
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Controles.PlantillaBotonActionList.CajaTextoConBoton">
+            <summary>
+            Caja de Texto con Boton
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Controles.PlantillaBotonActionList.Imagen">
+            <summary>
+            Imagen del Boton
+            </summary>
+        </member>
+        <member name="T:ErickOrlando.Utilidades.Windows.Controles.PlantillaBotonControlDesigner">
+            <summary>
+            Diseñador de PlantillaBoton
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Controles.PlantillaBotonControlDesigner.ActionLists">
+            <summary>
+            Lista de propiedades del Control PlantillaBoton
+            </summary>
+        </member>
+        <member name="T:ErickOrlando.Utilidades.Windows._PlantillaGestor">
+            <summary>
+            Plantilla para los Formularios Gestores
+            </summary>
+        </member>
+        <member name="T:ErickOrlando.Utilidades.Windows._Plantilla">
+            <summary>
+            Plantilla Base para todos los formularios
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._Plantilla.#ctor">
+            <summary>
+            Inicializa una nueva instancia de _Plantilla
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._Plantilla.CargaDatosActuales">
+            <summary>
+            Comprueba que al menos un Registro haya sido seleccionado
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._Plantilla.CargaControl(System.Windows.Forms.BindingSource,System.Object)">
+            <summary>
+            Carga un objeto BindingSource con Datos a partir
+            de un objeto de Negocio
+            </summary>
+            <param name="InfoListBindingSource">Objeto BindingSource a ser llenado</param>
+            <param name="GetInfoList">Objeto de Negocio de Solo Lectura con informacion</param>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._Plantilla.Formulario(System.Object,System.EventArgs)">
+            <summary>
+            Evento que se produce cuando se carga el Formulario
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._Plantilla.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._Plantilla.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._Plantilla.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._Plantilla.InfoListDataGridView">
+            <summary>
+            Control GridView que se usará en el Formulario de Mantenimiento
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._Plantilla.ObjetoLista">
+            <summary>
+            Control BindingSource que se usará en el Formulario
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._Plantilla.EtiquetaEstado">
+            <summary>
+            Control de Etiqueta en una Barra de Estado
+            </summary>
+        </member>
+        <member name="E:ErickOrlando.Utilidades.Windows._Plantilla.DataGridCompleto">
+            <summary>
+            Evento que se dispara cuando un DataGrid ha recibido ya toda la cantidad de datos
+            desde un BindingSource
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.ValorEntero">
+            <summary>
+            Permite Devolver un Valor entero desde el TxtFiltro
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.ValorDecimal">
+            <summary>
+            Permite Devolver un Valor Decimal desde el TxtFiltro
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.Nuevo">
+            <summary>
+            Evento del Boton Nuevo
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.Editar">
+            <summary>
+            Evento del Boton Editar
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.Eliminar">
+            <summary>
+            Evento del Boton Eliminar
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.Buscar">
+            <summary>
+            Evento del Boton Buscar
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.Actualizar">
+            <summary>
+            Evento del Botón Actualizar
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.Formulario(System.Object,System.EventArgs)">
+            <summary>
+            Evento Load.
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.SeleccionaCriterios(System.Int32)">
+            <summary>
+            Procedimiento que establecerá la Propiedad CriterioBusqueda en base
+            al indice de la coleccion de ListaCriterios
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaGestor.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaGestor.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaGestor.BarraBotones">
+            <summary>
+            BarraBotones
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaGestor.grpCriterios">
+            <summary>
+            grpCriterios
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaGestor.grpValores">
+            <summary>
+            grpValores
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaGestor.grpGrilla">
+            <summary>
+            grpGrilla
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaGestor.txtFiltro">
+            <summary>
+            txtFiltro
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaGestor.bar1">
+            <summary>
+            bar1
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaGestor.lblEstado">
+            <summary>
+            lblEstado
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.CriterioBusqueda">
+            <summary>
+            Criterio de Búsqueda Predeterminado
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.ListaCriterios">
+            <summary>
+            Lista Genérica de los Criterios que se usarán en el Gestor
+            </summary>
+            <remarks>Utilice esta propiedad para tener un conjunto de criterios
+            como cadena de los campos que se utilizarán para hacer búsquedas.
+            Esta propiedad tiene como fin reemplazar los criterios que antes
+            se colocaban en la propiedad Tag de los controles.</remarks>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.NumeroCaracteres">
+            <summary>
+            Número de Caracteres mínimo a validar en el cuadro de búsqueda
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.AllowNew">
+            <summary>
+            Permitir Crear Registros
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.AllowEdit">
+            <summary>
+            Permitir Ver/Editar Registros
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.AllowRemove">
+            <summary>
+            Permitir Eliminar Registros
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.BotonNuevo">
+            <summary>
+            Texto del Botón Nuevo
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.BotonEditar">
+            <summary>
+            Texto del Botón Editar
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.BotonEliminar">
+            <summary>
+            Texto del Botón Eliminar
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.BotonBuscar">
+            <summary>
+            Texto del Botón Buscar
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.BotonActualizar">
+            <summary>
+            Texto del Botón Actualizar
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaGestor.AllowEditBarItems">
+            <summary>
+            Permite editar la Barra de Herramientas
+            </summary>
+        </member>
+        <member name="T:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor">
+            <summary>
+            Plantilla para Mantenimientos que provienen de un Gestor
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.Grabar">
+            <summary>
+            Evento del Boton Grabar
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.Cancelar">
+            <summary>
+            Evento del Boton Cancelar
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.Actualizar">
+            <summary>
+            Evento del Boton Actualizar
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.Formulario(System.Object,System.EventArgs)">
+            <summary>
+            Evento Load.
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.ManipulaControles(System.Windows.Forms.Control.ControlCollection)">
+            <summary>
+            Deshabilita los controles del formulario siempre y cuando
+            este establecida la propiedad SoloLectura en True
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.BarraBotones">
+            <summary>
+            BarraBotones
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.ToolGrabar">
+            <summary>
+            ToolGrabar
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.ToolCancelar">
+            <summary>
+            ToolCancelar
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.ToolActualizar">
+            <summary>
+            ToolActualizar
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.SoloLectura">
+            <summary>
+            Permite establecer si los controles contenidos serán de Solo Lectura
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.Nuevo">
+            <summary>
+            Permite saber si se está creando un registro nuevo o no
+            por defecto es True
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaMntDeGestor.AllowEditBarItems">
+            <summary>
+            Permite editar la Barra de Herramientas
+            </summary>
+        </member>
+        <member name="T:ErickOrlando.Utilidades.Windows._PlantillaPrompt">
+            <summary>
+            Plantilla para Ventanas tipo Prompt
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaPrompt.#ctor">
+            <summary>
+            Inicializa una nueva instancia de _PlantillaPrompt
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaPrompt.ShowDialog">
+            <summary>
+            ShowDialog
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaPrompt.ShowDialog(System.Windows.Forms.IWin32Window)">
+            <summary>
+            ShowDialog
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaPrompt.Aceptar">
+            <summary>
+            Boton Aceptar
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaPrompt.Cancelar">
+            <summary>
+            Boton Cancelar
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaPrompt.Formulario(System.Object,System.EventArgs)">
+            <summary>
+            Evento que se produce cuando carga el formulario
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaPrompt.Actualizar">
+            <summary>
+            Boton Actualizar
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaPrompt.SeleccionaCriterios(System.Int32)">
+            <summary>
+            Procedimiento que establecerá la Propiedad CriterioBusqueda en base
+            al indice de la coleccion de ListaCriterios
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaPrompt.Buscar">
+            <summary>
+            Boton Buscar
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaPrompt.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaPrompt.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ErickOrlando.Utilidades.Windows._PlantillaPrompt.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaPrompt.grpResultados">
+            <summary>
+            grpResultados
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaPrompt.grpCriterios">
+            <summary>
+            grpCriterios
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaPrompt.txtFiltro">
+            <summary>
+            txtFiltro
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaPrompt.cboFiltro">
+            <summary>
+            cboFiltro
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaPrompt.lblValor">
+            <summary>
+            lblValor
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaPrompt.lblFiltro">
+            <summary>
+            lblFiltro
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaPrompt.splitContainerControl1">
+            <summary>
+            splitContainerControl1
+            </summary>
+        </member>
+        <member name="F:ErickOrlando.Utilidades.Windows._PlantillaPrompt.BarraBotones">
+            <summary>
+            BarraBotones
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaPrompt.CriterioBusqueda">
+            <summary>
+            Criterio de Búsqueda predeterminado
+            </summary>
+            
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaPrompt.ListaCriterios">
+            <summary>
+            Lista Genérica de los Criterios que se usarán en el Prompt
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaPrompt.ListaObjetos">
+            <summary>
+            Lista Genérica de Objetos que devuelve el Prompt
+            Se puede usar Objetos ReadOnlyBase
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaPrompt.CadenaBusqueda">
+            <summary>
+            Cadena que se buscará en el Prompt antes de llamar al formulario.
+            Si la cadena está vacía siempre se muestra el formulario.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaPrompt.NumeroCaracteres">
+            <summary>
+            Número de Caracteres mínimo a validar en el cuadro de búsqueda
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows._PlantillaPrompt.AllowEditBarItems">
+            <summary>
+            Permite editar la Barra de Herramientas
+            </summary>
+        </member>
+        <member name="T:ErickOrlando.Utilidades.Windows.Properties.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.actualizar">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.buscar">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.buscar_prompt">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.CargaDatos">
+            <summary>
+              Busca una cadena traducida similar a Cargar Datos Actuales.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.cerrar">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.db_add">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.db_remove">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.db_update">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.editar">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.EscogerRegistros">
+            <summary>
+              Busca una cadena traducida similar a Escoja un registro por favor.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.InfoListDiseñador">
+            <summary>
+              Busca una cadena traducida similar a Debe establecer la propiedad InfoListDataGridView desde el Diseñador.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.IngresaCriterios">
+            <summary>
+              Busca una cadena traducida similar a Ingresar algún criterio por favor.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.ok">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ErickOrlando.Utilidades.Windows.Properties.Resources.SeleccionaCriteriosValue">
+            <summary>
+              Busca una cadena traducida similar a No ha establecido la propiedad ListaCriterios desde el Diseñador.
+            </summary>
+        </member>
+    </members>
+</doc>

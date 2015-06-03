@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Usuarios>
+	<Usuario
+		IdUsuario="00c300a1-b14a-44a6-920b-ade75c9e8b6f"
+		CodigoUsuario="evelascom"
+		NombresCompletos="Erick Orlando Velasco Martínez"
+		DNI="43153894"
+		CodigoCargo ="0001"
+		Cargo="Administrador"
+	/>
+	<Usuario
+		IdUsuario="025f14c9-0e6c-4cdd-b268-9d7fbfd9e2b7"
+		CodigoUsuario="jgutierrezs"
+		NombresCompletos="Javier Gutierrez Sierra"
+		DNI="12345678"
+		CodigoCargo ="0001"
+		Cargo="Administrador"
+	/>
+	<Usuario
+		IdUsuario="02a7fa14-c119-42c8-8d16-06bb6d14c0b9"
+		CodigoUsuario="ychavarriar"
+		NombresCompletos="Yaddith Nicole Chavarría Rojas"
+		DNI="09876543"
+		CodigoCargo ="0002"
+		Cargo="Analista"
+	/>
+	<Usuario
+		IdUsuario="03316f1c-b690-4f7f-b905-a4a40d6b6913"
+		CodigoUsuario="japazam"
+		NombresCompletos="Jose Antonio Apaza Mesones"
+		DNI="12894653"
+		CodigoCargo ="0002"
+		Cargo="Analista"
+	/>
+</Usuarios>

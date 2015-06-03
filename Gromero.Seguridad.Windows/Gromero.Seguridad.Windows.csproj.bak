@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{564E0DA0-D868-4B1A-AFED-6050E85FBE58}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gromero.Seguridad.Windows</RootNamespace>
+    <AssemblyName>GromeroUMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>D:\Virtuales\Gromero\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://tramoldev01.tramarsa.com.pe/GRomero/</InstallUrl>
+    <ProductName>Aplicación Corporativa de Seguridad [DEV]</ProductName>
+    <PublisherName>Grupo Romero</PublisherName>
+    <WebPage>index.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <TrustUrlParameters>true</TrustUrlParameters>
+    <ApplicationRevision>41</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>GrupoRomero.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>EFAD31B2DF352383245B6353E2050D3C21D59AEF</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla, Version=4.5.700.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSLA-Core.4.5.700\lib\net45\Csla.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Gromero.Utilidades, Version=1.0.0.0, Culture=neutral, PublicKeyToken=35cc583934d49367, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencias\Gromero.Utilidades.dll</HintPath>
+    </Reference>
+    <Reference Include="Gromero.Utilidades.Windows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=35cc583934d49367, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencias\Gromero.Utilidades.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="GRomeroAD.DirectoryServices">
+      <HintPath>..\Dependencias\GRomeroAD.DirectoryServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aplicaciones\frmLstAplicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicaciones\frmLstAplicacion.Designer.cs">
+      <DependentUpon>frmLstAplicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicaciones\frmMntAplicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicaciones\frmMntAplicacion.Designer.cs">
+      <DependentUpon>frmMntAplicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicaciones\frmOpcionesUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicaciones\frmOpcionesUI.Designer.cs">
+      <DependentUpon>frmOpcionesUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicaciones\frmPromptAplicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicaciones\frmPromptAplicaciones.Designer.cs">
+      <DependentUpon>frmPromptAplicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cargos\frmLstCargos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cargos\frmLstCargos.Designer.cs">
+      <DependentUpon>frmLstCargos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cargos\frmMntCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cargos\frmMntCargo.Designer.cs">
+      <DependentUpon>frmMntCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion.cs" />
+    <Compile Include="Empresas\frmLstEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empresas\frmLstEmpresas.Designer.cs">
+      <DependentUpon>frmLstEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empresas\frmMntEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empresas\frmMntEmpresas.Designer.cs">
+      <DependentUpon>frmMntEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilesUsuario\frmLstPerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerfilesUsuario\frmLstPerfilUsuario.Designer.cs">
+      <DependentUpon>frmLstPerfilUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilesUsuario\frmMntPerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerfilesUsuario\frmMntPerfilUsuario.Designer.cs">
+      <DependentUpon>frmMntPerfilUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilesUsuario\frmPerfilesMasivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerfilesUsuario\frmPerfilesMasivos.Designer.cs">
+      <DependentUpon>frmPerfilesMasivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recursos\frmDetalleRecurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos\frmDetalleRecurso.Designer.cs">
+      <DependentUpon>frmDetalleRecurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos\frmLstRecursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos\frmLstRecursos.Designer.cs">
+      <DependentUpon>frmLstRecursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos\frmRecursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos\frmRecursos.Designer.cs">
+      <DependentUpon>frmRecursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos\frmRecursosAnidados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos\frmRecursosAnidados.Designer.cs">
+      <DependentUpon>frmRecursosAnidados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\frmLstUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\frmLstUsuarios.Designer.cs">
+      <DependentUpon>frmLstUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\frmMntUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\frmMntUsuarios.Designer.cs">
+      <DependentUpon>frmMntUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\frmPromptUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\frmPromptUsuarios.Designer.cs">
+      <DependentUpon>frmPromptUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\frmPromptUsuariosAD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\frmPromptUsuariosAD.Designer.cs">
+      <DependentUpon>frmPromptUsuariosAD.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Aplicaciones\frmLstAplicacion.resx">
+      <DependentUpon>frmLstAplicacion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicaciones\frmMntAplicacion.resx">
+      <DependentUpon>frmMntAplicacion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicaciones\frmOpcionesUI.resx">
+      <DependentUpon>frmOpcionesUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicaciones\frmPromptAplicaciones.resx">
+      <DependentUpon>frmPromptAplicaciones.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cargos\frmLstCargos.resx">
+      <DependentUpon>frmLstCargos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cargos\frmMntCargo.resx">
+      <DependentUpon>frmMntCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empresas\frmLstEmpresas.resx">
+      <DependentUpon>frmLstEmpresas.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empresas\frmMntEmpresas.resx">
+      <DependentUpon>frmMntEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PerfilesUsuario\frmLstPerfilUsuario.resx">
+      <DependentUpon>frmLstPerfilUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PerfilesUsuario\frmMntPerfilUsuario.resx">
+      <DependentUpon>frmMntPerfilUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PerfilesUsuario\frmPerfilesMasivos.resx">
+      <DependentUpon>frmPerfilesMasivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Recursos\frmDetalleRecurso.resx">
+      <DependentUpon>frmDetalleRecurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos\frmLstRecursos.resx">
+      <DependentUpon>frmLstRecursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos\frmRecursos.resx">
+      <DependentUpon>frmRecursos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos\frmRecursosAnidados.resx">
+      <DependentUpon>frmRecursosAnidados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\frmLstUsuarios.resx">
+      <DependentUpon>frmLstUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\frmMntUsuarios.resx">
+      <DependentUpon>frmMntUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\frmPromptUsuarios.resx">
+      <DependentUpon>frmPromptUsuarios.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\frmPromptUsuariosAD.resx">
+      <DependentUpon>frmPromptUsuariosAD.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KeyDEV.pfx" />
+    <None Include="KeyQA.pfx" />
+    <None Include="GrupoRomero.snk" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.Aplicacion.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.Cargo.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.Empresa.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.Opcion.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.PerfilUsuario.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.RecursoDetalle.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.RecursoHijo.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.Recursos.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.Usuario.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.SoloLectura.AplicacionInfoList.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.SoloLectura.CargoInfoList.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.SoloLectura.CargoSociedadInfoList.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.SoloLectura.Dominios.DominioInfoList.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.SoloLectura.EmpresaInfoList.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.SoloLectura.PerfilUsuarioInfoList.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.SoloLectura.RecursosInfoList.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.SoloLectura.TipoSistemaInfoList.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.SoloLectura.TipoUsuarioInfoList.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.SoloLectura.UsuarioADInfoList.datasource" />
+    <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.SoloLectura.UsuarioInfoList.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Web1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gromero.Seguridad.Negocio\Gromero.Seguridad.Negocio.csproj">
+      <Project>{B550588C-9432-4B1B-8B48-3D465E0C5038}</Project>
+      <Name>Gromero.Seguridad.Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gromero.Seguridad.WinForms\Gromero.Seguridad.WinForms.csproj">
+      <Project>{0D5AAA21-F0D7-44A0-AD67-B97CD568464B}</Project>
+      <Name>Gromero.Seguridad.WinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gromero.Seguridad\Gromero.Seguridad.csproj">
+      <Project>{4EAD35F9-4BFA-447C-A04D-B8338551434C}</Project>
+      <Name>Gromero.Seguridad</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClavesCertificados.txt" />
+    <Content Include="Csla-Templates Read Me.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="faviconGRomero.ico" />
+    <None Include="Resources\LogoGR.ico" />
+    <None Include="Resources\favicon.ico" />
+    <None Include="Resources\android-icon-48x48.png" />
+    <None Include="Resources\refresh-icon1.png" />
+    <None Include="Resources\uncheckicon.png" />
+    <None Include="Resources\izquierda.png" />
+    <None Include="Resources\derecha.png" />
+    <None Include="Resources\cambiarvista.png" />
+    <None Include="Resources\Clients.png" />
+    <None Include="Resources\nuevoRol.png" />
+    <None Include="Resources\EliminarRol.png" />
+    <None Include="Resources\EditarRol.png" />
+    <None Include="Resources\refresh-icon.png" />
+    <None Include="Resources\Start-Menu-Program-Defaults-icon.png" />
+    <None Include="Resources\Delete-icon.png" />
+    <None Include="Resources\Add-icon.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
