@@ -14,6 +14,22 @@ namespace GR.COMEX.Seguridad.ServicioWCF
             return SeguridadBL.CambiarClave(request);
         }
 
+        public ResponseCambioClave CambiarClaveWeb(RequestCambioClave request)
+        {
+            ResponseCambioClave response = new ResponseCambioClave();
+            try
+            {
+                response = SeguridadBL.CambiarClaveWeb(request);
+                response.Result = new Result { Success = true };
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                return new ResponseCambioClave { Result = new Result { Success = false, Message = ex.Message } } ;
+            }
+        }
+
         public ResponseLoginUsuario Login(RequestLogin request)
         {
             return SeguridadBL.Login(request);
@@ -49,6 +65,11 @@ namespace GR.COMEX.Seguridad.ServicioWCF
             return SeguridadBL.ListarUsuariosPorCargo(request);
         }
 
+        public string GetNombreUsuarioByCodigoUsuario(string request)
+        {
+            return SeguridadBL.GetNombreUsuarioByCodigoUsuario(request);
+        }
+
         public string GetNombreUsuario(string request)
         {
             return SeguridadBL.GetNombreUsuario(request);
@@ -79,10 +100,27 @@ namespace GR.COMEX.Seguridad.ServicioWCF
             return SeguridadBL.ListarSedes(request);
         }
 
+        public ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuariosByCodigo(RequestInfoBasicaUsuarioDTO request)
+        {
+            return SeguridadBL.GetInfoBasicaUsuariosByCodigo(request);
+        }
 
         //public IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargoComex(RequestDTOUsuarioPorCargo request)
         //{
         //    return SeguridadBL.ListarUsuariosPorCargoComex(request);
         //}
+
+
+        public ResponseUsuarioInsert InsertUsuario(RequestDTOUsuarioInsert request)
+        {
+            //return new ResponseUsuarioInsert();
+           return SeguridadBL.InsertUsuario(request);
+        }
+
+        public List<ResponseUsuarioInsert> InsertUsuarios(List<RequestDTOUsuarioInsert> lstRequest)
+        {
+            return SeguridadBL.InsertUsuarios(lstRequest);
+        }
+
     }
 }

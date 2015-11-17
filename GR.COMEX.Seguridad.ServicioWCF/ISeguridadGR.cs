@@ -19,6 +19,10 @@ namespace GR.COMEX.Seguridad.ServicioWCF
         bool CambiarClave(RequestCambioClave request);
 
         [OperationContract]
+        [WebInvoke(UriTemplate = "/CambiarClaveWeb", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ResponseCambioClave CambiarClaveWeb(RequestCambioClave request);
+
+        [OperationContract]
         [WebInvoke(UriTemplate = "/Login", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         ResponseLoginUsuario Login(RequestLogin request);
 
@@ -47,12 +51,28 @@ namespace GR.COMEX.Seguridad.ServicioWCF
         IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request);
 
         [OperationContract]
+        [WebInvoke(UriTemplate = "/GetNombreUsuarioByCodigoUsuario", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        string GetNombreUsuarioByCodigoUsuario(string request);
+
+        [OperationContract]
         [WebInvoke(UriTemplate = "/GetNombreUsuario", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         string GetNombreUsuario(string request);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetInfoBasicaUsuarios", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuarios(RequestInfoBasicaUsuarioDTO request);
+
+
+        
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/InsertUsuario", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ResponseUsuarioInsert InsertUsuario(RequestDTOUsuarioInsert request);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/InsertUsuarios", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        List<ResponseUsuarioInsert> InsertUsuarios(List<RequestDTOUsuarioInsert> lstRequest);
+
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/ListarCargosPorSociedad", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
@@ -70,9 +90,14 @@ namespace GR.COMEX.Seguridad.ServicioWCF
         [WebInvoke(UriTemplate = "/ListarSedes", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         IEnumerable<ResponseSedeSAP> ListarSedes(RequestInfoUsuario request);
 
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/GetInfoBasicaUsuariosByCodigo", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuariosByCodigo(RequestInfoBasicaUsuarioDTO request);
+
         //[OperationContract]
         //[WebInvoke(UriTemplate = "/ListarUsuariosPorCargoComex", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         //IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargoComex(RequestDTOUsuarioPorCargo request);
 
+        //TODO:agregar CrearUsuario
     }
 }

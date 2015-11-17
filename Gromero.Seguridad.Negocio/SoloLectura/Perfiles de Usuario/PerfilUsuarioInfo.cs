@@ -28,6 +28,7 @@ namespace Gromero.Seguridad.Negocio.SoloLectura
 		public string Ruta { get; set; }
 		public DateTime? VigenciaInicio { get; set; }
 		public DateTime? VigenciaFin { get; set; }
+		public string TipoUsuario { get; set; }
 
 		public static readonly PropertyInfo<RolPerfiles> RolesProperty = RegisterProperty<RolPerfiles>(c => c.Roles, RelationshipTypes.Child | RelationshipTypes.LazyLoad);
 		public RolPerfiles Roles
@@ -101,6 +102,7 @@ namespace Gromero.Seguridad.Negocio.SoloLectura
 			Ruta = criteria.Ruta;
 			VigenciaInicio = criteria.VigenciaInicio;
 			VigenciaFin = criteria.VigenciaFin;
+			TipoUsuario = criteria.TipoUsuario;
 		}
 
 		#endregion

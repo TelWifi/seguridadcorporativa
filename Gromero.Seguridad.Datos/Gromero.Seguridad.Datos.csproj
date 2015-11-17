@@ -14,14 +14,10 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>%24/COMEX/Seguridad GRomero-CalculadorWeb/Gromero.Seguridad.Datos</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>https://grtfs.visualstudio.com/defaultcollection</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,7 +62,7 @@
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
@@ -106,7 +102,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Gromero.edmx</DependentUpon>
     </Compile>
-    <Compile Include="GROMEROEntities.cs" />
+    <Compile Include="GRomeroEntities.cs" />
     <Compile Include="OpcionUI.cs">
       <DependentUpon>Gromero.tt</DependentUpon>
     </Compile>

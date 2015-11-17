@@ -176,5 +176,15 @@ namespace Gromero.Seguridad.Windows.Usuarios
 
 		#endregion
 
+        private void importarButton_Click(object sender, EventArgs e)
+        {
+            using (frmImportUsuarios frm = new frmImportUsuarios())
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog(this);
+                frm.Close();
+            }
+        }
+
 	}
 }

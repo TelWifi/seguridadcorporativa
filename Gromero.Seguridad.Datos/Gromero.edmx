@@ -1763,6 +1763,7 @@
           <Property Type="String" Name="Cargo" Nullable="false" />
           <Property Type="String" Name="Alias" Nullable="false" />
           <Property Type="String" Name="AliasAlterno" Nullable="false" />
+          <Property Type="String" Name="TipoUsuario" Nullable="false" />
         </ComplexType>
         <EntityType Name="Cargo">
           <Key>

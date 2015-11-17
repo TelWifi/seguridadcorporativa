@@ -238,11 +238,13 @@ namespace Gromero.Seguridad.WinForms
 		{
 			using (var proxy = new ProxySeguridad())
 			{
+                var cryptocon = new SimpleInteroperableEncryption();
+
 				var respuesta = proxy.Login(new RequestLogin
 				{
 					AcronimoAplicacion = ConfigurationManager.AppSettings["AcronimoAplicacion"],
 					CodigoUsuario = txtUser.Text,
-					Clave = txtPass.Text,
+                    Clave = cryptocon.Encrypt(txtPass.Text),
 					Dominio = cboDominio.Text
 				});
 

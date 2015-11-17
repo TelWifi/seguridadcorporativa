@@ -1,5 +1,6 @@
 ﻿using Csla;
 using Csla.Data.EF6;
+using Csla.Rules;
 using Gromero.Seguridad.Datos;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -72,7 +73,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		}
 
 		public static readonly PropertyInfo<string> ApellidoPaternoProperty = RegisterProperty<string>(c => c.ApellidoPaterno, "Apellido Paterno");
-		[Required]
+		//[Required]
 		public string ApellidoPaterno
 		{
 			get { return GetProperty(ApellidoPaternoProperty); }
@@ -80,7 +81,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		}
 
 		public static readonly PropertyInfo<string> ApellidoMaternoProperty = RegisterProperty<string>(c => c.ApellidoMaterno, "Apellido Materno");
-		[Required]
+		//[Required]
 		public string ApellidoMaterno
 		{
 			get { return GetProperty(ApellidoMaternoProperty); }
@@ -151,7 +152,39 @@ namespace Gromero.Seguridad.Negocio.Editables
 			base.AddBusinessRules();
 
 			//BusinessRules.AddRule(new Rule(IdProperty));
+            BusinessRules.AddRule(new ReglaUsuario(AliasProperty));
 		}
+
+        public class ReglaUsuario : BusinessRule
+        {
+            public ReglaUsuario(Csla.Core.IPropertyInfo primaryProperty)
+                : base(primaryProperty)
+            {
+                AffectedProperties.Add(Usuario.ApellidoMaternoProperty);
+                AffectedProperties.Add(Usuario.ApellidoPaternoProperty);
+            }
+
+            protected override void Execute(RuleContext context)
+            {
+                var usuario = context.Target as Usuario;
+                var valorNumerico = 0;
+
+                bool result = int.TryParse(usuario.Alias, out valorNumerico);
+
+                if (!result)
+                {
+                    var nombresApellidos = string.Concat(usuario.ApellidoPaterno, usuario.ApellidoMaterno);
+                    if (String.IsNullOrEmpty(nombresApellidos))
+                    {
+                        context.AddErrorResult(Usuario.ApellidoPaternoProperty, "Apellido Paterno deben ser obligatorio");
+                        context.AddErrorResult(Usuario.ApellidoMaternoProperty, "Apellido Materno deben ser obligatorio");
+                    }
+                    else
+                        context.AddSuccessResult(true);
+                }
+            }
+        }
+
 
 		private static void AddAuthorizationRules()
 		{

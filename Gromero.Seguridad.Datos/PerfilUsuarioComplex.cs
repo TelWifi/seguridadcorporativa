@@ -34,5 +34,6 @@ namespace Gromero.Seguridad.Datos
         public string Cargo { get; set; }
         public string Alias { get; set; }
         public string AliasAlterno { get; set; }
+        public string TipoUsuario { get; set; }
     }
 }

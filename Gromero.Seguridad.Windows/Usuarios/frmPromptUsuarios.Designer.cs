@@ -118,7 +118,7 @@
 			this.gdvUsuarios.OptionsDetail.EnableMasterViewMode = false;
 			this.gdvUsuarios.OptionsSelection.EnableAppearanceFocusedCell = false;
 			this.gdvUsuarios.OptionsView.ColumnAutoWidth = false;
-			this.gdvUsuarios.OptionsView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.Default;
+			this.gdvUsuarios.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.Default;
 			// 
 			// colCodigo
 			// 
