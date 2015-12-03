@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\HD\TFS\Seguridad GRomero-CalculadorWeb\Gromero.Seguridad.Datos\Gromero.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Erick Orlando\Documents\GitProjects\gromeroseguridad\Gromero.Seguridad.Datos\Gromero.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

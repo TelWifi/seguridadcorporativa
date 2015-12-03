@@ -91,83 +91,87 @@
       <HintPath>..\packages\CSLA-Core.4.5.700\lib\net45\Csla.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.BonusSkins.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.BonusSkins.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Charts.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Data.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Data.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Office.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Office.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.PivotGrid.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.PivotGrid.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.RichEdit.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.RichEdit.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v12.2.UI, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Utils.v15.2.UI, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraBars.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v12.2.Wizard, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraCharts.v15.2.Wizard, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraCharts.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraLayout.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraPrinting.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraPivotGrid.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraPivotGrid.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v12.2.Extensions, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraReports.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraTreeList.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraReports.v15.2.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
@@ -207,52 +211,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aplicaciones\frmLstAplicacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Aplicaciones\frmLstAplicacion.cs" />
     <Compile Include="Aplicaciones\frmLstAplicacion.Designer.cs">
       <DependentUpon>frmLstAplicacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicaciones\frmMntAplicacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Aplicaciones\frmMntAplicacion.cs" />
     <Compile Include="Aplicaciones\frmMntAplicacion.Designer.cs">
       <DependentUpon>frmMntAplicacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicaciones\frmOpcionesUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Aplicaciones\frmOpcionesUI.cs" />
     <Compile Include="Aplicaciones\frmOpcionesUI.Designer.cs">
       <DependentUpon>frmOpcionesUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicaciones\frmPromptAplicaciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Aplicaciones\frmPromptAplicaciones.cs" />
     <Compile Include="Aplicaciones\frmPromptAplicaciones.Designer.cs">
       <DependentUpon>frmPromptAplicaciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cargos\frmLstCargos.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Cargos\frmLstCargos.cs" />
     <Compile Include="Cargos\frmLstCargos.Designer.cs">
       <DependentUpon>frmLstCargos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cargos\frmMntCargo.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Cargos\frmMntCargo.cs" />
     <Compile Include="Cargos\frmMntCargo.Designer.cs">
       <DependentUpon>frmMntCargo.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuracion.cs" />
-    <Compile Include="Empresas\frmLstEmpresas.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Empresas\frmLstEmpresas.cs" />
     <Compile Include="Empresas\frmLstEmpresas.Designer.cs">
       <DependentUpon>frmLstEmpresas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Empresas\frmMntEmpresas.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Empresas\frmMntEmpresas.cs" />
     <Compile Include="Empresas\frmMntEmpresas.Designer.cs">
       <DependentUpon>frmMntEmpresas.cs</DependentUpon>
     </Compile>
@@ -262,77 +250,53 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PerfilesUsuario\frmLstPerfilUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="PerfilesUsuario\frmLstPerfilUsuario.cs" />
     <Compile Include="PerfilesUsuario\frmLstPerfilUsuario.Designer.cs">
       <DependentUpon>frmLstPerfilUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="PerfilesUsuario\frmMntPerfilUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="PerfilesUsuario\frmMntPerfilUsuario.cs" />
     <Compile Include="PerfilesUsuario\frmMntPerfilUsuario.Designer.cs">
       <DependentUpon>frmMntPerfilUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="PerfilesUsuario\frmPerfilesMasivos.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="PerfilesUsuario\frmPerfilesMasivos.cs" />
     <Compile Include="PerfilesUsuario\frmPerfilesMasivos.Designer.cs">
       <DependentUpon>frmPerfilesMasivos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recursos\frmDetalleRecurso.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Recursos\frmDetalleRecurso.cs" />
     <Compile Include="Recursos\frmDetalleRecurso.Designer.cs">
       <DependentUpon>frmDetalleRecurso.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos\frmLstRecursos.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Recursos\frmLstRecursos.cs" />
     <Compile Include="Recursos\frmLstRecursos.Designer.cs">
       <DependentUpon>frmLstRecursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos\frmRecursos.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Recursos\frmRecursos.cs" />
     <Compile Include="Recursos\frmRecursos.Designer.cs">
       <DependentUpon>frmRecursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos\frmRecursosAnidados.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Recursos\frmRecursosAnidados.cs" />
     <Compile Include="Recursos\frmRecursosAnidados.Designer.cs">
       <DependentUpon>frmRecursosAnidados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\frmImportUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Usuarios\frmImportUsuarios.cs" />
     <Compile Include="Usuarios\frmImportUsuarios.Designer.cs">
       <DependentUpon>frmImportUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\frmLstUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Usuarios\frmLstUsuarios.cs" />
     <Compile Include="Usuarios\frmLstUsuarios.Designer.cs">
       <DependentUpon>frmLstUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\frmMntUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Usuarios\frmMntUsuarios.cs" />
     <Compile Include="Usuarios\frmMntUsuarios.Designer.cs">
       <DependentUpon>frmMntUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\frmPromptUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Usuarios\frmPromptUsuarios.cs" />
     <Compile Include="Usuarios\frmPromptUsuarios.Designer.cs">
       <DependentUpon>frmPromptUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\frmPromptUsuariosAD.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Usuarios\frmPromptUsuariosAD.cs" />
     <Compile Include="Usuarios\frmPromptUsuariosAD.Designer.cs">
       <DependentUpon>frmPromptUsuariosAD.cs</DependentUpon>
     </Compile>
@@ -376,7 +340,6 @@
     <EmbeddedResource Include="PerfilesUsuario\frmPerfilesMasivos.resx">
       <DependentUpon>frmPerfilesMasivos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

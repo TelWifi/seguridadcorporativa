@@ -4,1003 +4,592 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="GROMEROModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="TAMSEGREC">
-          <Key>
-            <PropertyRef Name="IDREC" />
-          </Key>
-          <Property Name="IDREC" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="TDESCREC" Type="varchar" MaxLength="250" Nullable="false" />
-          <Property Name="TRUTREC" Type="varchar" MaxLength="250" Nullable="false" />
-          <Property Name="IDRECPAR" Type="varchar" MaxLength="36" />
-          <Property Name="NNIVREC" Type="int" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TARSEGCLAV">
-          <Key>
-            <PropertyRef Name="IDCLAV" />
-          </Key>
-          <Property Name="IDCLAV" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDUSR" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="TPASSCLV" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="TPRGSCRCLV" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="TRPSCRCLV" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="SULTCLV" Type="bit" Nullable="false" />
-          <Property Name="DFECCMB" Type="datetime" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TARSEGOPCUI">
-          <Key>
-            <PropertyRef Name="IDOPCUI" />
-          </Key>
-          <Property Name="IDOPCUI" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDAPL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDMENPAR" Type="varchar" MaxLength="36" />
-          <Property Name="NNIVOPC" Type="int" Nullable="false" />
-          <Property Name="TCODOUI" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="TNOMOUI" Type="varchar" MaxLength="250" Nullable="false" />
-          <Property Name="TTIPOPC" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TCLSOPC" Type="varchar" MaxLength="250" />
-          <Property Name="TURLOPC" Type="varchar" MaxLength="250" />
-          <Property Name="NNROOPC" Type="int" />
-          <Property Name="SESTOPC" Type="bit" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TARSEGPERFUS">
-          <Key>
-            <PropertyRef Name="IDPERFUSR" />
-          </Key>
-          <Property Name="IDPERFUSR" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDUSR" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDAPL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="SLOGPERF" Type="bit" Nullable="false" />
-          <Property Name="SCADPERF" Type="bit" Nullable="false" />
-          <Property Name="FFECINI" Type="datetime" Nullable="false" />
-          <Property Name="FFECFIN" Type="datetime" Nullable="false" />
-          <Property Name="DULTING" Type="datetime" Nullable="false" />
-          <Property Name="TUSRAUD" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TPLCAUD" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TARSEGPERM">
-          <Key>
-            <PropertyRef Name="IDPERM" />
-          </Key>
-          <Property Name="IDPERM" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDROLPER" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDROL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDOPCUI" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDAPL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDUSR" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="TUSRAUD" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TPLCAUD" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="SVALPRM" Type="bit" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TARSEGPLPERM">
-          <Key>
-            <PropertyRef Name="IDPLTN" />
-          </Key>
-          <Property Name="IDPLTN" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDROL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDAPL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDOPCUI" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="SVALPLA" Type="bit" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TARSEGRECDET">
-          <Key>
-            <PropertyRef Name="IDRECDET" />
-          </Key>
-          <Property Name="IDRECDET" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDREC" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="TCODRECD" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TDESCRECT" Type="varchar" MaxLength="250" Nullable="false" />
-          <Property Name="IDRECDETP" Type="varchar" MaxLength="36" />
-          <Property Name="NNIVRECD" Type="int" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TARSEGROL">
-          <Key>
-            <PropertyRef Name="IDROL" />
-          </Key>
-          <Property Name="IDROL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDAPL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="TCODROL" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TNOMROL" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TARSEGROLESPER">
-          <Key>
-            <PropertyRef Name="IDROLPER" />
-          </Key>
-          <Property Name="IDROLPER" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDROL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDAPL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDPERFUSR" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TCMSEGAPLC">
-          <Key>
-            <PropertyRef Name="IDAPL" />
-          </Key>
-          <Property Name="IDAPL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="TNOMAPL" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="TACROAPL" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TURIAPL" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="BTIPAPL" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TCMSEGCAR">
-          <Key>
-            <PropertyRef Name="IDCAR" />
-          </Key>
-          <Property Name="IDCAR" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="TCODCAR" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TDSCCAR" Type="varchar" MaxLength="250" Nullable="false" />
-          <Property Name="BESTCAR" Type="bit" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TCMSEGEMPR">
-          <Key>
-            <PropertyRef Name="IDEMP" />
-          </Key>
-          <Property Name="IDEMP" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="TCODEMP" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TRZNSCL" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="TNOMCRT" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TRUCEMP" Type="varchar" MaxLength="11" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TCMSEGUSER">
-          <Key>
-            <PropertyRef Name="IDUSR" />
-          </Key>
-          <Property Name="IDUSR" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDEMP" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDEMPPERT" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDCARSOC" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="TCODUSR" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="TDOMINAME" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="TNMBRSUSR" Type="varchar" MaxLength="200" />
-          <Property Name="TAPEPUSR" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TAPEMUSR" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TCORELUSR" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="TDNIUSR" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="SESTUSR" Type="bit" Nullable="false" />
-          <Property Name="BTIPUSR" Type="varchar" MaxLength="1" Nullable="false" />
-          <Property Name="DULTING" Type="datetime" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-          <Property Name="TALIUSR" Type="varchar" MaxLength="12" />
-          <Property Name="TALTUSR" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="TCRSEGCASOC">
-          <Key>
-            <PropertyRef Name="IDCARSOC" />
-          </Key>
-          <Property Name="IDCARSOC" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="TCODSOCP" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="IDCAR" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TCRSEGRECAPL">
-          <Key>
-            <PropertyRef Name="IDRECAPL" />
-          </Key>
-          <Property Name="IDRECAPL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDAPL" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDREC" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="SCONRECA" Type="bit" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <EntityType Name="TCRSEGRECPER">
-          <Key>
-            <PropertyRef Name="IDRECPER" />
-          </Key>
-          <Property Name="IDRECPER" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDPERFUSR" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="IDRECDET" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="SCONREC" Type="bit" Nullable="false" />
-          <Property Name="SESTREG" Type="bit" />
-          <Property Name="TULTCHG" Type="timestamp" StoreGeneratedPattern="Computed" />
-        </EntityType>
-        <Association Name="FK__TARSEGCLA__IDUSR__571DF1D5">
-          <End Role="TCMSEGUSER" Type="Self.TCMSEGUSER" Multiplicity="1" />
-          <End Role="TARSEGCLAV" Type="Self.TARSEGCLAV" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TCMSEGUSER">
-              <PropertyRef Name="IDUSR" />
-            </Principal>
-            <Dependent Role="TARSEGCLAV">
-              <PropertyRef Name="IDUSR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TARSEGOPC__IDAPL__45F365D3">
-          <End Role="TCMSEGAPLC" Type="Self.TCMSEGAPLC" Multiplicity="1" />
-          <End Role="TARSEGOPCUI" Type="Self.TARSEGOPCUI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TCMSEGAPLC">
-              <PropertyRef Name="IDAPL" />
-            </Principal>
-            <Dependent Role="TARSEGOPCUI">
-              <PropertyRef Name="IDAPL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TARSEGPER__IDAPL__2B3F6F97">
-          <End Role="TCMSEGAPLC" Type="Self.TCMSEGAPLC" Multiplicity="1" />
-          <End Role="TARSEGPERFUS" Type="Self.TARSEGPERFUS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TCMSEGAPLC">
-              <PropertyRef Name="IDAPL" />
-            </Principal>
-            <Dependent Role="TARSEGPERFUS">
-              <PropertyRef Name="IDAPL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TARSEGPER__IDOPC__52593CB8">
-          <End Role="TARSEGOPCUI" Type="Self.TARSEGOPCUI" Multiplicity="1" />
-          <End Role="TARSEGPERM" Type="Self.TARSEGPERM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TARSEGOPCUI">
-              <PropertyRef Name="IDOPCUI" />
-            </Principal>
-            <Dependent Role="TARSEGPERM">
-              <PropertyRef Name="IDOPCUI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TARSEGPER__IDROL__5070F446">
-          <End Role="TARSEGROL" Type="Self.TARSEGROL" Multiplicity="1" />
-          <End Role="TARSEGPERM" Type="Self.TARSEGPERM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TARSEGROL">
-              <PropertyRef Name="IDROL" />
-            </Principal>
-            <Dependent Role="TARSEGPERM">
-              <PropertyRef Name="IDROL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TARSEGPER__IDUSR__2A4B4B5E">
-          <End Role="TCMSEGUSER" Type="Self.TCMSEGUSER" Multiplicity="1" />
-          <End Role="TARSEGPERFUS" Type="Self.TARSEGPERFUS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TCMSEGUSER">
-              <PropertyRef Name="IDUSR" />
-            </Principal>
-            <Dependent Role="TARSEGPERFUS">
-              <PropertyRef Name="IDUSR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TARSEGPLP__IDOPC__4BAC3F29">
-          <End Role="TARSEGOPCUI" Type="Self.TARSEGOPCUI" Multiplicity="1" />
-          <End Role="TARSEGPLPERM" Type="Self.TARSEGPLPERM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TARSEGOPCUI">
-              <PropertyRef Name="IDOPCUI" />
-            </Principal>
-            <Dependent Role="TARSEGPLPERM">
-              <PropertyRef Name="IDOPCUI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TARSEGPLP__IDROL__4AB81AF0">
-          <End Role="TARSEGROL" Type="Self.TARSEGROL" Multiplicity="1" />
-          <End Role="TARSEGPLPERM" Type="Self.TARSEGPLPERM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TARSEGROL">
-              <PropertyRef Name="IDROL" />
-            </Principal>
-            <Dependent Role="TARSEGPLPERM">
-              <PropertyRef Name="IDROL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TARSEGREC__IDREC__30F848ED">
-          <End Role="TAMSEGREC" Type="Self.TAMSEGREC" Multiplicity="1" />
-          <End Role="TARSEGRECDET" Type="Self.TARSEGRECDET" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TAMSEGREC">
-              <PropertyRef Name="IDREC" />
-            </Principal>
-            <Dependent Role="TARSEGRECDET">
-              <PropertyRef Name="IDREC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TARSEGROL__IDAPL__3B75D760">
-          <End Role="TCMSEGAPLC" Type="Self.TCMSEGAPLC" Multiplicity="1" />
-          <End Role="TARSEGROL" Type="Self.TARSEGROL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TCMSEGAPLC">
-              <PropertyRef Name="IDAPL" />
-            </Principal>
-            <Dependent Role="TARSEGROL">
-              <PropertyRef Name="IDAPL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TARSEGROL__IDPER__412EB0B6">
-          <End Role="TARSEGPERFUS" Type="Self.TARSEGPERFUS" Multiplicity="1" />
-          <End Role="TARSEGROLESPER" Type="Self.TARSEGROLESPER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TARSEGPERFUS">
-              <PropertyRef Name="IDPERFUSR" />
-            </Principal>
-            <Dependent Role="TARSEGROLESPER">
-              <PropertyRef Name="IDPERFUSR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TARSEGROL__IDROL__403A8C7D">
-          <End Role="TARSEGROL" Type="Self.TARSEGROL" Multiplicity="1" />
-          <End Role="TARSEGROLESPER" Type="Self.TARSEGROLESPER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TARSEGROL">
-              <PropertyRef Name="IDROL" />
-            </Principal>
-            <Dependent Role="TARSEGROLESPER">
-              <PropertyRef Name="IDROL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TCMSEGUSE__IDCAR__25869641">
-          <End Role="TCRSEGCASOC" Type="Self.TCRSEGCASOC" Multiplicity="1" />
-          <End Role="TCMSEGUSER" Type="Self.TCMSEGUSER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TCRSEGCASOC">
-              <PropertyRef Name="IDCARSOC" />
-            </Principal>
-            <Dependent Role="TCMSEGUSER">
-              <PropertyRef Name="IDCARSOC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TCMSEGUSE__IDEMP__24927208">
-          <End Role="TCMSEGEMPR" Type="Self.TCMSEGEMPR" Multiplicity="1" />
-          <End Role="TCMSEGUSER" Type="Self.TCMSEGUSER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TCMSEGEMPR">
-              <PropertyRef Name="IDEMP" />
-            </Principal>
-            <Dependent Role="TCMSEGUSER">
-              <PropertyRef Name="IDEMP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TCRSEGCAS__IDCAR__1FCDBCEB">
-          <End Role="TCMSEGCAR" Type="Self.TCMSEGCAR" Multiplicity="1" />
-          <End Role="TCRSEGCASOC" Type="Self.TCRSEGCASOC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TCMSEGCAR">
-              <PropertyRef Name="IDCAR" />
-            </Principal>
-            <Dependent Role="TCRSEGCASOC">
-              <PropertyRef Name="IDCAR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TCRSEGREC__IDAPL__0BC6C43E">
-          <End Role="TCMSEGAPLC" Type="Self.TCMSEGAPLC" Multiplicity="1" />
-          <End Role="TCRSEGRECAPL" Type="Self.TCRSEGRECAPL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TCMSEGAPLC">
-              <PropertyRef Name="IDAPL" />
-            </Principal>
-            <Dependent Role="TCRSEGRECAPL">
-              <PropertyRef Name="IDAPL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TCRSEGREC__IDPER__35BCFE0A">
-          <End Role="TARSEGPERFUS" Type="Self.TARSEGPERFUS" Multiplicity="1" />
-          <End Role="TCRSEGRECPER" Type="Self.TCRSEGRECPER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TARSEGPERFUS">
-              <PropertyRef Name="IDPERFUSR" />
-            </Principal>
-            <Dependent Role="TCRSEGRECPER">
-              <PropertyRef Name="IDPERFUSR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TCRSEGREC__IDREC__0CBAE877">
-          <End Role="TAMSEGREC" Type="Self.TAMSEGREC" Multiplicity="1" />
-          <End Role="TCRSEGRECAPL" Type="Self.TCRSEGRECAPL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TAMSEGREC">
-              <PropertyRef Name="IDREC" />
-            </Principal>
-            <Dependent Role="TCRSEGRECAPL">
-              <PropertyRef Name="IDREC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TCRSEGREC__IDREC__36B12243">
-          <End Role="TARSEGRECDET" Type="Self.TARSEGRECDET" Multiplicity="1" />
-          <End Role="TCRSEGRECPER" Type="Self.TCRSEGRECPER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TARSEGRECDET">
-              <PropertyRef Name="IDRECDET" />
-            </Principal>
-            <Dependent Role="TCRSEGRECPER">
-              <PropertyRef Name="IDRECDET" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TARSEGPERM_TARSEGROLESPER">
-          <End Role="TARSEGROLESPER" Type="Self.TARSEGROLESPER" Multiplicity="1" />
-          <End Role="TARSEGPERM" Type="Self.TARSEGPERM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TARSEGROLESPER">
-              <PropertyRef Name="IDROLPER" />
-            </Principal>
-            <Dependent Role="TARSEGPERM">
-              <PropertyRef Name="IDROLPER" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Function Name="usp_AplicacionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_AplicacionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="NombreAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="Acronimo" Type="varchar" Mode="In" />
-          <Parameter Name="Uri" Type="varchar" Mode="In" />
-          <Parameter Name="Tipo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_AplicacionSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_AplicacionSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="usp_AplicacionSelectByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Nombre" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_AplicacionSelectByTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Acronimo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_AplicacionSelectByUri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Ruta" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_AplicacionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="NombreAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="Acronimo" Type="varchar" Mode="In" />
-          <Parameter Name="Uri" Type="varchar" Mode="In" />
-          <Parameter Name="Tipo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
-          <Parameter Name="CodigoCargo" Type="varchar" Mode="In" />
-          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-          <Parameter Name="Estado" Type="bit" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="usp_CargoSelectByCodigo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Codigo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSelectByDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSociedadDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargoSociedad" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSociedadInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargoSociedad" Type="varchar" Mode="In" />
-          <Parameter Name="CodSociedadPropietaria" Type="varchar" Mode="In" />
-          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSociedadSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSociedadSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="usp_CargoSociedadSelectBySociedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="CodSociedadPropietaria" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSociedadUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargoSociedad" Type="varchar" Mode="In" />
-          <Parameter Name="CodSociedadPropietaria" Type="varchar" Mode="In" />
-          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
-          <Parameter Name="CodigoCargo" Type="varchar" Mode="In" />
-          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-          <Parameter Name="Estado" Type="bit" Mode="In" />
-        </Function>
-        <Function Name="usp_EmpresaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdEmpresa" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_EmpresaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdEmpresa" Type="varchar" Mode="In" />
-          <Parameter Name="CodigoEmpresa" Type="varchar" Mode="In" />
-          <Parameter Name="RazonSocial" Type="varchar" Mode="In" />
-          <Parameter Name="NombreCorto" Type="nvarchar" Mode="In" />
-          <Parameter Name="RUC" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_EmpresaSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdEmpresa" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_EmpresaSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="usp_EmpresaSelectByCodigo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Codigo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_EmpresaSelectByRazonSocial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="RazonSocial" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_EmpresaSelectByRUC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="RUC" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_EmpresaSelectBySName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Nombre" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_EmpresaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdEmpresa" Type="varchar" Mode="In" />
-          <Parameter Name="CodigoEmpresa" Type="varchar" Mode="In" />
-          <Parameter Name="RazonSocial" Type="varchar" Mode="In" />
-          <Parameter Name="NombreCorto" Type="nvarchar" Mode="In" />
-          <Parameter Name="RUC" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_GetIdPerfilUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_ListarUsuariosCOMEX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="CodigoUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="Nombres" Type="varchar" Mode="In" />
-          <Parameter Name="DNI" Type="varchar" Mode="In" />
-          <Parameter Name="Dominio" Type="varchar" Mode="In" />
-          <Parameter Name="Sociedad" Type="varchar" Mode="In" />
-          <Parameter Name="Acronimo" Type="varchar" Mode="In" />
-          <Parameter Name="TipoUser" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_ObtenerPerfilUsuarioComex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="CodUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="Dominio" Type="varchar" Mode="In" />
-          <Parameter Name="Acronimo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_OpcionDetalleUISelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdOpcionPadre" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_OpcionUIDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdOpcionUI" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_OpcionUIInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdOpcionUI" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="IdOpcionPadre" Type="varchar" Mode="In" />
-          <Parameter Name="Codigo" Type="varchar" Mode="In" />
-          <Parameter Name="Nombre" Type="varchar" Mode="In" />
-          <Parameter Name="Nivel" Type="int" Mode="In" />
-          <Parameter Name="Tipo" Type="varchar" Mode="In" />
-          <Parameter Name="Clase" Type="varchar" Mode="In" />
-          <Parameter Name="Url" Type="varchar" Mode="In" />
-          <Parameter Name="NroOrden" Type="int" Mode="In" />
-          <Parameter Name="Estado" Type="bit" Mode="In" />
-        </Function>
-        <Function Name="usp_OpcionUISelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_OpcionUIUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdOpcionUI" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="IdOpcionPadre" Type="varchar" Mode="In" />
-          <Parameter Name="Codigo" Type="varchar" Mode="In" />
-          <Parameter Name="Nombre" Type="varchar" Mode="In" />
-          <Parameter Name="Nivel" Type="int" Mode="In" />
-          <Parameter Name="Tipo" Type="varchar" Mode="In" />
-          <Parameter Name="Clase" Type="varchar" Mode="In" />
-          <Parameter Name="Url" Type="varchar" Mode="In" />
-          <Parameter Name="NroOrden" Type="int" Mode="In" />
-          <Parameter Name="Estado" Type="bit" Mode="In" />
-        </Function>
-        <Function Name="usp_PerfilUsuarioDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PerfilUsuarioInfoSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PerfilUsuarioInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="UltimoIngreso" Type="datetime" Mode="In" />
-          <Parameter Name="VigenciaInicio" Type="datetime" Mode="In" />
-          <Parameter Name="VigenciaFin" Type="datetime" Mode="In" />
-          <Parameter Name="Logueado" Type="bit" Mode="In" />
-          <Parameter Name="Caduca" Type="bit" Mode="In" />
-          <Parameter Name="Usuario" Type="varchar" Mode="In" />
-          <Parameter Name="Placa" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PerfilUsuarioSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PerfilUsuarioSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="usp_PerfilUsuarioSelectByApp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Aplicacion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PerfilUsuarioSelectById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PerfilUsuarioSelectByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Usuario" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PerfilUsuarioUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="UltimoIngreso" Type="datetime" Mode="In" />
-          <Parameter Name="VigenciaInicio" Type="datetime" Mode="In" />
-          <Parameter Name="VigenciaFin" Type="datetime" Mode="In" />
-          <Parameter Name="Logueado" Type="bit" Mode="In" />
-          <Parameter Name="Caduca" Type="bit" Mode="In" />
-          <Parameter Name="Usuario" Type="varchar" Mode="In" />
-          <Parameter Name="Placa" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PermisosDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPermiso" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PermisosInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPermiso" Type="varchar" Mode="In" />
-          <Parameter Name="IdOpcionUI" Type="varchar" Mode="In" />
-          <Parameter Name="IdRol" Type="varchar" Mode="In" />
-          <Parameter Name="IdRolPerfil" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="Valor" Type="bit" Mode="In" />
-          <Parameter Name="Usuario" Type="varchar" Mode="In" />
-          <Parameter Name="Placa" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PermisosSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRolPerfil" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PermisosUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPermiso" Type="varchar" Mode="In" />
-          <Parameter Name="IdOpcionUI" Type="varchar" Mode="In" />
-          <Parameter Name="IdRol" Type="varchar" Mode="In" />
-          <Parameter Name="IdRolPerfil" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="Valor" Type="bit" Mode="In" />
-          <Parameter Name="Usuario" Type="varchar" Mode="In" />
-          <Parameter Name="Placa" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PlantillaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPlantilla" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PlantillaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPlantilla" Type="varchar" Mode="In" />
-          <Parameter Name="IdOpcionUI" Type="varchar" Mode="In" />
-          <Parameter Name="IdRol" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="Valor" Type="bit" Mode="In" />
-        </Function>
-        <Function Name="usp_PlantillaSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdOpcionUI" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PlantillaSelectByAppRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="IdRol" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_PlantillaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPlantilla" Type="varchar" Mode="In" />
-          <Parameter Name="IdOpcionUI" Type="varchar" Mode="In" />
-          <Parameter Name="IdRol" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="Valor" Type="bit" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoAplicacionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoAplicacion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoAplicacionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="IdRecurso" Type="varchar" Mode="In" />
-          <Parameter Name="Conceder" Type="bit" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoAplicacionSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoAplicacionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="IdRecurso" Type="varchar" Mode="In" />
-          <Parameter Name="Conceder" Type="bit" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecurso" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoDetalleDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoDetalle" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoDetalleInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoDetalle" Type="varchar" Mode="In" />
-          <Parameter Name="IdRecurso" Type="varchar" Mode="In" />
-          <Parameter Name="Codigo" Type="varchar" Mode="In" />
-          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-          <Parameter Name="IdRecursoDetallePadre" Type="varchar" Mode="In" />
-          <Parameter Name="Nivel" Type="int" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoDetalleSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoPadre" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoDetalleSelectByIdRecurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecurso" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoDetalleSelectDetallado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoDetallePadre" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoDetalleUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoDetalle" Type="varchar" Mode="In" />
-          <Parameter Name="IdRecurso" Type="varchar" Mode="In" />
-          <Parameter Name="Codigo" Type="varchar" Mode="In" />
-          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-          <Parameter Name="IdRecursoDetallePadre" Type="varchar" Mode="In" />
-          <Parameter Name="Nivel" Type="int" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecurso" Type="varchar" Mode="In" />
-          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-          <Parameter Name="RutaRecurso" Type="varchar" Mode="In" />
-          <Parameter Name="IdRecursoPadre" Type="varchar" Mode="In" />
-          <Parameter Name="Nivel" Type="int" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoPerfilDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoPerfil" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoPerfilInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoPerfil" Type="varchar" Mode="In" />
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="IdRecursoDetalle" Type="varchar" Mode="In" />
-          <Parameter Name="Conceder" Type="bit" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoPerfilSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoPerfilUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoPerfil" Type="varchar" Mode="In" />
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="IdRecursoDetalle" Type="varchar" Mode="In" />
-          <Parameter Name="Conceder" Type="bit" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecurso" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="usp_RecursoSelectByDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoSelectDetallado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecursoPadre" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RecursoSelectForApp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="usp_RecursoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRecurso" Type="varchar" Mode="In" />
-          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-          <Parameter Name="RutaRecurso" Type="varchar" Mode="In" />
-          <Parameter Name="IdRecursoPadre" Type="varchar" Mode="In" />
-          <Parameter Name="Nivel" Type="int" Mode="In" />
-        </Function>
-        <Function Name="usp_RolDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRol" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RolesPerfilDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRolesPerfil" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RolesPerfilInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRolesPerfil" Type="varchar" Mode="In" />
-          <Parameter Name="IdRol" Type="varchar" Mode="In" />
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RolesPerfilSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RolesPerfilUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRolesPerfil" Type="varchar" Mode="In" />
-          <Parameter Name="IdRol" Type="varchar" Mode="In" />
-          <Parameter Name="IdPerfilUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RolInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRol" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="Codigo" Type="varchar" Mode="In" />
-          <Parameter Name="Nombre" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RolSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_RolUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdRol" Type="varchar" Mode="In" />
-          <Parameter Name="IdAplicacion" Type="varchar" Mode="In" />
-          <Parameter Name="Codigo" Type="varchar" Mode="In" />
-          <Parameter Name="Nombre" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_UsuarioDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_UsuarioInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="IdEmpresa" Type="varchar" Mode="In" />
-          <Parameter Name="IdEmpresaPertenencia" Type="varchar" Mode="In" />
-          <Parameter Name="IdCargoSociedad" Type="varchar" Mode="In" />
-          <Parameter Name="CodigoUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="Nombres" Type="varchar" Mode="In" />
-          <Parameter Name="Dominio" Type="varchar" Mode="In" />
-          <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
-          <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
-          <Parameter Name="Correo" Type="varchar" Mode="In" />
-          <Parameter Name="Alias" Type="varchar" Mode="In" />
-          <Parameter Name="AliasAlterno" Type="nvarchar" Mode="In" />
-          <Parameter Name="DNI" Type="varchar" Mode="In" />
-          <Parameter Name="Estado" Type="bit" Mode="In" />
-          <Parameter Name="Tipo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_UsuarioSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_UsuarioSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="usp_UsuarioSelectByApeMat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_UsuarioSelectByApePat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_UsuarioSelectByCodigo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Codigo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_UsuarioSelectByDNI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="DNI" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_UsuarioSelectByEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Email" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_UsuarioSelectByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Nombre" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_UsuarioUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="IdEmpresa" Type="varchar" Mode="In" />
-          <Parameter Name="IdEmpresaPertenencia" Type="varchar" Mode="In" />
-          <Parameter Name="IdCargoSociedad" Type="varchar" Mode="In" />
-          <Parameter Name="CodigoUsuario" Type="varchar" Mode="In" />
-          <Parameter Name="Dominio" Type="varchar" Mode="In" />
-          <Parameter Name="Nombres" Type="varchar" Mode="In" />
-          <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
-          <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
-          <Parameter Name="Correo" Type="varchar" Mode="In" />
-          <Parameter Name="DNI" Type="varchar" Mode="In" />
-          <Parameter Name="Alias" Type="varchar" Mode="In" />
-          <Parameter Name="AliasAlterno" Type="nvarchar" Mode="In" />
-          <Parameter Name="Estado" Type="bit" Mode="In" />
-          <Parameter Name="Tipo" Type="varchar" Mode="In" />
-        </Function>
-        <EntityContainer Name="GROMEROModelStoreContainer">
-          <EntitySet Name="TAMSEGREC" EntityType="Self.TAMSEGREC" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TARSEGCLAV" EntityType="Self.TARSEGCLAV" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TARSEGOPCUI" EntityType="Self.TARSEGOPCUI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TARSEGPERFUS" EntityType="Self.TARSEGPERFUS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TARSEGPERM" EntityType="Self.TARSEGPERM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TARSEGPLPERM" EntityType="Self.TARSEGPLPERM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TARSEGRECDET" EntityType="Self.TARSEGRECDET" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TARSEGROL" EntityType="Self.TARSEGROL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TARSEGROLESPER" EntityType="Self.TARSEGROLESPER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TCMSEGAPLC" EntityType="Self.TCMSEGAPLC" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TCMSEGCAR" EntityType="Self.TCMSEGCAR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TCMSEGEMPR" EntityType="Self.TCMSEGEMPR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TCMSEGUSER" EntityType="Self.TCMSEGUSER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TCRSEGCASOC" EntityType="Self.TCRSEGCASOC" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TCRSEGRECAPL" EntityType="Self.TCRSEGRECAPL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TCRSEGRECPER" EntityType="Self.TCRSEGRECPER" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__TARSEGCLA__IDUSR__571DF1D5" Association="Self.FK__TARSEGCLA__IDUSR__571DF1D5">
-            <End Role="TCMSEGUSER" EntitySet="TCMSEGUSER" />
-            <End Role="TARSEGCLAV" EntitySet="TARSEGCLAV" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TARSEGOPC__IDAPL__45F365D3" Association="Self.FK__TARSEGOPC__IDAPL__45F365D3">
-            <End Role="TCMSEGAPLC" EntitySet="TCMSEGAPLC" />
-            <End Role="TARSEGOPCUI" EntitySet="TARSEGOPCUI" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TARSEGPER__IDAPL__2B3F6F97" Association="Self.FK__TARSEGPER__IDAPL__2B3F6F97">
-            <End Role="TCMSEGAPLC" EntitySet="TCMSEGAPLC" />
-            <End Role="TARSEGPERFUS" EntitySet="TARSEGPERFUS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TARSEGPER__IDOPC__52593CB8" Association="Self.FK__TARSEGPER__IDOPC__52593CB8">
-            <End Role="TARSEGOPCUI" EntitySet="TARSEGOPCUI" />
-            <End Role="TARSEGPERM" EntitySet="TARSEGPERM" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TARSEGPER__IDROL__5070F446" Association="Self.FK__TARSEGPER__IDROL__5070F446">
-            <End Role="TARSEGROL" EntitySet="TARSEGROL" />
-            <End Role="TARSEGPERM" EntitySet="TARSEGPERM" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TARSEGPER__IDUSR__2A4B4B5E" Association="Self.FK__TARSEGPER__IDUSR__2A4B4B5E">
-            <End Role="TCMSEGUSER" EntitySet="TCMSEGUSER" />
-            <End Role="TARSEGPERFUS" EntitySet="TARSEGPERFUS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TARSEGPLP__IDOPC__4BAC3F29" Association="Self.FK__TARSEGPLP__IDOPC__4BAC3F29">
-            <End Role="TARSEGOPCUI" EntitySet="TARSEGOPCUI" />
-            <End Role="TARSEGPLPERM" EntitySet="TARSEGPLPERM" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TARSEGPLP__IDROL__4AB81AF0" Association="Self.FK__TARSEGPLP__IDROL__4AB81AF0">
-            <End Role="TARSEGROL" EntitySet="TARSEGROL" />
-            <End Role="TARSEGPLPERM" EntitySet="TARSEGPLPERM" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TARSEGREC__IDREC__30F848ED" Association="Self.FK__TARSEGREC__IDREC__30F848ED">
-            <End Role="TAMSEGREC" EntitySet="TAMSEGREC" />
-            <End Role="TARSEGRECDET" EntitySet="TARSEGRECDET" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TARSEGROL__IDAPL__3B75D760" Association="Self.FK__TARSEGROL__IDAPL__3B75D760">
-            <End Role="TCMSEGAPLC" EntitySet="TCMSEGAPLC" />
-            <End Role="TARSEGROL" EntitySet="TARSEGROL" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TARSEGROL__IDPER__412EB0B6" Association="Self.FK__TARSEGROL__IDPER__412EB0B6">
-            <End Role="TARSEGPERFUS" EntitySet="TARSEGPERFUS" />
-            <End Role="TARSEGROLESPER" EntitySet="TARSEGROLESPER" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TARSEGROL__IDROL__403A8C7D" Association="Self.FK__TARSEGROL__IDROL__403A8C7D">
-            <End Role="TARSEGROL" EntitySet="TARSEGROL" />
-            <End Role="TARSEGROLESPER" EntitySet="TARSEGROLESPER" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TCMSEGUSE__IDCAR__25869641" Association="Self.FK__TCMSEGUSE__IDCAR__25869641">
-            <End Role="TCRSEGCASOC" EntitySet="TCRSEGCASOC" />
-            <End Role="TCMSEGUSER" EntitySet="TCMSEGUSER" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TCMSEGUSE__IDEMP__24927208" Association="Self.FK__TCMSEGUSE__IDEMP__24927208">
-            <End Role="TCMSEGEMPR" EntitySet="TCMSEGEMPR" />
-            <End Role="TCMSEGUSER" EntitySet="TCMSEGUSER" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TCRSEGCAS__IDCAR__1FCDBCEB" Association="Self.FK__TCRSEGCAS__IDCAR__1FCDBCEB">
-            <End Role="TCMSEGCAR" EntitySet="TCMSEGCAR" />
-            <End Role="TCRSEGCASOC" EntitySet="TCRSEGCASOC" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TCRSEGREC__IDAPL__0BC6C43E" Association="Self.FK__TCRSEGREC__IDAPL__0BC6C43E">
-            <End Role="TCMSEGAPLC" EntitySet="TCMSEGAPLC" />
-            <End Role="TCRSEGRECAPL" EntitySet="TCRSEGRECAPL" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TCRSEGREC__IDPER__35BCFE0A" Association="Self.FK__TCRSEGREC__IDPER__35BCFE0A">
-            <End Role="TARSEGPERFUS" EntitySet="TARSEGPERFUS" />
-            <End Role="TCRSEGRECPER" EntitySet="TCRSEGRECPER" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TCRSEGREC__IDREC__0CBAE877" Association="Self.FK__TCRSEGREC__IDREC__0CBAE877">
-            <End Role="TAMSEGREC" EntitySet="TAMSEGREC" />
-            <End Role="TCRSEGRECAPL" EntitySet="TCRSEGRECAPL" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TCRSEGREC__IDREC__36B12243" Association="Self.FK__TCRSEGREC__IDREC__36B12243">
-            <End Role="TARSEGRECDET" EntitySet="TARSEGRECDET" />
-            <End Role="TCRSEGRECPER" EntitySet="TCRSEGRECPER" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TARSEGPERM_TARSEGROLESPER" Association="Self.FK_TARSEGPERM_TARSEGROLESPER">
-            <End Role="TARSEGROLESPER" EntitySet="TARSEGROLESPER" />
-            <End Role="TARSEGPERM" EntitySet="TARSEGPERM" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="GROMEROModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="GROMEROModelStoreContainer">
+    <EntitySet Name="Claves" EntityType="GROMEROModel.Store.Claves" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RolesPerfiles" EntityType="GROMEROModel.Store.RolesPerfiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Aplicaciones" EntityType="GROMEROModel.Store.Aplicaciones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Empresas" EntityType="GROMEROModel.Store.Empresas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios" EntityType="GROMEROModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="GROMEROModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OpcionUI" EntityType="GROMEROModel.Store.OpcionUI" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PerfilUsuario" EntityType="GROMEROModel.Store.PerfilUsuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Permiso" EntityType="GROMEROModel.Store.Permiso" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Plantilla" EntityType="GROMEROModel.Store.Plantilla" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Recurso" EntityType="GROMEROModel.Store.Recurso" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RecursoDetalle" EntityType="GROMEROModel.Store.RecursoDetalle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RecursoAplicacion" EntityType="GROMEROModel.Store.RecursoAplicacion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RecursoPerfil" EntityType="GROMEROModel.Store.RecursoPerfil" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cargo" EntityType="GROMEROModel.Store.Cargo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CargoSociedad" EntityType="GROMEROModel.Store.CargoSociedad" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__TARSEGCLA__IDUSR__4222D4EF" Association="GROMEROModel.Store.FK__TARSEGCLA__IDUSR__4222D4EF">
+      <End Role="TCMSEGUSER" EntitySet="Usuarios" />
+      <End Role="TARSEGCLAV" EntitySet="Claves" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TCMSEGUSE__IDEMP__21B6055D" Association="GROMEROModel.Store.FK__TCMSEGUSE__IDEMP__21B6055D">
+      <End Role="TCMSEGEMPR" EntitySet="Empresas" />
+      <End Role="TCMSEGUSER" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TARSEGROL__IDAPL__0519C6AF" Association="GROMEROModel.Store.FK__TARSEGROL__IDAPL__0519C6AF">
+      <End Role="TCMSEGAPLC" EntitySet="Aplicaciones" />
+      <End Role="TARSEGROL" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TARSEGROL__IDROL__0EA330E9" Association="GROMEROModel.Store.FK__TARSEGROL__IDROL__0EA330E9">
+      <End Role="TARSEGROL" EntitySet="Roles" />
+      <End Role="TARSEGROLESPER" EntitySet="RolesPerfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TARSEGOPC__IDAPL__3B0BC30C" Association="GROMEROModel.Store.FK__TARSEGOPC__IDAPL__3B0BC30C">
+      <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+      <End Role="TARSEGOPCUI" EntitySet="OpcionUI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TARSEGROLESPER_TCMSEGAPLC" Association="GROMEROModel.Store.FK_TARSEGROLESPER_TCMSEGAPLC">
+      <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+      <End Role="RolesPerfiles" EntitySet="RolesPerfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TARSEGPER__IDOPC__09A971A2" Association="GROMEROModel.Store.FK__TARSEGPER__IDOPC__09A971A2">
+      <End Role="OpcionUI" EntitySet="OpcionUI" />
+      <End Role="TARSEGPERM" EntitySet="Permiso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TARSEGPLPERM_TARSEGOPCUI" Association="GROMEROModel.Store.FK_TARSEGPLPERM_TARSEGOPCUI">
+      <End Role="OpcionUI" EntitySet="OpcionUI" />
+      <End Role="TARSEGPLPERM" EntitySet="Plantilla" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TARSEGPER__IDUSR__267ABA7A" Association="GROMEROModel.Store.FK__TARSEGPER__IDUSR__267ABA7A">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="TARSEGPERFUS" EntitySet="PerfilUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TARSEGROL__IDPER__0F975522" Association="GROMEROModel.Store.FK__TARSEGROL__IDPER__0F975522">
+      <End Role="TARSEGPERFUS" EntitySet="PerfilUsuario" />
+      <End Role="RolesPerfiles" EntitySet="RolesPerfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TARSEGPERFUS_TCMSEGAPLC" Association="GROMEROModel.Store.FK_TARSEGPERFUS_TCMSEGAPLC">
+      <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+      <End Role="TARSEGPERFUS" EntitySet="PerfilUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TARSEGPER__IDROL__2D27B809" Association="GROMEROModel.Store.FK__TARSEGPER__IDROL__2D27B809">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="TARSEGPERM" EntitySet="Permiso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TARSEGPERM_TCMSEGAPLC" Association="GROMEROModel.Store.FK_TARSEGPERM_TCMSEGAPLC">
+      <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+      <End Role="TARSEGPERM" EntitySet="Permiso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TARSEGPERM_TCMSEGUSER" Association="GROMEROModel.Store.FK_TARSEGPERM_TCMSEGUSER">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="TARSEGPERM" EntitySet="Permiso" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TARSEGPLP__IDROL__38996AB5" Association="GROMEROModel.Store.FK__TARSEGPLP__IDROL__38996AB5">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="TARSEGPLPERM" EntitySet="Plantilla" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TARSEGPLPERM_TCMSEGAPLC" Association="GROMEROModel.Store.FK_TARSEGPLPERM_TCMSEGAPLC">
+      <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+      <End Role="TARSEGPLPERM" EntitySet="Plantilla" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TARSEGREC__IDREC__4DE98D56" Association="GROMEROModel.Store.FK__TARSEGREC__IDREC__4DE98D56">
+      <End Role="TAMSEGREC" EntitySet="Recurso" />
+      <End Role="TARSEGRECDET" EntitySet="RecursoDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TCRSEGREC__IDREC__4924D839" Association="GROMEROModel.Store.FK__TCRSEGREC__IDREC__4924D839">
+      <End Role="TAMSEGREC" EntitySet="Recurso" />
+      <End Role="TCRSEGRECAPL" EntitySet="RecursoAplicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TCRSEGREC__IDPER__52AE4273" Association="GROMEROModel.Store.FK__TCRSEGREC__IDPER__52AE4273">
+      <End Role="PerfilUsuario" EntitySet="PerfilUsuario" />
+      <End Role="TCRSEGRECPER" EntitySet="RecursoPerfil" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TCRSEGREC__IDREC__53A266AC" Association="GROMEROModel.Store.FK__TCRSEGREC__IDREC__53A266AC">
+      <End Role="TARSEGRECDET" EntitySet="RecursoDetalle" />
+      <End Role="TCRSEGRECPER" EntitySet="RecursoPerfil" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TCRSEGREC__IDAPL__4830B400" Association="GROMEROModel.Store.FK__TCRSEGREC__IDAPL__4830B400">
+      <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+      <End Role="TCRSEGRECAPL" EntitySet="RecursoAplicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TCRSEGCAS__IDCAR__308E3499" Association="GROMEROModel.Store.FK__TCRSEGCAS__IDCAR__308E3499">
+      <End Role="TCMSEGCAR" EntitySet="Cargo" />
+      <End Role="TCRSEGCASOC" EntitySet="CargoSociedad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCMSEGUSER_TCRSEGCASOC" Association="GROMEROModel.Store.FK_TCMSEGUSER_TCRSEGCASOC">
+      <End Role="TCRSEGCASOC" EntitySet="CargoSociedad" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TARSEGPERM_TARSEGROLESPER" Association="GROMEROModel.Store.FK_TARSEGPERM_TARSEGROLESPER">
+      <End Role="RolesPerfiles" EntitySet="RolesPerfiles" />
+      <End Role="Permiso" EntitySet="Permiso" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Claves">
+    <Key>
+      <PropertyRef Name="IdClave" />
+    </Key>
+    <Property Name="IdClave" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Pregunta" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Respuesta" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Ultimo" Type="bit" Nullable="false" />
+    <Property Name="FechaCambio" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolesPerfiles">
+    <Key>
+      <PropertyRef Name="IdRolPerfil" />
+    </Key>
+    <Property Name="IdRolPerfil" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdRol" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdAplicacion" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdPerfilUsuario" Type="varchar" Nullable="false" MaxLength="36" />
+  </EntityType>
+  <EntityType Name="Aplicaciones">
+    <Key>
+      <PropertyRef Name="IdAplicacion" />
+    </Key>
+    <Property Name="IdAplicacion" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="NombreAplicacion" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Acronimo" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Uri" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Tipo" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Empresas">
+    <Key>
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdEmpresa" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="CodigoEmpresa" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="RazonSocial" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="NombreCorto" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="RUC" Type="varchar" Nullable="false" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdEmpresa" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdEmpresaPertenencia" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="CodigoUsuario" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Nombres" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="ApellidoPaterno" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="ApellidoMaterno" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="DNI" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" Nullable="false" MaxLength="1" />
+    <Property Name="Correo" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Dominio" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UltimoIngreso" Type="datetime" Nullable="false" />
+    <Property Name="IdCargoSociedad" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Alias" Type="varchar" Nullable="true" MaxLength="12" />
+    <Property Name="AliasAlterno" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdAplicacion" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="CodigoRol" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="NombreRol" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="OpcionUI">
+    <Key>
+      <PropertyRef Name="IdOpcionUI" />
+    </Key>
+    <Property Name="IdOpcionUI" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdAplicacion" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdOpcionPadre" Type="varchar" Nullable="true" MaxLength="36" />
+    <Property Name="Codigo" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="Tipo" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Clase" Type="varchar" Nullable="true" MaxLength="250" />
+    <Property Name="Url" Type="varchar" Nullable="true" MaxLength="250" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+    <Property Name="Nivel" Type="int" Nullable="false" />
+    <Property Name="NroOrden" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PerfilUsuario">
+    <Key>
+      <PropertyRef Name="IdPerfilUsuario" />
+    </Key>
+    <Property Name="IdPerfilUsuario" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdAplicacion" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="UltimoIngreso" Type="datetime" Nullable="false" />
+    <Property Name="Logueado" Type="bit" Nullable="false" />
+    <Property Name="Caduca" Type="bit" Nullable="false" />
+    <Property Name="VigenciaInicio" Type="datetime" Nullable="false" />
+    <Property Name="VigenciaFin" Type="datetime" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Placa" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Permiso">
+    <Key>
+      <PropertyRef Name="IdPermiso" />
+    </Key>
+    <Property Name="IdPermiso" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdOpcionUI" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdRol" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdAplicacion" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Conceder" Type="bit" Nullable="false" />
+    <Property Name="IdRolPerfil" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Placa" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Usuario" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Plantilla">
+    <Key>
+      <PropertyRef Name="IdPlantilla" />
+    </Key>
+    <Property Name="IdPlantilla" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdRol" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdAplicacion" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdOpcionUI" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Conceder" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recurso">
+    <Key>
+      <PropertyRef Name="IdRecurso" />
+    </Key>
+    <Property Name="IdRecurso" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="RutaRecurso" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="IdRecursoPadre" Type="varchar" Nullable="true" MaxLength="36" />
+    <Property Name="Nivel" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecursoDetalle">
+    <Key>
+      <PropertyRef Name="IdRecursoDetalle" />
+    </Key>
+    <Property Name="IdRecursoDetalle" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdRecurso" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Codigo" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="IdRecursoDetallePadre" Type="varchar" Nullable="true" MaxLength="36" />
+    <Property Name="Nivel" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecursoAplicacion">
+    <Key>
+      <PropertyRef Name="IdRecursoAplicacion" />
+    </Key>
+    <Property Name="IdRecursoAplicacion" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdAplicacion" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdRecurso" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Conceder" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecursoPerfil">
+    <Key>
+      <PropertyRef Name="IdRecursoPerfil" />
+    </Key>
+    <Property Name="IdRecursoPerfil" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdPerfilUsuario" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="IdRecursoDetalle" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Conceder" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cargo">
+    <Key>
+      <PropertyRef Name="IdCargo" />
+    </Key>
+    <Property Name="IdCargo" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="CodigoCargo" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CargoSociedad">
+    <Key>
+      <PropertyRef Name="IdCargoSociedad" />
+    </Key>
+    <Property Name="IdCargoSociedad" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="CodSociedadPropietaria" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="IdCargo" Type="varchar" Nullable="false" MaxLength="36" />
+  </EntityType>
+  <Association Name="FK__TARSEGCLA__IDUSR__4222D4EF">
+    <End Role="TCMSEGUSER" Type="GROMEROModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="TARSEGCLAV" Type="GROMEROModel.Store.Claves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCMSEGUSER">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="TARSEGCLAV">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TCMSEGUSE__IDEMP__21B6055D">
+    <End Role="TCMSEGEMPR" Type="GROMEROModel.Store.Empresas" Multiplicity="1" />
+    <End Role="TCMSEGUSER" Type="GROMEROModel.Store.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCMSEGEMPR">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="TCMSEGUSER">
+        <PropertyRef Name="IdEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TARSEGROL__IDAPL__0519C6AF">
+    <End Role="TCMSEGAPLC" Type="GROMEROModel.Store.Aplicaciones" Multiplicity="1" />
+    <End Role="TARSEGROL" Type="GROMEROModel.Store.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCMSEGAPLC">
+        <PropertyRef Name="IdAplicacion" />
+      </Principal>
+      <Dependent Role="TARSEGROL">
+        <PropertyRef Name="IdAplicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TARSEGROL__IDROL__0EA330E9">
+    <End Role="TARSEGROL" Type="GROMEROModel.Store.Roles" Multiplicity="1" />
+    <End Role="TARSEGROLESPER" Type="GROMEROModel.Store.RolesPerfiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TARSEGROL">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="TARSEGROLESPER">
+        <PropertyRef Name="IdRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TARSEGOPC__IDAPL__3B0BC30C">
+    <End Role="Aplicaciones" Type="GROMEROModel.Store.Aplicaciones" Multiplicity="1" />
+    <End Role="TARSEGOPCUI" Type="GROMEROModel.Store.OpcionUI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aplicaciones">
+        <PropertyRef Name="IdAplicacion" />
+      </Principal>
+      <Dependent Role="TARSEGOPCUI">
+        <PropertyRef Name="IdAplicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TARSEGROLESPER_TCMSEGAPLC">
+    <End Role="Aplicaciones" Type="GROMEROModel.Store.Aplicaciones" Multiplicity="1" />
+    <End Role="RolesPerfiles" Type="GROMEROModel.Store.RolesPerfiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aplicaciones">
+        <PropertyRef Name="IdAplicacion" />
+      </Principal>
+      <Dependent Role="RolesPerfiles">
+        <PropertyRef Name="IdAplicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TARSEGPER__IDOPC__09A971A2">
+    <End Role="OpcionUI" Type="GROMEROModel.Store.OpcionUI" Multiplicity="1" />
+    <End Role="TARSEGPERM" Type="GROMEROModel.Store.Permiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OpcionUI">
+        <PropertyRef Name="IdOpcionUI" />
+      </Principal>
+      <Dependent Role="TARSEGPERM">
+        <PropertyRef Name="IdOpcionUI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TARSEGPLPERM_TARSEGOPCUI">
+    <End Role="OpcionUI" Type="GROMEROModel.Store.OpcionUI" Multiplicity="1" />
+    <End Role="TARSEGPLPERM" Type="GROMEROModel.Store.Plantilla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OpcionUI">
+        <PropertyRef Name="IdOpcionUI" />
+      </Principal>
+      <Dependent Role="TARSEGPLPERM">
+        <PropertyRef Name="IdOpcionUI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TARSEGPER__IDUSR__267ABA7A">
+    <End Role="Usuarios" Type="GROMEROModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="TARSEGPERFUS" Type="GROMEROModel.Store.PerfilUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="TARSEGPERFUS">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TARSEGROL__IDPER__0F975522">
+    <End Role="TARSEGPERFUS" Type="GROMEROModel.Store.PerfilUsuario" Multiplicity="1" />
+    <End Role="RolesPerfiles" Type="GROMEROModel.Store.RolesPerfiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TARSEGPERFUS">
+        <PropertyRef Name="IdPerfilUsuario" />
+      </Principal>
+      <Dependent Role="RolesPerfiles">
+        <PropertyRef Name="IdPerfilUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TARSEGPERFUS_TCMSEGAPLC">
+    <End Role="Aplicaciones" Type="GROMEROModel.Store.Aplicaciones" Multiplicity="1" />
+    <End Role="TARSEGPERFUS" Type="GROMEROModel.Store.PerfilUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aplicaciones">
+        <PropertyRef Name="IdAplicacion" />
+      </Principal>
+      <Dependent Role="TARSEGPERFUS">
+        <PropertyRef Name="IdAplicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TARSEGPER__IDROL__2D27B809">
+    <End Role="Roles" Type="GROMEROModel.Store.Roles" Multiplicity="1" />
+    <End Role="TARSEGPERM" Type="GROMEROModel.Store.Permiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="TARSEGPERM">
+        <PropertyRef Name="IdRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TARSEGPERM_TCMSEGAPLC">
+    <End Role="Aplicaciones" Type="GROMEROModel.Store.Aplicaciones" Multiplicity="1" />
+    <End Role="TARSEGPERM" Type="GROMEROModel.Store.Permiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aplicaciones">
+        <PropertyRef Name="IdAplicacion" />
+      </Principal>
+      <Dependent Role="TARSEGPERM">
+        <PropertyRef Name="IdAplicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TARSEGPERM_TCMSEGUSER">
+    <End Role="Usuarios" Type="GROMEROModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="TARSEGPERM" Type="GROMEROModel.Store.Permiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="TARSEGPERM">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TARSEGPLP__IDROL__38996AB5">
+    <End Role="Roles" Type="GROMEROModel.Store.Roles" Multiplicity="1" />
+    <End Role="TARSEGPLPERM" Type="GROMEROModel.Store.Plantilla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="TARSEGPLPERM">
+        <PropertyRef Name="IdRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TARSEGPLPERM_TCMSEGAPLC">
+    <End Role="Aplicaciones" Type="GROMEROModel.Store.Aplicaciones" Multiplicity="1" />
+    <End Role="TARSEGPLPERM" Type="GROMEROModel.Store.Plantilla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aplicaciones">
+        <PropertyRef Name="IdAplicacion" />
+      </Principal>
+      <Dependent Role="TARSEGPLPERM">
+        <PropertyRef Name="IdAplicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TARSEGREC__IDREC__4DE98D56">
+    <End Role="TAMSEGREC" Type="GROMEROModel.Store.Recurso" Multiplicity="1" />
+    <End Role="TARSEGRECDET" Type="GROMEROModel.Store.RecursoDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAMSEGREC">
+        <PropertyRef Name="IdRecurso" />
+      </Principal>
+      <Dependent Role="TARSEGRECDET">
+        <PropertyRef Name="IdRecurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TCRSEGREC__IDREC__4924D839">
+    <End Role="TAMSEGREC" Type="GROMEROModel.Store.Recurso" Multiplicity="1" />
+    <End Role="TCRSEGRECAPL" Type="GROMEROModel.Store.RecursoAplicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAMSEGREC">
+        <PropertyRef Name="IdRecurso" />
+      </Principal>
+      <Dependent Role="TCRSEGRECAPL">
+        <PropertyRef Name="IdRecurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TCRSEGREC__IDPER__52AE4273">
+    <End Role="PerfilUsuario" Type="GROMEROModel.Store.PerfilUsuario" Multiplicity="1" />
+    <End Role="TCRSEGRECPER" Type="GROMEROModel.Store.RecursoPerfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PerfilUsuario">
+        <PropertyRef Name="IdPerfilUsuario" />
+      </Principal>
+      <Dependent Role="TCRSEGRECPER">
+        <PropertyRef Name="IdPerfilUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TCRSEGREC__IDREC__53A266AC">
+    <End Role="TARSEGRECDET" Type="GROMEROModel.Store.RecursoDetalle" Multiplicity="1" />
+    <End Role="TCRSEGRECPER" Type="GROMEROModel.Store.RecursoPerfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TARSEGRECDET">
+        <PropertyRef Name="IdRecursoDetalle" />
+      </Principal>
+      <Dependent Role="TCRSEGRECPER">
+        <PropertyRef Name="IdRecursoDetalle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TCRSEGREC__IDAPL__4830B400">
+    <End Role="Aplicaciones" Type="GROMEROModel.Store.Aplicaciones" Multiplicity="1" />
+    <End Role="TCRSEGRECAPL" Type="GROMEROModel.Store.RecursoAplicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aplicaciones">
+        <PropertyRef Name="IdAplicacion" />
+      </Principal>
+      <Dependent Role="TCRSEGRECAPL">
+        <PropertyRef Name="IdAplicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TCRSEGCAS__IDCAR__308E3499">
+    <End Role="TCMSEGCAR" Type="GROMEROModel.Store.Cargo" Multiplicity="1" />
+    <End Role="TCRSEGCASOC" Type="GROMEROModel.Store.CargoSociedad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCMSEGCAR">
+        <PropertyRef Name="IdCargo" />
+      </Principal>
+      <Dependent Role="TCRSEGCASOC">
+        <PropertyRef Name="IdCargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCMSEGUSER_TCRSEGCASOC">
+    <End Role="TCRSEGCASOC" Type="GROMEROModel.Store.CargoSociedad" Multiplicity="1" />
+    <End Role="Usuarios" Type="GROMEROModel.Store.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCRSEGCASOC">
+        <PropertyRef Name="IdCargoSociedad" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="IdCargoSociedad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TARSEGPERM_TARSEGROLESPER">
+    <End Role="RolesPerfiles" Type="GROMEROModel.Store.RolesPerfiles" Multiplicity="1" />
+    <End Role="Permiso" Type="GROMEROModel.Store.Permiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RolesPerfiles">
+        <PropertyRef Name="IdRolPerfil" />
+      </Principal>
+      <Dependent Role="Permiso">
+        <PropertyRef Name="IdRolPerfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GROMEROModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1937,987 +1526,208 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GROMEROModelStoreContainer" CdmEntityContainer="GROMEROEntities">
-          <EntitySetMapping Name="Claves">
-            <EntityTypeMapping TypeName="GROMEROModel.Claves">
-              <MappingFragment StoreEntitySet="TARSEGCLAV">
-                <ScalarProperty Name="IdClave" ColumnName="IDCLAV" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IDUSR" />
-                <ScalarProperty Name="Password" ColumnName="TPASSCLV" />
-                <ScalarProperty Name="Pregunta" ColumnName="TPRGSCRCLV" />
-                <ScalarProperty Name="Respuesta" ColumnName="TRPSCRCLV" />
-                <ScalarProperty Name="Ultimo" ColumnName="SULTCLV" />
-                <ScalarProperty Name="FechaCambio" ColumnName="DFECCMB" />
-                </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RolesPerfiles">
-            <EntityTypeMapping TypeName="GROMEROModel.RolesPerfiles">
-              <MappingFragment StoreEntitySet="TARSEGROLESPER">
-                <ScalarProperty Name="IdPerfilUsuario" ColumnName="IDPERFUSR" />
-                <ScalarProperty Name="IdRolPerfil" ColumnName="IDROLPER" />
-                <ScalarProperty Name="IdRol" ColumnName="IDROL" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IDAPL" />
-                </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.RolesPerfiles">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_RolesPerfilInsert">
-                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" />
-                  <ScalarProperty Name="IdRolPerfil" ParameterName="IdRolesPerfil" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
-                  <ScalarProperty Name="IdRol" ParameterName="IdRol" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RolesPerfilUpdate">
-                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" Version="Current" />
-                  <ScalarProperty Name="IdRolPerfil" ParameterName="IdRolesPerfil" Version="Current" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
-                  <ScalarProperty Name="IdRol" ParameterName="IdRol" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RolesPerfilDelete">
-                  <ScalarProperty Name="IdRolPerfil" ParameterName="IdRolesPerfil" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Aplicaciones">
-            <EntityTypeMapping TypeName="GROMEROModel.Aplicaciones">
-              <MappingFragment StoreEntitySet="TCMSEGAPLC">
-                <ScalarProperty Name="IdAplicacion" ColumnName="IDAPL" />
-                <ScalarProperty Name="NombreAplicacion" ColumnName="TNOMAPL" />
-                <ScalarProperty Name="Acronimo" ColumnName="TACROAPL" />
-                <ScalarProperty Name="Uri" ColumnName="TURIAPL" />
-                <ScalarProperty Name="Tipo" ColumnName="BTIPAPL" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.Aplicaciones">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_AplicacionInsert">
-                  <ScalarProperty Name="Tipo" ParameterName="Tipo" />
-                  <ScalarProperty Name="Uri" ParameterName="Uri" />
-                  <ScalarProperty Name="Acronimo" ParameterName="Acronimo" />
-                  <ScalarProperty Name="NombreAplicacion" ParameterName="NombreAplicacion" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_AplicacionUpdate">
-                  <ScalarProperty Name="Tipo" ParameterName="Tipo" Version="Current" />
-                  <ScalarProperty Name="Uri" ParameterName="Uri" Version="Current" />
-                  <ScalarProperty Name="Acronimo" ParameterName="Acronimo" Version="Current" />
-                  <ScalarProperty Name="NombreAplicacion" ParameterName="NombreAplicacion" Version="Current" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_AplicacionDelete">
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Empresas">
-            <EntityTypeMapping TypeName="GROMEROModel.Empresas">
-              <MappingFragment StoreEntitySet="TCMSEGEMPR">
-                <ScalarProperty Name="IdEmpresa" ColumnName="IDEMP" />
-                <ScalarProperty Name="CodigoEmpresa" ColumnName="TCODEMP" />
-                <ScalarProperty Name="RazonSocial" ColumnName="TRZNSCL" />
-                <ScalarProperty Name="NombreCorto" ColumnName="TNOMCRT" />
-                <ScalarProperty Name="RUC" ColumnName="TRUCEMP" />
-                </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.Empresas">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_EmpresaInsert">
-                  <ScalarProperty Name="RUC" ParameterName="RUC" />
-                  <ScalarProperty Name="NombreCorto" ParameterName="NombreCorto" />
-                  <ScalarProperty Name="RazonSocial" ParameterName="RazonSocial" />
-                  <ScalarProperty Name="CodigoEmpresa" ParameterName="CodigoEmpresa" />
-                  <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_EmpresaUpdate">
-                  <ScalarProperty Name="RUC" ParameterName="RUC" Version="Current" />
-                  <ScalarProperty Name="NombreCorto" ParameterName="NombreCorto" Version="Current" />
-                  <ScalarProperty Name="RazonSocial" ParameterName="RazonSocial" Version="Current" />
-                  <ScalarProperty Name="CodigoEmpresa" ParameterName="CodigoEmpresa" Version="Current" />
-                  <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_EmpresaDelete">
-                  <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="GROMEROModel.Usuarios">
-              <MappingFragment StoreEntitySet="TCMSEGUSER">
-                <ScalarProperty Name="AliasAlterno" ColumnName="TALTUSR" />
-                <ScalarProperty Name="Alias" ColumnName="TALIUSR" />
-                <ScalarProperty Name="IdCargoSociedad" ColumnName="IDCARSOC" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="DULTING" />
-                <ScalarProperty Name="Dominio" ColumnName="TDOMINAME" />
-                <ScalarProperty Name="Correo" ColumnName="TCORELUSR" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IDUSR" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IDEMP" />
-                <ScalarProperty Name="IdEmpresaPertenencia" ColumnName="IDEMPPERT" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="TCODUSR" />
-                <ScalarProperty Name="Nombres" ColumnName="TNMBRSUSR" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="TAPEPUSR" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="TAPEMUSR" />
-                <ScalarProperty Name="DNI" ColumnName="TDNIUSR" />
-                <ScalarProperty Name="Estado" ColumnName="SESTUSR" />
-                <ScalarProperty Name="Tipo" ColumnName="BTIPUSR" />
-                </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.Usuarios">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_UsuarioInsert">
-                  <ScalarProperty Name="AliasAlterno" ParameterName="AliasAlterno" />
-                  <ScalarProperty Name="Alias" ParameterName="Alias" />
-                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" />
-                  <ScalarProperty Name="Dominio" ParameterName="Dominio" />
-                  <ScalarProperty Name="Correo" ParameterName="Correo" />
-                  <ScalarProperty Name="Tipo" ParameterName="Tipo" />
-                  <ScalarProperty Name="Estado" ParameterName="Estado" />
-                  <ScalarProperty Name="DNI" ParameterName="DNI" />
-                  <ScalarProperty Name="ApellidoMaterno" ParameterName="ApellidoMaterno" />
-                  <ScalarProperty Name="ApellidoPaterno" ParameterName="ApellidoPaterno" />
-                  <ScalarProperty Name="Nombres" ParameterName="Nombres" />
-                  <ScalarProperty Name="CodigoUsuario" ParameterName="CodigoUsuario" />
-                  <ScalarProperty Name="IdEmpresaPertenencia" ParameterName="IdEmpresaPertenencia" />
-                  <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" />
-                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
-                </InsertFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_UsuarioDelete">
-                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
-                </DeleteFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_UsuarioUpdate">
-                  <ScalarProperty Name="AliasAlterno" ParameterName="AliasAlterno" Version="Current" />
-                  <ScalarProperty Name="Alias" ParameterName="Alias" Version="Current" />
-                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" Version="Current" />
-                  <ScalarProperty Name="Dominio" ParameterName="Dominio" Version="Current" />
-                  <ScalarProperty Name="Correo" ParameterName="Correo" Version="Current" />
-                  <ScalarProperty Name="Tipo" ParameterName="Tipo" Version="Current" />
-                  <ScalarProperty Name="Estado" ParameterName="Estado" Version="Current" />
-                  <ScalarProperty Name="DNI" ParameterName="DNI" Version="Current" />
-                  <ScalarProperty Name="ApellidoMaterno" ParameterName="ApellidoMaterno" Version="Current" />
-                  <ScalarProperty Name="ApellidoPaterno" ParameterName="ApellidoPaterno" Version="Current" />
-                  <ScalarProperty Name="Nombres" ParameterName="Nombres" Version="Current" />
-                  <ScalarProperty Name="CodigoUsuario" ParameterName="CodigoUsuario" Version="Current" />
-                  <ScalarProperty Name="IdEmpresaPertenencia" ParameterName="IdEmpresaPertenencia" Version="Current" />
-                  <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" Version="Current" />
-                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" Version="Current" />
-                </UpdateFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="GROMEROModel.Roles">
-              <MappingFragment StoreEntitySet="TARSEGROL">
-                <ScalarProperty Name="NombreRol" ColumnName="TNOMROL" />
-                <ScalarProperty Name="CodigoRol" ColumnName="TCODROL" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IDAPL" />
-                <ScalarProperty Name="IdRol" ColumnName="IDROL" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.Roles">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_RolInsert">
-                  <ScalarProperty Name="NombreRol" ParameterName="Nombre" />
-                  <ScalarProperty Name="CodigoRol" ParameterName="Codigo" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
-                  <ScalarProperty Name="IdRol" ParameterName="IdRol" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RolUpdate">
-                  <ScalarProperty Name="NombreRol" ParameterName="Nombre" Version="Current" />
-                  <ScalarProperty Name="CodigoRol" ParameterName="Codigo" Version="Current" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
-                  <ScalarProperty Name="IdRol" ParameterName="IdRol" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RolDelete">
-                  <ScalarProperty Name="IdRol" ParameterName="IdRol" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SelectAllEmpresas" FunctionName="GROMEROModel.Store.usp_EmpresaSelectAll" />
-          <FunctionImportMapping FunctionImportName="SelectAllUsuarios" FunctionName="GROMEROModel.Store.usp_UsuarioSelectAll" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.UsuarioComplex">
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
-                <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
-                <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectAplicacion" FunctionName="GROMEROModel.Store.usp_AplicacionSelect" />
-          <FunctionImportMapping FunctionImportName="SelectUsuario" FunctionName="GROMEROModel.Store.usp_UsuarioSelect" />
-          <FunctionImportMapping FunctionImportName="SelectEmpresa" FunctionName="GROMEROModel.Store.usp_EmpresaSelect" />
-          <FunctionImportMapping FunctionImportName="SelectRol" FunctionName="GROMEROModel.Store.usp_RolSelect" />
-          <FunctionImportMapping FunctionImportName="SelectAllAplicacion" FunctionName="GROMEROModel.Store.usp_AplicacionSelectAll" />
-          <FunctionImportMapping FunctionImportName="SelectAplicacionByName" FunctionName="GROMEROModel.Store.usp_AplicacionSelectByName" />
-          <FunctionImportMapping FunctionImportName="SelectAplicacionByTag" FunctionName="GROMEROModel.Store.usp_AplicacionSelectByTag" />
-          <FunctionImportMapping FunctionImportName="SelectAplicacionByUri" FunctionName="GROMEROModel.Store.usp_AplicacionSelectByUri" />
-          <FunctionImportMapping FunctionImportName="SelectUsuarioByCodigo" FunctionName="GROMEROModel.Store.usp_UsuarioSelectByCodigo" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.UsuarioComplex">
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
-                <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
-                <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectUsuarioByName" FunctionName="GROMEROModel.Store.usp_UsuarioSelectByName" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.UsuarioComplex">
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
-                <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
-                <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectUsuarioByApePat" FunctionName="GROMEROModel.Store.usp_UsuarioSelectByApePat" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.UsuarioComplex">
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
-                <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
-                <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectUsuarioByApeMat" FunctionName="GROMEROModel.Store.usp_UsuarioSelectByApeMat" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.UsuarioComplex">
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
-                <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
-                <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectUsuarioByDNI" FunctionName="GROMEROModel.Store.usp_UsuarioSelectByDNI" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.UsuarioComplex">
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
-                <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
-                <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectUsuarioByEmail" FunctionName="GROMEROModel.Store.usp_UsuarioSelectByEmail" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.UsuarioComplex">
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
-                <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
-                <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectEmpresaByCodigo" FunctionName="GROMEROModel.Store.usp_EmpresaSelectByCodigo" />
-          <FunctionImportMapping FunctionImportName="SelectEmpresaByNombreCorto" FunctionName="GROMEROModel.Store.usp_EmpresaSelectBySName" />
-          <FunctionImportMapping FunctionImportName="SelectEmpresaByRazonSocial" FunctionName="GROMEROModel.Store.usp_EmpresaSelectByRazonSocial" />
-          <FunctionImportMapping FunctionImportName="SelectEmpresaByRUC" FunctionName="GROMEROModel.Store.usp_EmpresaSelectByRUC" />
-          <FunctionImportMapping FunctionImportName="SelectRolesPerfil" FunctionName="GROMEROModel.Store.usp_RolesPerfilSelect" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.SelectRolesPerfil_Result">
-                <ScalarProperty Name="IdRolPerfil" ColumnName="IdRolPerfil" />
-                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
-                <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
-                <ScalarProperty Name="CodigoRol" ColumnName="CodigoRol" />
-                <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <EntitySetMapping Name="OpcionUI">
-            <EntityTypeMapping TypeName="GROMEROModel.OpcionUI">
-              <MappingFragment StoreEntitySet="TARSEGOPCUI">
-                <ScalarProperty Name="NroOrden" ColumnName="NNROOPC" />
-                <ScalarProperty Name="Nivel" ColumnName="NNIVOPC" />
-                <ScalarProperty Name="Estado" ColumnName="SESTOPC" />
-                <ScalarProperty Name="Url" ColumnName="TURLOPC" />
-                <ScalarProperty Name="Clase" ColumnName="TCLSOPC" />
-                <ScalarProperty Name="Tipo" ColumnName="TTIPOPC" />
-                <ScalarProperty Name="Nombre" ColumnName="TNOMOUI" />
-                <ScalarProperty Name="Codigo" ColumnName="TCODOUI" />
-                <ScalarProperty Name="IdOpcionPadre" ColumnName="IDMENPAR" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IDAPL" />
-                <ScalarProperty Name="IdOpcionUI" ColumnName="IDOPCUI" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.OpcionUI">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_OpcionUIInsert">
-                  <ScalarProperty Name="NroOrden" ParameterName="NroOrden" />
-                  <ScalarProperty Name="Nivel" ParameterName="Nivel" />
-                  <ScalarProperty Name="Estado" ParameterName="Estado" />
-                  <ScalarProperty Name="Url" ParameterName="Url" />
-                  <ScalarProperty Name="Clase" ParameterName="Clase" />
-                  <ScalarProperty Name="Tipo" ParameterName="Tipo" />
-                  <ScalarProperty Name="Nombre" ParameterName="Nombre" />
-                  <ScalarProperty Name="Codigo" ParameterName="Codigo" />
-                  <ScalarProperty Name="IdOpcionPadre" ParameterName="IdOpcionPadre" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
-                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_OpcionUIUpdate">
-                  <ScalarProperty Name="NroOrden" ParameterName="NroOrden" Version="Current" />
-                  <ScalarProperty Name="Nivel" ParameterName="Nivel" Version="Current" />
-                  <ScalarProperty Name="Estado" ParameterName="Estado" Version="Current" />
-                  <ScalarProperty Name="Url" ParameterName="Url" Version="Current" />
-                  <ScalarProperty Name="Clase" ParameterName="Clase" Version="Current" />
-                  <ScalarProperty Name="Tipo" ParameterName="Tipo" Version="Current" />
-                  <ScalarProperty Name="Nombre" ParameterName="Nombre" Version="Current" />
-                  <ScalarProperty Name="Codigo" ParameterName="Codigo" Version="Current" />
-                  <ScalarProperty Name="IdOpcionPadre" ParameterName="IdOpcionPadre" Version="Current" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
-                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_OpcionUIDelete">
-                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PerfilUsuario">
-            <EntityTypeMapping TypeName="GROMEROModel.PerfilUsuario">
-              <MappingFragment StoreEntitySet="TARSEGPERFUS">
-                <ScalarProperty Name="Placa" ColumnName="TPLCAUD" />
-                <ScalarProperty Name="Usuario" ColumnName="TUSRAUD" />
-                <ScalarProperty Name="VigenciaFin" ColumnName="FFECFIN" />
-                <ScalarProperty Name="VigenciaInicio" ColumnName="FFECINI" />
-                <ScalarProperty Name="Caduca" ColumnName="SCADPERF" />
-                <ScalarProperty Name="Logueado" ColumnName="SLOGPERF" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="DULTING" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IDAPL" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IDUSR" />
-                <ScalarProperty Name="IdPerfilUsuario" ColumnName="IDPERFUSR" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.PerfilUsuario">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_PerfilUsuarioInsert">
-                  <ScalarProperty Name="Placa" ParameterName="Placa" />
-                  <ScalarProperty Name="Usuario" ParameterName="Usuario" />
-                  <ScalarProperty Name="Caduca" ParameterName="Caduca" />
-                  <ScalarProperty Name="Logueado" ParameterName="Logueado" />
-                  <ScalarProperty Name="VigenciaFin" ParameterName="VigenciaFin" />
-                  <ScalarProperty Name="VigenciaInicio" ParameterName="VigenciaInicio" />
-                  <ScalarProperty Name="UltimoIngreso" ParameterName="UltimoIngreso" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
-                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
-                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_PerfilUsuarioUpdate">
-                  <ScalarProperty Name="Placa" ParameterName="Placa" Version="Current" />
-                  <ScalarProperty Name="Usuario" ParameterName="Usuario" Version="Current" />
-                  <ScalarProperty Name="Caduca" ParameterName="Caduca" Version="Current" />
-                  <ScalarProperty Name="Logueado" ParameterName="Logueado" Version="Current" />
-                  <ScalarProperty Name="VigenciaFin" ParameterName="VigenciaFin" Version="Current" />
-                  <ScalarProperty Name="VigenciaInicio" ParameterName="VigenciaInicio" Version="Current" />
-                  <ScalarProperty Name="UltimoIngreso" ParameterName="UltimoIngreso" Version="Current" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
-                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" Version="Current" />
-                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_PerfilUsuarioDelete">
-                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Permiso">
-            <EntityTypeMapping TypeName="GROMEROModel.Permiso">
-              <MappingFragment StoreEntitySet="TARSEGPERM">
-                <ScalarProperty Name="Placa" ColumnName="TPLCAUD" />
-                <ScalarProperty Name="Usuario" ColumnName="TUSRAUD" />
-                <ScalarProperty Name="IdRolPerfil" ColumnName="IDROLPER" />
-                <ScalarProperty Name="Conceder" ColumnName="SVALPRM" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IDUSR" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IDAPL" />
-                <ScalarProperty Name="IdRol" ColumnName="IDROL" />
-                <ScalarProperty Name="IdOpcionUI" ColumnName="IDOPCUI" />
-                <ScalarProperty Name="IdPermiso" ColumnName="IDPERM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.Permiso">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_PermisosInsert">
-                  <ScalarProperty Name="Placa" ParameterName="Placa" />
-                  <ScalarProperty Name="Usuario" ParameterName="Usuario" />
-                  <ScalarProperty Name="IdRolPerfil" ParameterName="IdRolPerfil" />
-                  <ScalarProperty Name="Conceder" ParameterName="Valor" />
-                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
-                  <ScalarProperty Name="IdRol" ParameterName="IdRol" />
-                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" />
-                  <ScalarProperty Name="IdPermiso" ParameterName="IdPermiso" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_PermisosUpdate">
-                  <ScalarProperty Name="Placa" ParameterName="Placa" Version="Current" />
-                  <ScalarProperty Name="Usuario" ParameterName="Usuario" Version="Current" />
-                  <ScalarProperty Name="IdRolPerfil" ParameterName="IdRolPerfil" Version="Current" />
-                  <ScalarProperty Name="Conceder" ParameterName="Valor" Version="Current" />
-                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" Version="Current" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
-                  <ScalarProperty Name="IdRol" ParameterName="IdRol" Version="Current" />
-                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" Version="Current" />
-                  <ScalarProperty Name="IdPermiso" ParameterName="IdPermiso" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_PermisosDelete">
-                  <ScalarProperty Name="IdPermiso" ParameterName="IdPermiso" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Plantilla">
-            <EntityTypeMapping TypeName="GROMEROModel.Plantilla">
-              <MappingFragment StoreEntitySet="TARSEGPLPERM">
-                <ScalarProperty Name="Conceder" ColumnName="SVALPLA" />
-                <ScalarProperty Name="IdOpcionUI" ColumnName="IDOPCUI" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IDAPL" />
-                <ScalarProperty Name="IdRol" ColumnName="IDROL" />
-                <ScalarProperty Name="IdPlantilla" ColumnName="IDPLTN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.Plantilla">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_PlantillaInsert">
-                  <ScalarProperty Name="Conceder" ParameterName="Valor" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
-                  <ScalarProperty Name="IdRol" ParameterName="IdRol" />
-                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" />
-                  <ScalarProperty Name="IdPlantilla" ParameterName="IdPlantilla" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_PlantillaUpdate">
-                  <ScalarProperty Name="Conceder" ParameterName="Valor" Version="Current" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
-                  <ScalarProperty Name="IdRol" ParameterName="IdRol" Version="Current" />
-                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" Version="Current" />
-                  <ScalarProperty Name="IdPlantilla" ParameterName="IdPlantilla" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_PlantillaDelete">
-                  <ScalarProperty Name="IdPlantilla" ParameterName="IdPlantilla" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SelectOpcionUI" FunctionName="GROMEROModel.Store.usp_OpcionUISelect" />
-          <FunctionImportMapping FunctionImportName="SelectRecurso" FunctionName="GROMEROModel.Store.usp_RecursoSelect" />
-          <FunctionImportMapping FunctionImportName="SelectRecursoAplicacion" FunctionName="GROMEROModel.Store.usp_RecursoAplicacionSelect" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.SelectRecursoAplicacion_Result">
-                <ScalarProperty Name="IdRecursoAplicacion" ColumnName="IdRecursoAplicacion" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
-                <ScalarProperty Name="IdRecurso" ColumnName="IdRecurso" />
-                <ScalarProperty Name="Conceder" ColumnName="Conceder" />
-                <ScalarProperty Name="DescripcionRecurso" ColumnName="DescripcionRecurso" />
-                <ScalarProperty Name="RutaRecurso" ColumnName="RutaRecurso" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectRecursoDetalle" FunctionName="GROMEROModel.Store.usp_RecursoDetalleSelect" />
-          <FunctionImportMapping FunctionImportName="SelectPermiso" FunctionName="GROMEROModel.Store.usp_PermisosSelect" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.SelectPermiso_Result">
-                <ScalarProperty Name="IdPermiso" ColumnName="IdPermiso" />
-                <ScalarProperty Name="IdOpcionUI" ColumnName="IdOpcionUI" />
-                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
-                <ScalarProperty Name="IdRolPerfil" ColumnName="IdRolPerfil" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="Conceder" ColumnName="Conceder" />
-                <ScalarProperty Name="OpcionPadre" ColumnName="OpcionPadre" />
-                <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
-                <ScalarProperty Name="NombreOpcion" ColumnName="NombreOpcion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectAllPerfilUsuario" FunctionName="GROMEROModel.Store.usp_PerfilUsuarioSelectAll">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.PerfilUsuarioComplex">
-                <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="NombresCompletos" ColumnName="NombresCompletos" />
-                <ScalarProperty Name="NombreAplicacion" ColumnName="NombreAplicacion" />
-                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-                <ScalarProperty Name="Logueado" ColumnName="Logueado" />
-                <ScalarProperty Name="Caduca" ColumnName="Caduca" />
-                <ScalarProperty Name="VigenciaInicio" ColumnName="VigenciaInicio" />
-                <ScalarProperty Name="VigenciaFin" ColumnName="VigenciaFin" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectPerfilUsuarioByUser" FunctionName="GROMEROModel.Store.usp_PerfilUsuarioSelectByUser">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.PerfilUsuarioComplex">
-                <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="NombresCompletos" ColumnName="NombresCompletos" />
-                <ScalarProperty Name="NombreAplicacion" ColumnName="NombreAplicacion" />
-                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-                <ScalarProperty Name="Logueado" ColumnName="Logueado" />
-                <ScalarProperty Name="Caduca" ColumnName="Caduca" />
-                <ScalarProperty Name="VigenciaInicio" ColumnName="VigenciaInicio" />
-                <ScalarProperty Name="VigenciaFin" ColumnName="VigenciaFin" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectPerfilUsuarioByApp" FunctionName="GROMEROModel.Store.usp_PerfilUsuarioSelectByApp">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.PerfilUsuarioComplex">
-                <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="NombresCompletos" ColumnName="NombresCompletos" />
-                <ScalarProperty Name="NombreAplicacion" ColumnName="NombreAplicacion" />
-                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-                <ScalarProperty Name="Logueado" ColumnName="Logueado" />
-                <ScalarProperty Name="Caduca" ColumnName="Caduca" />
-                <ScalarProperty Name="VigenciaInicio" ColumnName="VigenciaInicio" />
-                <ScalarProperty Name="VigenciaFin" ColumnName="VigenciaFin" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectPerfilUsuario" FunctionName="GROMEROModel.Store.usp_PerfilUsuarioSelect" />
-          <EntitySetMapping Name="Recurso">
-            <EntityTypeMapping TypeName="GROMEROModel.Recurso">
-              <MappingFragment StoreEntitySet="TAMSEGREC">
-                <ScalarProperty Name="Nivel" ColumnName="NNIVREC" />
-                <ScalarProperty Name="IdRecursoPadre" ColumnName="IDRECPAR" />
-                <ScalarProperty Name="RutaRecurso" ColumnName="TRUTREC" />
-                <ScalarProperty Name="Descripcion" ColumnName="TDESCREC" />
-                <ScalarProperty Name="IdRecurso" ColumnName="IDREC" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.Recurso">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_RecursoInsert">
-                  <ScalarProperty Name="Nivel" ParameterName="Nivel" />
-                  <ScalarProperty Name="IdRecursoPadre" ParameterName="IdRecursoPadre" />
-                  <ScalarProperty Name="RutaRecurso" ParameterName="RutaRecurso" />
-                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" />
-                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RecursoUpdate">
-                  <ScalarProperty Name="Nivel" ParameterName="Nivel" Version="Current" />
-                  <ScalarProperty Name="IdRecursoPadre" ParameterName="IdRecursoPadre" Version="Current" />
-                  <ScalarProperty Name="RutaRecurso" ParameterName="RutaRecurso" Version="Current" />
-                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" Version="Current" />
-                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RecursoDelete">
-                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RecursoDetalle">
-            <EntityTypeMapping TypeName="GROMEROModel.RecursoDetalle">
-              <MappingFragment StoreEntitySet="TARSEGRECDET">
-                <ScalarProperty Name="Nivel" ColumnName="NNIVRECD" />
-                <ScalarProperty Name="IdRecursoDetallePadre" ColumnName="IDRECDETP" />
-                <ScalarProperty Name="Descripcion" ColumnName="TDESCRECT" />
-                <ScalarProperty Name="Codigo" ColumnName="TCODRECD" />
-                <ScalarProperty Name="IdRecurso" ColumnName="IDREC" />
-                <ScalarProperty Name="IdRecursoDetalle" ColumnName="IDRECDET" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.RecursoDetalle">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_RecursoDetalleInsert">
-                  <ScalarProperty Name="Nivel" ParameterName="Nivel" />
-                  <ScalarProperty Name="IdRecursoDetallePadre" ParameterName="IdRecursoDetallePadre" />
-                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" />
-                  <ScalarProperty Name="Codigo" ParameterName="Codigo" />
-                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" />
-                  <ScalarProperty Name="IdRecursoDetalle" ParameterName="IdRecursoDetalle" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RecursoDetalleUpdate">
-                  <ScalarProperty Name="Nivel" ParameterName="Nivel" Version="Current" />
-                  <ScalarProperty Name="IdRecursoDetallePadre" ParameterName="IdRecursoDetallePadre" Version="Current" />
-                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" Version="Current" />
-                  <ScalarProperty Name="Codigo" ParameterName="Codigo" Version="Current" />
-                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" Version="Current" />
-                  <ScalarProperty Name="IdRecursoDetalle" ParameterName="IdRecursoDetalle" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RecursoDetalleDelete">
-                  <ScalarProperty Name="IdRecursoDetalle" ParameterName="IdRecursoDetalle" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RecursoAplicacion">
-            <EntityTypeMapping TypeName="GROMEROModel.RecursoAplicacion">
-              <MappingFragment StoreEntitySet="TCRSEGRECAPL">
-                <ScalarProperty Name="Conceder" ColumnName="SCONRECA" />
-                <ScalarProperty Name="IdRecurso" ColumnName="IDREC" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IDAPL" />
-                <ScalarProperty Name="IdRecursoAplicacion" ColumnName="IDRECAPL" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.RecursoAplicacion">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_RecursoAplicacionInsert">
-                  <ScalarProperty Name="Conceder" ParameterName="Conceder" />
-                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
-                  <ScalarProperty Name="IdRecursoAplicacion" ParameterName="IdRecursoAplicacion" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RecursoAplicacionUpdate">
-                  <ScalarProperty Name="Conceder" ParameterName="Conceder" Version="Current" />
-                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" Version="Current" />
-                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
-                  <ScalarProperty Name="IdRecursoAplicacion" ParameterName="IdRecursoAplicacion" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RecursoAplicacionDelete">
-                  <ScalarProperty Name="IdRecursoAplicacion" ParameterName="IdRecursoAplicacion" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RecursoPerfil">
-            <EntityTypeMapping TypeName="GROMEROModel.RecursoPerfil">
-              <MappingFragment StoreEntitySet="TCRSEGRECPER">
-                <ScalarProperty Name="Conceder" ColumnName="SCONREC" />
-                <ScalarProperty Name="IdRecursoDetalle" ColumnName="IDRECDET" />
-                <ScalarProperty Name="IdPerfilUsuario" ColumnName="IDPERFUSR" />
-                <ScalarProperty Name="IdRecursoPerfil" ColumnName="IDRECPER" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.RecursoPerfil">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_RecursoPerfilInsert">
-                  <ScalarProperty Name="Conceder" ParameterName="Conceder" />
-                  <ScalarProperty Name="IdRecursoDetalle" ParameterName="IdRecursoDetalle" />
-                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" />
-                  <ScalarProperty Name="IdRecursoPerfil" ParameterName="IdRecursoPerfil" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RecursoPerfilUpdate">
-                  <ScalarProperty Name="Conceder" ParameterName="Conceder" Version="Current" />
-                  <ScalarProperty Name="IdRecursoDetalle" ParameterName="IdRecursoDetalle" Version="Current" />
-                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" Version="Current" />
-                  <ScalarProperty Name="IdRecursoPerfil" ParameterName="IdRecursoPerfil" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RecursoPerfilDelete">
-                  <ScalarProperty Name="IdRecursoPerfil" ParameterName="IdRecursoPerfil" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SelectPlantilla" FunctionName="GROMEROModel.Store.usp_PlantillaSelect" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.SelectPlantilla_Result">
-                <ScalarProperty Name="IdPlantilla" ColumnName="IdPlantilla" />
-                <ScalarProperty Name="IdOpcionUI" ColumnName="IdOpcionUI" />
-                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
-                <ScalarProperty Name="Conceder" ColumnName="Conceder" />
-                <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
-                <ScalarProperty Name="NombreOpcion" ColumnName="NombreOpcion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectOpcionUIDetallado" FunctionName="GROMEROModel.Store.usp_OpcionDetalleUISelect">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectOpcionDetalleUI" FunctionName="GROMEROModel.Store.usp_OpcionDetalleUISelect" />
-          <FunctionImportMapping FunctionImportName="SelectRecursoDetalleDetallado" FunctionName="GROMEROModel.Store.usp_RecursoDetalleSelectDetallado">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectRecursoDetallado" FunctionName="GROMEROModel.Store.usp_RecursoSelectDetallado">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectAllRecurso" FunctionName="GROMEROModel.Store.usp_RecursoSelectAll">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectRecursoByDescripcion" FunctionName="GROMEROModel.Store.usp_RecursoSelectByDescripcion" />
-          <EntitySetMapping Name="Cargo">
-            <EntityTypeMapping TypeName="GROMEROModel.Cargo">
-              <MappingFragment StoreEntitySet="TCMSEGCAR">
-                <ScalarProperty Name="Estado" ColumnName="BESTCAR" />
-                <ScalarProperty Name="Descripcion" ColumnName="TDSCCAR" />
-                <ScalarProperty Name="CodigoCargo" ColumnName="TCODCAR" />
-                <ScalarProperty Name="IdCargo" ColumnName="IDCAR" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.Cargo">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_CargoInsert">
-                  <ScalarProperty Name="Estado" ParameterName="Estado" />
-                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" />
-                  <ScalarProperty Name="CodigoCargo" ParameterName="CodigoCargo" />
-                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_CargoUpdate">
-                  <ScalarProperty Name="Estado" ParameterName="Estado" Version="Current" />
-                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" Version="Current" />
-                  <ScalarProperty Name="CodigoCargo" ParameterName="CodigoCargo" Version="Current" />
-                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_CargoDelete">
-                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CargoSociedad">
-            <EntityTypeMapping TypeName="GROMEROModel.CargoSociedad">
-              <MappingFragment StoreEntitySet="TCRSEGCASOC">
-                <ScalarProperty Name="IdCargo" ColumnName="IDCAR" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="TCODSOCP" />
-                <ScalarProperty Name="IdCargoSociedad" ColumnName="IDCARSOC" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="GROMEROModel.CargoSociedad">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_CargoSociedadInsert">
-                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" />
-                  <ScalarProperty Name="CodSociedadPropietaria" ParameterName="CodSociedadPropietaria" />
-                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_CargoSociedadUpdate">
-                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" Version="Current" />
-                  <ScalarProperty Name="CodSociedadPropietaria" ParameterName="CodSociedadPropietaria" Version="Current" />
-                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_CargoSociedadDelete">
-                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SelectCargoSociedad" FunctionName="GROMEROModel.Store.usp_CargoSociedadSelect">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectCargo" FunctionName="GROMEROModel.Store.usp_CargoSelect" />
-          <FunctionImportMapping FunctionImportName="SelectAllCargo" FunctionName="GROMEROModel.Store.usp_CargoSelectAll">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectCargoByCodigo" FunctionName="GROMEROModel.Store.usp_CargoSelectByCodigo">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectCargoByDescripcion" FunctionName="GROMEROModel.Store.usp_CargoSelectByDescripcion">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectAllCargoSociedad" FunctionName="GROMEROModel.Store.usp_CargoSociedadSelectAll">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.CargoSociedadComplex">
-                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
-                <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectPlantillaByAppRol" FunctionName="GROMEROModel.Store.usp_PlantillaSelectByAppRol" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.PlantillaComplex">
-                <ScalarProperty Name="NombreOpcion" ColumnName="NombreOpcion" />
-                <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
-                <ScalarProperty Name="Conceder" ColumnName="Conceder" />
-                <ScalarProperty Name="IdOpcion" ColumnName="IdOpcion" />
-                <ScalarProperty Name="OpcionPadre" ColumnName="OpcionPadre" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectRecursoPerfil" FunctionName="GROMEROModel.Store.usp_RecursoPerfilSelect" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.SelectRecursoPerfil_Result">
-                <ScalarProperty Name="IdRecursoPerfil" ColumnName="IdRecursoPerfil" />
-                <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
-                <ScalarProperty Name="IdRecursoDetalle" ColumnName="IdRecursoDetalle" />
-                <ScalarProperty Name="Conceder" ColumnName="Conceder" />
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectRecursoDetalleByIdRecurso" FunctionName="GROMEROModel.Store.usp_RecursoDetalleSelectByIdRecurso">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.SelectRecursoDetalle_Result">
-                <ScalarProperty Name="IdRecursoDetalle" ColumnName="IdRecursoDetalle" />
-                <ScalarProperty Name="IdRecursoDetallePadre" ColumnName="IdRecursoDetallePadre" />
-                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectRecursoForApp" FunctionName="GROMEROModel.Store.usp_RecursoSelectForApp">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectPerfilUsuarioById" FunctionName="GROMEROModel.Store.usp_PerfilUsuarioSelectById">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.PerfilUsuarioComplex">
-                <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="NombresCompletos" ColumnName="NombresCompletos" />
-                <ScalarProperty Name="NombreAplicacion" ColumnName="NombreAplicacion" />
-                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-                <ScalarProperty Name="Logueado" ColumnName="Logueado" />
-                <ScalarProperty Name="Caduca" ColumnName="Caduca" />
-                <ScalarProperty Name="VigenciaInicio" ColumnName="VigenciaInicio" />
-                <ScalarProperty Name="VigenciaFin" ColumnName="VigenciaFin" />
-                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectCargoSociedadBySociedad" FunctionName="GROMEROModel.Store.usp_CargoSociedadSelectBySociedad">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.CargoSociedadComplex">
-                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
-                <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectListarUsuariosCOMEX" FunctionName="GROMEROModel.Store.usp_ListarUsuariosCOMEX">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.UsuariosCOMEX">
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="NombresCompletos" ColumnName="NombresCompletos" />
-                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
-                <ScalarProperty Name="Alias" ColumnName="Alias" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
-                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
-                <ScalarProperty Name="NombreAplicacion" ColumnName="NombreAplicacion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_ObtenerPerfilUsuarioComex" FunctionName="GROMEROModel.Store.usp_ObtenerPerfilUsuarioComex" />
-          <FunctionImportMapping FunctionImportName="SelectObtenerPerfilUsuarioComex" FunctionName="GROMEROModel.Store.usp_ObtenerPerfilUsuarioComex" />
-          <FunctionImportMapping FunctionImportName="GetIdPerfilUsuario" FunctionName="GROMEROModel.Store.usp_GetIdPerfilUsuario" />
-          <FunctionImportMapping FunctionImportName="SelectPerfilUsuarioInfo" FunctionName="GROMEROModel.Store.usp_PerfilUsuarioInfoSelect">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GROMEROModel.SelectPerfilUsuarioInfo_Result">
-                <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
-                <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-                <ScalarProperty Name="Logueado" ColumnName="Logueado" />
-                <ScalarProperty Name="VigenciaInicio" ColumnName="VigenciaInicio" />
-                <ScalarProperty Name="VigenciaFin" ColumnName="VigenciaFin" />
-                <ScalarProperty Name="Caduca" ColumnName="Caduca" />
-                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-                <ScalarProperty Name="Placa" ColumnName="Placa" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="NombreAplicacion" ColumnName="NombreAplicacion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GROMEROModelStoreContainer" CdmEntityContainer="GROMEROEntities">
+    <EntitySetMapping Name="Claves">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.Claves)">
+        <MappingFragment StoreEntitySet="Claves">
+          <ScalarProperty Name="IdClave" ColumnName="IdClave" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Pregunta" ColumnName="Pregunta" />
+          <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+          <ScalarProperty Name="Ultimo" ColumnName="Ultimo" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolesPerfiles">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.RolesPerfiles)">
+        <MappingFragment StoreEntitySet="RolesPerfiles">
+          <ScalarProperty Name="IdRolPerfil" ColumnName="IdRolPerfil" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
+          <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aplicaciones">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.Aplicaciones)">
+        <MappingFragment StoreEntitySet="Aplicaciones">
+          <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
+          <ScalarProperty Name="NombreAplicacion" ColumnName="NombreAplicacion" />
+          <ScalarProperty Name="Acronimo" ColumnName="Acronimo" />
+          <ScalarProperty Name="Uri" ColumnName="Uri" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.Empresas)">
+        <MappingFragment StoreEntitySet="Empresas">
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="CodigoEmpresa" ColumnName="CodigoEmpresa" />
+          <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+          <ScalarProperty Name="NombreCorto" ColumnName="NombreCorto" />
+          <ScalarProperty Name="RUC" ColumnName="RUC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.Usuarios)">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdEmpresaPertenencia" ColumnName="IdEmpresaPertenencia" />
+          <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Dominio" ColumnName="Dominio" />
+          <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
+          <ScalarProperty Name="IdCargoSociedad" ColumnName="IdCargoSociedad" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="AliasAlterno" ColumnName="AliasAlterno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.Roles)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
+          <ScalarProperty Name="CodigoRol" ColumnName="CodigoRol" />
+          <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpcionUI">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.OpcionUI)">
+        <MappingFragment StoreEntitySet="OpcionUI">
+          <ScalarProperty Name="IdOpcionUI" ColumnName="IdOpcionUI" />
+          <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
+          <ScalarProperty Name="IdOpcionPadre" ColumnName="IdOpcionPadre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Clase" ColumnName="Clase" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="NroOrden" ColumnName="NroOrden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerfilUsuario">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.PerfilUsuario)">
+        <MappingFragment StoreEntitySet="PerfilUsuario">
+          <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
+          <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
+          <ScalarProperty Name="Logueado" ColumnName="Logueado" />
+          <ScalarProperty Name="Caduca" ColumnName="Caduca" />
+          <ScalarProperty Name="VigenciaInicio" ColumnName="VigenciaInicio" />
+          <ScalarProperty Name="VigenciaFin" ColumnName="VigenciaFin" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permiso">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.Permiso)">
+        <MappingFragment StoreEntitySet="Permiso">
+          <ScalarProperty Name="IdPermiso" ColumnName="IdPermiso" />
+          <ScalarProperty Name="IdOpcionUI" ColumnName="IdOpcionUI" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Conceder" ColumnName="Conceder" />
+          <ScalarProperty Name="IdRolPerfil" ColumnName="IdRolPerfil" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plantilla">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.Plantilla)">
+        <MappingFragment StoreEntitySet="Plantilla">
+          <ScalarProperty Name="IdPlantilla" ColumnName="IdPlantilla" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
+          <ScalarProperty Name="IdOpcionUI" ColumnName="IdOpcionUI" />
+          <ScalarProperty Name="Conceder" ColumnName="Conceder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recurso">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.Recurso)">
+        <MappingFragment StoreEntitySet="Recurso">
+          <ScalarProperty Name="IdRecurso" ColumnName="IdRecurso" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="RutaRecurso" ColumnName="RutaRecurso" />
+          <ScalarProperty Name="IdRecursoPadre" ColumnName="IdRecursoPadre" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecursoDetalle">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.RecursoDetalle)">
+        <MappingFragment StoreEntitySet="RecursoDetalle">
+          <ScalarProperty Name="IdRecursoDetalle" ColumnName="IdRecursoDetalle" />
+          <ScalarProperty Name="IdRecurso" ColumnName="IdRecurso" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdRecursoDetallePadre" ColumnName="IdRecursoDetallePadre" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecursoAplicacion">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.RecursoAplicacion)">
+        <MappingFragment StoreEntitySet="RecursoAplicacion">
+          <ScalarProperty Name="IdRecursoAplicacion" ColumnName="IdRecursoAplicacion" />
+          <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
+          <ScalarProperty Name="IdRecurso" ColumnName="IdRecurso" />
+          <ScalarProperty Name="Conceder" ColumnName="Conceder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecursoPerfil">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.RecursoPerfil)">
+        <MappingFragment StoreEntitySet="RecursoPerfil">
+          <ScalarProperty Name="IdRecursoPerfil" ColumnName="IdRecursoPerfil" />
+          <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
+          <ScalarProperty Name="IdRecursoDetalle" ColumnName="IdRecursoDetalle" />
+          <ScalarProperty Name="Conceder" ColumnName="Conceder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cargo">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.Cargo)">
+        <MappingFragment StoreEntitySet="Cargo">
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CargoSociedad">
+      <EntityTypeMapping TypeName="IsTypeOf(GROMEROModel.CargoSociedad)">
+        <MappingFragment StoreEntitySet="CargoSociedad">
+          <ScalarProperty Name="IdCargoSociedad" ColumnName="IdCargoSociedad" />
+          <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
