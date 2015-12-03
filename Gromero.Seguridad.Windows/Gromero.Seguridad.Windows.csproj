@@ -69,10 +69,11 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>KeyPRD.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>BC91BE1F825DB9437B65C821C078BA45CEDB7D7F</ManifestCertificateThumbprint>
@@ -84,7 +85,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Csla, Version=4.5.700.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
@@ -187,10 +188,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencias\Gromero.Utilidades.dll</HintPath>
     </Reference>
-    <Reference Include="Gromero.Utilidades.Windows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=35cc583934d49367, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencias\Gromero.Utilidades.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="GRomeroAD.DirectoryServices">
       <HintPath>..\Dependencias\GRomeroAD.DirectoryServices.dll</HintPath>
     </Reference>
@@ -211,36 +208,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aplicaciones\frmLstAplicacion.cs" />
+    <Compile Include="Aplicaciones\frmLstAplicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Aplicaciones\frmLstAplicacion.Designer.cs">
       <DependentUpon>frmLstAplicacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicaciones\frmMntAplicacion.cs" />
+    <Compile Include="Aplicaciones\frmMntAplicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Aplicaciones\frmMntAplicacion.Designer.cs">
       <DependentUpon>frmMntAplicacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicaciones\frmOpcionesUI.cs" />
+    <Compile Include="Aplicaciones\frmOpcionesUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Aplicaciones\frmOpcionesUI.Designer.cs">
       <DependentUpon>frmOpcionesUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aplicaciones\frmPromptAplicaciones.cs" />
+    <Compile Include="Aplicaciones\frmPromptAplicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Aplicaciones\frmPromptAplicaciones.Designer.cs">
       <DependentUpon>frmPromptAplicaciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cargos\frmLstCargos.cs" />
+    <Compile Include="Cargos\frmLstCargos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Cargos\frmLstCargos.Designer.cs">
       <DependentUpon>frmLstCargos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cargos\frmMntCargo.cs" />
+    <Compile Include="Cargos\frmMntCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Cargos\frmMntCargo.Designer.cs">
       <DependentUpon>frmMntCargo.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuracion.cs" />
-    <Compile Include="Empresas\frmLstEmpresas.cs" />
+    <Compile Include="Empresas\frmLstEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Empresas\frmLstEmpresas.Designer.cs">
       <DependentUpon>frmLstEmpresas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Empresas\frmMntEmpresas.cs" />
+    <Compile Include="Empresas\frmMntEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Empresas\frmMntEmpresas.Designer.cs">
       <DependentUpon>frmMntEmpresas.cs</DependentUpon>
     </Compile>
@@ -250,53 +263,77 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PerfilesUsuario\frmLstPerfilUsuario.cs" />
+    <Compile Include="PerfilesUsuario\frmLstPerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PerfilesUsuario\frmLstPerfilUsuario.Designer.cs">
       <DependentUpon>frmLstPerfilUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="PerfilesUsuario\frmMntPerfilUsuario.cs" />
+    <Compile Include="PerfilesUsuario\frmMntPerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PerfilesUsuario\frmMntPerfilUsuario.Designer.cs">
       <DependentUpon>frmMntPerfilUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="PerfilesUsuario\frmPerfilesMasivos.cs" />
+    <Compile Include="PerfilesUsuario\frmPerfilesMasivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PerfilesUsuario\frmPerfilesMasivos.Designer.cs">
       <DependentUpon>frmPerfilesMasivos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recursos\frmDetalleRecurso.cs" />
+    <Compile Include="Recursos\frmDetalleRecurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Recursos\frmDetalleRecurso.Designer.cs">
       <DependentUpon>frmDetalleRecurso.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos\frmLstRecursos.cs" />
+    <Compile Include="Recursos\frmLstRecursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Recursos\frmLstRecursos.Designer.cs">
       <DependentUpon>frmLstRecursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos\frmRecursos.cs" />
+    <Compile Include="Recursos\frmRecursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Recursos\frmRecursos.Designer.cs">
       <DependentUpon>frmRecursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos\frmRecursosAnidados.cs" />
+    <Compile Include="Recursos\frmRecursosAnidados.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Recursos\frmRecursosAnidados.Designer.cs">
       <DependentUpon>frmRecursosAnidados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\frmImportUsuarios.cs" />
+    <Compile Include="Usuarios\frmImportUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Usuarios\frmImportUsuarios.Designer.cs">
       <DependentUpon>frmImportUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\frmLstUsuarios.cs" />
+    <Compile Include="Usuarios\frmLstUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Usuarios\frmLstUsuarios.Designer.cs">
       <DependentUpon>frmLstUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\frmMntUsuarios.cs" />
+    <Compile Include="Usuarios\frmMntUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Usuarios\frmMntUsuarios.Designer.cs">
       <DependentUpon>frmMntUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\frmPromptUsuarios.cs" />
+    <Compile Include="Usuarios\frmPromptUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Usuarios\frmPromptUsuarios.Designer.cs">
       <DependentUpon>frmPromptUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\frmPromptUsuariosAD.cs" />
+    <Compile Include="Usuarios\frmPromptUsuariosAD.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Usuarios\frmPromptUsuariosAD.Designer.cs">
       <DependentUpon>frmPromptUsuariosAD.cs</DependentUpon>
     </Compile>
@@ -382,10 +419,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="KeyDEV.pfx" />
-    <None Include="KeyDEV2.pfx" />
-    <None Include="KeyPRD.pfx" />
-    <None Include="KeyQA.pfx" />
     <None Include="GrupoRomero.snk" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.Aplicacion.datasource" />
@@ -439,6 +472,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ErickOrlando.Utilidades.Windows\ErickOrlando.Utilidades.Windows.csproj">
+      <Project>{021826a5-69da-4f14-9669-943a0679ff4a}</Project>
+      <Name>ErickOrlando.Utilidades.Windows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gromero.Seguridad.Negocio\Gromero.Seguridad.Negocio.csproj">
       <Project>{B550588C-9432-4B1B-8B48-3D465E0C5038}</Project>
       <Name>Gromero.Seguridad.Negocio</Name>
@@ -453,8 +490,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClavesCertificados.txt" />
-    <Content Include="Csla-Templates Read Me.txt" />
     <Content Include="favicon.ico" />
     <Content Include="faviconGRomero.ico" />
     <None Include="Resources\LogoGR.ico" />

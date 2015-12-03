@@ -65,10 +65,11 @@
     <ApplicationIcon>Login.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>keyDEV_iluminatic2013.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>3296613E6E70A39850C2EEB539C139C1FE0159C9</ManifestCertificateThumbprint>
@@ -80,7 +81,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Csla, Version=4.5.700.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
@@ -158,10 +159,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Html\ClearCache.zip" />
-    <None Include="KeyDEV.pfx" />
-    <None Include="keyDEV_iluminatic2013.pfx" />
-    <None Include="keyPRD_iluminatic2013.pfx" />
-    <None Include="keyQA_iluminatic2013.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Gromero.Corporativo.SoloLectura.AppInfoList.datasource" />
     <None Include="Properties\Settings.settings">
