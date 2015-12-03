@@ -31,23 +31,23 @@ namespace ErickOrlando.Utilidades.Windows
         /// </summary>
         private void InitializeComponent()
         {
-            //this.components = new System.ComponentModel.Container();
-            //this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.Text = "_Plantilla";
-            ComponentResourceManager manager = new ComponentResourceManager(typeof(_Plantilla));
-            base.SuspendLayout();
-            base.AutoScaleDimensions = new SizeF(6f, 13f);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            base.ClientSize = new Size(0x198, 0x143);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            base.Icon = (Icon)manager.GetObject("$this.Icon");
-            base.MaximizeBox = false;
-            base.MinimizeBox = false;
-            base.Name = "_Plantilla";
-            base.ShowInTaskbar = false;
-            base.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_Plantilla));
+            this.SuspendLayout();
+            // 
+            // _Plantilla
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(476, 398);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "_Plantilla";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "_Plantilla";
-            base.ResumeLayout(false);
+            this.ResumeLayout(false);
 
         }
 
