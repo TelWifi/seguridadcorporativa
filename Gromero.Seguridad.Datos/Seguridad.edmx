@@ -2065,6 +2065,9 @@
                   <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
                   <ScalarProperty Name="IdClave" ParameterName="IdClave" />
                 </InsertFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_ClavesDelete">
+                  <ScalarProperty Name="IdClave" ParameterName="IdClave" />
+                </DeleteFunction>
               </ModificationFunctionMapping>
             </EntityTypeMapping>
     </EntitySetMapping>
@@ -2079,6 +2082,25 @@
           <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.RolesPerfiles">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_RolesPerfilInsert">
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacionicacion" />
+                  <ScalarProperty Name="IdRolPerfil" ParameterName="IdRolesPerfil" />
+                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" />
+                  <ScalarProperty Name="IdRol" ParameterName="IdRol" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RolesPerfilUpdate">
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacionicacion" Version="Current" />
+                  <ScalarProperty Name="IdRolPerfil" ParameterName="IdRolesPerfil" Version="Current" />
+                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" Version="Current" />
+                  <ScalarProperty Name="IdRol" ParameterName="IdRol" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RolesPerfilDelete" >
+                  <ScalarProperty Name="IdRolPerfil" ParameterName="IdRolesPerfil" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Aplicaciones">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Aplicaciones)">
@@ -2092,6 +2114,27 @@
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.Aplicaciones">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_AplicacionInsert">
+                  <ScalarProperty Name="Tipo" ParameterName="Tipo" />
+                  <ScalarProperty Name="Uri" ParameterName="Uri" />
+                  <ScalarProperty Name="Acronimo" ParameterName="Acronimo" />
+                  <ScalarProperty Name="NombreAplicacion" ParameterName="NombreAplicacion" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_AplicacionUpdate">
+                  <ScalarProperty Name="Tipo" ParameterName="Tipo" Version="Current" />
+                  <ScalarProperty Name="Uri" ParameterName="Uri" Version="Current" />
+                  <ScalarProperty Name="Acronimo" ParameterName="Acronimo" Version="Current" />
+                  <ScalarProperty Name="NombreAplicacion" ParameterName="NombreAplicacion" Version="Current" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_AplicacionDelete">
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Empresas">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Empresas)">
@@ -2105,6 +2148,27 @@
           <ScalarProperty Name="RUC" ColumnName="RUC" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.Empresas">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_EmpresaInsert">
+                  <ScalarProperty Name="RUC" ParameterName="RUC" />
+                  <ScalarProperty Name="NombreCorto" ParameterName="NombreCorto" />
+                  <ScalarProperty Name="RazonSocial" ParameterName="RazonSocial" />
+                  <ScalarProperty Name="CodigoEmpresa" ParameterName="CodigoEmpresa" />
+                  <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_EmpresaUpdate">
+                  <ScalarProperty Name="RUC" ParameterName="RUC" Version="Current" />
+                  <ScalarProperty Name="NombreCorto" ParameterName="NombreCorto" Version="Current" />
+                  <ScalarProperty Name="RazonSocial" ParameterName="RazonSocial" Version="Current" />
+                  <ScalarProperty Name="CodigoEmpresa" ParameterName="CodigoEmpresa" Version="Current" />
+                  <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_EmpresaDelete">
+                  <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Usuarios)">
@@ -2129,6 +2193,45 @@
           <ScalarProperty Name="AliasAlterno" ColumnName="AliasAlterno" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.Usuarios">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_UsuarioInsert">
+                  <ScalarProperty Name="Tipo" ParameterName="Tipo" />
+                  <ScalarProperty Name="Estado" ParameterName="Estado" />
+                  <ScalarProperty Name="DNI" ParameterName="DNI" />
+                  <ScalarProperty Name="Alias" ParameterName="Alias" />
+                  <ScalarProperty Name="Correo" ParameterName="Correo" />
+                  <ScalarProperty Name="ApellidoMaterno" ParameterName="ApellidoMaterno" />
+                  <ScalarProperty Name="ApellidoPaterno" ParameterName="ApellidoPaterno" />
+                  <ScalarProperty Name="Dominio" ParameterName="Dominio" />
+                  <ScalarProperty Name="Nombres" ParameterName="Nombres" />
+                  <ScalarProperty Name="CodigoUsuario" ParameterName="CodigoUsuario" />
+                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" />
+                  <ScalarProperty Name="IdEmpresaPertenencia" ParameterName="IdEmpresaPertenencia" />
+                  <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" />
+                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_UsuarioUpdate">
+                  <ScalarProperty Name="Tipo" ParameterName="Tipo" Version="Current" />
+                  <ScalarProperty Name="Estado" ParameterName="Estado" Version="Current" />
+                  <ScalarProperty Name="Alias" ParameterName="Alias" Version="Current" />
+                  <ScalarProperty Name="DNI" ParameterName="DNI" Version="Current" />
+                  <ScalarProperty Name="Correo" ParameterName="Correo" Version="Current" />
+                  <ScalarProperty Name="ApellidoMaterno" ParameterName="ApellidoMaterno" Version="Current" />
+                  <ScalarProperty Name="ApellidoPaterno" ParameterName="ApellidoPaterno" Version="Current" />
+                  <ScalarProperty Name="Nombres" ParameterName="Nombres" Version="Current" />
+                  <ScalarProperty Name="Dominio" ParameterName="Dominio" Version="Current" />
+                  <ScalarProperty Name="CodigoUsuario" ParameterName="CodigoUsuario" Version="Current" />
+                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" Version="Current" />
+                  <ScalarProperty Name="IdEmpresaPertenencia" ParameterName="IdEmpresaPertenencia" Version="Current" />
+                  <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" Version="Current" />
+                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_UsuarioDelete">
+                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Roles">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Roles)">
@@ -2141,6 +2244,25 @@
           <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.Roles">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_RolInsert">
+                  <ScalarProperty Name="NombreRol" ParameterName="Nombre" />
+                  <ScalarProperty Name="CodigoRol" ParameterName="Codigo" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacionicacion" />
+                  <ScalarProperty Name="IdRol" ParameterName="IdRol" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RolUpdate">
+                  <ScalarProperty Name="NombreRol" ParameterName="Nombre" Version="Current" />
+                  <ScalarProperty Name="CodigoRol" ParameterName="Codigo" Version="Current" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacionicacion" Version="Current" />
+                  <ScalarProperty Name="IdRol" ParameterName="IdRol" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RolDelete">
+                  <ScalarProperty Name="IdRol" ParameterName="IdRol" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OpcionUI">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.OpcionUI)">
@@ -2160,6 +2282,39 @@
           <ScalarProperty Name="NroOrden" ColumnName="NroOrden" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.OpcionUI">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_OpcionUIInsert">
+                  <ScalarProperty Name="Estado" ParameterName="Estado" />
+                  <ScalarProperty Name="NroOrden" ParameterName="NroOrden" />
+                  <ScalarProperty Name="Url" ParameterName="Url" />
+                  <ScalarProperty Name="Clase" ParameterName="Clase" />
+                  <ScalarProperty Name="Tipo" ParameterName="Tipo" />
+                  <ScalarProperty Name="Nivel" ParameterName="Nivel" />
+                  <ScalarProperty Name="Nombre" ParameterName="Nombre" />
+                  <ScalarProperty Name="Codigo" ParameterName="Codigo" />
+                  <ScalarProperty Name="IdOpcionPadre" ParameterName="IdOpcionPadre" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
+                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_OpcionUIUpdate">
+                  <ScalarProperty Name="Estado" ParameterName="Estado" Version="Current" />
+                  <ScalarProperty Name="NroOrden" ParameterName="NroOrden" Version="Current" />
+                  <ScalarProperty Name="Url" ParameterName="Url" Version="Current" />
+                  <ScalarProperty Name="Clase" ParameterName="Clase" Version="Current" />
+                  <ScalarProperty Name="Tipo" ParameterName="Tipo" Version="Current" />
+                  <ScalarProperty Name="Nivel" ParameterName="Nivel" Version="Current" />
+                  <ScalarProperty Name="Nombre" ParameterName="Nombre" Version="Current" />
+                  <ScalarProperty Name="Codigo" ParameterName="Codigo" Version="Current" />
+                  <ScalarProperty Name="IdOpcionPadre" ParameterName="IdOpcionPadre" Version="Current" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
+                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_OpcionUIDelete">
+                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PerfilUsuario">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.PerfilUsuario)">
@@ -2178,6 +2333,37 @@
           <ScalarProperty Name="Placa" ColumnName="Placa" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.PerfilUsuario">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_PerfilUsuarioInsert">
+                  <ScalarProperty Name="Placa" ParameterName="Placa" />
+                  <ScalarProperty Name="Usuario" ParameterName="Usuario" />
+                  <ScalarProperty Name="Caduca" ParameterName="Caduca" />
+                  <ScalarProperty Name="Logueado" ParameterName="Logueado" />
+                  <ScalarProperty Name="VigenciaFin" ParameterName="VigenciaFin" />
+                  <ScalarProperty Name="VigenciaInicio" ParameterName="VigenciaInicio" />
+                  <ScalarProperty Name="UltimoIngreso" ParameterName="UltimoIngreso" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
+                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
+                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_PerfilUsuarioUpdate">
+                  <ScalarProperty Name="Placa" ParameterName="Placa" Version="Current" />
+                  <ScalarProperty Name="Usuario" ParameterName="Usuario" Version="Current" />
+                  <ScalarProperty Name="Caduca" ParameterName="Caduca" Version="Current" />
+                  <ScalarProperty Name="Logueado" ParameterName="Logueado" Version="Current" />
+                  <ScalarProperty Name="VigenciaFin" ParameterName="VigenciaFin" Version="Current" />
+                  <ScalarProperty Name="VigenciaInicio" ParameterName="VigenciaInicio" Version="Current" />
+                  <ScalarProperty Name="UltimoIngreso" ParameterName="UltimoIngreso" Version="Current" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
+                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" Version="Current" />
+                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_PerfilUsuarioDelete">
+                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Permiso">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Permiso)">
@@ -2195,6 +2381,35 @@
           <ScalarProperty Name="Usuario" ColumnName="Usuario" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.Permiso">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_PermisosInsert">
+                  <ScalarProperty Name="Conceder" ParameterName="Valor" />
+                  <ScalarProperty Name="Placa" ParameterName="Placa" />
+                  <ScalarProperty Name="Usuario" ParameterName="Usuario" />
+                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
+                  <ScalarProperty Name="IdRolPerfil" ParameterName="IdRolPerfil" />
+                  <ScalarProperty Name="IdRol" ParameterName="IdRol" />
+                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" />
+                  <ScalarProperty Name="IdPermiso" ParameterName="IdPermiso" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_PermisosUpdate">
+                  <ScalarProperty Name="Conceder" ParameterName="Valor" Version="Current" />
+                  <ScalarProperty Name="Placa" ParameterName="Placa" Version="Current" />
+                  <ScalarProperty Name="Usuario" ParameterName="Usuario" Version="Current" />
+                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" Version="Current" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
+                  <ScalarProperty Name="IdRolPerfil" ParameterName="IdRolPerfil" Version="Current" />
+                  <ScalarProperty Name="IdRol" ParameterName="IdRol" Version="Current" />
+                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" Version="Current" />
+                  <ScalarProperty Name="IdPermiso" ParameterName="IdPermiso" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_PermisosDelete">
+                  <ScalarProperty Name="IdPermiso" ParameterName="IdPermiso" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Plantilla">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Plantilla)">
@@ -2208,6 +2423,27 @@
           <ScalarProperty Name="Conceder" ColumnName="Conceder" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.Plantilla">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_PlantillaInsert">
+                  <ScalarProperty Name="Conceder" ParameterName="Valor" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" />
+                  <ScalarProperty Name="IdRol" ParameterName="IdRol" />
+                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" />
+                  <ScalarProperty Name="IdPlantilla" ParameterName="IdPlantilla" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_PlantillaUpdate">
+                  <ScalarProperty Name="Conceder" ParameterName="Valor" Version="Current" />
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacion" Version="Current" />
+                  <ScalarProperty Name="IdRol" ParameterName="IdRol" Version="Current" />
+                  <ScalarProperty Name="IdOpcionUI" ParameterName="IdOpcionUI" Version="Current" />
+                  <ScalarProperty Name="IdPlantilla" ParameterName="IdPlantilla" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_PlantillaDelete">
+                  <ScalarProperty Name="IdPlantilla" ParameterName="IdPlantilla" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Recurso">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Recurso)">
@@ -2221,6 +2457,27 @@
           <ScalarProperty Name="Nivel" ColumnName="Nivel" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.Recurso">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_RecursoInsert">
+                  <ScalarProperty Name="Nivel" ParameterName="Nivel" />
+                  <ScalarProperty Name="IdRecursoPadre" ParameterName="IdRecursoPadre" />
+                  <ScalarProperty Name="RutaRecurso" ParameterName="RutaRecurso" />
+                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" />
+                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RecursoUpdate">
+                  <ScalarProperty Name="Nivel" ParameterName="Nivel" Version="Current" />
+                  <ScalarProperty Name="IdRecursoPadre" ParameterName="IdRecursoPadre" Version="Current" />
+                  <ScalarProperty Name="RutaRecurso" ParameterName="RutaRecurso" Version="Current" />
+                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" Version="Current" />
+                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RecursoDelete">
+                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RecursoDetalle">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.RecursoDetalle)">
@@ -2235,6 +2492,29 @@
           <ScalarProperty Name="Nivel" ColumnName="Nivel" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.RecursoDetalle">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_RecursoDetalleInsert">
+                  <ScalarProperty Name="Nivel" ParameterName="Nivel" />
+                  <ScalarProperty Name="IdRecursoDetallePadre" ParameterName="IdRecursoDetallePadre" />
+                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" />
+                  <ScalarProperty Name="Codigo" ParameterName="Codigo" />
+                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" />
+                  <ScalarProperty Name="IdRecursoDetalle" ParameterName="IdRecursoDetalle" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RecursoDetalleUpdate">
+                  <ScalarProperty Name="Nivel" ParameterName="Nivel" Version="Current" />
+                  <ScalarProperty Name="IdRecursoDetallePadre" ParameterName="IdRecursoDetallePadre" Version="Current" />
+                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" Version="Current" />
+                  <ScalarProperty Name="Codigo" ParameterName="Codigo" Version="Current" />
+                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" Version="Current" />
+                  <ScalarProperty Name="IdRecursoDetalle" ParameterName="IdRecursoDetalle" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RecursoDetalleDelete">
+                  <ScalarProperty Name="IdRecursoDetalle" ParameterName="IdRecursoDetalle" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RecursoAplicacion">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.RecursoAplicacion)">
@@ -2247,6 +2527,25 @@
           <ScalarProperty Name="Conceder" ColumnName="Conceder" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.RecursoAplicacion">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_RecursoAplicacionInsert">
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacionicacion" />
+                  <ScalarProperty Name="Conceder" ParameterName="Conceder" />
+                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" />
+                  <ScalarProperty Name="IdRecursoAplicacion" ParameterName="IdRecursoAplicacion" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RecursoAplicacionUpdate">
+                  <ScalarProperty Name="IdAplicacion" ParameterName="IdAplicacionicacion" Version="Current" />
+                  <ScalarProperty Name="Conceder" ParameterName="Conceder" Version="Current" />
+                  <ScalarProperty Name="IdRecurso" ParameterName="IdRecurso" Version="Current" />
+                  <ScalarProperty Name="IdRecursoAplicacion" ParameterName="IdRecursoAplicacion" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RecursoAplicacionDelete">
+                  <ScalarProperty Name="IdRecursoAplicacion" ParameterName="IdRecursoAplicacion" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RecursoPerfil">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.RecursoPerfil)">
@@ -2259,6 +2558,25 @@
           <ScalarProperty Name="Conceder" ColumnName="Conceder" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.RecursoPerfil">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_RecursoPerfilInsert">
+                  <ScalarProperty Name="Conceder" ParameterName="Conceder" />
+                  <ScalarProperty Name="IdRecursoDetalle" ParameterName="IdRecursoDetalle" />
+                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" />
+                  <ScalarProperty Name="IdRecursoPerfil" ParameterName="IdRecursoPerfil" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_RecursoPerfilUpdate">
+                  <ScalarProperty Name="Conceder" ParameterName="Conceder" Version="Current" />
+                  <ScalarProperty Name="IdRecursoDetalle" ParameterName="IdRecursoDetalle" Version="Current" />
+                  <ScalarProperty Name="IdPerfilUsuario" ParameterName="IdPerfilUsuario" Version="Current" />
+                  <ScalarProperty Name="IdRecursoPerfil" ParameterName="IdRecursoPerfil" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_RecursoPerfilDelete">
+                  <ScalarProperty Name="IdRecursoPerfil" ParameterName="IdRecursoPerfil" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Cargo">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Cargo)">
@@ -2271,6 +2589,25 @@
           <ScalarProperty Name="Estado" ColumnName="Estado" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.Cargo">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_CargoInsert">
+                  <ScalarProperty Name="Estado" ParameterName="Estado" />
+                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" />
+                  <ScalarProperty Name="CodigoCargo" ParameterName="CodigoCargo" />
+                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_CargoUpdate">
+                  <ScalarProperty Name="Estado" ParameterName="Estado" Version="Current" />
+                  <ScalarProperty Name="Descripcion" ParameterName="Descripcion" Version="Current" />
+                  <ScalarProperty Name="CodigoCargo" ParameterName="CodigoCargo" Version="Current" />
+                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_CargoDelete">
+                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CargoSociedad">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.CargoSociedad)">
@@ -2282,6 +2619,23 @@
           <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
         </MappingFragment>
       </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.CargoSociedad">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_CargoSociedadInsert">
+                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" />
+                  <ScalarProperty Name="CodSociedadPropietaria" ParameterName="CodSociedadPropietaria" />
+                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_CargoSociedadUpdate">
+                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" Version="Current" />
+                  <ScalarProperty Name="CodSociedadPropietaria" ParameterName="CodSociedadPropietaria" Version="Current" />
+                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_CargoSociedadDelete">
+                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
     </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SelectAllAplicacion" FunctionName="GROMEROModel.Store.usp_AplicacionSelectAll" />
           <FunctionImportMapping FunctionImportName="SelectAllCargo" FunctionName="GROMEROModel.Store.usp_CargoSelectAll" />
@@ -2891,8 +3245,8 @@
           <ConnectorPoint PointX="12.34375" PointY="8.326201259765627" />
           <ConnectorPoint PointX="12.34375" PointY="2.797587890625" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="SeguridadModel.Cargo" Width="1.5" PointX="0.5" PointY="3.5" />
-        <EntityTypeShape EntityType="SeguridadModel.CargoSociedad" Width="1.5" PointX="0.5" PointY="6.125" />
+        <EntityTypeShape EntityType="SeguridadModel.Cargo" Width="1.5" PointX="0.5" PointY="3.75" />
+        <EntityTypeShape EntityType="SeguridadModel.CargoSociedad" Width="1.5" PointX="0.5" PointY="6.5" />
         <AssociationConnector Association="SeguridadModel.FK__TCRSEGCAS__IDCAR__308E3499" />
         <AssociationConnector Association="SeguridadModel.FK_TCMSEGUSER_TCRSEGCASOC" />
         <AssociationConnector Association="SeguridadModel.FK_TARSEGPERM_TARSEGROLESPER" />
