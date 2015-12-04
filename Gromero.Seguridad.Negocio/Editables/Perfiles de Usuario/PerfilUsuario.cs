@@ -249,7 +249,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 
 		private void DataPortal_Fetch(string criteria)
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				var entidad = ctx.DbContext.SelectPerfilUsuarioInfo(criteria).FirstOrDefault();
 				if (entidad == null)
@@ -278,7 +278,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		{
 			try
 			{
-				using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+				using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 				{
 					var entidad = new Datos.PerfilUsuario();
 					DoInsertUpdate(entidad);
@@ -297,7 +297,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		{
 			try
 			{
-				using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+				using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 				{
 					if (IsSelfDirty)
 					{
@@ -342,7 +342,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		[Transactional(TransactionalTypes.TransactionScope)]
 		private void DataPortal_Delete(string criteria)
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				var entidad = ctx.DbContext.SelectPerfilUsuario(criteria).FirstOrDefault();
 				ctx.DbContext.PerfilUsuario.Remove(entidad);

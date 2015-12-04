@@ -112,7 +112,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 
 		private void Child_Insert(Aplicacion parent)
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				var detalle = new Datos.RecursoAplicacion();
 				IdAplicacion = parent.ID;
@@ -137,7 +137,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 
 		private void Child_Update(Aplicacion parent)
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				if (IsSelfDirty)
 				{
@@ -151,7 +151,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 
 		private void Child_DeleteSelf()
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				if (!IsNew)
 				{

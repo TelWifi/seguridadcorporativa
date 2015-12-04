@@ -87,16 +87,6 @@
     <Compile Include="Empresas.cs">
       <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
-    <Compile Include="Gromero.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Gromero.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Gromero.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Gromero.tt</DependentUpon>
-    </Compile>
     <Compile Include="Seguridad.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,16 +199,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Gromero.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Gromero.Context.cs</LastGenOutput>
-      <DependentUpon>Seguridad.edmx</DependentUpon>
-    </Content>
-    <Content Include="Gromero.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Gromero.cs</LastGenOutput>
-      <DependentUpon>Seguridad.edmx</DependentUpon>
-    </Content>
     <Content Include="Seguridad.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Seguridad.Context.cs</LastGenOutput>

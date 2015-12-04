@@ -42,7 +42,7 @@ namespace Gromero.Seguridad.Negocio.SoloLectura
 			RaiseListChangedEvents = false;
 			IsReadOnly = false;
 
-			using (var ctx = DbContextManager<GROMEROEntities>
+			using (var ctx = DbContextManager<SeguridadEntities>
 				.GetManager(BaseDatos.ConexionBD))
 			{
 				IEnumerable<Recurso> query;

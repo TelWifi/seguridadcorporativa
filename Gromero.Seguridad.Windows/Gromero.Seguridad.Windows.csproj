@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Gromero.Seguridad.Windows</RootNamespace>
-    <AssemblyName>GromeroUMS</AssemblyName>
+    <AssemblyName>AppSeguridad</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -283,6 +283,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Recursos\frmDetalleRecurso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -377,16 +382,12 @@
     <EmbeddedResource Include="PerfilesUsuario\frmPerfilesMasivos.resx">
       <DependentUpon>frmPerfilesMasivos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Recursos\frmDetalleRecurso.resx">
       <DependentUpon>frmDetalleRecurso.cs</DependentUpon>
     </EmbeddedResource>
@@ -419,7 +420,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="GrupoRomero.snk" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.Aplicacion.datasource" />
     <None Include="Properties\DataSources\Gromero.Seguridad.Negocio.Editables.Cargo.datasource" />
@@ -490,11 +490,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="favicon.ico" />
-    <Content Include="faviconGRomero.ico" />
-    <None Include="Resources\LogoGR.ico" />
-    <None Include="Resources\favicon.ico" />
-    <None Include="Resources\android-icon-48x48.png" />
     <None Include="Resources\refresh-icon1.png" />
     <None Include="Resources\uncheckicon.png" />
     <None Include="Resources\izquierda.png" />
@@ -509,7 +504,9 @@
     <None Include="Resources\Delete-icon.png" />
     <None Include="Resources\Add-icon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

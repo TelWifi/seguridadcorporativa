@@ -161,7 +161,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 
 		internal void Child_Insert(PerfilUsuario parent)
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				var detalle = new RolesPerfiles();
 				IdPerfilUsuario = parent.ID;
@@ -184,7 +184,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 
 		internal void Child_Update()
 		{
-			var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD);
+			var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD);
 			//{
 			if (IsSelfDirty)
 			{
@@ -202,7 +202,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 
 		internal void Child_DeleteSelf()
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				if (!IsNew)
 				{

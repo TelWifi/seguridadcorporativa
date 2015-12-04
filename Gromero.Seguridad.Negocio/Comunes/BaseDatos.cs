@@ -12,7 +12,7 @@ namespace Gromero.Seguridad.Negocio
 		{
 			get
 			{
-				return "GROMEROEntities";
+				return "SeguridadEntities";
 			}
 		}
 

@@ -108,7 +108,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
             string nombres = "";
 
             // VALIDAR SI EL USUARIO EXISTE
-            using (var contexto = new GROMEROEntities())
+            using (var contexto = new SeguridadEntities())
             {
                 var query = (from c in contexto.Usuarios
                              where c.CodigoUsuario == request.CodigoUsuario
@@ -266,7 +266,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
             var response = new ResponseInfoBasicaUsuarioDTO();
             var listaUsuarios = new List<ResponseListaUsuarios>();
 
-            using (var contexto = new GROMEROEntities())
+            using (var contexto = new SeguridadEntities())
             {
                 var query = contexto.Usuarios
                     .Where(u => request.CodigosUsuario.Contains(u.CodigoUsuario))
@@ -306,7 +306,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
             var response = new ResponseInfoBasicaUsuarioDTO();
             var listaUsuarios = new List<ResponseListaUsuarios>();
 
-            using (var contexto = new GROMEROEntities())
+            using (var contexto = new SeguridadEntities())
             {
                 var query = contexto.Usuarios
                     .Where(u => request.CodigosUsuario.Contains(u.IdUsuario))
@@ -344,7 +344,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
         public static string GetNombreUsuarioByCodigoUsuario(string request)
         {
             var resultado = string.Empty;
-            using (var contexto = new GROMEROEntities())
+            using (var contexto = new SeguridadEntities())
             {
                 var query = (from c in contexto.Usuarios
                              where c.Correo == request
@@ -365,7 +365,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
         public static string GetNombreUsuario(string request)
         {
             var resultado = string.Empty;
-            using (var contexto = new GROMEROEntities())
+            using (var contexto = new SeguridadEntities())
             {
 
                 var query = contexto.SelectUsuario(request);
@@ -388,7 +388,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
             if (String.IsNullOrEmpty(request.IdPerfilUsuario))
                 return result;
 
-            using (var contexto = new GROMEROEntities())
+            using (var contexto = new SeguridadEntities())
             {
                 var perfilNegocio = PerfilUsuarioInfoList.GetPerfilUsuarioInfoList(
                     new FiltroCriteria
@@ -809,12 +809,10 @@ namespace GR.COMEX.Seguridad.ServicioBL
         public static IEnumerable<ResponseListaUsuarios> ListarUsuarios(RequestListarUsuario request)
         {
 
-            using (var contexto = new GROMEROEntities())
+            using (var contexto = new SeguridadEntities())
             {
                 var resultado = new List<ResponseListaUsuarios>();
-                var query = contexto.SelectListarUsuariosCOMEX(request.CodigoUsuario,
-                    request.Nombres, request.DNI, request.Dominio,
-                    request.Sociedad, request.Acronimo, request.TipoUsuario);
+                var query = contexto.SelectAllUsuarios();
 
                 foreach (var item in query)
                 {
@@ -823,9 +821,9 @@ namespace GR.COMEX.Seguridad.ServicioBL
                         IdUsuario = item.IdUsuario,
                         CodigoUsuario = item.CodigoUsuario,
                         DNI = item.DNI,
-                        NombresCompletos = item.NombresCompletos,
+                        NombresCompletos = string.Format("{0} {1} {2}", item.Nombres, item.ApellidoPaterno, item.ApellidoMaterno),
                         Correo = item.Correo,
-                        CodigoCargo = item.CodigoCargo,
+                        CodigoCargo = item.Cargo,
                         Cargo = item.Cargo
                     });
                 }
@@ -837,7 +835,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
         //public static IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
         //{
         //    var resultado = new List<ResponseUsuarioCargo>();
-        //    using (var ctx = new GROMEROEntities())
+        //    using (var ctx = new SeguridadEntities())
         //    {
         //        var query = ctx.SelectAllUsuarios();
         //        foreach (var item in query)
@@ -861,82 +859,82 @@ namespace GR.COMEX.Seguridad.ServicioBL
         //    return resultado;
         //}
 
-        public static IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
-        {
+        //public static IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
+        //{
 
-            var resultado = new List<ResponseUsuarioCargo>();
-            using (var ctx = new GROMEROEntities())
-            {
-                var query = ctx.SelectListarUsuariosCOMEX(request.CodigoUsuario, request.Nombre, request.DNI, request.Dominio,
-                    request.Sociedad, request.Acronimo, request.TipoUsuario);
-
-
-                foreach (var item in query.ToList())
-                {
-                    bool tieneSede = false;
-
-                    if (!string.IsNullOrEmpty(request.Sede))
-                    {
-                        string perfilUsuarioId = ctx.SelectObtenerPerfilUsuarioComex(item.CodigoUsuario, item.Dominio, request.Acronimo).FirstOrDefault();
-
-                        RequestInfoUsuario requestInfoUsuario = new RequestInfoUsuario();
-                        requestInfoUsuario.IdPerfilUsuario = perfilUsuarioId;
-
-                        List<ResponseSedeSAP> sedes = ListarSedes(requestInfoUsuario).ToList();
-
-                        foreach (ResponseSedeSAP sede in sedes)
-                        {
-                            if (sede.Codigo.ToString().Trim() == request.Sede.ToString().Trim())
-                            {
-                                tieneSede = true;
-                                break;
-                            }
-                        }
-
-                        if (tieneSede)
-                        {
-                            foreach (var codCargo in request.CodigosCargo)
-                            {
-                                if (item.CodigoCargo == codCargo)
-                                    resultado.Add(new ResponseUsuarioCargo
-                                    {
-                                        CodigoUsuario = item.CodigoUsuario,
-                                        IdUsuario = item.IdUsuario,
-                                        NombresCompletos = item.NombresCompletos.Split('(')[0].Trim(),
-                                        CorreoUsuario = item.Correo,
-                                        DNI = item.DNI
-                                    });
-                            }
-                        }
-
-                    }
-                    else
-                    {
-                        if (!string.IsNullOrEmpty(request.CodigosCargo.ToString()))
-                        {
-                            foreach (var codCargo in request.CodigosCargo)
-                            {
-                                if (item.CodigoCargo == codCargo)
-                                    resultado.Add(new ResponseUsuarioCargo
-                                    {
-                                        CodigoUsuario = item.CodigoUsuario,
-                                        IdUsuario = item.IdUsuario,
-                                        NombresCompletos = item.NombresCompletos.Split('(')[0].Trim(),
-                                        CorreoUsuario = item.Correo,
-                                        DNI = item.DNI
-
-                                    });
-                            }
-                        }
-                    }
+        //    var resultado = new List<ResponseUsuarioCargo>();
+        //    using (var ctx = new SeguridadEntities())
+        //    {
+        //        var query = ctx.SelectListarUsuariosCOMEX(request.CodigoUsuario, request.Nombre, request.DNI, request.Dominio,
+        //            request.Sociedad, request.Acronimo, request.TipoUsuario);
 
 
+        //        foreach (var item in query.ToList())
+        //        {
+        //            bool tieneSede = false;
 
-                }
+        //            if (!string.IsNullOrEmpty(request.Sede))
+        //            {
+        //                string perfilUsuarioId = ctx.SelectObtenerPerfilUsuarioComex(item.CodigoUsuario, item.Dominio, request.Acronimo).FirstOrDefault();
 
-            }
-            return resultado;
-        }
+        //                RequestInfoUsuario requestInfoUsuario = new RequestInfoUsuario();
+        //                requestInfoUsuario.IdPerfilUsuario = perfilUsuarioId;
+
+        //                List<ResponseSedeSAP> sedes = ListarSedes(requestInfoUsuario).ToList();
+
+        //                foreach (ResponseSedeSAP sede in sedes)
+        //                {
+        //                    if (sede.Codigo.ToString().Trim() == request.Sede.ToString().Trim())
+        //                    {
+        //                        tieneSede = true;
+        //                        break;
+        //                    }
+        //                }
+
+        //                if (tieneSede)
+        //                {
+        //                    foreach (var codCargo in request.CodigosCargo)
+        //                    {
+        //                        if (item.CodigoCargo == codCargo)
+        //                            resultado.Add(new ResponseUsuarioCargo
+        //                            {
+        //                                CodigoUsuario = item.CodigoUsuario,
+        //                                IdUsuario = item.IdUsuario,
+        //                                NombresCompletos = item.NombresCompletos.Split('(')[0].Trim(),
+        //                                CorreoUsuario = item.Correo,
+        //                                DNI = item.DNI
+        //                            });
+        //                    }
+        //                }
+
+        //            }
+        //            else
+        //            {
+        //                if (!string.IsNullOrEmpty(request.CodigosCargo.ToString()))
+        //                {
+        //                    foreach (var codCargo in request.CodigosCargo)
+        //                    {
+        //                        if (item.CodigoCargo == codCargo)
+        //                            resultado.Add(new ResponseUsuarioCargo
+        //                            {
+        //                                CodigoUsuario = item.CodigoUsuario,
+        //                                IdUsuario = item.IdUsuario,
+        //                                NombresCompletos = item.NombresCompletos.Split('(')[0].Trim(),
+        //                                CorreoUsuario = item.Correo,
+        //                                DNI = item.DNI
+
+        //                            });
+        //                    }
+        //                }
+        //            }
+
+
+
+        //        }
+
+        //    }
+        //    return resultado;
+        //}
 
         #endregion
 
@@ -945,7 +943,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
         public static IEnumerable<ResponseCargo> ListarCargoPorSociedad(RequestListaCargo request)
         {
             var response = new List<ResponseCargo>();
-            using (var contexto = new GROMEROEntities())
+            using (var contexto = new SeguridadEntities())
             {
                 var query = contexto.SelectCargoSociedadBySociedad(request.CodSociedadPropietaria);
                 foreach (var item in query)

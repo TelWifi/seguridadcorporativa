@@ -31,7 +31,6 @@ namespace Gromero.Seguridad.Windows
 		public MainForm()
 		{
 			InitializeComponent();
-			this.Icon = Properties.Resources.LogoGR;
 			this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
 			InitSkinGallery();
 			Visible = false;

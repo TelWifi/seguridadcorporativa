@@ -60,10 +60,10 @@ namespace GR.COMEX.Seguridad.ServicioWCF
             return SeguridadBL.ListarUsuarios(request);
         }
 
-        public IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
-        {
-            return SeguridadBL.ListarUsuariosPorCargo(request);
-        }
+        //public IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
+        //{
+        //    return SeguridadBL.ListarUsuariosPorCargo(request);
+        //}
 
         public string GetNombreUsuarioByCodigoUsuario(string request)
         {
@@ -104,12 +104,6 @@ namespace GR.COMEX.Seguridad.ServicioWCF
         {
             return SeguridadBL.GetInfoBasicaUsuariosByCodigo(request);
         }
-
-        //public IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargoComex(RequestDTOUsuarioPorCargo request)
-        //{
-        //    return SeguridadBL.ListarUsuariosPorCargoComex(request);
-        //}
-
 
         public ResponseUsuarioInsert InsertUsuario(RequestDTOUsuarioInsert request)
         {

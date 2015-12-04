@@ -13,7 +13,7 @@ using System.Windows.Forms;
 namespace Gromero.Seguridad.WinForms
 {
 	/// <summary>
-	/// Formulario de Login para COMEX Suite © 2012
+	/// Formulario de Login © 2012
 	/// </summary>
 	/// <remarks>Erick Orlando © 2012</remarks>
 	public partial class LoginForm : DevExpress.XtraEditors.XtraForm
@@ -238,13 +238,13 @@ namespace Gromero.Seguridad.WinForms
 		{
 			using (var proxy = new ProxySeguridad())
 			{
-                var cryptocon = new SimpleInteroperableEncryption();
+				var cryptocon = new SimpleInteroperableEncryption();
 
 				var respuesta = proxy.Login(new RequestLogin
 				{
 					AcronimoAplicacion = ConfigurationManager.AppSettings["AcronimoAplicacion"],
 					CodigoUsuario = txtUser.Text,
-                    Clave = cryptocon.Encrypt(txtPass.Text),
+					Clave = cryptocon.Encrypt(txtPass.Text),
 					Dominio = cboDominio.Text
 				});
 

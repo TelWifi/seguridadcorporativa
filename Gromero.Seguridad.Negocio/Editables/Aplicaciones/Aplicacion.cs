@@ -201,7 +201,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 
 		private void DataPortal_Fetch(string criteria)
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				var app = ctx.DbContext.SelectAplicacion(criteria).FirstOrDefault();
 				if (app != null)
@@ -220,7 +220,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 
 		protected override void DataPortal_Insert()
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				var app = new Datos.Aplicaciones();
 				ApplicationContext.LocalContext["IDPadre"] = ID;
@@ -235,7 +235,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		{
 			try
 			{
-				using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+				using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 				{
 					if (IsSelfDirty)
 					{
@@ -275,7 +275,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		[Transactional(TransactionalTypes.TransactionScope)]
 		private void DataPortal_Delete(string criteria)
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				var app = ctx.DbContext.SelectAplicacion(criteria).FirstOrDefault();
 				ctx.DbContext.Aplicaciones.Remove(app);

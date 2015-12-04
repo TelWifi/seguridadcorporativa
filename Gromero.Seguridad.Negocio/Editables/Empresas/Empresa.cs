@@ -151,7 +151,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		private void DataPortal_Fetch(string criteria)
 		{
 			// TODO: load values
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				var q = ctx.DbContext.SelectEmpresa(criteria).FirstOrDefault();
 				if (q != null)
@@ -170,7 +170,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		[Transactional(TransactionalTypes.TransactionScope)]
 		protected override void DataPortal_Insert()
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				var empresa = new Empresas();
 				DoInsertUpdate(empresa);
@@ -182,7 +182,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		[Transactional(TransactionalTypes.TransactionScope)]
 		protected override void DataPortal_Update()
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				var empresa = ctx.DbContext.SelectEmpresa(Id).FirstOrDefault();
 				DoInsertUpdate(empresa);
@@ -208,7 +208,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		[Transactional(TransactionalTypes.TransactionScope)]
 		private void DataPortal_Delete(string criteria)
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				var entidad = ctx.DbContext.Empresas.Single(r => r.IdEmpresa.Equals(criteria));
 				ctx.DbContext.Empresas.Remove(entidad);

@@ -36,7 +36,7 @@ namespace Gromero.Seguridad.Negocio.SoloLectura
 			RaiseListChangedEvents = false;
 			IsReadOnly = false;
 
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				IEnumerable<UsuarioComplex> lista;
 				switch (criteria.NombreCampo)

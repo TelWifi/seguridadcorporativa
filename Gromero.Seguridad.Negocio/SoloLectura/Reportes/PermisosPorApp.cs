@@ -14,7 +14,7 @@ namespace Gromero.Seguridad.Negocio.SoloLectura.Reportes
 
 		private void CargarDatos()
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				//PermisoBindingSource.DataSource = ctx.DbContext.GetReportePermisosByApp();
 			}

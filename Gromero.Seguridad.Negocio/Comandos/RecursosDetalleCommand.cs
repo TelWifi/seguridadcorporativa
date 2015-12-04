@@ -74,7 +74,7 @@ namespace Gromero.Seguridad.Negocio.Comandos
 
 		protected override void DataPortal_Execute()
 		{
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 				Result = ctx.DbContext.SelectRecursoDetalleByIdRecurso(IdRecurso).ToList();
 		}
 

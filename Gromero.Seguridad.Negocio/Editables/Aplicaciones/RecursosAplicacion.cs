@@ -61,7 +61,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		private void Child_Fetch(string childData)
 		{
 			RaiseListChangedEvents = false;
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				foreach (var child in ctx.DbContext.SelectRecursoAplicacion(childData))
 					this.Add(RecursoAplicacion.GetRecursoAplicacion(child));

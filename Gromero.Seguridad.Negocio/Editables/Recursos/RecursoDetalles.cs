@@ -73,7 +73,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		private void Child_Fetch(string childData)
 		{
 			RaiseListChangedEvents = false;
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				foreach (var child in ctx.DbContext.SelectRecursoDetalle(childData))
 					this.Add(RecursoDetalle.GetRecursoDetalle(child));
@@ -84,7 +84,7 @@ namespace Gromero.Seguridad.Negocio.Editables
 		private void Child_Fetch(SingleCriteria<string> childData)
 		{
 			RaiseListChangedEvents = false;
-			using (var ctx = DbContextManager<GROMEROEntities>.GetManager(BaseDatos.ConexionBD))
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
 				foreach (var child in ctx.DbContext.SelectRecursoDetalleDetallado(childData.Value))
 					this.Add(RecursoDetalle.GetRecursoDetalle(child));

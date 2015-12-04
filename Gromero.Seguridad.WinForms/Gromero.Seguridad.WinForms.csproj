@@ -129,6 +129,7 @@
     <EmbeddedResource Include="Formularios\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -143,7 +144,6 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Gromero.Seguridad.Entidades.ActivarUsuario.datasource" />
     <None Include="Properties\DataSources\Gromero.Seguridad.Entidades.CambiarClave.datasource" />
-    <None Include="Resources\FondoComex.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\contrasena.png" />
@@ -168,7 +168,10 @@
     <None Include="Resources\Ok.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FondoSeguridad.jpg" />
+    <None Include="Resources\fondoapp %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Security-Approved-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

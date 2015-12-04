@@ -121,8 +121,8 @@
   <data name="contrasena" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\contrasena.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fondoapp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondoapp (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,10 +133,10 @@
   <data name="msgUrlSeguridad" xml:space="preserve">
     <value>Debe especificar una Url para el Servicio de Seguridad en la sección AppSettings</value>
   </data>
-  <data name="FondoComex" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\fondocomex.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FondoSeguridad" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FondoSeguridad.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Security-Approved-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Security-Approved-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
