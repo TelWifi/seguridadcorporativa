@@ -18,5 +18,7 @@ namespace Gromero.Seguridad.Datos
         public string CodigoCargo { get; set; }
         public string Descripcion { get; set; }
         public bool Estado { get; set; }
+        public Nullable<bool> EstadoRegistro { get; set; }
+        public byte[] UltimoCambio { get; set; }
     }
 }

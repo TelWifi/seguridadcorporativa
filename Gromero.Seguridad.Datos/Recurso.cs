@@ -14,6 +14,7 @@ namespace Gromero.Seguridad.Datos
     
     public partial class Recurso
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Recurso()
         {
             this.RecursoDetalles = new HashSet<RecursoDetalle>();
@@ -25,8 +26,12 @@ namespace Gromero.Seguridad.Datos
         public string RutaRecurso { get; set; }
         public string IdRecursoPadre { get; set; }
         public int Nivel { get; set; }
+        public Nullable<bool> EstadoRegistro { get; set; }
+        public byte[] UltimoCambio { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RecursoDetalle> RecursoDetalles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RecursoAplicacion> RecursoAplicaciones { get; set; }
     }
 }

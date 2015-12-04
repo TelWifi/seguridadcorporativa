@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Gromero.Seguridad.Datos
 {
-	public partial class GROMEROEntities
+	public partial class SeguridadEntities
 	{
-		public GROMEROEntities(string dataBase)
-			: base("name=GROMEROEntities")
+		public SeguridadEntities(string dataBase)
+			: base("name=SeguridadEntities")
 		{
 
 		}

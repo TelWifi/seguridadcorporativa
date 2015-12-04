@@ -23,5 +23,7 @@ namespace Gromero.Seguridad.Datos
         public string IdRolPerfil { get; set; }
         public string Placa { get; set; }
         public string Usuario { get; set; }
+        public Nullable<bool> EstadoRegistro { get; set; }
+        public byte[] UltimoCambio { get; set; }
     }
 }

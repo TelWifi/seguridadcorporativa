@@ -113,22 +113,22 @@ namespace Gromero.Seguridad.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Empresas>("SelectEmpresa", mergeOption, idEmpresaParameter);
         }
     
-        public virtual ObjectResult<Roles> SelectRol(string idAplicacion)
+        public virtual ObjectResult<Roles> SelectRol(string idAplicacionicacion)
         {
-            var idAplicacionParameter = idAplicacion != null ?
-                new ObjectParameter("IdAplicacion", idAplicacion) :
-                new ObjectParameter("IdAplicacion", typeof(string));
+            var idAplicacionicacionParameter = idAplicacionicacion != null ?
+                new ObjectParameter("IdAplicacionicacion", idAplicacionicacion) :
+                new ObjectParameter("IdAplicacionicacion", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Roles>("SelectRol", idAplicacionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Roles>("SelectRol", idAplicacionicacionParameter);
         }
     
-        public virtual ObjectResult<Roles> SelectRol(string idAplicacion, MergeOption mergeOption)
+        public virtual ObjectResult<Roles> SelectRol(string idAplicacionicacion, MergeOption mergeOption)
         {
-            var idAplicacionParameter = idAplicacion != null ?
-                new ObjectParameter("IdAplicacion", idAplicacion) :
-                new ObjectParameter("IdAplicacion", typeof(string));
+            var idAplicacionicacionParameter = idAplicacionicacion != null ?
+                new ObjectParameter("IdAplicacionicacion", idAplicacionicacion) :
+                new ObjectParameter("IdAplicacionicacion", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Roles>("SelectRol", mergeOption, idAplicacionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Roles>("SelectRol", mergeOption, idAplicacionicacionParameter);
         }
     
         public virtual ObjectResult<Aplicaciones> SelectAllAplicacion()
@@ -379,13 +379,13 @@ namespace Gromero.Seguridad.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Recurso>("SelectRecurso", mergeOption, idRecursoParameter);
         }
     
-        public virtual ObjectResult<SelectRecursoAplicacion_Result> SelectRecursoAplicacion(string idAplicacion)
+        public virtual ObjectResult<SelectRecursoAplicacion_Result> SelectRecursoAplicacion(string idAplicacionicacion)
         {
-            var idAplicacionParameter = idAplicacion != null ?
-                new ObjectParameter("IdAplicacion", idAplicacion) :
-                new ObjectParameter("IdAplicacion", typeof(string));
+            var idAplicacionicacionParameter = idAplicacionicacion != null ?
+                new ObjectParameter("IdAplicacionicacion", idAplicacionicacion) :
+                new ObjectParameter("IdAplicacionicacion", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectRecursoAplicacion_Result>("SelectRecursoAplicacion", idAplicacionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectRecursoAplicacion_Result>("SelectRecursoAplicacion", idAplicacionicacionParameter);
         }
     
         public virtual ObjectResult<RecursoDetalle> SelectRecursoDetalle(string idRecursoPadre)
@@ -528,22 +528,22 @@ namespace Gromero.Seguridad.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RecursoDetalle>("SelectRecursoDetalleDetallado", mergeOption, idRecursoDetallePadreParameter);
         }
     
-        public virtual ObjectResult<Recurso> SelectRecursoDetallado(string idRecursoPadre)
+        public virtual ObjectResult<Recurso> SelectRecursoDetallado(string idRecursoDetallePadre)
         {
-            var idRecursoPadreParameter = idRecursoPadre != null ?
-                new ObjectParameter("IdRecursoPadre", idRecursoPadre) :
-                new ObjectParameter("IdRecursoPadre", typeof(string));
+            var idRecursoDetallePadreParameter = idRecursoDetallePadre != null ?
+                new ObjectParameter("IdRecursoDetallePadre", idRecursoDetallePadre) :
+                new ObjectParameter("IdRecursoDetallePadre", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Recurso>("SelectRecursoDetallado", idRecursoPadreParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Recurso>("SelectRecursoDetallado", idRecursoDetallePadreParameter);
         }
     
-        public virtual ObjectResult<Recurso> SelectRecursoDetallado(string idRecursoPadre, MergeOption mergeOption)
+        public virtual ObjectResult<Recurso> SelectRecursoDetallado(string idRecursoDetallePadre, MergeOption mergeOption)
         {
-            var idRecursoPadreParameter = idRecursoPadre != null ?
-                new ObjectParameter("IdRecursoPadre", idRecursoPadre) :
-                new ObjectParameter("IdRecursoPadre", typeof(string));
+            var idRecursoDetallePadreParameter = idRecursoDetallePadre != null ?
+                new ObjectParameter("IdRecursoDetallePadre", idRecursoDetallePadre) :
+                new ObjectParameter("IdRecursoDetallePadre", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Recurso>("SelectRecursoDetallado", mergeOption, idRecursoPadreParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Recurso>("SelectRecursoDetallado", mergeOption, idRecursoDetallePadreParameter);
         }
     
         public virtual ObjectResult<Recurso> SelectAllRecurso()
@@ -696,73 +696,6 @@ namespace Gromero.Seguridad.Datos
                 new ObjectParameter("CodSociedadPropietaria", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CargoSociedadComplex>("SelectCargoSociedadBySociedad", codSociedadPropietariaParameter);
-        }
-    
-        public virtual ObjectResult<UsuariosCOMEX> SelectListarUsuariosCOMEX(string codigoUsuario, string nombres, string dNI, string dominio, string sociedad, string acronimo, string tipoUser)
-        {
-            var codigoUsuarioParameter = codigoUsuario != null ?
-                new ObjectParameter("CodigoUsuario", codigoUsuario) :
-                new ObjectParameter("CodigoUsuario", typeof(string));
-    
-            var nombresParameter = nombres != null ?
-                new ObjectParameter("Nombres", nombres) :
-                new ObjectParameter("Nombres", typeof(string));
-    
-            var dNIParameter = dNI != null ?
-                new ObjectParameter("DNI", dNI) :
-                new ObjectParameter("DNI", typeof(string));
-    
-            var dominioParameter = dominio != null ?
-                new ObjectParameter("Dominio", dominio) :
-                new ObjectParameter("Dominio", typeof(string));
-    
-            var sociedadParameter = sociedad != null ?
-                new ObjectParameter("Sociedad", sociedad) :
-                new ObjectParameter("Sociedad", typeof(string));
-    
-            var acronimoParameter = acronimo != null ?
-                new ObjectParameter("Acronimo", acronimo) :
-                new ObjectParameter("Acronimo", typeof(string));
-    
-            var tipoUserParameter = tipoUser != null ?
-                new ObjectParameter("TipoUser", tipoUser) :
-                new ObjectParameter("TipoUser", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UsuariosCOMEX>("SelectListarUsuariosCOMEX", codigoUsuarioParameter, nombresParameter, dNIParameter, dominioParameter, sociedadParameter, acronimoParameter, tipoUserParameter);
-        }
-    
-        public virtual ObjectResult<string> usp_ObtenerPerfilUsuarioComex(string codUsuario, string dominio, string acronimo)
-        {
-            var codUsuarioParameter = codUsuario != null ?
-                new ObjectParameter("CodUsuario", codUsuario) :
-                new ObjectParameter("CodUsuario", typeof(string));
-    
-            var dominioParameter = dominio != null ?
-                new ObjectParameter("Dominio", dominio) :
-                new ObjectParameter("Dominio", typeof(string));
-    
-            var acronimoParameter = acronimo != null ?
-                new ObjectParameter("Acronimo", acronimo) :
-                new ObjectParameter("Acronimo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("usp_ObtenerPerfilUsuarioComex", codUsuarioParameter, dominioParameter, acronimoParameter);
-        }
-    
-        public virtual ObjectResult<string> SelectObtenerPerfilUsuarioComex(string codUsuario, string dominio, string acronimo)
-        {
-            var codUsuarioParameter = codUsuario != null ?
-                new ObjectParameter("CodUsuario", codUsuario) :
-                new ObjectParameter("CodUsuario", typeof(string));
-    
-            var dominioParameter = dominio != null ?
-                new ObjectParameter("Dominio", dominio) :
-                new ObjectParameter("Dominio", typeof(string));
-    
-            var acronimoParameter = acronimo != null ?
-                new ObjectParameter("Acronimo", acronimo) :
-                new ObjectParameter("Acronimo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SelectObtenerPerfilUsuarioComex", codUsuarioParameter, dominioParameter, acronimoParameter);
         }
     
         public virtual ObjectResult<string> GetIdPerfilUsuario(string idUsuario, string idAplicacion)

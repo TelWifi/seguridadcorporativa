@@ -30,5 +30,7 @@ namespace Gromero.Seguridad.Datos
         public string IdCargoSociedad { get; set; }
         public string Alias { get; set; }
         public string AliasAlterno { get; set; }
+        public Nullable<bool> EstadoRegistro { get; set; }
+        public byte[] UltimoCambio { get; set; }
     }
 }

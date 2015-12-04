@@ -21,5 +21,7 @@ namespace Gromero.Seguridad.Datos
         public string Respuesta { get; set; }
         public bool Ultimo { get; set; }
         public System.DateTime FechaCambio { get; set; }
+        public Nullable<bool> EstadoRegistro { get; set; }
+        public byte[] UltimoCambio { get; set; }
     }
 }

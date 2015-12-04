@@ -19,5 +19,7 @@ namespace Gromero.Seguridad.Datos
         public string Acronimo { get; set; }
         public string Uri { get; set; }
         public string Tipo { get; set; }
+        public Nullable<bool> EstadoRegistro { get; set; }
+        public byte[] UltimoCambio { get; set; }
     }
 }

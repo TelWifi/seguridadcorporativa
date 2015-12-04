@@ -25,5 +25,7 @@ namespace Gromero.Seguridad.Datos
         public bool Estado { get; set; }
         public int Nivel { get; set; }
         public Nullable<int> NroOrden { get; set; }
+        public Nullable<bool> EstadoRegistro { get; set; }
+        public byte[] UltimoCambio { get; set; }
     }
 }

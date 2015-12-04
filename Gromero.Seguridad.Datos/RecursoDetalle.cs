@@ -14,6 +14,7 @@ namespace Gromero.Seguridad.Datos
     
     public partial class RecursoDetalle
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RecursoDetalle()
         {
             this.RecursoPerfiles = new HashSet<RecursoPerfil>();
@@ -25,8 +26,11 @@ namespace Gromero.Seguridad.Datos
         public string Descripcion { get; set; }
         public string IdRecursoDetallePadre { get; set; }
         public int Nivel { get; set; }
+        public Nullable<bool> EstadoRegistro { get; set; }
+        public byte[] UltimoCambio { get; set; }
     
         public virtual Recurso Recurso { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RecursoPerfil> RecursoPerfiles { get; set; }
     }
 }

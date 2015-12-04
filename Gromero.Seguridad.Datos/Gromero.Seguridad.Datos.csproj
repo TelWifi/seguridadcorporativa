@@ -70,22 +70,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aplicaciones.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="Cargo.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="CargoSociedad.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="CargoSociedadComplex.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="Claves.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="Empresas.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="Gromero.Context.cs">
       <AutoGen>True</AutoGen>
@@ -97,32 +97,42 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Gromero.tt</DependentUpon>
     </Compile>
-    <Compile Include="Gromero.Designer.cs">
+    <Compile Include="Seguridad.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Gromero.edmx</DependentUpon>
+      <DependentUpon>Seguridad.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="GRomeroEntities.cs" />
+    <Compile Include="Seguridad.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Seguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Seguridad.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SeguridadEntities.cs" />
     <Compile Include="OpcionUI.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="PerfilMasivo.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="PerfilUsuario.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="PerfilUsuarioComplex.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="Permiso.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="Plantilla.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="PlantillaComplex.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -131,65 +141,60 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Recurso.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="RecursoAplicacion.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="RecursoDetalle.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="RecursoPerfil.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="ReportePermiso.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="Roles.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="RolesPerfiles.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="SelectPerfilUsuarioInfo_Result.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="SelectPermiso_Result.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="SelectPlantilla_Result.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="SelectRecursoAplicacion_Result.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="SelectRecursoDetalle_Result.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="SelectRecursoPerfil_Result.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="SelectRolesPerfil_Result.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="UsuarioComplex.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuarios.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UsuariosCOMEX.cs">
-      <DependentUpon>Gromero.tt</DependentUpon>
+      <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config">
-      <SubType>Designer</SubType>
-    </None>
-    <EntityDeploy Include="Gromero.edmx">
+    <EntityDeploy Include="Seguridad.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Gromero.Designer.cs</LastGenOutput>
+      <LastGenOutput>Seguridad.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="GrupoRomero.snk" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\GROMEROEntities.datasource" />
@@ -207,13 +212,22 @@
     <Content Include="Gromero.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Gromero.Context.cs</LastGenOutput>
-      <DependentUpon>Gromero.edmx</DependentUpon>
+      <DependentUpon>Seguridad.edmx</DependentUpon>
     </Content>
-    <Content Include="Gromero.edmx.sql" />
     <Content Include="Gromero.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Gromero.cs</LastGenOutput>
-      <DependentUpon>Gromero.edmx</DependentUpon>
+      <DependentUpon>Seguridad.edmx</DependentUpon>
+    </Content>
+    <Content Include="Seguridad.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Seguridad.Context.cs</LastGenOutput>
+      <DependentUpon>Seguridad.edmx</DependentUpon>
+    </Content>
+    <Content Include="Seguridad.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Seguridad.cs</LastGenOutput>
+      <DependentUpon>Seguridad.edmx</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
