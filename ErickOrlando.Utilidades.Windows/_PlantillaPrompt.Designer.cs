@@ -195,11 +195,11 @@ namespace ErickOrlando.Utilidades.Windows
             this.ToolAceptar.Id = 0;
             this.ToolAceptar.Name = "ToolAceptar";
             this.ToolCancelar.Caption = "&Cancelar";
-            this.ToolCancelar.Glyph = Resources.cerrar;
+            this.ToolCancelar.Glyph = Resources.cancelar;
             this.ToolCancelar.Id = 1;
             this.ToolCancelar.Name = "ToolCancelar";
-            this.ToolActualizar.Caption = "Act&ualizar";
-            this.ToolActualizar.Glyph = Resources.actualizar;
+            this.ToolActualizar.Caption = "&Refrescar";
+            this.ToolActualizar.Glyph = Resources.refrescar;
             this.ToolActualizar.Id = 2;
             this.ToolActualizar.Name = "ToolActualizar";
             this.lblEstado.Caption = "Listo";

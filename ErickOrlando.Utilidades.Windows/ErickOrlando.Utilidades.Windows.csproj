@@ -99,34 +99,34 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Snap1.png" />
+    <EmbeddedResource Include="PlantillaBoton.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Snap2.png" />
+    <None Include="Resources\buscar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Snap3.png" />
+    <None Include="Resources\cancelar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Snap4.png" />
+    <None Include="Resources\editar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Snap5.png" />
+    <None Include="Resources\eliminar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Snap6.png" />
+    <None Include="Resources\grabar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Snap7.png" />
+    <None Include="Resources\nuevo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ok.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\buscar_prompt.png" />
+    <None Include="Resources\prompt.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PlantillaBoton.bmp" />
+    <None Include="Resources\refrescar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

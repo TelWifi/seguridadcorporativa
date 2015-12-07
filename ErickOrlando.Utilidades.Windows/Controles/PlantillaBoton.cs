@@ -41,14 +41,14 @@ namespace ErickOrlando.Utilidades.Windows.Controles
                     break;
 
                 case TipoBoton.BuscarPrompt:
-                    this.Boton.Image =Properties.Resources.buscar_prompt;
+                    this.Boton.Image =Properties.Resources.prompt;
                     this.Boton.ImageLocation =ImageLocation.MiddleLeft;
                     base.Size = new Size(0x23, 0x1b);
                     this.Boton.Text = string.Empty;
                     break;
 
                 case TipoBoton.Agregar:
-                    this.Boton.Image =Properties.Resources.db_add;
+                    this.Boton.Image =Properties.Resources.nuevo;
                     this.Boton.ImageLocation = ImageLocation.MiddleLeft;
                     base.Size = new Size(100, 0x18);
                     this.Boton.Text = "&Agregar";
@@ -62,7 +62,7 @@ namespace ErickOrlando.Utilidades.Windows.Controles
                     break;
 
                 case TipoBoton.Eliminar:
-                    this.Boton.Image =Properties.Resources.db_remove;
+                    this.Boton.Image =Properties.Resources.eliminar;
                     this.Boton.ImageLocation = ImageLocation.MiddleLeft;
                     base.Size = new Size(100, 0x18);
                     this.Boton.Text = "&Eliminar";

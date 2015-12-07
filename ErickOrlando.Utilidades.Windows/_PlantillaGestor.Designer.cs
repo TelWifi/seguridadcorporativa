@@ -109,7 +109,7 @@ namespace ErickOrlando.Utilidades.Windows
             this.bar1.LinksPersistInfo.AddRange(new LinkPersistInfo[] { new LinkPersistInfo((BarItem)this.ToolNuevo), new LinkPersistInfo((BarItem)this.ToolEditar), new LinkPersistInfo((BarItem)this.ToolEliminar), new LinkPersistInfo((BarItem)this.ToolBuscar), new LinkPersistInfo((BarItem)this.ToolActualizar) });
             this.bar1.Text = "Herramientas";
             this.ToolNuevo.Caption = "&Nuevo";
-            this.ToolNuevo.Glyph = Resources.db_add;
+            this.ToolNuevo.Glyph = Resources.nuevo;
             this.ToolNuevo.Id = 0;
             this.ToolNuevo.Name = "ToolNuevo";
             this.ToolNuevo.PaintStyle = BarItemPaintStyle.CaptionGlyph;
@@ -121,7 +121,7 @@ namespace ErickOrlando.Utilidades.Windows
             this.ToolEditar.PaintStyle = BarItemPaintStyle.CaptionGlyph;
             this.ToolEditar.ItemClick +=new ItemClickEventHandler(this.btnEditar_ItemClick);
             this.ToolEliminar.Caption = "E&liminar";
-            this.ToolEliminar.Glyph = Resources.db_remove;
+            this.ToolEliminar.Glyph = Resources.eliminar;
             this.ToolEliminar.Id = 2;
             this.ToolEliminar.Name = "ToolEliminar";
             this.ToolEliminar.PaintStyle = BarItemPaintStyle.CaptionGlyph;
@@ -132,8 +132,8 @@ namespace ErickOrlando.Utilidades.Windows
             this.ToolBuscar.Name = "ToolBuscar";
             this.ToolBuscar.PaintStyle = BarItemPaintStyle.CaptionGlyph;
             this.ToolBuscar.ItemClick +=new ItemClickEventHandler(this.btnBuscar_ItemClick);
-            this.ToolActualizar.Caption = "&Actualizar";
-            this.ToolActualizar.Glyph = Resources.actualizar;
+            this.ToolActualizar.Caption = "&Refrescar";
+            this.ToolActualizar.Glyph = Resources.refrescar;
             this.ToolActualizar.Id = 4;
             this.ToolActualizar.Name = "ToolActualizar";
             this.ToolActualizar.PaintStyle = BarItemPaintStyle.CaptionGlyph;

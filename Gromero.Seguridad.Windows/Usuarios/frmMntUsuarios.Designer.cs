@@ -111,126 +111,126 @@
             // codigoLabel
             // 
             codigoLabel.AutoSize = true;
-            codigoLabel.Location = new System.Drawing.Point(12, 66);
+            codigoLabel.Location = new System.Drawing.Point(14, 81);
             codigoLabel.Name = "codigoLabel";
-            codigoLabel.Size = new System.Drawing.Size(44, 13);
+            codigoLabel.Size = new System.Drawing.Size(56, 17);
             codigoLabel.TabIndex = 14;
             codigoLabel.Text = "Codigo:";
             // 
             // nombresLabel
             // 
             nombresLabel.AutoSize = true;
-            nombresLabel.Location = new System.Drawing.Point(12, 92);
+            nombresLabel.Location = new System.Drawing.Point(14, 113);
             nombresLabel.Name = "nombresLabel";
-            nombresLabel.Size = new System.Drawing.Size(53, 13);
+            nombresLabel.Size = new System.Drawing.Size(68, 17);
             nombresLabel.TabIndex = 15;
             nombresLabel.Text = "Nombres:";
             // 
             // apellidoPaternoLabel
             // 
             apellidoPaternoLabel.AutoSize = true;
-            apellidoPaternoLabel.Location = new System.Drawing.Point(12, 118);
+            apellidoPaternoLabel.Location = new System.Drawing.Point(14, 145);
             apellidoPaternoLabel.Name = "apellidoPaternoLabel";
-            apellidoPaternoLabel.Size = new System.Drawing.Size(89, 13);
+            apellidoPaternoLabel.Size = new System.Drawing.Size(110, 17);
             apellidoPaternoLabel.TabIndex = 16;
             apellidoPaternoLabel.Text = "Apellido Paterno:";
             // 
             // apellidoMaternoLabel
             // 
             apellidoMaternoLabel.AutoSize = true;
-            apellidoMaternoLabel.Location = new System.Drawing.Point(12, 144);
+            apellidoMaternoLabel.Location = new System.Drawing.Point(14, 177);
             apellidoMaternoLabel.Name = "apellidoMaternoLabel";
-            apellidoMaternoLabel.Size = new System.Drawing.Size(91, 13);
+            apellidoMaternoLabel.Size = new System.Drawing.Size(112, 17);
             apellidoMaternoLabel.TabIndex = 17;
             apellidoMaternoLabel.Text = "Apellido Materno:";
             // 
             // dNILabel
             // 
             dNILabel.AutoSize = true;
-            dNILabel.Location = new System.Drawing.Point(12, 170);
+            dNILabel.Location = new System.Drawing.Point(14, 209);
             dNILabel.Name = "dNILabel";
-            dNILabel.Size = new System.Drawing.Size(29, 13);
+            dNILabel.Size = new System.Drawing.Size(36, 17);
             dNILabel.TabIndex = 18;
             dNILabel.Text = "DNI:";
             // 
             // estadoLabel
             // 
             estadoLabel.AutoSize = true;
-            estadoLabel.Location = new System.Drawing.Point(12, 196);
+            estadoLabel.Location = new System.Drawing.Point(14, 241);
             estadoLabel.Name = "estadoLabel";
-            estadoLabel.Size = new System.Drawing.Size(44, 13);
+            estadoLabel.Size = new System.Drawing.Size(55, 17);
             estadoLabel.TabIndex = 19;
             estadoLabel.Text = "Estado:";
             // 
             // tipoLabel
             // 
             tipoLabel.AutoSize = true;
-            tipoLabel.Location = new System.Drawing.Point(12, 40);
+            tipoLabel.Location = new System.Drawing.Point(14, 49);
             tipoLabel.Name = "tipoLabel";
-            tipoLabel.Size = new System.Drawing.Size(31, 13);
+            tipoLabel.Size = new System.Drawing.Size(39, 17);
             tipoLabel.TabIndex = 20;
             tipoLabel.Text = "Tipo:";
             // 
             // idEmpresaLabel
             // 
             idEmpresaLabel.AutoSize = true;
-            idEmpresaLabel.Location = new System.Drawing.Point(292, 66);
+            idEmpresaLabel.Location = new System.Drawing.Point(341, 81);
             idEmpresaLabel.Name = "idEmpresaLabel";
-            idEmpresaLabel.Size = new System.Drawing.Size(118, 13);
+            idEmpresaLabel.Size = new System.Drawing.Size(150, 17);
             idEmpresaLabel.TabIndex = 21;
             idEmpresaLabel.Text = "Empresa donde labora:";
             // 
             // idEmpresaPertenenciaLabel
             // 
             idEmpresaPertenenciaLabel.AutoSize = true;
-            idEmpresaPertenenciaLabel.Location = new System.Drawing.Point(292, 92);
+            idEmpresaPertenenciaLabel.Location = new System.Drawing.Point(341, 113);
             idEmpresaPertenenciaLabel.Name = "idEmpresaPertenenciaLabel";
-            idEmpresaPertenenciaLabel.Size = new System.Drawing.Size(145, 13);
+            idEmpresaPertenenciaLabel.Size = new System.Drawing.Size(182, 17);
             idEmpresaPertenenciaLabel.TabIndex = 22;
             idEmpresaPertenenciaLabel.Text = "Empresa a la que Pertenece:";
             // 
             // correoLabel
             // 
             correoLabel.AutoSize = true;
-            correoLabel.Location = new System.Drawing.Point(292, 40);
+            correoLabel.Location = new System.Drawing.Point(341, 49);
             correoLabel.Name = "correoLabel";
-            correoLabel.Size = new System.Drawing.Size(44, 13);
+            correoLabel.Size = new System.Drawing.Size(55, 17);
             correoLabel.TabIndex = 23;
             correoLabel.Text = "Correo:";
             // 
             // dominioLabel
             // 
             dominioLabel.AutoSize = true;
-            dominioLabel.Location = new System.Drawing.Point(292, 118);
+            dominioLabel.Location = new System.Drawing.Point(341, 145);
             dominioLabel.Name = "dominioLabel";
-            dominioLabel.Size = new System.Drawing.Size(48, 13);
+            dominioLabel.Size = new System.Drawing.Size(63, 17);
             dominioLabel.TabIndex = 25;
             dominioLabel.Text = "Dominio:";
             // 
             // idCargoSociedadLabel
             // 
             idCargoSociedadLabel.AutoSize = true;
-            idCargoSociedadLabel.Location = new System.Drawing.Point(292, 144);
+            idCargoSociedadLabel.Location = new System.Drawing.Point(341, 177);
             idCargoSociedadLabel.Name = "idCargoSociedadLabel";
-            idCargoSociedadLabel.Size = new System.Drawing.Size(40, 13);
+            idCargoSociedadLabel.Size = new System.Drawing.Size(50, 17);
             idCargoSociedadLabel.TabIndex = 27;
             idCargoSociedadLabel.Text = "Cargo:";
             // 
             // aliasLabel
             // 
             aliasLabel.AutoSize = true;
-            aliasLabel.Location = new System.Drawing.Point(292, 170);
+            aliasLabel.Location = new System.Drawing.Point(341, 209);
             aliasLabel.Name = "aliasLabel";
-            aliasLabel.Size = new System.Drawing.Size(33, 13);
+            aliasLabel.Size = new System.Drawing.Size(38, 17);
             aliasLabel.TabIndex = 29;
             aliasLabel.Text = "Alias:";
             // 
             // aliasAlternativoLabel
             // 
             this.aliasAlternativoLabel.AutoSize = true;
-            this.aliasAlternativoLabel.Location = new System.Drawing.Point(292, 199);
+            this.aliasAlternativoLabel.Location = new System.Drawing.Point(341, 245);
             this.aliasAlternativoLabel.Name = "aliasAlternativoLabel";
-            this.aliasAlternativoLabel.Size = new System.Drawing.Size(53, 13);
+            this.aliasAlternativoLabel.Size = new System.Drawing.Size(61, 17);
             this.aliasAlternativoLabel.TabIndex = 30;
             this.aliasAlternativoLabel.Text = "Alias Alt.:";
             // 
@@ -241,62 +241,69 @@
             // codigoTextEdit
             // 
             this.codigoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "Codigo", true));
-            this.codigoTextEdit.Location = new System.Drawing.Point(104, 63);
+            this.codigoTextEdit.Location = new System.Drawing.Point(121, 78);
+            this.codigoTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.codigoTextEdit.MenuManager = this.BarraBotones;
             this.codigoTextEdit.Name = "codigoTextEdit";
-            this.codigoTextEdit.Size = new System.Drawing.Size(115, 20);
+            this.codigoTextEdit.Size = new System.Drawing.Size(134, 22);
             this.codigoTextEdit.TabIndex = 1;
             // 
             // nombresTextEdit
             // 
             this.nombresTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "Nombres", true));
-            this.nombresTextEdit.Location = new System.Drawing.Point(104, 89);
+            this.nombresTextEdit.Location = new System.Drawing.Point(121, 110);
+            this.nombresTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nombresTextEdit.MenuManager = this.BarraBotones;
             this.nombresTextEdit.Name = "nombresTextEdit";
-            this.nombresTextEdit.Size = new System.Drawing.Size(177, 20);
+            this.nombresTextEdit.Size = new System.Drawing.Size(206, 22);
             this.nombresTextEdit.TabIndex = 2;
             // 
             // apellidoPaternoTextEdit
             // 
             this.apellidoPaternoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "ApellidoPaterno", true));
-            this.apellidoPaternoTextEdit.Location = new System.Drawing.Point(104, 115);
+            this.apellidoPaternoTextEdit.Location = new System.Drawing.Point(121, 142);
+            this.apellidoPaternoTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.apellidoPaternoTextEdit.MenuManager = this.BarraBotones;
             this.apellidoPaternoTextEdit.Name = "apellidoPaternoTextEdit";
-            this.apellidoPaternoTextEdit.Size = new System.Drawing.Size(177, 20);
+            this.apellidoPaternoTextEdit.Size = new System.Drawing.Size(206, 22);
             this.apellidoPaternoTextEdit.TabIndex = 3;
             // 
             // apellidoMaternoTextEdit
             // 
             this.apellidoMaternoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "ApellidoMaterno", true));
-            this.apellidoMaternoTextEdit.Location = new System.Drawing.Point(104, 141);
+            this.apellidoMaternoTextEdit.Location = new System.Drawing.Point(121, 174);
+            this.apellidoMaternoTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.apellidoMaternoTextEdit.MenuManager = this.BarraBotones;
             this.apellidoMaternoTextEdit.Name = "apellidoMaternoTextEdit";
-            this.apellidoMaternoTextEdit.Size = new System.Drawing.Size(177, 20);
+            this.apellidoMaternoTextEdit.Size = new System.Drawing.Size(206, 22);
             this.apellidoMaternoTextEdit.TabIndex = 4;
             // 
             // dNITextEdit
             // 
             this.dNITextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "DNI", true));
-            this.dNITextEdit.Location = new System.Drawing.Point(104, 167);
+            this.dNITextEdit.Location = new System.Drawing.Point(121, 206);
+            this.dNITextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dNITextEdit.MenuManager = this.BarraBotones;
             this.dNITextEdit.Name = "dNITextEdit";
-            this.dNITextEdit.Size = new System.Drawing.Size(115, 20);
+            this.dNITextEdit.Size = new System.Drawing.Size(134, 22);
             this.dNITextEdit.TabIndex = 5;
             // 
             // estadoCheckEdit
             // 
             this.estadoCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "Estado", true));
-            this.estadoCheckEdit.Location = new System.Drawing.Point(102, 193);
+            this.estadoCheckEdit.Location = new System.Drawing.Point(119, 238);
+            this.estadoCheckEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.estadoCheckEdit.MenuManager = this.BarraBotones;
             this.estadoCheckEdit.Name = "estadoCheckEdit";
             this.estadoCheckEdit.Properties.Caption = "Habilitado";
-            this.estadoCheckEdit.Size = new System.Drawing.Size(75, 19);
+            this.estadoCheckEdit.Size = new System.Drawing.Size(87, 20);
             this.estadoCheckEdit.TabIndex = 6;
             // 
             // idEmpresaLookUpEdit
             // 
             this.idEmpresaLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "IdEmpresa", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.idEmpresaLookUpEdit.Location = new System.Drawing.Point(438, 63);
+            this.idEmpresaLookUpEdit.Location = new System.Drawing.Point(511, 78);
+            this.idEmpresaLookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.idEmpresaLookUpEdit.MenuManager = this.BarraBotones;
             this.idEmpresaLookUpEdit.Name = "idEmpresaLookUpEdit";
             this.idEmpresaLookUpEdit.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
@@ -312,7 +319,7 @@
             this.idEmpresaLookUpEdit.Properties.NullValuePrompt = "[Seleccione una Empresa]";
             this.idEmpresaLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             this.idEmpresaLookUpEdit.Properties.ValueMember = "ID";
-            this.idEmpresaLookUpEdit.Size = new System.Drawing.Size(187, 20);
+            this.idEmpresaLookUpEdit.Size = new System.Drawing.Size(218, 22);
             this.idEmpresaLookUpEdit.TabIndex = 8;
             // 
             // empresaInfoListBindingSource
@@ -322,7 +329,8 @@
             // idEmpresaPertenenciaLookUpEdit
             // 
             this.idEmpresaPertenenciaLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "IdEmpresaPertenencia", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.idEmpresaPertenenciaLookUpEdit.Location = new System.Drawing.Point(438, 89);
+            this.idEmpresaPertenenciaLookUpEdit.Location = new System.Drawing.Point(511, 110);
+            this.idEmpresaPertenenciaLookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.idEmpresaPertenenciaLookUpEdit.MenuManager = this.BarraBotones;
             this.idEmpresaPertenenciaLookUpEdit.Name = "idEmpresaPertenenciaLookUpEdit";
             this.idEmpresaPertenenciaLookUpEdit.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
@@ -338,7 +346,7 @@
             this.idEmpresaPertenenciaLookUpEdit.Properties.NullValuePrompt = "[Seleccione una Empresa]";
             this.idEmpresaPertenenciaLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             this.idEmpresaPertenenciaLookUpEdit.Properties.ValueMember = "ID";
-            this.idEmpresaPertenenciaLookUpEdit.Size = new System.Drawing.Size(187, 20);
+            this.idEmpresaPertenenciaLookUpEdit.Size = new System.Drawing.Size(218, 22);
             this.idEmpresaPertenenciaLookUpEdit.TabIndex = 9;
             // 
             // dxErrorProvider1
@@ -349,7 +357,8 @@
             // tipoTextEdit
             // 
             this.tipoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "Tipo", true));
-            this.tipoTextEdit.Location = new System.Drawing.Point(104, 37);
+            this.tipoTextEdit.Location = new System.Drawing.Point(121, 46);
+            this.tipoTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tipoTextEdit.MenuManager = this.BarraBotones;
             this.tipoTextEdit.Name = "tipoTextEdit";
             this.tipoTextEdit.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
@@ -364,7 +373,7 @@
             this.tipoTextEdit.Properties.NullValuePromptShowForEmptyValue = true;
             this.tipoTextEdit.Properties.PopupSizeable = false;
             this.tipoTextEdit.Properties.ValueMember = "Codigo";
-            this.tipoTextEdit.Size = new System.Drawing.Size(115, 20);
+            this.tipoTextEdit.Size = new System.Drawing.Size(134, 22);
             this.tipoTextEdit.TabIndex = 0;
             this.tipoTextEdit.EditValueChanged += new System.EventHandler(this.tipoTextEdit_EditValueChanged);
             // 
@@ -375,10 +384,11 @@
             // correoTextEdit
             // 
             this.correoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "Correo", true));
-            this.correoTextEdit.Location = new System.Drawing.Point(438, 37);
+            this.correoTextEdit.Location = new System.Drawing.Point(511, 46);
+            this.correoTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.correoTextEdit.MenuManager = this.BarraBotones;
             this.correoTextEdit.Name = "correoTextEdit";
-            this.correoTextEdit.Size = new System.Drawing.Size(187, 20);
+            this.correoTextEdit.Size = new System.Drawing.Size(218, 22);
             this.correoTextEdit.TabIndex = 7;
             // 
             // btnBuscar
@@ -386,7 +396,8 @@
             this.btnBuscar.CajaTexto = this.codigoTextEdit;
             this.btnBuscar.CajaTextoConBoton = null;
             this.btnBuscar.Imagen = ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton.TipoBoton.BuscarPrompt;
-            this.btnBuscar.Location = new System.Drawing.Point(225, 59);
+            this.btnBuscar.Location = new System.Drawing.Point(262, 73);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(35, 27);
             this.btnBuscar.TabIndex = 13;
@@ -395,7 +406,8 @@
             // dominioTextEdit
             // 
             this.dominioTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "Dominio", true));
-            this.dominioTextEdit.Location = new System.Drawing.Point(438, 115);
+            this.dominioTextEdit.Location = new System.Drawing.Point(511, 142);
+            this.dominioTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dominioTextEdit.MenuManager = this.BarraBotones;
             this.dominioTextEdit.Name = "dominioTextEdit";
             this.dominioTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -411,7 +423,7 @@
             this.dominioTextEdit.Properties.NullValuePrompt = "[Seleccione un Dominio]";
             this.dominioTextEdit.Properties.NullValuePromptShowForEmptyValue = true;
             this.dominioTextEdit.Properties.ValueMember = "NombreLargo";
-            this.dominioTextEdit.Size = new System.Drawing.Size(187, 20);
+            this.dominioTextEdit.Size = new System.Drawing.Size(218, 22);
             this.dominioTextEdit.TabIndex = 10;
             // 
             // dominioInfoListBindingSource
@@ -457,7 +469,8 @@
             // idCargoSociedadGridLookUpEdit
             // 
             this.idCargoSociedadGridLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "IdCargoSociedad", true));
-            this.idCargoSociedadGridLookUpEdit.Location = new System.Drawing.Point(438, 141);
+            this.idCargoSociedadGridLookUpEdit.Location = new System.Drawing.Point(511, 174);
+            this.idCargoSociedadGridLookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.idCargoSociedadGridLookUpEdit.MenuManager = this.BarraBotones;
             this.idCargoSociedadGridLookUpEdit.Name = "idCargoSociedadGridLookUpEdit";
             this.idCargoSociedadGridLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -469,7 +482,7 @@
             this.idCargoSociedadGridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             this.idCargoSociedadGridLookUpEdit.Properties.ValueMember = "ID";
             this.idCargoSociedadGridLookUpEdit.Properties.View = this.idCargoSociedadGridLookUpEditView;
-            this.idCargoSociedadGridLookUpEdit.Size = new System.Drawing.Size(187, 20);
+            this.idCargoSociedadGridLookUpEdit.Size = new System.Drawing.Size(218, 22);
             this.idCargoSociedadGridLookUpEdit.TabIndex = 11;
             // 
             // cargoSociedadInfoListBindingSource
@@ -479,55 +492,60 @@
             // aliasTextEdit
             // 
             this.aliasTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "Alias", true));
-            this.aliasTextEdit.Location = new System.Drawing.Point(436, 167);
+            this.aliasTextEdit.Location = new System.Drawing.Point(509, 206);
+            this.aliasTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.aliasTextEdit.MenuManager = this.BarraBotones;
             this.aliasTextEdit.Name = "aliasTextEdit";
-            this.aliasTextEdit.Size = new System.Drawing.Size(187, 20);
+            this.aliasTextEdit.Size = new System.Drawing.Size(218, 22);
             this.aliasTextEdit.TabIndex = 12;
             // 
             // aliasAlternativoTextEdit
             // 
             this.aliasAlternativoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "AliasAlterno", true));
-            this.aliasAlternativoTextEdit.Location = new System.Drawing.Point(436, 196);
+            this.aliasAlternativoTextEdit.Location = new System.Drawing.Point(509, 241);
+            this.aliasAlternativoTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.aliasAlternativoTextEdit.MenuManager = this.BarraBotones;
             this.aliasAlternativoTextEdit.Name = "aliasAlternativoTextEdit";
-            this.aliasAlternativoTextEdit.Size = new System.Drawing.Size(187, 20);
+            this.aliasAlternativoTextEdit.Size = new System.Drawing.Size(218, 22);
             this.aliasAlternativoTextEdit.TabIndex = 13;
             // 
             // notificarConCorreoLabel
             // 
             this.notificarConCorreoLabel.AutoSize = true;
-            this.notificarConCorreoLabel.Location = new System.Drawing.Point(292, 230);
+            this.notificarConCorreoLabel.Location = new System.Drawing.Point(341, 283);
             this.notificarConCorreoLabel.Name = "notificarConCorreoLabel";
-            this.notificarConCorreoLabel.Size = new System.Drawing.Size(109, 13);
+            this.notificarConCorreoLabel.Size = new System.Drawing.Size(137, 17);
             this.notificarConCorreoLabel.TabIndex = 31;
             this.notificarConCorreoLabel.Text = "Notificar Con Correo:";
             // 
             // notificarConCorreoCheckEdit
             // 
             this.notificarConCorreoCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "NotificarConCorreo", true));
-            this.notificarConCorreoCheckEdit.Location = new System.Drawing.Point(438, 227);
+            this.notificarConCorreoCheckEdit.Location = new System.Drawing.Point(511, 279);
+            this.notificarConCorreoCheckEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.notificarConCorreoCheckEdit.MenuManager = this.BarraBotones;
             this.notificarConCorreoCheckEdit.Name = "notificarConCorreoCheckEdit";
             this.notificarConCorreoCheckEdit.Properties.Caption = "Sí";
-            this.notificarConCorreoCheckEdit.Size = new System.Drawing.Size(48, 19);
+            this.notificarConCorreoCheckEdit.Size = new System.Drawing.Size(56, 20);
             this.notificarConCorreoCheckEdit.TabIndex = 32;
             // 
             // importarButton
             // 
-            this.importarButton.Location = new System.Drawing.Point(15, 219);
+            this.importarButton.Location = new System.Drawing.Point(17, 270);
+            this.importarButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.importarButton.Name = "importarButton";
-            this.importarButton.Size = new System.Drawing.Size(75, 23);
+            this.importarButton.Size = new System.Drawing.Size(87, 28);
             this.importarButton.TabIndex = 33;
             this.importarButton.Text = "Importar";
             this.importarButton.UseVisualStyleBackColor = true;
+            this.importarButton.Visible = false;
             this.importarButton.Click += new System.EventHandler(this.importarButton_Click);
             // 
             // frmMntUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 280);
+            this.ClientSize = new System.Drawing.Size(752, 345);
             this.Controls.Add(this.importarButton);
             this.Controls.Add(this.notificarConCorreoLabel);
             this.Controls.Add(this.notificarConCorreoCheckEdit);
@@ -560,6 +578,7 @@
             this.Controls.Add(this.codigoTextEdit);
             this.Controls.Add(this.tipoTextEdit);
             this.Controls.Add(this.dominioTextEdit);
+            this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "frmMntUsuarios";
             this.Text = "Usuarios";
             this.Controls.SetChildIndex(this.dominioTextEdit, 0);

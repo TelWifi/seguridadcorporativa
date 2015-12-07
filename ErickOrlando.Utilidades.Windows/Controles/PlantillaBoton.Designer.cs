@@ -37,7 +37,7 @@ namespace ErickOrlando.Utilidades.Windows.Controles
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Boton = new SimpleButton();
             base.SuspendLayout();
-            this.Boton.Image = Resources.buscar_prompt;
+            this.Boton.Image = Resources.prompt;
             this.Boton.Location = new System.Drawing.Point(0, 0);
             this.Boton.Name = "Boton";
             this.Boton.Size = new System.Drawing.Size(0x19, 0x17);
