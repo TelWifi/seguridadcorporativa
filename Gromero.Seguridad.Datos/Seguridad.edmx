@@ -52,6 +52,16 @@
           <Property Name="EstadoRegistro" Type="bit" />
           <Property Name="UltimoCambio" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
+        <EntityType Name="Dominios">
+          <Key>
+            <PropertyRef Name="IdDominio" />
+          </Key>
+          <Property Name="IdDominio" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="NombreCorto" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RutaDominio" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="EstadoRegistro" Type="bit" />
+          <Property Name="UltimoCambio" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
         <EntityType Name="Empresas">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -551,6 +561,12 @@
         <Function Name="usp_AsignarPerfilesMasivos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdPerfil" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="usp_CargaInicial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreEmpresa" Type="varchar" Mode="In" />
+          <Parameter Name="NombreCorto" Type="varchar" Mode="In" />
+          <Parameter Name="RUC" Type="char" Mode="In" />
+          <Parameter Name="Dominio" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="usp_CargoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdCargo" Type="varchar" Mode="In" />
         </Function>
@@ -618,6 +634,23 @@
           <Parameter Name="Tipo" Type="varchar" Mode="In" />
           <Parameter Name="Clase" Type="varchar" Mode="In" />
           <Parameter Name="Opcion" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_DominiosDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDominio" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_DominiosInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDominio" Type="varchar" Mode="In" />
+          <Parameter Name="NombreCorto" Type="varchar" Mode="In" />
+          <Parameter Name="RutaDominio" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_DominiosSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDominio" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_DominiosSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_DominiosUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDominio" Type="varchar" Mode="In" />
+          <Parameter Name="NombreCorto" Type="varchar" Mode="In" />
+          <Parameter Name="RutaDominio" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_EmpresaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdEmpresa" Type="varchar" Mode="In" />
@@ -942,6 +975,7 @@
           <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
           <Parameter Name="Correo" Type="varchar" Mode="In" />
           <Parameter Name="Alias" Type="varchar" Mode="In" />
+          <Parameter Name="AliasAlterno" Type="nvarchar" Mode="In" />
           <Parameter Name="DNI" Type="varchar" Mode="In" />
           <Parameter Name="Estado" Type="bit" Mode="In" />
           <Parameter Name="Tipo" Type="varchar" Mode="In" />
@@ -985,6 +1019,7 @@
           <Parameter Name="Correo" Type="varchar" Mode="In" />
           <Parameter Name="DNI" Type="varchar" Mode="In" />
           <Parameter Name="Alias" Type="varchar" Mode="In" />
+          <Parameter Name="AliasAlterno" Type="nvarchar" Mode="In" />
           <Parameter Name="Estado" Type="bit" Mode="In" />
           <Parameter Name="Tipo" Type="varchar" Mode="In" />
         </Function>
@@ -993,6 +1028,7 @@
           <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CargoSociedad" EntityType="Self.CargoSociedad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Claves" EntityType="Self.Claves" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dominios" EntityType="Self.Dominios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Empresas" EntityType="Self.Empresas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OpcionUI" EntityType="Self.OpcionUI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PerfilUsuario" EntityType="Self.PerfilUsuario" Schema="dbo" store:Type="Tables" />
@@ -1308,7 +1344,7 @@
           <Parameter Name="IdRecursoDetallePadre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SelectRecursoDetallado" EntitySet="Recurso" ReturnType="Collection(SeguridadModel.Recurso)">
-          <Parameter Name="IdRecursoDetallePadre" Mode="In" Type="String" />
+          <Parameter Name="IdRecursoPadre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SelectAllRecurso" EntitySet="Recurso" ReturnType="Collection(SeguridadModel.Recurso)" />
           <FunctionImport Name="SelectRecursoByDescripcion" EntitySet="Recurso" ReturnType="Collection(SeguridadModel.Recurso)">
@@ -1359,6 +1395,8 @@
           <FunctionImport Name="SelectPerfilUsuarioInfo" ReturnType="Collection(SeguridadModel.SelectPerfilUsuarioInfo_Result)">
           <Parameter Name="IdPerfilUsuario" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Dominios" EntityType="SeguridadModel.Dominios" />
+          <FunctionImport Name="SelectAllDominios" EntitySet="Dominios" ReturnType="Collection(SeguridadModel.Dominios)" />
         </EntityContainer>
         <EntityType Name="Claves">
           <Documentation>
@@ -1729,8 +1767,6 @@
           <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="RutaRecurso" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdRecursoPadre" MaxLength="36" FixedLength="false" Unicode="false" Nullable="true" />
-          <NavigationProperty Name="RecursoDetalles" Relationship="SeguridadModel.FK__TARSEGREC__IDREC__4DE98D56" FromRole="TAMSEGREC" ToRole="TARSEGRECDET" />
-          <NavigationProperty Name="RecursoAplicaciones" Relationship="SeguridadModel.FK__TCRSEGREC__IDREC__4924D839" FromRole="TAMSEGREC" ToRole="TCRSEGRECAPL" />
           <Property Type="Int32" Name="Nivel" Nullable="false" />
           </EntityType>
         <EntityType Name="RecursoDetalle">
@@ -1742,8 +1778,6 @@
           <Property Type="String" Name="Codigo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdRecursoDetallePadre" MaxLength="36" FixedLength="false" Unicode="false" Nullable="true" />
-          <NavigationProperty Name="Recurso" Relationship="SeguridadModel.FK__TARSEGREC__IDREC__4DE98D56" FromRole="TARSEGRECDET" ToRole="TAMSEGREC" />
-          <NavigationProperty Name="RecursoPerfiles" Relationship="SeguridadModel.FK__TCRSEGREC__IDREC__53A266AC" FromRole="TARSEGRECDET" ToRole="TCRSEGRECPER" />
           <Property Type="Int32" Name="Nivel" Nullable="false" />
           </EntityType>
         <EntityType Name="RecursoAplicacion">
@@ -2006,6 +2040,14 @@
           <Property Type="String" Name="CodigoUsuario" Nullable="false" MaxLength="200" />
           <Property Type="String" Name="NombreAplicacion" Nullable="false" MaxLength="50" />
         </ComplexType>
+        <EntityType Name="Dominios">
+          <Key>
+            <PropertyRef Name="IdDominio" />
+          </Key>
+          <Property Name="IdDominio" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCorto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RutaDominio" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2156,6 +2198,7 @@
             <EntityTypeMapping TypeName="SeguridadModel.Usuarios">
               <ModificationFunctionMapping>
                 <InsertFunction FunctionName="GROMEROModel.Store.usp_UsuarioInsert">
+                  <ScalarProperty Name="AliasAlterno" ParameterName="AliasAlterno" />
                   <ScalarProperty Name="Tipo" ParameterName="Tipo" />
                   <ScalarProperty Name="Estado" ParameterName="Estado" />
                   <ScalarProperty Name="DNI" ParameterName="DNI" />
@@ -2172,6 +2215,7 @@
                   <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
                 </InsertFunction>
                 <UpdateFunction FunctionName="GROMEROModel.Store.usp_UsuarioUpdate">
+                  <ScalarProperty Name="AliasAlterno" ParameterName="AliasAlterno" Version="Current" />
                   <ScalarProperty Name="Tipo" ParameterName="Tipo" Version="Current" />
                   <ScalarProperty Name="Estado" ParameterName="Estado" Version="Current" />
                   <ScalarProperty Name="Alias" ParameterName="Alias" Version="Current" />
@@ -2841,7 +2885,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SelectRecursoByDescripcion" FunctionName="GROMEROModel.Store.usp_RecursoSelectByDescripcion" />
-          <FunctionImportMapping FunctionImportName="SelectRecursoDetallado" FunctionName="GROMEROModel.Store.usp_RecursoDetalleSelectDetallado" />
+          <FunctionImportMapping FunctionImportName="SelectRecursoDetallado" FunctionName="GROMEROModel.Store.usp_RecursoSelectDetallado" />
           <FunctionImportMapping FunctionImportName="SelectRecursoDetalle" FunctionName="GROMEROModel.Store.usp_RecursoDetalleSelect" />
           <FunctionImportMapping FunctionImportName="SelectRecursoDetalleByIdRecurso" FunctionName="GROMEROModel.Store.usp_RecursoDetalleSelectByIdRecurso">
             <ResultMapping>
@@ -3022,6 +3066,33 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Dominios">
+            <EntityTypeMapping TypeName="SeguridadModel.Dominios">
+              <MappingFragment StoreEntitySet="Dominios">
+                <ScalarProperty Name="RutaDominio" ColumnName="RutaDominio" />
+                <ScalarProperty Name="NombreCorto" ColumnName="NombreCorto" />
+                <ScalarProperty Name="IdDominio" ColumnName="IdDominio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SeguridadModel.Dominios">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="GROMEROModel.Store.usp_DominiosInsert">
+                  <ScalarProperty Name="RutaDominio" ParameterName="RutaDominio" />
+                  <ScalarProperty Name="NombreCorto" ParameterName="NombreCorto" />
+                  <ScalarProperty Name="IdDominio" ParameterName="IdDominio" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="GROMEROModel.Store.usp_DominiosUpdate">
+                  <ScalarProperty Name="RutaDominio" ParameterName="RutaDominio" Version="Current" />
+                  <ScalarProperty Name="NombreCorto" ParameterName="NombreCorto" Version="Current" />
+                  <ScalarProperty Name="IdDominio" ParameterName="IdDominio" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_DominiosDelete">
+                  <ScalarProperty Name="IdDominio" ParameterName="IdDominio" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SelectAllDominios" FunctionName="GROMEROModel.Store.usp_DominiosSelectAll" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -3190,6 +3261,7 @@
         <AssociationConnector Association="SeguridadModel.FK__TCRSEGCAS__IDCAR__308E3499" />
         <AssociationConnector Association="SeguridadModel.FK_TCMSEGUSER_TCRSEGCASOC" />
         <AssociationConnector Association="SeguridadModel.FK_TARSEGPERM_TARSEGROLESPER" />
+        <EntityTypeShape EntityType="SeguridadModel.Dominios" Width="1.5" PointX="12.375" PointY="8.75" />
         </Diagram>
     </Diagrams>
   </Designer>

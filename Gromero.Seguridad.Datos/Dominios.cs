@@ -12,13 +12,10 @@ namespace Gromero.Seguridad.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class RecursoDetalle
+    public partial class Dominios
     {
-        public string IdRecursoDetalle { get; set; }
-        public string IdRecurso { get; set; }
-        public string Codigo { get; set; }
-        public string Descripcion { get; set; }
-        public string IdRecursoDetallePadre { get; set; }
-        public int Nivel { get; set; }
+        public string IdDominio { get; set; }
+        public string NombreCorto { get; set; }
+        public string RutaDominio { get; set; }
     }
 }

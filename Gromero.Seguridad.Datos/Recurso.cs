@@ -14,22 +14,10 @@ namespace Gromero.Seguridad.Datos
     
     public partial class Recurso
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Recurso()
-        {
-            this.RecursoDetalles = new HashSet<RecursoDetalle>();
-            this.RecursoAplicaciones = new HashSet<RecursoAplicacion>();
-        }
-    
         public string IdRecurso { get; set; }
         public string Descripcion { get; set; }
         public string RutaRecurso { get; set; }
         public string IdRecursoPadre { get; set; }
         public int Nivel { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RecursoDetalle> RecursoDetalles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RecursoAplicacion> RecursoAplicaciones { get; set; }
     }
 }

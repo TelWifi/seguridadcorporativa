@@ -40,6 +40,11 @@ namespace WindowsTestApp
                 //{
                 //    Cursor.Current = Cursors.Default;
                 //}
+
+                MessageBox.Show(string.Format("Dominio: {0} \n Usuario:{1} \n PC:{2}" ,
+                        Environment.UserDomainName,
+                        Environment.UserName,
+                        Environment.MachineName));
             };
         }
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Csla.Data.EF6;
+using Gromero.Seguridad.Datos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,13 +16,19 @@ namespace Gromero.Seguridad.Negocio.SoloLectura.Dominios
 
 		public static DominioInfoList GetDominioInfoList()
 		{
-			return new DominioInfoList
+			var lista = new DominioInfoList();
+			using (var ctx = DbContextManager<SeguridadEntities>.GetManager(BaseDatos.ConexionBD))
 			{
-				new DominioInfo("TRAMARSA", "tramarsa.com.pe"),
-				new DominioInfo("GRUPOCOGESA", "grupocogesa.gromero.net"),
-				new DominioInfo("GRUPORANSA", "gruporansa.gromero.net"),
-				new DominioInfo("ALICORP", "grupoalicorp.gromero.net")
-			};
+				var query = ctx.DbContext.SelectAllDominios().ToList();
+
+				foreach (var item in query)
+				{
+					var dominio = new DominioInfo(item.NombreCorto, item.RutaDominio);
+					lista.Add(dominio);
+				}
+			}
+
+			return lista;
 		}
 	}
 }

@@ -114,10 +114,45 @@ namespace Gromero.Seguridad.Login
 		{
 			//Logueo en el Dominio
 			//Usamos los servicios del Active Directory
+
+			if (criteria.Dominio.ToLower() == "local")
+			{
+				// Lo validamos con el usuario de la PC.
+
+				if (Environment.MachineName == Environment.UserDomainName)
+				{
+					// La PC actual no está en una red de Dominio.
+
+					IsAuthenticated = true;
+					Name = Environment.UserName;
+					AuthenticationType = "Csla";
+
+					return;
+				}
+			}
+			// Debemos buscar la ruta del Dominio en la tabla Dominios.
+			var RutaDominio = string.Empty;
+
+			using (var cn = new SqlConnection(BaseDatos.ConexionBD))
+			{
+				using (var cmd = cn.CreateCommand())
+				{
+					cmd.CommandText = "SELECT RutaDominio FROM Dominios WHERE NombreCorto = @NombreCorto";
+					cmd.Parameters.AddWithValue("@NombreCorto", criteria.Dominio);
+
+					cn.Open();
+					RutaDominio = cmd.ExecuteScalar() as string;
+
+					if (RutaDominio == null)
+						throw new InvalidOperationException(string.Format("El Dominio {0} no se ubica en la tabla Dominios", 
+							criteria.Dominio));
+				}
+			}
+
 			IsAuthenticated = GRomeroDirectory.LoguearEnDominio(new WinCredentials(
 																	criteria.Username,
 																	criteria.Password,
-																	criteria.Dominio));
+																	RutaDominio));
 			if (IsAuthenticated)
 			{
 				Name = criteria.Username;

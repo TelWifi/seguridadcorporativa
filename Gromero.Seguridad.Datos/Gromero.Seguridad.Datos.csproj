@@ -85,6 +85,9 @@
     <Compile Include="Claves.cs">
       <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dominios.cs">
+      <DependentUpon>Seguridad.tt</DependentUpon>
+    </Compile>
     <Compile Include="Empresas.cs">
       <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>

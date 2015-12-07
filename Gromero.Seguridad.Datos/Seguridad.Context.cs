@@ -43,6 +43,7 @@ namespace Gromero.Seguridad.Datos
         public virtual DbSet<RecursoPerfil> RecursoPerfil { get; set; }
         public virtual DbSet<Cargo> Cargo { get; set; }
         public virtual DbSet<CargoSociedad> CargoSociedad { get; set; }
+        public virtual DbSet<Dominios> Dominios { get; set; }
     
         public virtual ObjectResult<Empresas> SelectAllEmpresas()
         {
@@ -528,22 +529,22 @@ namespace Gromero.Seguridad.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RecursoDetalle>("SelectRecursoDetalleDetallado", mergeOption, idRecursoDetallePadreParameter);
         }
     
-        public virtual ObjectResult<Recurso> SelectRecursoDetallado(string idRecursoDetallePadre)
+        public virtual ObjectResult<Recurso> SelectRecursoDetallado(string idRecursoPadre)
         {
-            var idRecursoDetallePadreParameter = idRecursoDetallePadre != null ?
-                new ObjectParameter("IdRecursoDetallePadre", idRecursoDetallePadre) :
-                new ObjectParameter("IdRecursoDetallePadre", typeof(string));
+            var idRecursoPadreParameter = idRecursoPadre != null ?
+                new ObjectParameter("IdRecursoPadre", idRecursoPadre) :
+                new ObjectParameter("IdRecursoPadre", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Recurso>("SelectRecursoDetallado", idRecursoDetallePadreParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Recurso>("SelectRecursoDetallado", idRecursoPadreParameter);
         }
     
-        public virtual ObjectResult<Recurso> SelectRecursoDetallado(string idRecursoDetallePadre, MergeOption mergeOption)
+        public virtual ObjectResult<Recurso> SelectRecursoDetallado(string idRecursoPadre, MergeOption mergeOption)
         {
-            var idRecursoDetallePadreParameter = idRecursoDetallePadre != null ?
-                new ObjectParameter("IdRecursoDetallePadre", idRecursoDetallePadre) :
-                new ObjectParameter("IdRecursoDetallePadre", typeof(string));
+            var idRecursoPadreParameter = idRecursoPadre != null ?
+                new ObjectParameter("IdRecursoPadre", idRecursoPadre) :
+                new ObjectParameter("IdRecursoPadre", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Recurso>("SelectRecursoDetallado", mergeOption, idRecursoDetallePadreParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Recurso>("SelectRecursoDetallado", mergeOption, idRecursoPadreParameter);
         }
     
         public virtual ObjectResult<Recurso> SelectAllRecurso()
@@ -718,6 +719,16 @@ namespace Gromero.Seguridad.Datos
                 new ObjectParameter("IdPerfilUsuario", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectPerfilUsuarioInfo_Result>("SelectPerfilUsuarioInfo", idPerfilUsuarioParameter);
+        }
+    
+        public virtual ObjectResult<Dominios> SelectAllDominios()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Dominios>("SelectAllDominios");
+        }
+    
+        public virtual ObjectResult<Dominios> SelectAllDominios(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Dominios>("SelectAllDominios", mergeOption);
         }
     }
 }
