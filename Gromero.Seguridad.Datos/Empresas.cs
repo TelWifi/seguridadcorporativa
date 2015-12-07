@@ -19,7 +19,5 @@ namespace Gromero.Seguridad.Datos
         public string RazonSocial { get; set; }
         public string NombreCorto { get; set; }
         public string RUC { get; set; }
-        public Nullable<bool> EstadoRegistro { get; set; }
-        public byte[] UltimoCambio { get; set; }
     }
 }

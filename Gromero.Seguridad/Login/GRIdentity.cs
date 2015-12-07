@@ -244,7 +244,7 @@ namespace Gromero.Seguridad.Login
 					cmd.Parameters.AddWithValue("@IdPerfilUsuario", InfoUsuario.Instancia.IdPerfilUsuario);
 					using (var dr = new SafeDataReader(cmd.ExecuteReader()))
 						while (dr.Read())
-							Roles.Add(dr.GetString("TNOMROL"));
+							Roles.Add(dr.GetString("NombreRol"));
 				}
 			}
 		}

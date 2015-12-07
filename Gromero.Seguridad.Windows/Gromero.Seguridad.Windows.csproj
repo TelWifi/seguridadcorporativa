@@ -455,7 +455,7 @@
       <Name>ErickOrlando.Utilidades.Windows</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gromero.Seguridad.Negocio\Gromero.Seguridad.Negocio.csproj">
-      <Project>{B550588C-9432-4B1B-8B48-3D465E0C5038}</Project>
+      <Project>{b550588c-9432-4b1b-8b48-3d465e0c5038}</Project>
       <Name>Gromero.Seguridad.Negocio</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gromero.Seguridad.WinForms\Gromero.Seguridad.WinForms.csproj">

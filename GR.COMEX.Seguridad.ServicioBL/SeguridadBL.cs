@@ -177,25 +177,25 @@ namespace GR.COMEX.Seguridad.ServicioBL
                 if (string.IsNullOrEmpty(request.Dominio))
                     throw new InvalidOperationException("El dominio es obligatorio.");
 
-                switch (dominio)
-                {
-                    case "GRUPORANSA":
-                        infoUser.Dominio = "gruporansa.gromero.net";
-                        break;
-                    case "GRUPOCOGESA":
-                        infoUser.Dominio = "grupocogesa.gromero.net";
-                        break;
-                    case "TRAMARSA":
-                        infoUser.Dominio = "tramarsa.com.pe";
-                        break;
-                    case "ALICORP":
-                        infoUser.Dominio = "grupoalicorp.gromero.net";
-                        break;
-                    default:
-                        throw new InvalidOperationException("El dominio no es válido.");
-                    //infoUser.Dominio = "grupocogesa.gromero.net";
-                    //break;
-                }
+                //switch (dominio)
+                //{
+                //    case "GRUPORANSA":
+                //        infoUser.Dominio = "gruporansa.gromero.net";
+                //        break;
+                //    case "GRUPOCOGESA":
+                //        infoUser.Dominio = "grupocogesa.gromero.net";
+                //        break;
+                //    case "TRAMARSA":
+                //        infoUser.Dominio = "tramarsa.com.pe";
+                //        break;
+                //    case "ALICORP":
+                //        infoUser.Dominio = "grupoalicorp.gromero.net";
+                //        break;
+                //    default:
+                //        throw new InvalidOperationException("El dominio no es válido.");
+                //    //infoUser.Dominio = "grupocogesa.gromero.net";
+                //    //break;
+                //}
                 var result = false;
 
                 if (validarContraseña)

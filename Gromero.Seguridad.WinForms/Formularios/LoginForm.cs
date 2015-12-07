@@ -199,22 +199,7 @@ namespace Gromero.Seguridad.WinForms
 		{
 			//Comprobamos que el Nombre de Usuario contiene un Dominio
 			var infoUser = Publicos.ComprobarDominioEnUsuario(txtUser.Text);
-
-			switch (cboDominio.SelectedIndex)
-			{
-				case 0:
-					infoUser.Dominio = "gruporansa.gromero.net";
-					break;
-				case 1:
-					infoUser.Dominio = "grupocogesa.gromero.net";
-					break;
-				case 2:
-					infoUser.Dominio = "tramarsa.com.pe";
-					break;
-				default:
-					infoUser.Dominio = "alicorp.com.pe";
-					break;
-			}
+			infoUser.Dominio = cboDominio.Text;
 
 			var result = false;
 

@@ -1374,9 +1374,7 @@
           <Property Name="Respuesta" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
           <Property Name="Ultimo" Type="Boolean" Nullable="false" />
           <Property Name="FechaCambio" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="RolesPerfiles">
           <Documentation>
             <Summary>Relacion de muchos a muchos de Roles y Perfiles</Summary>
@@ -1388,8 +1386,6 @@
           <Property Name="IdRol" Type="String" Nullable="false" MaxLength="36" Unicode="false" FixedLength="false" />
           <Property Name="IdAplicacion" Type="String" Nullable="false" MaxLength="36" Unicode="false" FixedLength="false" />
           <Property Type="String" Name="IdPerfilUsuario" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           </EntityType>
         <EntityType Name="Aplicaciones">
           <Documentation>
@@ -1403,8 +1399,6 @@
           <Property Name="Acronimo" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="Uri" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
           <Property Name="Tipo" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           </EntityType>
         <EntityType Name="Empresas">
           <Documentation>
@@ -1418,9 +1412,7 @@
           <Property Name="RazonSocial" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
           <Property Name="NombreCorto" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="RUC" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="Usuarios">
           <Documentation>
             <Summary>Maestro de Usuarios</Summary>
@@ -1444,9 +1436,7 @@
           <Property Type="String" Name="IdCargoSociedad" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Type="String" Name="Alias" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="AliasAlterno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-        </EntityType>
+          </EntityType>
         <Association Name="FK__TARSEGCLA__IDUSR__4222D4EF">
           <End Role="TCMSEGUSER" Type="SeguridadModel.Usuarios" Multiplicity="1" />
           <End Role="TARSEGCLAV" Type="SeguridadModel.Claves" Multiplicity="*" />
@@ -1482,8 +1472,6 @@
           <Property Type="String" Name="IdAplicacion" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CodigoRol" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NombreRol" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           </EntityType>
         <Association Name="FK__TARSEGROL__IDAPL__0519C6AF">
           <End Type="SeguridadModel.Aplicaciones" Role="TCMSEGAPLC" Multiplicity="1" />
@@ -1549,9 +1537,7 @@
           <Property Type="Boolean" Name="Estado" Nullable="false" />
           <Property Type="Int32" Name="Nivel" Nullable="false" />
           <Property Type="Int32" Name="NroOrden" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-        </EntityType>
+          </EntityType>
         <Association Name="FK__TARSEGOPC__IDAPL__3B0BC30C">
           <End Type="SeguridadModel.Aplicaciones" Role="Aplicaciones" Multiplicity="1" />
           <End Type="SeguridadModel.OpcionUI" Role="TARSEGOPCUI" Multiplicity="*" />
@@ -1590,8 +1576,6 @@
           <Property Type="DateTime" Name="VigenciaFin" Precision="3" Nullable="false" />
           <Property Type="String" Name="Usuario" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Type="String" Name="Placa" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           </EntityType>
         <EntityType Name="Permiso">
           <Key>
@@ -1606,9 +1590,7 @@
           <Property Type="String" Name="IdRolPerfil" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Placa" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Type="String" Name="Usuario" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="Plantilla">
           <Key>
             <PropertyRef Name="IdPlantilla" />
@@ -1618,8 +1600,6 @@
           <Property Type="String" Name="IdAplicacion" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdOpcionUI" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Conceder" Nullable="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           </EntityType>
         <Association Name="FK__TARSEGPER__IDOPC__09A971A2">
           <End Type="SeguridadModel.OpcionUI" Role="OpcionUI" Multiplicity="1" />
@@ -1752,9 +1732,7 @@
           <NavigationProperty Name="RecursoDetalles" Relationship="SeguridadModel.FK__TARSEGREC__IDREC__4DE98D56" FromRole="TAMSEGREC" ToRole="TARSEGRECDET" />
           <NavigationProperty Name="RecursoAplicaciones" Relationship="SeguridadModel.FK__TCRSEGREC__IDREC__4924D839" FromRole="TAMSEGREC" ToRole="TCRSEGRECAPL" />
           <Property Type="Int32" Name="Nivel" Nullable="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="RecursoDetalle">
           <Key>
             <PropertyRef Name="IdRecursoDetalle" />
@@ -1767,9 +1745,7 @@
           <NavigationProperty Name="Recurso" Relationship="SeguridadModel.FK__TARSEGREC__IDREC__4DE98D56" FromRole="TARSEGRECDET" ToRole="TAMSEGREC" />
           <NavigationProperty Name="RecursoPerfiles" Relationship="SeguridadModel.FK__TCRSEGREC__IDREC__53A266AC" FromRole="TARSEGRECDET" ToRole="TCRSEGRECPER" />
           <Property Type="Int32" Name="Nivel" Nullable="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="RecursoAplicacion">
           <Key>
             <PropertyRef Name="IdRecursoAplicacion" />
@@ -1778,8 +1754,6 @@
           <Property Type="String" Name="IdAplicacion" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdRecurso" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Conceder" Nullable="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           </EntityType>
         <EntityType Name="RecursoPerfil">
           <Key>
@@ -1789,8 +1763,6 @@
           <Property Type="String" Name="IdPerfilUsuario" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdRecursoDetalle" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Conceder" Nullable="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           </EntityType>
         <Association Name="FK__TARSEGREC__IDREC__4DE98D56">
           <End Type="SeguridadModel.Recurso" Role="TAMSEGREC" Multiplicity="1" />
@@ -1884,9 +1856,7 @@
           <Property Type="String" Name="CodigoCargo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Estado" Nullable="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="CargoSociedad">
           <Key>
             <PropertyRef Name="IdCargoSociedad" />
@@ -2045,8 +2015,6 @@
     <EntitySetMapping Name="Claves">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Claves)">
         <MappingFragment StoreEntitySet="Claves">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdClave" ColumnName="IdClave" />
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -2074,8 +2042,6 @@
     <EntitySetMapping Name="RolesPerfiles">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.RolesPerfiles)">
         <MappingFragment StoreEntitySet="RolesPerfiles">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdRolPerfil" ColumnName="IdRolPerfil" />
           <ScalarProperty Name="IdRol" ColumnName="IdRol" />
           <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
@@ -2105,8 +2071,6 @@
     <EntitySetMapping Name="Aplicaciones">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Aplicaciones)">
         <MappingFragment StoreEntitySet="Aplicaciones">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
           <ScalarProperty Name="NombreAplicacion" ColumnName="NombreAplicacion" />
           <ScalarProperty Name="Acronimo" ColumnName="Acronimo" />
@@ -2139,8 +2103,6 @@
     <EntitySetMapping Name="Empresas">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Empresas)">
         <MappingFragment StoreEntitySet="Empresas">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
           <ScalarProperty Name="CodigoEmpresa" ColumnName="CodigoEmpresa" />
           <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
@@ -2173,8 +2135,6 @@
     <EntitySetMapping Name="Usuarios">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Usuarios)">
         <MappingFragment StoreEntitySet="Usuarios">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
           <ScalarProperty Name="IdEmpresaPertenencia" ColumnName="IdEmpresaPertenencia" />
@@ -2236,8 +2196,6 @@
     <EntitySetMapping Name="Roles">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Roles)">
         <MappingFragment StoreEntitySet="Roles">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdRol" ColumnName="IdRol" />
           <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
           <ScalarProperty Name="CodigoRol" ColumnName="CodigoRol" />
@@ -2267,8 +2225,6 @@
     <EntitySetMapping Name="OpcionUI">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.OpcionUI)">
         <MappingFragment StoreEntitySet="OpcionUI">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdOpcionUI" ColumnName="IdOpcionUI" />
           <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
           <ScalarProperty Name="IdOpcionPadre" ColumnName="IdOpcionPadre" />
@@ -2319,8 +2275,6 @@
     <EntitySetMapping Name="PerfilUsuario">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.PerfilUsuario)">
         <MappingFragment StoreEntitySet="PerfilUsuario">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
@@ -2368,8 +2322,6 @@
     <EntitySetMapping Name="Permiso">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Permiso)">
         <MappingFragment StoreEntitySet="Permiso">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdPermiso" ColumnName="IdPermiso" />
           <ScalarProperty Name="IdOpcionUI" ColumnName="IdOpcionUI" />
           <ScalarProperty Name="IdRol" ColumnName="IdRol" />
@@ -2414,8 +2366,6 @@
     <EntitySetMapping Name="Plantilla">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Plantilla)">
         <MappingFragment StoreEntitySet="Plantilla">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdPlantilla" ColumnName="IdPlantilla" />
           <ScalarProperty Name="IdRol" ColumnName="IdRol" />
           <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
@@ -2448,8 +2398,6 @@
     <EntitySetMapping Name="Recurso">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Recurso)">
         <MappingFragment StoreEntitySet="Recurso">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdRecurso" ColumnName="IdRecurso" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="RutaRecurso" ColumnName="RutaRecurso" />
@@ -2482,8 +2430,6 @@
     <EntitySetMapping Name="RecursoDetalle">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.RecursoDetalle)">
         <MappingFragment StoreEntitySet="RecursoDetalle">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdRecursoDetalle" ColumnName="IdRecursoDetalle" />
           <ScalarProperty Name="IdRecurso" ColumnName="IdRecurso" />
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
@@ -2519,8 +2465,6 @@
     <EntitySetMapping Name="RecursoAplicacion">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.RecursoAplicacion)">
         <MappingFragment StoreEntitySet="RecursoAplicacion">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdRecursoAplicacion" ColumnName="IdRecursoAplicacion" />
           <ScalarProperty Name="IdAplicacion" ColumnName="IdAplicacion" />
           <ScalarProperty Name="IdRecurso" ColumnName="IdRecurso" />
@@ -2550,8 +2494,6 @@
     <EntitySetMapping Name="RecursoPerfil">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.RecursoPerfil)">
         <MappingFragment StoreEntitySet="RecursoPerfil">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdRecursoPerfil" ColumnName="IdRecursoPerfil" />
           <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
           <ScalarProperty Name="IdRecursoDetalle" ColumnName="IdRecursoDetalle" />
@@ -2581,8 +2523,6 @@
     <EntitySetMapping Name="Cargo">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Cargo)">
         <MappingFragment StoreEntitySet="Cargo">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
           <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />

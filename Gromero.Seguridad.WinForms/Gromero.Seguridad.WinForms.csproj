@@ -38,10 +38,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>GrupoRomero.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -131,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="GrupoRomero.snk" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Gromero.Seguridad.Entidades.ActivarUsuario.datasource" />
     <None Include="Properties\DataSources\Gromero.Seguridad.Entidades.CambiarClave.datasource" />

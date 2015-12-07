@@ -24,7 +24,5 @@ namespace Gromero.Seguridad.Datos
         public System.DateTime VigenciaFin { get; set; }
         public string Usuario { get; set; }
         public string Placa { get; set; }
-        public Nullable<bool> EstadoRegistro { get; set; }
-        public byte[] UltimoCambio { get; set; }
     }
 }

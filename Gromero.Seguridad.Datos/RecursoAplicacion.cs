@@ -18,7 +18,5 @@ namespace Gromero.Seguridad.Datos
         public string IdAplicacion { get; set; }
         public string IdRecurso { get; set; }
         public bool Conceder { get; set; }
-        public Nullable<bool> EstadoRegistro { get; set; }
-        public byte[] UltimoCambio { get; set; }
     }
 }
