@@ -1,4 +1,4 @@
-﻿using GR.COMEX.Seguridad.Entidades;
+﻿using Seguridad.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +8,11 @@ using System.Text;
 using System.ServiceModel.Web;
 
 
-namespace GR.COMEX.Seguridad.ServicioWCF
+namespace Seguridad.ServicioWCF
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "ISeguridadGR" en el código y en el archivo de configuración a la vez.
-    [ServiceContract(Namespace="http://www.erickorlando.com/contracts/Seguridad")]
-    public interface ISeguridadGR
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "ISeguridadCorp" en el código y en el archivo de configuración a la vez.
+    [ServiceContract(Namespace = "http://www.erickorlando.com/contracts/Seguridad")]
+    public interface ISeguridadCorp
     {
         [OperationContract]
         [WebInvoke(UriTemplate = "/CambiarClave", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]

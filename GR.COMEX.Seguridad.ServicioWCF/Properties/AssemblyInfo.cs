@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos atributos para modificar la información
 // asociada a un ensamblado.
-[assembly: AssemblyTitle("GR.COMEX.Seguridad.ServicioWCF")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Seguridad Corporativa API")]
+[assembly: AssemblyDescription("API REST de Seguridad Corporativa")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GR.COMEX.Seguridad.ServicioWCF")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("Erick Orlando ©")]
+[assembly: AssemblyProduct("Seguridad Corporativa API")]
+[assembly: AssemblyCopyright("Copyright © 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

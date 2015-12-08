@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using GR.COMEX.Framework;
-using GR.COMEX.Seguridad.Entidades;
+using Seguridad.Entidades;
 using System.Text;
 
 namespace WindowsTestApp
@@ -41,7 +41,7 @@ namespace WindowsTestApp
                 //    Cursor.Current = Cursors.Default;
                 //}
 
-                MessageBox.Show(string.Format("Dominio: {0} \n Usuario:{1} \n PC:{2}" ,
+                MessageBox.Show(string.Format("Dominio: {0} \n Usuario:{1} \n PC:{2}",
                         Environment.UserDomainName,
                         Environment.UserName,
                         Environment.MachineName));
@@ -102,9 +102,9 @@ namespace WindowsTestApp
             var url = "http://tramoldev01.tramarsa.com.pe/GRSeguridad/SeguridadGR.svc/GetNombreUsuario";
 
             var response = util.DeserializarJSON<RequestInfoUsuario, string>(new RequestInfoUsuario
-                {
-                    IdPerfilUsuario = "c40e8937-659b-4c2a-9a66-c307e3105484"
-                }, url);
+            {
+                IdPerfilUsuario = "c40e8937-659b-4c2a-9a66-c307e3105484"
+            }, url);
 
             MessageBox.Show(string.Format("Resultado del servidor: {0}", response.ToString()));
 

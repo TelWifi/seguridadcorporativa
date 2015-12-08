@@ -7,8 +7,8 @@
     <ProjectGuid>{EDF03B78-4B8A-4F14-8213-6180F7E8D3EA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GR.COMEX.Seguridad.Entidades</RootNamespace>
-    <AssemblyName>GR.COMEX.Seguridad.Entidades</AssemblyName>
+    <RootNamespace>Seguridad.Entidades</RootNamespace>
+    <AssemblyName>Seguridad.Entidades</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security;
 using ErickOrlando.Utilidades.Data;
-using GR.COMEX.Seguridad.Entidades;
+using Seguridad.Entidades;
 using Gromero.Seguridad;
 using Gromero.Seguridad.Datos;
 using Gromero.Seguridad.Login;
@@ -12,12 +12,9 @@ using Gromero.Seguridad.Negocio.SoloLectura.Dominios;
 using Csla;
 //using Gromero.Seguridad.WinForms.HelperWin;
 using Gromero.Seguridad.Entidades;
-using Gromero.Seguridad.WinForms.HelperWin;
-using System.Configuration;
-using Gromero.Seguridad.WinForms;
 using Gromero.Seguridad.Negocio.Editables;
 
-namespace GR.COMEX.Seguridad.ServicioBL
+namespace Seguridad.ServicioBL
 {
 
     public class SeguridadBL
@@ -53,7 +50,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
                             throw new Exception("Contraseña nueva no coincide.");
 
                         break;
-                }       
+                }
 
                 return new Result { Success = true };
             }
@@ -78,12 +75,12 @@ namespace GR.COMEX.Seguridad.ServicioBL
             if (request.TipoCambioClave == TipoCambioClave.Ui)
             {
                 ResponseLoginUsuario responseLogin = Login(new RequestLogin
-                                                   {
-                                                       CodigoUsuario = request.CodigoUsuario,
-                                                       Clave = request.ClaveAntigua,
-                                                       Dominio = request.Dominio,
-                                                       AcronimoAplicacion = request.Acronimo
-                                                   });
+                {
+                    CodigoUsuario = request.CodigoUsuario,
+                    Clave = request.ClaveAntigua,
+                    Dominio = request.Dominio,
+                    AcronimoAplicacion = request.Acronimo
+                });
 
                 if (responseLogin.ResultadoLogin == false)
                     throw new Exception("La contraseña es incorrecta.");
@@ -102,7 +99,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
             Result result = ValidacionCambiarClaveWeb(request);
             if (result.Success == false)
                 throw new Exception(result.Message);
-            
+
             string codigoUsuario = "";
             string correo = "";
             string nombres = "";
@@ -118,12 +115,12 @@ namespace GR.COMEX.Seguridad.ServicioBL
                 if (!query.Any())
                     throw new Exception(string.Format("No se pudo encontrar el usuario {0}", request.CodigoUsuario));
 
-                
+
                 codigoUsuario = query.First().CodigoUsuario;
                 correo = query.First().Correo;
                 nombres = string.Format("{0} {1} {2}", query.First().Nombres, query.First().ApellidoPaterno, query.First().ApellidoMaterno);
             }
-            
+
             try
             {
                 //ESTA LINEA VALIDA SI EL USUARIO TIENE CLAVE REGISTRADA
@@ -132,7 +129,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
             catch (DataPortalException ex)
             {
                 if (ex.BusinessException != null)
-                { 
+                {
                     if (ex.BusinessException.GetType() == typeof(UsuarioSinClaveException))
                     {   //SI LA EXCEPCION ES USUARIOSINCLAVE SE LE CREA UNA CLAVE
                         ActivarUsuario activarUsuario = ActivarUsuario.GetActivarUsuario(new FiltroUsuarios { Usuario = codigoUsuario, Dominio = request.Dominio });
@@ -156,8 +153,8 @@ namespace GR.COMEX.Seguridad.ServicioBL
 
             return response;
         }
-        
-      
+
+
         public static ResponseLoginUsuario LoginInterno(RequestLogin request, Boolean validarContraseña)
         {
             var response = new ResponseLoginUsuario();
@@ -251,7 +248,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
         {
             return LoginInterno(request, true);
         }
-        
+
         public static ResponseLoginUsuario LoginApp(RequestLogin request)
         {
             return LoginInterno(request, false);
@@ -485,7 +482,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
         }
 
 
-        public static ResponseUsuarioInsert  InsertUsuario(RequestDTOUsuarioInsert request)
+        public static ResponseUsuarioInsert InsertUsuario(RequestDTOUsuarioInsert request)
         {
             ResponseUsuarioInsert result = new ResponseUsuarioInsert();
             var perfil = Gromero.Seguridad.Negocio.Editables.PerfilUsuario.NewPerfilUsuario();
@@ -493,169 +490,11 @@ namespace GR.COMEX.Seguridad.ServicioBL
 
             try
             {
-            if (String.IsNullOrEmpty(request.Codigo))
-                return result;
-
-            
-
-
-            //Creacion de nuevo usuario
-
-
-            usuario.IdEmpresa = request.IdEmpresa;
-            usuario.IdEmpresaPertenencia = request.IdEmpresaPertenencia;
-            usuario.IdCargoSociedad = request.IdCargo;
-            usuario.Nombres = request.Nombres;
-            usuario.Alias = request.Alias;
-            usuario.Dominio = request.Dominio;
-            usuario.ApellidoMaterno = request.ApellidoMaterno;
-            usuario.ApellidoPaterno = request.ApellidoPaterno;
-            usuario.Codigo = request.Codigo;
-            usuario.Correo = request.Correo;
-            usuario.DNI = request.DNI;
-            usuario.Estado = true;
-            usuario.NotificarConCorreo = request.NotificacionConCorreo;
-            usuario.Tipo = request.Tipo;
-            usuario.Save();
-
-            
+                if (String.IsNullOrEmpty(request.Codigo))
+                    return result;
 
 
 
-
-            //Recuperando usuario creado
-            FiltroCriteria crit = new FiltroCriteria { NombreCampo = "Codigo", ValorBusqueda = request.Codigo };
-            var listaUsuarios = UsuarioInfoList.GetUsuarioInfoList(crit);
-            var usuarioCreado = listaUsuarios.Where(x => x.Dominio ==
-                request.Dominio).SingleOrDefault();
-
-            //Estableciendo variables de entorno
-            Csla.ApplicationContext.GlobalContext["Placa"] = Environment.MachineName;
-            Csla.ApplicationContext.GlobalContext["Usuario"] = Environment.UserName;
-
-                
-
-            //Creacion de perfil
-
-            perfil.IdAplicacion = request.IdAplicacion;
-            perfil.IdUsuario = usuarioCreado.ID;
-
-            perfil.Usuario = usuarioCreado.Nombres;
-            perfil.Aplicacion = request.Aplicacion;
-            perfil.Caduca = request.Caduca;
-            perfil.VigenciaInicio = DateTime.Now;
-            perfil.VigenciaFin = DateTime.Now.AddYears(1);
-
-            //Asignando rol
-            var rolPerfil = perfil.RolesPerfiles.AddNew();
-
-            rolPerfil.IdRol = request.IdRol;
-            rolPerfil.IdAplicacion = request.IdAplicacion;
-
-            //Agregando permisos
-            rolPerfil.AgregarPermisos();
-
-            //Estableciendo recursos
-            var recursosList = RecursosInfoList.GetRecursosInfoList();
-
-
-            foreach (var recurso in request.ListaRecursos)
-            {
-                string recursoact = recurso.Substring(0, recurso.IndexOf(":")).Trim();
-                string[] recursodetalle = recurso.Substring(recurso.IndexOf(":")+1).Trim().Split(',');
-
-                foreach (var itemrecurso in recursosList.Where(x => x.Descripcion == recursoact))
-                {
-                    var recursodetalles = from p in itemrecurso.Detalles
-                                          where recursodetalle.Contains(p.Descripcion)
-                                          select p;
-
-                    foreach (var itemrecursodetalle in recursodetalles)
-                    {
-                        var recursoitem = perfil.Recursos.AddNew();
-                        recursoitem.Conceder = true;
-                        recursoitem.IdRecursoDetalle = itemrecursodetalle.ID;
-                        perfil.Recursos.Add(recursoitem);
-                    }
-                }
-
-            }
-
-            perfil.Save();
-
-            string Clave = "";
-
-            if (usuario.Tipo == "E")
-            {
-
-                //Creacion de contraseña
-                Clave = GenerarContrasenia();
-                //Hay que intentar el Login para identificar si se debe crear la contraseña.
-
-                try
-                {
-                    Csla.ApplicationContext.GlobalContext["Acronimo"] = request.Aplicacion;
-
-                    GRPrincipal.Load(usuario.Codigo, usuario.Dominio);
-
-                    //GRPrincipal.Login(usuario.Codigo, GRCrypto.Encriptar( "clave"));
-                }
-                catch (DataPortalException ex)
-                {
-                    if (ex.BusinessException.GetType() == typeof(UsuarioNoActivoException)
-                       || ex.BusinessException.GetType() == typeof(UsuarioSinClaveException))
-                    {
-                        var activacion = ActivarUsuario.GetActivarUsuario(new FiltroUsuarios
-                        {
-                            Usuario = usuario.Codigo,
-                            Dominio = usuario.Dominio
-                        });
-
-                        activacion.PreguntaSecreta = request.PreguntaSecreta;
-                        activacion.RespuestaSecreta = request.RespuestaSecreta;
-                        activacion.ClaveSecreta = Clave;
-                        activacion.ConfirmarClave = Clave;
-
-                        activacion.Save();
-                    }
-                }
-            }
-            result.IdUsuario = usuarioCreado.ID;
-            result.Clave = Clave;
-            result.Codigo = request.Codigo;
-            result.Alias = request.Alias;
-            result.MensajeError = "";
-
-            }
-            catch (DataPortalException ex)
-            {
-                result.MensajeError = ex.BusinessException.Message;
-            }
-            catch (Exception ex)
-            {
-                var msg = ex.Message;
-                if (ex.InnerException != null)
-                    msg = ex.InnerException.Message;
-                result.MensajeError = msg;
-            }
-            return result;
-
-
-        }
-
-        public static List<ResponseUsuarioInsert> InsertUsuarios(List<RequestDTOUsuarioInsert> lstRequest)
-        {
-            ResponseUsuarioInsert result;
-            List<ResponseUsuarioInsert> lstResult = new List<ResponseUsuarioInsert>() ;
-
-            foreach (var request in lstRequest)
-            {
-                result = new ResponseUsuarioInsert();
-                try
-                {
-                
-                var perfil = Gromero.Seguridad.Negocio.Editables.PerfilUsuario.NewPerfilUsuario();
-                var usuario = Usuario.NewUsuario();
 
                 //Creacion de nuevo usuario
 
@@ -676,6 +515,11 @@ namespace GR.COMEX.Seguridad.ServicioBL
                 usuario.Tipo = request.Tipo;
                 usuario.Save();
 
+
+
+
+
+
                 //Recuperando usuario creado
                 FiltroCriteria crit = new FiltroCriteria { NombreCampo = "Codigo", ValorBusqueda = request.Codigo };
                 var listaUsuarios = UsuarioInfoList.GetUsuarioInfoList(crit);
@@ -686,6 +530,8 @@ namespace GR.COMEX.Seguridad.ServicioBL
                 Csla.ApplicationContext.GlobalContext["Placa"] = Environment.MachineName;
                 Csla.ApplicationContext.GlobalContext["Usuario"] = Environment.UserName;
 
+
+
                 //Creacion de perfil
 
                 perfil.IdAplicacion = request.IdAplicacion;
@@ -693,7 +539,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
 
                 perfil.Usuario = usuarioCreado.Nombres;
                 perfil.Aplicacion = request.Aplicacion;
-                perfil.Caduca = false;
+                perfil.Caduca = request.Caduca;
                 perfil.VigenciaInicio = DateTime.Now;
                 perfil.VigenciaFin = DateTime.Now.AddYears(1);
 
@@ -735,7 +581,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
                 perfil.Save();
 
                 string Clave = "";
-                
+
                 if (usuario.Tipo == "E")
                 {
 
@@ -749,6 +595,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
 
                         GRPrincipal.Load(usuario.Codigo, usuario.Dominio);
 
+                        //GRPrincipal.Login(usuario.Codigo, GRCrypto.Encriptar( "clave"));
                     }
                     catch (DataPortalException ex)
                     {
@@ -775,6 +622,156 @@ namespace GR.COMEX.Seguridad.ServicioBL
                 result.Codigo = request.Codigo;
                 result.Alias = request.Alias;
                 result.MensajeError = "";
+
+            }
+            catch (DataPortalException ex)
+            {
+                result.MensajeError = ex.BusinessException.Message;
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+                if (ex.InnerException != null)
+                    msg = ex.InnerException.Message;
+                result.MensajeError = msg;
+            }
+            return result;
+
+
+        }
+
+        public static List<ResponseUsuarioInsert> InsertUsuarios(List<RequestDTOUsuarioInsert> lstRequest)
+        {
+            ResponseUsuarioInsert result;
+            List<ResponseUsuarioInsert> lstResult = new List<ResponseUsuarioInsert>();
+
+            foreach (var request in lstRequest)
+            {
+                result = new ResponseUsuarioInsert();
+                try
+                {
+
+                    var perfil = Gromero.Seguridad.Negocio.Editables.PerfilUsuario.NewPerfilUsuario();
+                    var usuario = Usuario.NewUsuario();
+
+                    //Creacion de nuevo usuario
+
+
+                    usuario.IdEmpresa = request.IdEmpresa;
+                    usuario.IdEmpresaPertenencia = request.IdEmpresaPertenencia;
+                    usuario.IdCargoSociedad = request.IdCargo;
+                    usuario.Nombres = request.Nombres;
+                    usuario.Alias = request.Alias;
+                    usuario.Dominio = request.Dominio;
+                    usuario.ApellidoMaterno = request.ApellidoMaterno;
+                    usuario.ApellidoPaterno = request.ApellidoPaterno;
+                    usuario.Codigo = request.Codigo;
+                    usuario.Correo = request.Correo;
+                    usuario.DNI = request.DNI;
+                    usuario.Estado = true;
+                    usuario.NotificarConCorreo = request.NotificacionConCorreo;
+                    usuario.Tipo = request.Tipo;
+                    usuario.Save();
+
+                    //Recuperando usuario creado
+                    FiltroCriteria crit = new FiltroCriteria { NombreCampo = "Codigo", ValorBusqueda = request.Codigo };
+                    var listaUsuarios = UsuarioInfoList.GetUsuarioInfoList(crit);
+                    var usuarioCreado = listaUsuarios.Where(x => x.Dominio ==
+                        request.Dominio).SingleOrDefault();
+
+                    //Estableciendo variables de entorno
+                    Csla.ApplicationContext.GlobalContext["Placa"] = Environment.MachineName;
+                    Csla.ApplicationContext.GlobalContext["Usuario"] = Environment.UserName;
+
+                    //Creacion de perfil
+
+                    perfil.IdAplicacion = request.IdAplicacion;
+                    perfil.IdUsuario = usuarioCreado.ID;
+
+                    perfil.Usuario = usuarioCreado.Nombres;
+                    perfil.Aplicacion = request.Aplicacion;
+                    perfil.Caduca = false;
+                    perfil.VigenciaInicio = DateTime.Now;
+                    perfil.VigenciaFin = DateTime.Now.AddYears(1);
+
+                    //Asignando rol
+                    var rolPerfil = perfil.RolesPerfiles.AddNew();
+
+                    rolPerfil.IdRol = request.IdRol;
+                    rolPerfil.IdAplicacion = request.IdAplicacion;
+
+                    //Agregando permisos
+                    rolPerfil.AgregarPermisos();
+
+                    //Estableciendo recursos
+                    var recursosList = RecursosInfoList.GetRecursosInfoList();
+
+
+                    foreach (var recurso in request.ListaRecursos)
+                    {
+                        string recursoact = recurso.Substring(0, recurso.IndexOf(":")).Trim();
+                        string[] recursodetalle = recurso.Substring(recurso.IndexOf(":") + 1).Trim().Split(',');
+
+                        foreach (var itemrecurso in recursosList.Where(x => x.Descripcion == recursoact))
+                        {
+                            var recursodetalles = from p in itemrecurso.Detalles
+                                                  where recursodetalle.Contains(p.Descripcion)
+                                                  select p;
+
+                            foreach (var itemrecursodetalle in recursodetalles)
+                            {
+                                var recursoitem = perfil.Recursos.AddNew();
+                                recursoitem.Conceder = true;
+                                recursoitem.IdRecursoDetalle = itemrecursodetalle.ID;
+                                perfil.Recursos.Add(recursoitem);
+                            }
+                        }
+
+                    }
+
+                    perfil.Save();
+
+                    string Clave = "";
+
+                    if (usuario.Tipo == "E")
+                    {
+
+                        //Creacion de contraseña
+                        Clave = GenerarContrasenia();
+                        //Hay que intentar el Login para identificar si se debe crear la contraseña.
+
+                        try
+                        {
+                            Csla.ApplicationContext.GlobalContext["Acronimo"] = request.Aplicacion;
+
+                            GRPrincipal.Load(usuario.Codigo, usuario.Dominio);
+
+                        }
+                        catch (DataPortalException ex)
+                        {
+                            if (ex.BusinessException.GetType() == typeof(UsuarioNoActivoException)
+                               || ex.BusinessException.GetType() == typeof(UsuarioSinClaveException))
+                            {
+                                var activacion = ActivarUsuario.GetActivarUsuario(new FiltroUsuarios
+                                {
+                                    Usuario = usuario.Codigo,
+                                    Dominio = usuario.Dominio
+                                });
+
+                                activacion.PreguntaSecreta = request.PreguntaSecreta;
+                                activacion.RespuestaSecreta = request.RespuestaSecreta;
+                                activacion.ClaveSecreta = Clave;
+                                activacion.ConfirmarClave = Clave;
+
+                                activacion.Save();
+                            }
+                        }
+                    }
+                    result.IdUsuario = usuarioCreado.ID;
+                    result.Clave = Clave;
+                    result.Codigo = request.Codigo;
+                    result.Alias = request.Alias;
+                    result.MensajeError = "";
                 }
                 catch (DataPortalException ex)
                 {
@@ -785,14 +782,14 @@ namespace GR.COMEX.Seguridad.ServicioBL
                     var msg = ex.Message;
                     if (ex.InnerException != null)
                         msg = ex.InnerException.Message;
-                    result.MensajeError = request.Alias+" :"+ msg;
+                    result.MensajeError = request.Alias + " :" + msg;
                 }
 
                 lstResult.Add(result);
             }
 
             return lstResult;
-        
+
         }
 
 
@@ -1063,7 +1060,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
                 response[count1].Opciones.Add(opcion);
             else
                 if (nivel == 2)
-                    response[count1].Opciones[count2].Opciones.Add(opcion);
+                response[count1].Opciones[count2].Opciones.Add(opcion);
             return null;
         }
 
@@ -1281,7 +1278,7 @@ namespace GR.COMEX.Seguridad.ServicioBL
             return generado;
         }
 
-        
+
         #endregion
 
     }

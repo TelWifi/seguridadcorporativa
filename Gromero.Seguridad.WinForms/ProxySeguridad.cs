@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using ErickOrlando.Utilidades.ServiceModel;
-using GR.COMEX.Seguridad.Entidades;
+using Seguridad.Entidades;
 
 namespace Gromero.Seguridad.WinForms
 {

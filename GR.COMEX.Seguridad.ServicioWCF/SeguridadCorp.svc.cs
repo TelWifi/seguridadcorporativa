@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GR.COMEX.Seguridad.Entidades;
-using GR.COMEX.Seguridad.ServicioBL;
+using Seguridad.Entidades;
+using Seguridad.ServicioBL;
 
-namespace GR.COMEX.Seguridad.ServicioWCF
+namespace Seguridad.ServicioWCF
 {
-    public class SeguridadGR : ISeguridadGR
+    public class SeguridadCorp : ISeguridadCorp
     {
 
         public bool CambiarClave(RequestCambioClave request)
@@ -26,7 +26,7 @@ namespace GR.COMEX.Seguridad.ServicioWCF
             }
             catch (Exception ex)
             {
-                return new ResponseCambioClave { Result = new Result { Success = false, Message = ex.Message } } ;
+                return new ResponseCambioClave { Result = new Result { Success = false, Message = ex.Message } };
             }
         }
 
@@ -108,7 +108,7 @@ namespace GR.COMEX.Seguridad.ServicioWCF
         public ResponseUsuarioInsert InsertUsuario(RequestDTOUsuarioInsert request)
         {
             //return new ResponseUsuarioInsert();
-           return SeguridadBL.InsertUsuario(request);
+            return SeguridadBL.InsertUsuario(request);
         }
 
         public List<ResponseUsuarioInsert> InsertUsuarios(List<RequestDTOUsuarioInsert> lstRequest)

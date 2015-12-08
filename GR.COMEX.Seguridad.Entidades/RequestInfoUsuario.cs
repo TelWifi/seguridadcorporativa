@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GR.COMEX.Seguridad.Entidades
+namespace Seguridad.Entidades
 {
     public class RequestInfoUsuario
     {

@@ -1,4 +1,4 @@
-﻿using GR.COMEX.Seguridad.Entidades;
+﻿using Seguridad.Entidades;
 using Gromero.Seguridad.Login;
 using Gromero.Seguridad.WinForms;
 using System;

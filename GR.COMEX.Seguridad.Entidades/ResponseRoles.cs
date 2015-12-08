@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace GR.COMEX.Seguridad.Entidades
+namespace Seguridad.Entidades
 {
     public class ResponseRoles
     {

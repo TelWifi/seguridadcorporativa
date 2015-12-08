@@ -40,11 +40,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsTestApp", "WindowsTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gromero.Corporativo.Negocio", "Gromero.Corporativo.Negocio\Gromero.Corporativo.Negocio.csproj", "{987830A1-2C0B-4D0A-8C02-E3ECAA2FE765}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GR.COMEX.Seguridad.ServicioWCF", "GR.COMEX.Seguridad.ServicioWCF\GR.COMEX.Seguridad.ServicioWCF.csproj", "{59AFEDCF-8A28-4925-B509-4DB2FD004368}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seguridad.ServicioWCF", "GR.COMEX.Seguridad.ServicioWCF\Seguridad.ServicioWCF.csproj", "{59AFEDCF-8A28-4925-B509-4DB2FD004368}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GR.COMEX.Seguridad.Entidades", "GR.COMEX.Seguridad.Entidades\GR.COMEX.Seguridad.Entidades.csproj", "{EDF03B78-4B8A-4F14-8213-6180F7E8D3EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seguridad.Entidades", "GR.COMEX.Seguridad.Entidades\Seguridad.Entidades.csproj", "{EDF03B78-4B8A-4F14-8213-6180F7E8D3EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GR.COMEX.Seguridad.ServicioBL", "GR.COMEX.Seguridad.ServicioBL\GR.COMEX.Seguridad.ServicioBL.csproj", "{2B9BC29D-86C0-4297-BA88-333DBDFEFB0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seguridad.ServicioBL", "GR.COMEX.Seguridad.ServicioBL\Seguridad.ServicioBL.csproj", "{2B9BC29D-86C0-4297-BA88-333DBDFEFB0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErickOrlando.Utilidades.Windows", "ErickOrlando.Utilidades.Windows\ErickOrlando.Utilidades.Windows.csproj", "{021826A5-69DA-4F14-9669-943A0679FF4A}"
 EndProject

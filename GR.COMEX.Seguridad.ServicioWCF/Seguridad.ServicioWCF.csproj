@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GR.COMEX.Seguridad.ServicioWCF</RootNamespace>
-    <AssemblyName>GR.COMEX.Seguridad.ServicioWCF</AssemblyName>
+    <RootNamespace>Seguridad.ServicioWCF</RootNamespace>
+    <AssemblyName>Seguridad.ServicioWCF</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <UseIISExpress>true</UseIISExpress>
@@ -84,26 +84,23 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SeguridadGR.svc" />
+    <Content Include="SeguridadCorp.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ISeguridadGR.cs" />
-    <Compile Include="SeguridadGR.svc.cs">
-      <DependentUpon>SeguridadGR.svc</DependentUpon>
+    <Compile Include="SeguridadCorp.svc.cs">
+      <DependentUpon>SeguridadCorp.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="Properties\PublishProfiles\augusto.pubxml" />
-    <None Include="Properties\PublishProfiles\dpomalazaç.pubxml" />
-    <None Include="Properties\PublishProfiles\Local.pubxml" />
-    <None Include="Properties\PublishProfiles\LocalFgonzales.pubxml" />
-    <None Include="Properties\PublishProfiles\TRAMOLDEV01.pubxml" />
+    <None Include="Properties\PublishProfiles\segcorpib2b - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\segcorpib2b - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -112,13 +109,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GR.COMEX.Seguridad.Entidades\GR.COMEX.Seguridad.Entidades.csproj">
+    <ProjectReference Include="..\GR.COMEX.Seguridad.Entidades\Seguridad.Entidades.csproj">
       <Project>{edf03b78-4b8a-4f14-8213-6180f7e8d3ea}</Project>
-      <Name>GR.COMEX.Seguridad.Entidades</Name>
+      <Name>Seguridad.Entidades</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GR.COMEX.Seguridad.ServicioBL\GR.COMEX.Seguridad.ServicioBL.csproj">
+    <ProjectReference Include="..\GR.COMEX.Seguridad.ServicioBL\Seguridad.ServicioBL.csproj">
       <Project>{2b9bc29d-86c0-4297-ba88-333dbdfefb0d}</Project>
-      <Name>GR.COMEX.Seguridad.ServicioBL</Name>
+      <Name>Seguridad.ServicioBL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

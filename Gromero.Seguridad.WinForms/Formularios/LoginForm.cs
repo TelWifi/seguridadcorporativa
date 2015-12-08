@@ -1,7 +1,7 @@
 ﻿using Csla;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
-using GR.COMEX.Seguridad.Entidades;
+using Seguridad.Entidades;
 using Gromero.Seguridad.Entidades;
 using Gromero.Seguridad.Login;
 using Gromero.Seguridad.WinForms.HelperWin;
