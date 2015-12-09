@@ -156,11 +156,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GR.COMEX.Seguridad.Entidades\Seguridad.Entidades.csproj">
+    <ProjectReference Include="..\Seguridad.Entidades\Seguridad.Entidades.csproj">
       <Project>{edf03b78-4b8a-4f14-8213-6180f7e8d3ea}</Project>
       <Name>Seguridad.Entidades</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Gromero.Seguridad\Gromero.Seguridad.csproj">
+    <ProjectReference Include="..\ErickOrlando.Seguridad\Gromero.Seguridad.csproj">
       <Project>{4EAD35F9-4BFA-447C-A04D-B8338551434C}</Project>
       <Name>Gromero.Seguridad</Name>
     </ProjectReference>
