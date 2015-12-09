@@ -20,14 +20,14 @@ namespace Gromero.Seguridad.Login
     /// </summary>
     public class SimpleInteroperableEncryption
     {
-        private byte[] passWord = Constantes.key;// "p@$$W0rDC0RP0R4C10NS3rv1c10sGR";
+        private byte[] passWord = Constantes.key;
         private string salt = "";
         /// <summary>
         /// Inicia una clase SimpleInteroperableEncryption
         /// </summary>
         public SimpleInteroperableEncryption()
         {
-            salt = System.Configuration.ConfigurationManager.AppSettings["GR.Seguridad.Password"].ToString();
+            salt = System.Configuration.ConfigurationManager.AppSettings["SeguridadSalt"].ToString();
         }
         /// <summary>
         /// Inicia una clase SimpleInteroperableEncryption
@@ -37,17 +37,7 @@ namespace Gromero.Seguridad.Login
         {
             this.salt = ClavePublica;
         }
-        //private static void Main(string[] args)
-        //{
-        //    string encrypted = Encrypt("Something to decrypt");
-        //    Console.Out.WriteLine(encrypted);
 
-        //    string decrypted = Decrypt(encrypted);
-        //    Console.Out.WriteLine(decrypted);
-
-        //    Console.Out.WriteLine("Press any key to continue");
-        //    Console.ReadKey();
-        //}
         /// <summary>
         /// Encriptar
         /// </summary>

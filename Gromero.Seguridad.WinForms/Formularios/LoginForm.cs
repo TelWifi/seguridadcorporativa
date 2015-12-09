@@ -206,6 +206,8 @@ namespace Gromero.Seguridad.WinForms
 
             var result = false;
 
+            var cryptocon = new SimpleInteroperableEncryption();
+
             //Comprobamos primero el tipo de Usuario
             if (GRPrincipal.Load(infoUser.Usuario, infoUser.Dominio))
             {
@@ -213,7 +215,7 @@ namespace Gromero.Seguridad.WinForms
                 if (InfoUsuario.Instancia.Tipo)
                     result = GRPrincipal.Login(infoUser.Usuario, txtPass.Text, cboDominio.Text);
                 else
-                    result = GRPrincipal.Login(infoUser.Usuario, GRCrypto.Encriptar(txtPass.Text));
+                    result = GRPrincipal.Login(infoUser.Usuario, cryptocon.Encrypt(txtPass.Text));
             }
             else
                 throw new InvalidOperationException("El usuario no está inscrito para este Sistema");

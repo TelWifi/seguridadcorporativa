@@ -154,54 +154,27 @@ namespace Seguridad.ServicioBL
             return response;
         }
 
-
-        public static ResponseLoginUsuario LoginInterno(RequestLogin request, Boolean validarContraseña)
+        public static ResponseLoginUsuario LoginInterno(RequestLogin request)
         {
             var response = new ResponseLoginUsuario();
             try
             {
+                if (string.IsNullOrEmpty(request.Clave) || string.IsNullOrEmpty(request.CodigoUsuario))
+                    throw new InvalidOperationException("El usuario y clave son obligatorios.");
+                if (string.IsNullOrEmpty(request.AcronimoAplicacion))
+                    throw new InvalidOperationException("El acrónimo es obligatorio.");
+
                 var cryptocon = new SimpleInteroperableEncryption();
-                if (String.IsNullOrEmpty(request.Clave))
-                    request.Clave = "";
-                else
-                    request.Clave = cryptocon.Decrypt(request.Clave);
+                request.Clave = cryptocon.Decrypt(request.Clave);
 
                 //Comprobamos que el Nombre de Usuario contiene un Dominio
-                var infoUser = Publicos.ComprobarDominioEnUsuario(request.CodigoUsuario);
+                var infoUser = new UserDomain { Usuario = request.CodigoUsuario, Dominio = request.Dominio };
                 //Guardamos en el GlobalContext el valor que se reciba del Acrónimo
                 Csla.ApplicationContext.GlobalContext["Acronimo"] = request.AcronimoAplicacion;
-                var dominio = string.IsNullOrEmpty(request.Dominio) ? infoUser.Dominio : request.Dominio;
                 if (string.IsNullOrEmpty(request.Dominio))
                     throw new InvalidOperationException("El dominio es obligatorio.");
 
-                //switch (dominio)
-                //{
-                //    case "GRUPORANSA":
-                //        infoUser.Dominio = "gruporansa.gromero.net";
-                //        break;
-                //    case "GRUPOCOGESA":
-                //        infoUser.Dominio = "grupocogesa.gromero.net";
-                //        break;
-                //    case "TRAMARSA":
-                //        infoUser.Dominio = "tramarsa.com.pe";
-                //        break;
-                //    case "ALICORP":
-                //        infoUser.Dominio = "grupoalicorp.gromero.net";
-                //        break;
-                //    default:
-                //        throw new InvalidOperationException("El dominio no es válido.");
-                //    //infoUser.Dominio = "grupocogesa.gromero.net";
-                //    //break;
-                //}
                 var result = false;
-
-                if (validarContraseña)
-                {
-                    if (string.IsNullOrEmpty(request.Clave) || string.IsNullOrEmpty(request.CodigoUsuario))
-                        throw new InvalidOperationException("El usuario y clave son obligatorios.");
-                }
-                if (string.IsNullOrEmpty(request.AcronimoAplicacion))
-                    throw new InvalidOperationException("El acrónimo es obligatorio.");
 
                 //Comprobamos primero el tipo de Usuario
                 if (GRPrincipal.Load(infoUser.Usuario, infoUser.Dominio))
@@ -209,15 +182,10 @@ namespace Seguridad.ServicioBL
                     InfoUsuario.Initialize();
                     if (InfoUsuario.Instancia.Tipo)
                     {
-                        //Si el usuario interno ya ha sido validado previamente
-                        //y la Clave está en blanco, no es necesario loguearlo
-                        if (string.IsNullOrEmpty(request.Clave))
-                            result = true;
-                        else
-                            result = GRPrincipal.Login(infoUser.Usuario, request.Clave, request.Dominio);
+                        result = GRPrincipal.Login(infoUser.Usuario, request.Clave, request.Dominio);
                     }
                     else
-                        result = GRPrincipal.Login(infoUser.Usuario, GRCrypto.Encriptar(request.Clave));
+                        result = GRPrincipal.Login(infoUser.Usuario, cryptocon.Encrypt(request.Clave));
                 }
                 else
                     throw new InvalidOperationException("El usuario no está inscrito para este Sistema");
@@ -246,12 +214,7 @@ namespace Seguridad.ServicioBL
 
         public static ResponseLoginUsuario Login(RequestLogin request)
         {
-            return LoginInterno(request, true);
-        }
-
-        public static ResponseLoginUsuario LoginApp(RequestLogin request)
-        {
-            return LoginInterno(request, false);
+            return LoginInterno(request);
         }
 
         #endregion
@@ -436,51 +399,22 @@ namespace Seguridad.ServicioBL
                 #endregion
 
                 #region Recursos
-                result.Sociedades = new List<ResponseSociedadSAP>();
-                result.Negocios = new List<ResponseNegocioSAP>();
-                result.Sedes = new List<ResponseSedeSAP>();
                 result.RecursosAdicionales = new List<ResponseRecursoAdicional>();
 
                 foreach (var recurso in perfilNegocio.Recursos)
                 {
                     if (recurso.Conceder)
-                        switch (recurso.RecursoPadre)
+
+                        result.RecursosAdicionales.Add(new ResponseRecursoAdicional
                         {
-                            case "Sociedades":
-                                result.Sociedades.Add(new ResponseSociedadSAP
-                                {
-                                    Codigo = recurso.Codigo,
-                                    Descripcion = recurso.Descripcion
-                                });
-                                break;
-                            case "Negocios":
-                                result.Negocios.Add(new ResponseNegocioSAP
-                                {
-                                    Codigo = recurso.Codigo,
-                                    Descripcion = recurso.Descripcion
-                                });
-                                break;
-                            case "Sedes":
-                                result.Sedes.Add(new ResponseSedeSAP
-                                {
-                                    Codigo = recurso.Codigo,
-                                    Descripcion = recurso.Descripcion
-                                });
-                                break;
-                            default:
-                                result.RecursosAdicionales.Add(new ResponseRecursoAdicional
-                                {
-                                    Codigo = recurso.Codigo,
-                                    Descripcion = recurso.Descripcion
-                                });
-                                break;
-                        }
+                            Codigo = recurso.Codigo,
+                            Descripcion = recurso.Descripcion
+                        });
                 }
                 #endregion
             }
             return result;
         }
-
 
         public static ResponseUsuarioInsert InsertUsuario(RequestDTOUsuarioInsert request)
         {
@@ -829,109 +763,32 @@ namespace Seguridad.ServicioBL
             }
         }
 
-        //public static IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
-        //{
-        //    var resultado = new List<ResponseUsuarioCargo>();
-        //    using (var ctx = new SeguridadEntities())
-        //    {
-        //        var query = ctx.SelectAllUsuarios();
-        //        foreach (var item in query)
-        //        {
-        //            foreach (var codCargo in request.CodigosCargo)
-        //            {
-        //                if (item.Cargo == codCargo)
-        //                    resultado.Add(new ResponseUsuarioCargo
-        //                    {
-        //                        CodigoUsuario = item.CodigoUsuario,
-        //                        IdUsuario = item.IdUsuario,
-        //                        NombresCompletos = string.Format("{0} {1} {2}",
-        //                            item.Nombres, item.ApellidoPaterno, item.ApellidoMaterno),
-        //                        CorreoUsuario = item.Correo
-        //                    });
-        //            }
+        public static IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
+        {
+            var resultado = new List<ResponseUsuarioCargo>();
+            using (var ctx = new SeguridadEntities())
+            {
+                var query = ctx.SelectAllUsuarios();
+                foreach (var item in query)
+                {
+                    foreach (var codCargo in request.CodigosCargo)
+                    {
+                        if (item.Cargo == codCargo)
+                            resultado.Add(new ResponseUsuarioCargo
+                            {
+                                CodigoUsuario = item.CodigoUsuario,
+                                IdUsuario = item.IdUsuario,
+                                NombresCompletos = string.Format("{0} {1} {2}",
+                                    item.Nombres, item.ApellidoPaterno, item.ApellidoMaterno),
+                                CorreoUsuario = item.Correo
+                            });
+                    }
 
-        //        }
+                }
 
-        //    }
-        //    return resultado;
-        //}
-
-        //public static IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
-        //{
-
-        //    var resultado = new List<ResponseUsuarioCargo>();
-        //    using (var ctx = new SeguridadEntities())
-        //    {
-        //        var query = ctx.SelectListarUsuariosCOMEX(request.CodigoUsuario, request.Nombre, request.DNI, request.Dominio,
-        //            request.Sociedad, request.Acronimo, request.TipoUsuario);
-
-
-        //        foreach (var item in query.ToList())
-        //        {
-        //            bool tieneSede = false;
-
-        //            if (!string.IsNullOrEmpty(request.Sede))
-        //            {
-        //                string perfilUsuarioId = ctx.SelectObtenerPerfilUsuarioComex(item.CodigoUsuario, item.Dominio, request.Acronimo).FirstOrDefault();
-
-        //                RequestInfoUsuario requestInfoUsuario = new RequestInfoUsuario();
-        //                requestInfoUsuario.IdPerfilUsuario = perfilUsuarioId;
-
-        //                List<ResponseSedeSAP> sedes = ListarSedes(requestInfoUsuario).ToList();
-
-        //                foreach (ResponseSedeSAP sede in sedes)
-        //                {
-        //                    if (sede.Codigo.ToString().Trim() == request.Sede.ToString().Trim())
-        //                    {
-        //                        tieneSede = true;
-        //                        break;
-        //                    }
-        //                }
-
-        //                if (tieneSede)
-        //                {
-        //                    foreach (var codCargo in request.CodigosCargo)
-        //                    {
-        //                        if (item.CodigoCargo == codCargo)
-        //                            resultado.Add(new ResponseUsuarioCargo
-        //                            {
-        //                                CodigoUsuario = item.CodigoUsuario,
-        //                                IdUsuario = item.IdUsuario,
-        //                                NombresCompletos = item.NombresCompletos.Split('(')[0].Trim(),
-        //                                CorreoUsuario = item.Correo,
-        //                                DNI = item.DNI
-        //                            });
-        //                    }
-        //                }
-
-        //            }
-        //            else
-        //            {
-        //                if (!string.IsNullOrEmpty(request.CodigosCargo.ToString()))
-        //                {
-        //                    foreach (var codCargo in request.CodigosCargo)
-        //                    {
-        //                        if (item.CodigoCargo == codCargo)
-        //                            resultado.Add(new ResponseUsuarioCargo
-        //                            {
-        //                                CodigoUsuario = item.CodigoUsuario,
-        //                                IdUsuario = item.IdUsuario,
-        //                                NombresCompletos = item.NombresCompletos.Split('(')[0].Trim(),
-        //                                CorreoUsuario = item.Correo,
-        //                                DNI = item.DNI
-
-        //                            });
-        //                    }
-        //                }
-        //            }
-
-
-
-        //        }
-
-        //    }
-        //    return resultado;
-        //}
+            }
+            return resultado;
+        }
 
         #endregion
 
@@ -955,96 +812,17 @@ namespace Seguridad.ServicioBL
             return response;
         }
 
-        public static IEnumerable<ResponseSociedadSAP> ListarSociedades(RequestInfoUsuario request)
-        {
-            var response = new List<ResponseSociedadSAP>();
-            var perfilNegocio = PerfilUsuarioInfoList.GetPerfilUsuarioInfoList(
-                   new FiltroCriteria
-                   {
-                       NombreCampo = "IdPerfilUsuario",
-                       ValorBusqueda = request.IdPerfilUsuario
-                   }).FirstOrDefault();
-
-            foreach (var recurso in perfilNegocio.Recursos)
-            {
-                if (recurso.Conceder && recurso.RecursoPadre == "Sociedades")
-                {
-                    response.Add(new ResponseSociedadSAP
-                    {
-                        Codigo = recurso.Codigo,
-                        Descripcion = recurso.Descripcion
-                    });
-                }
-            }
-
-            return response;
-        }
-
-        public static IEnumerable<ResponseNegocioSAP> ListarNegocios(RequestInfoUsuario request)
-        {
-            var response = new List<ResponseNegocioSAP>();
-            var perfilNegocio = PerfilUsuarioInfoList.GetPerfilUsuarioInfoList(
-                   new FiltroCriteria
-                   {
-                       NombreCampo = "IdPerfilUsuario",
-                       ValorBusqueda = request.IdPerfilUsuario
-                   }).FirstOrDefault();
-            foreach (var recurso in perfilNegocio.Recursos)
-            {
-                if (recurso.Conceder && recurso.RecursoPadre == "Negocios")
-                {
-                    response.Add(new ResponseNegocioSAP
-                    {
-                        Codigo = recurso.Codigo,
-                        Descripcion = recurso.Descripcion
-                    });
-                }
-            }
-
-            return response;
-        }
-
-        public static IEnumerable<ResponseSedeSAP> ListarSedes(RequestInfoUsuario request)
-        {
-            var response = new List<ResponseSedeSAP>();
-            var perfilNegocio = PerfilUsuarioInfoList.GetPerfilUsuarioInfoList(
-                   new FiltroCriteria
-                   {
-                       NombreCampo = "IdPerfilUsuario",
-                       ValorBusqueda = request.IdPerfilUsuario
-                   }).FirstOrDefault();
-            foreach (var recurso in perfilNegocio.Recursos)
-            {
-                if (recurso.Conceder && recurso.RecursoPadre == "Sedes")
-                {
-                    response.Add(new ResponseSedeSAP
-                    {
-                        Codigo = recurso.Codigo,
-                        Descripcion = recurso.Descripcion
-                    });
-                }
-            }
-
-            return response;
-        }
-
         #endregion
 
         #region Metodos Privados
 
-        public static string insert(ResponseOpcionUI respuestaPermiso, List<ResponseOpcionUI> response)
-        {
-            //response.Add(respuestaPermiso);         
-            return null;
-        }
-
         public static List<string> getPermisos(List<ResponseOpcionUI> menu)
         {
             List<string> permisos = new List<string>();
-            List<ResponseOpcionUI> res = (from xx in menu where xx.Codigo != "" select xx).ToList();
+            List<ResponseOpcionUI> res = (from xx in menu where xx.Codigo != string.Empty select xx).ToList();
             foreach (var item in res)
             {
-                if (item.Codigo != "")
+                if (item.Codigo != string.Empty)
                     permisos.Add(item.Codigo);
                 if (item.Opciones != null && item.Opciones.Count > 0)
                 {
@@ -1052,16 +830,6 @@ namespace Seguridad.ServicioBL
                 }
             }
             return permisos;
-        }
-
-        public static string InsertNivel(List<ResponseOpcionUI> response, ResponseOpcionUI opcion, int count1, int count2, int nivel)
-        {
-            if (nivel == 1)
-                response[count1].Opciones.Add(opcion);
-            else
-                if (nivel == 2)
-                response[count1].Opciones[count2].Opciones.Add(opcion);
-            return null;
         }
 
         public static IEnumerable<ResponseOpcionUI> ListarOpciones(PerfilUsuarioInfo perfilNegocio, IEnumerable<string> roles)

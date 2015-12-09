@@ -18,9 +18,6 @@ namespace Seguridad.Entidades
         public string TipoUsuario { get; set; }
         public List<ResponseRoles> Roles { get; set; }
         public List<ResponseOpcionUI> OpcionesUI { get; set; }
-        public List<ResponseSociedadSAP> Sociedades { get; set; }
-        public List<ResponseSedeSAP> Sedes { get; set; }
-        public List<ResponseNegocioSAP> Negocios { get; set; }
         public List<ResponseRecursoAdicional> RecursosAdicionales { get; set; }
     }
 }
