@@ -221,17 +221,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ErickOrlando.Corporativo.Negocio\Gromero.Corporativo.Negocio.csproj">
+    <ProjectReference Include="..\ErickOrlando.Corporativo.Negocio\ErickOrlando.Corporativo.Negocio.csproj">
       <Project>{987830A1-2C0B-4D0A-8C02-E3ECAA2FE765}</Project>
-      <Name>Gromero.Corporativo.Negocio</Name>
+      <Name>ErickOrlando.Corporativo.Negocio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ErickOrlando.Seguridad.WinForms\Gromero.Seguridad.WinForms.csproj">
+    <ProjectReference Include="..\ErickOrlando.Seguridad.WinForms\ErickOrlando.Seguridad.WinForms.csproj">
       <Project>{0d5aaa21-f0d7-44a0-ad67-b97cd568464b}</Project>
-      <Name>Gromero.Seguridad.WinForms</Name>
+      <Name>ErickOrlando.Seguridad.WinForms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ErickOrlando.Seguridad\Gromero.Seguridad.csproj">
+    <ProjectReference Include="..\ErickOrlando.Seguridad\ErickOrlando.Seguridad.csproj">
       <Project>{4ead35f9-4bfa-447c-a04d-b8338551434c}</Project>
-      <Name>Gromero.Seguridad</Name>
+      <Name>ErickOrlando.Seguridad</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

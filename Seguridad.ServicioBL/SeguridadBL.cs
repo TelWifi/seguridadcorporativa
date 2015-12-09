@@ -154,7 +154,7 @@ namespace Seguridad.ServicioBL
             return response;
         }
 
-        public static ResponseLoginUsuario LoginInterno(RequestLogin request)
+        public static ResponseLoginUsuario Login(RequestLogin request)
         {
             var response = new ResponseLoginUsuario();
             try
@@ -164,6 +164,7 @@ namespace Seguridad.ServicioBL
                 if (string.IsNullOrEmpty(request.AcronimoAplicacion))
                     throw new InvalidOperationException("El acrónimo es obligatorio.");
 
+                // Desencriptamos el mensaje recibido.
                 var cryptocon = new SimpleInteroperableEncryption();
                 request.Clave = cryptocon.Decrypt(request.Clave);
 
@@ -180,12 +181,10 @@ namespace Seguridad.ServicioBL
                 if (GRPrincipal.Load(infoUser.Usuario, infoUser.Dominio))
                 {
                     InfoUsuario.Initialize();
-                    if (InfoUsuario.Instancia.Tipo)
-                    {
+                    if (InfoUsuario.Instancia.Tipo) // Si es interno
                         result = GRPrincipal.Login(infoUser.Usuario, request.Clave, request.Dominio);
-                    }
-                    else
-                        result = GRPrincipal.Login(infoUser.Usuario, cryptocon.Encrypt(request.Clave));
+                    else // Si es externo
+                        result = GRPrincipal.Login(infoUser.Usuario, GRCrypto.Encriptar(request.Clave));
                 }
                 else
                     throw new InvalidOperationException("El usuario no está inscrito para este Sistema");
@@ -210,11 +209,6 @@ namespace Seguridad.ServicioBL
             }
 
             return response;
-        }
-
-        public static ResponseLoginUsuario Login(RequestLogin request)
-        {
-            return LoginInterno(request);
         }
 
         #endregion

@@ -94,17 +94,17 @@
       <Project>{edf03b78-4b8a-4f14-8213-6180f7e8d3ea}</Project>
       <Name>Seguridad.Entidades</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ErickOrlando.Seguridad.Datos\Gromero.Seguridad.Datos.csproj">
+    <ProjectReference Include="..\ErickOrlando.Seguridad.Datos\ErickOrlando.Seguridad.Datos.csproj">
       <Project>{09faa615-acf4-4946-9f87-29d41f0426b6}</Project>
-      <Name>Gromero.Seguridad.Datos</Name>
+      <Name>ErickOrlando.Seguridad.Datos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ErickOrlando.Seguridad.Negocio\Gromero.Seguridad.Negocio.csproj">
+    <ProjectReference Include="..\ErickOrlando.Seguridad.Negocio\ErickOrlando.Seguridad.Negocio.csproj">
       <Project>{b550588c-9432-4b1b-8b48-3d465e0c5038}</Project>
-      <Name>Gromero.Seguridad.Negocio</Name>
+      <Name>ErickOrlando.Seguridad.Negocio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ErickOrlando.Seguridad\Gromero.Seguridad.csproj">
+    <ProjectReference Include="..\ErickOrlando.Seguridad\ErickOrlando.Seguridad.csproj">
       <Project>{4ead35f9-4bfa-447c-a04d-b8338551434c}</Project>
-      <Name>Gromero.Seguridad</Name>
+      <Name>ErickOrlando.Seguridad</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

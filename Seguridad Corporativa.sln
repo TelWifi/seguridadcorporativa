@@ -22,21 +22,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06. Dependencias", "06. Dep
 		Dependencias\GRomeroAD.DirectoryServices.dll = Dependencias\GRomeroAD.DirectoryServices.dll
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gromero.Seguridad.Datos", "ErickOrlando.Seguridad.Datos\Gromero.Seguridad.Datos.csproj", "{09FAA615-ACF4-4946-9F87-29D41F0426B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErickOrlando.Seguridad.Datos", "ErickOrlando.Seguridad.Datos\ErickOrlando.Seguridad.Datos.csproj", "{09FAA615-ACF4-4946-9F87-29D41F0426B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gromero.Seguridad.Negocio", "ErickOrlando.Seguridad.Negocio\Gromero.Seguridad.Negocio.csproj", "{B550588C-9432-4B1B-8B48-3D465E0C5038}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErickOrlando.Seguridad.Negocio", "ErickOrlando.Seguridad.Negocio\ErickOrlando.Seguridad.Negocio.csproj", "{B550588C-9432-4B1B-8B48-3D465E0C5038}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gromero.Seguridad.Windows", "ErickOrlando.Seguridad.Windows\Gromero.Seguridad.Windows.csproj", "{564E0DA0-D868-4B1A-AFED-6050E85FBE58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErickOrlando.Seguridad.Windows", "ErickOrlando.Seguridad.Windows\ErickOrlando.Seguridad.Windows.csproj", "{564E0DA0-D868-4B1A-AFED-6050E85FBE58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gromero.Seguridad", "ErickOrlando.Seguridad\Gromero.Seguridad.csproj", "{4EAD35F9-4BFA-447C-A04D-B8338551434C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErickOrlando.Seguridad", "ErickOrlando.Seguridad\ErickOrlando.Seguridad.csproj", "{4EAD35F9-4BFA-447C-A04D-B8338551434C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gromero.Seguridad.WinForms", "ErickOrlando.Seguridad.WinForms\Gromero.Seguridad.WinForms.csproj", "{0D5AAA21-F0D7-44A0-AD67-B97CD568464B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErickOrlando.Seguridad.WinForms", "ErickOrlando.Seguridad.WinForms\ErickOrlando.Seguridad.WinForms.csproj", "{0D5AAA21-F0D7-44A0-AD67-B97CD568464B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gromero.Corporativo", "ErickOrlando.Corporativo\Gromero.Corporativo.csproj", "{6B140FD8-A27F-4E95-AC33-C9594AC4736B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErickOrlando.Corporativo", "ErickOrlando.Corporativo\ErickOrlando.Corporativo.csproj", "{6B140FD8-A27F-4E95-AC33-C9594AC4736B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsTestApp", "WindowsTestApp\WindowsTestApp.csproj", "{BE55F9F9-830F-47AA-8E3B-40A5481E8B22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gromero.Corporativo.Negocio", "ErickOrlando.Corporativo.Negocio\Gromero.Corporativo.Negocio.csproj", "{987830A1-2C0B-4D0A-8C02-E3ECAA2FE765}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErickOrlando.Corporativo.Negocio", "ErickOrlando.Corporativo.Negocio\ErickOrlando.Corporativo.Negocio.csproj", "{987830A1-2C0B-4D0A-8C02-E3ECAA2FE765}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seguridad.ServicioWCF", "Seguridad.ServicioWCF\Seguridad.ServicioWCF.csproj", "{59AFEDCF-8A28-4925-B509-4DB2FD004368}"
 EndProject

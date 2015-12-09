@@ -160,9 +160,9 @@
       <Project>{edf03b78-4b8a-4f14-8213-6180f7e8d3ea}</Project>
       <Name>Seguridad.Entidades</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ErickOrlando.Seguridad\Gromero.Seguridad.csproj">
+    <ProjectReference Include="..\ErickOrlando.Seguridad\ErickOrlando.Seguridad.csproj">
       <Project>{4EAD35F9-4BFA-447C-A04D-B8338551434C}</Project>
-      <Name>Gromero.Seguridad</Name>
+      <Name>ErickOrlando.Seguridad</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
