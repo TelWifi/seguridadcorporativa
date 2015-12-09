@@ -27,10 +27,6 @@ namespace Seguridad.ServicioWCF
         ResponseLoginUsuario Login(RequestLogin request);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "/LoginApp", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        ResponseLoginUsuario LoginApp(RequestLogin request);
-
-        [OperationContract]
         [WebInvoke(UriTemplate = "/GetInfoUsuario", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         ResponseInfoUsuarioDTO GetInfoUsuario(RequestInfoUsuario request);
 
@@ -46,9 +42,9 @@ namespace Seguridad.ServicioWCF
         [WebInvoke(UriTemplate = "/ListarUsuarios", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         IEnumerable<ResponseListaUsuarios> ListarUsuarios(RequestListarUsuario request);
 
-        //[OperationContract]
-        //[WebInvoke(UriTemplate = "/ListarUsuariosPorCargo", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        //IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request);
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/ListarUsuariosPorCargo", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetNombreUsuarioByCodigoUsuario", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
@@ -74,18 +70,6 @@ namespace Seguridad.ServicioWCF
         [OperationContract]
         [WebInvoke(UriTemplate = "/ListarCargosPorSociedad", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         IEnumerable<ResponseCargo> ListarCargosPorSociedad(RequestListaCargo request);
-
-        [OperationContract]
-        [WebInvoke(UriTemplate = "/ListarSociedades", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        IEnumerable<ResponseSociedadSAP> ListarSociedades(RequestInfoUsuario request);
-
-        [OperationContract]
-        [WebInvoke(UriTemplate = "/ListarNegocios", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        IEnumerable<ResponseNegocioSAP> ListarNegocios(RequestInfoUsuario request);
-
-        [OperationContract]
-        [WebInvoke(UriTemplate = "/ListarSedes", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        IEnumerable<ResponseSedeSAP> ListarSedes(RequestInfoUsuario request);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetInfoBasicaUsuariosByCodigo", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]

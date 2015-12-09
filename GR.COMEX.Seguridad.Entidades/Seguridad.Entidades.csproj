@@ -66,12 +66,9 @@
     <Compile Include="ResponseInfoUsuarioDTO.cs" />
     <Compile Include="ResponseListaUsuarios.cs" />
     <Compile Include="ResponseLoginUsuario.cs" />
-    <Compile Include="ResponseNegocioSAP.cs" />
     <Compile Include="ResponseOpcionUI.cs" />
     <Compile Include="ResponseRecursoAdicional.cs" />
     <Compile Include="ResponseRoles.cs" />
-    <Compile Include="ResponseSedeSAP.cs" />
-    <Compile Include="ResponseSociedadSAP.cs" />
     <Compile Include="ResponseUsuarioCargo.cs" />
     <Compile Include="ResponseUsuarioInsert.cs" />
     <Compile Include="Result.cs" />

@@ -35,11 +35,6 @@ namespace Seguridad.ServicioWCF
             return SeguridadBL.Login(request);
         }
 
-        public ResponseLoginUsuario LoginApp(RequestLogin request)
-        {
-            return SeguridadBL.LoginApp(request);
-        }
-
         public ResponseInfoUsuarioDTO GetInfoUsuario(RequestInfoUsuario request)
         {
             return SeguridadBL.GetInfoUsuario(request);
@@ -60,10 +55,10 @@ namespace Seguridad.ServicioWCF
             return SeguridadBL.ListarUsuarios(request);
         }
 
-        //public IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
-        //{
-        //    return SeguridadBL.ListarUsuariosPorCargo(request);
-        //}
+        public IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
+        {
+            return SeguridadBL.ListarUsuariosPorCargo(request);
+        }
 
         public string GetNombreUsuarioByCodigoUsuario(string request)
         {
@@ -83,21 +78,6 @@ namespace Seguridad.ServicioWCF
         public IEnumerable<ResponseCargo> ListarCargosPorSociedad(RequestListaCargo request)
         {
             return SeguridadBL.ListarCargoPorSociedad(request);
-        }
-
-        public IEnumerable<ResponseSociedadSAP> ListarSociedades(RequestInfoUsuario request)
-        {
-            return SeguridadBL.ListarSociedades(request);
-        }
-
-        public IEnumerable<ResponseNegocioSAP> ListarNegocios(RequestInfoUsuario request)
-        {
-            return SeguridadBL.ListarNegocios(request);
-        }
-
-        public IEnumerable<ResponseSedeSAP> ListarSedes(RequestInfoUsuario request)
-        {
-            return SeguridadBL.ListarSedes(request);
         }
 
         public ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuariosByCodigo(RequestInfoBasicaUsuarioDTO request)

@@ -192,9 +192,10 @@ namespace Gromero.Seguridad.Entidades
             {
                 cmd.Parameters.AddWithValue("@IdUsuario", ID);
                 cmd.Parameters.AddWithValue("@IdClave", Guid.NewGuid().ToString());
-                cmd.Parameters.AddWithValue("@Clave", GRCrypto.Encriptar(ClaveSecreta));
+                var cryptocon = new SimpleInteroperableEncryption();
+                cmd.Parameters.AddWithValue("@Clave", cryptocon.Encrypt(ClaveSecreta));
                 cmd.Parameters.AddWithValue("@PreguntaSecreta", PreguntaSecreta);
-                cmd.Parameters.AddWithValue("@RespuestaSecreta", GRCrypto.Encriptar(RespuestaSecreta));
+                cmd.Parameters.AddWithValue("@RespuestaSecreta", cryptocon.Encrypt(RespuestaSecreta));
             }
         }
 
