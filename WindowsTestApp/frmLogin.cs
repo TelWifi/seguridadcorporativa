@@ -5,60 +5,36 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsTestApp.Proxies;
-using DevExpress.XtraEditors;
-using Gromero.Seguridad;
+using ErickOrlando.Seguridad.Login;
 
 namespace WindowsTestApp
 {
-	public partial class frmLogin : Form
-	{
-		public frmLogin()
-		{
-			InitializeComponent();
-			txtUser.Text = Environment.UserName;
-		}
+    public partial class frmLogin : Form
+    {
+        public frmLogin()
+        {
+            InitializeComponent();
+        }
 
-		private void btnLogin_Click(object sender, EventArgs e)
-		{
+        private void btnEncriptar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var crypto = new SimpleInteroperableEncryption();
 
-			try
-			{
-				Cursor.Current = Cursors.WaitCursor;
-				//Creamos una instancia de la Clase LoginCredentials
-				var credenciales = new LoginCredentials();
+                var resultado = crypto.Encrypt(txtClave.Text);
 
-				credenciales.UserName = txtUser.Text;
-				credenciales.Password = txtPass.Text;
-				credenciales.AcronimoSistema = "SEGCORP";
+                Clipboard.SetText(resultado);
+                lblResultado.Text = string.Format("Resultado: {0}", resultado);
+                MessageBox.Show("Texto copiado al portapapeles");
 
-				//Invocamos al Servicio con la API REST
-				var result = InformacionREST<LoginCredentials>.EnviarInfo(
-					new Uri(Publicos.GetDireccionServicio(), "Login"), credenciales);
-
-
-				if (result)
-				{
-					var frm = new Form1();
-					frm.ShowDialog();
-				}
-				else
-					throw new System.Security.SecurityException();
-
-			}
-			catch (Exception ex)
-			{
-				XtraMessageBox.Show(
-					ex.Message,
-					Text,
-					MessageBoxButtons.OK,
-					MessageBoxIcon.Information);
-			}
-			finally
-			{
-				Cursor.Current = Cursors.Default;
-			}
-		}
-	}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+    }
 }

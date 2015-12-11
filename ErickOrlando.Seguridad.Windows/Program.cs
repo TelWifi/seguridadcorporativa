@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Gromero.Seguridad.Windows
+namespace ErickOrlando.Seguridad.Windows
 {
 	static class Program
 	{

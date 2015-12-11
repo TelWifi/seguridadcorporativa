@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gromero.Seguridad.Windows
+namespace ErickOrlando.Seguridad.Windows
 {
     /// <summary>
     /// Clase que permite modificar el archivo de Configuracion de la aplicacion

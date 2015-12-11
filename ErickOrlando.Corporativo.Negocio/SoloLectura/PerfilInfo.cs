@@ -5,7 +5,7 @@ using System.Text;
 using Csla;
 using Csla.Data;
 
-namespace Gromero.Corporativo.SoloLectura
+namespace ErickOrlando.Corporativo.SoloLectura
 {
 	[Serializable]
 	public class PerfilInfo : ReadOnlyBase<PerfilInfo>

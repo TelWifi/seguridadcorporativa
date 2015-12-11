@@ -1,12 +1,12 @@
 ﻿using Csla;
 using Csla.Data.EF6;
 using ErickOrlando.Utilidades.Data;
-using Gromero.Seguridad.Datos;
+using ErickOrlando.Seguridad.Datos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Gromero.Seguridad.Negocio.SoloLectura
+namespace ErickOrlando.Seguridad.Negocio.SoloLectura
 {
 	[Serializable]
 	public class CargoInfoList :

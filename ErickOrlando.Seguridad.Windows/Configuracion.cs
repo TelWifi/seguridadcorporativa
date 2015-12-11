@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 
-namespace Gromero.Seguridad.Windows
+namespace ErickOrlando.Seguridad.Windows
 {
 	/// <summary>
 	/// Clase que permite modificar el archivo de Configuracion de la aplicacion

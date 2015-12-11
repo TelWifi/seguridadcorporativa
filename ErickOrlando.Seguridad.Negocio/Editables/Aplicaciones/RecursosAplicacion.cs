@@ -1,10 +1,10 @@
 ﻿using Csla;
 using Csla.Data.EF6;
-using Gromero.Seguridad.Datos;
+using ErickOrlando.Seguridad.Datos;
 using System;
 using System.Linq;
 
-namespace Gromero.Seguridad.Negocio.Editables
+namespace ErickOrlando.Seguridad.Negocio.Editables
 {
 	[Serializable]
 	public class RecursosAplicacion :

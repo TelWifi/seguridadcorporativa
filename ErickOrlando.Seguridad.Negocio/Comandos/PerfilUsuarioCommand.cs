@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Csla;
 using Csla.Data;
-using Gromero.Seguridad.Datos;
+using ErickOrlando.Seguridad.Datos;
 using Csla.Data.EF6;
 
-namespace Gromero.Seguridad.Negocio.Comandos
+namespace ErickOrlando.Seguridad.Negocio.Comandos
 {
     [Serializable]
     public class PerfilUsuarioCommand : CommandBase<PerfilUsuarioCommand>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Gromero.Seguridad.Negocio.SoloLectura.Dominios
+namespace ErickOrlando.Seguridad.Negocio.SoloLectura.Dominios
 {
 	public class DominioInfo
 	{

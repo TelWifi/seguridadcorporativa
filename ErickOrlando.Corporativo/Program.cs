@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using Gromero.Seguridad;
 using DevExpress.LookAndFeel;
-using Gromero.Seguridad.Windows;
+using ErickOrlando.Seguridad.Windows;
 using System.Threading;
 
-namespace Gromero.Corporativo
+namespace ErickOrlando.Corporativo
 {
     static class Program
     {
@@ -35,7 +32,7 @@ namespace Gromero.Corporativo
 
         internal static void DoLogin()
         {
-            Utilidades.Autenticacion();
+            Seguridad.Utilidades.Autenticacion();
         }
     }
 }

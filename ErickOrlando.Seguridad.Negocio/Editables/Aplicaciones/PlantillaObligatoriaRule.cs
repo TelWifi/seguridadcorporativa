@@ -1,7 +1,7 @@
 ﻿using Csla.Core;
 using Csla.Rules;
 
-namespace Gromero.Seguridad.Negocio.Editables
+namespace ErickOrlando.Seguridad.Negocio.Editables
 {
     public class PlantillaObligatoriaRule : Csla.Rules.BusinessRule
     {

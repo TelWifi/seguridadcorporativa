@@ -1,12 +1,12 @@
 using Csla;
 using Csla.Data.EF6;
-using Gromero.Seguridad.Datos;
+using ErickOrlando.Seguridad.Datos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
 
-namespace Gromero.Seguridad.Negocio.Comandos
+namespace ErickOrlando.Seguridad.Negocio.Comandos
 {
 	[Serializable]
 	public class PlantillasCommand : CommandBase<PlantillasCommand>

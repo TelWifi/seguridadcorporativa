@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Gromero.Seguridad.Datos
+namespace ErickOrlando.Seguridad.Datos
 {
     using System;
     using System.Collections.Generic;

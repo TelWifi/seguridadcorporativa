@@ -1,11 +1,11 @@
 ﻿using Csla;
 using Csla.Data.EF6;
-using Gromero.Seguridad.Datos;
+using ErickOrlando.Seguridad.Datos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Gromero.Seguridad.Negocio.Comandos
+namespace ErickOrlando.Seguridad.Negocio.Comandos
 {
 	[Serializable]
 	public class RecursosDetalleCommand : CommandBase<RecursosDetalleCommand>

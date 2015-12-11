@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gromero.Seguridad.Datos
+namespace ErickOrlando.Seguridad.Datos
 {
-	public partial class SeguridadEntities
-	{
-		public SeguridadEntities(string dataBase)
-			: base("name=SeguridadEntities")
-		{
+    public partial class SeguridadEntities
+    {
+        public SeguridadEntities(string dataBase)
+            : base("name=SeguridadEntities")
+        {
 
-		}
-	}
+        }
+    }
 }

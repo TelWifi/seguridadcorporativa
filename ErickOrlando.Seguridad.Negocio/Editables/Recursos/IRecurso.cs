@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gromero.Seguridad.Negocio.Editables
+namespace ErickOrlando.Seguridad.Negocio.Editables
 {
     /// <summary>
     /// Define el comportamiento de un Recurso

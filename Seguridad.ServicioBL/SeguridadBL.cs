@@ -1,18 +1,17 @@
-﻿using System;
+﻿using Csla;
+using ErickOrlando.Seguridad;
+using ErickOrlando.Seguridad.Datos;
+using ErickOrlando.Seguridad.Entidades;
+using ErickOrlando.Seguridad.Login;
+using ErickOrlando.Seguridad.Negocio.Editables;
+using ErickOrlando.Seguridad.Negocio.SoloLectura;
+using ErickOrlando.Seguridad.Negocio.SoloLectura.Dominios;
+using ErickOrlando.Utilidades.Data;
+using Seguridad.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
-using ErickOrlando.Utilidades.Data;
-using Seguridad.Entidades;
-using Gromero.Seguridad;
-using Gromero.Seguridad.Datos;
-using Gromero.Seguridad.Login;
-using Gromero.Seguridad.Negocio.SoloLectura;
-using Gromero.Seguridad.Negocio.SoloLectura.Dominios;
-using Csla;
-//using Gromero.Seguridad.WinForms.HelperWin;
-using Gromero.Seguridad.Entidades;
-using Gromero.Seguridad.Negocio.Editables;
 
 namespace Seguridad.ServicioBL
 {
@@ -142,7 +141,7 @@ namespace Seguridad.ServicioBL
             }
 
             // OBTENEMOS LOS DATOS
-            CambiarClave cambiarClave = Gromero.Seguridad.Entidades.CambiarClave.GetCambiarClave(new FiltroUsuarios { Usuario = codigoUsuario, Dominio = request.Dominio });
+            CambiarClave cambiarClave = ErickOrlando.Seguridad.Entidades.CambiarClave.GetCambiarClave(new FiltroUsuarios { Usuario = codigoUsuario, Dominio = request.Dominio });
             cambiarClave.ClaveNueva = cambiarClave.ConfirmarClave = request.ClaveNueva;
             cambiarClave.RespuestaSecreta = cambiarClave.SecretAnswer;
             cambiarClave.Save(false);
@@ -413,7 +412,7 @@ namespace Seguridad.ServicioBL
         public static ResponseUsuarioInsert InsertUsuario(RequestDTOUsuarioInsert request)
         {
             ResponseUsuarioInsert result = new ResponseUsuarioInsert();
-            var perfil = Gromero.Seguridad.Negocio.Editables.PerfilUsuario.NewPerfilUsuario();
+            var perfil = ErickOrlando.Seguridad.Negocio.Editables.PerfilUsuario.NewPerfilUsuario();
             var usuario = Usuario.NewUsuario();
 
             try
@@ -579,7 +578,7 @@ namespace Seguridad.ServicioBL
                 try
                 {
 
-                    var perfil = Gromero.Seguridad.Negocio.Editables.PerfilUsuario.NewPerfilUsuario();
+                    var perfil = ErickOrlando.Seguridad.Negocio.Editables.PerfilUsuario.NewPerfilUsuario();
                     var usuario = Usuario.NewUsuario();
 
                     //Creacion de nuevo usuario
@@ -991,7 +990,7 @@ namespace Seguridad.ServicioBL
             return primero;
         }
 
-        private static void AgregarOpcionesAnidadas(ResponseOpcionUI respuestaPermiso, IEnumerable<Gromero.Seguridad.Negocio.Editables.Permiso> lista)
+        private static void AgregarOpcionesAnidadas(ResponseOpcionUI respuestaPermiso, IEnumerable<ErickOrlando.Seguridad.Negocio.Editables.Permiso> lista)
         {
             //Filtramos los ítems de esta opcion
             var listaFiltrada = lista.Where(l => l.IdOpcionPadre == respuestaPermiso.IdOpcion);

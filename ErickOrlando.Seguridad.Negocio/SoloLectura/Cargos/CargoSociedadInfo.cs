@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Csla;
 using Csla.Data;
-using Gromero.Seguridad.Datos;
+using ErickOrlando.Seguridad.Datos;
 using System.ComponentModel;
 
-namespace Gromero.Seguridad.Negocio.SoloLectura
+namespace ErickOrlando.Seguridad.Negocio.SoloLectura
 {
     [Serializable]
     public class CargoSociedadInfo : ReadOnlyBase<CargoSociedadInfo>

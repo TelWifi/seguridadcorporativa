@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Csla.Data;
 
-namespace Gromero.Corporativo.SoloLectura
+namespace ErickOrlando.Corporativo.SoloLectura
 {
     [Serializable]
     public class AppInfoList :

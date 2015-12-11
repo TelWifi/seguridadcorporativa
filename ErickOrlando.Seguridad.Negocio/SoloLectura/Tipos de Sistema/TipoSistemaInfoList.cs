@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Gromero.Seguridad.Negocio.SoloLectura
+namespace ErickOrlando.Seguridad.Negocio.SoloLectura
 {
 	public class TipoSistemaInfoList : List<TipoSistemaInfo>
 	{

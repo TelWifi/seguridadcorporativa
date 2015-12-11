@@ -11,8 +11,7 @@ namespace WindowsTestApp
 {
     public partial class Form1 : Form
     {
-        //private string UrlBase = "http://tramoldev01.tramarsa.com.pe/GRSeguridad/SeguridadGR.svc/{0}";
-        private string UrlBase = "http://localhost:8080/GRSeguridad/SeguridadGR.svc/{0}";
+        private string UrlBase = "http://localhost:8080/SeguridadCorp.svc/{0}";
 
         public Form1()
         {
@@ -41,10 +40,7 @@ namespace WindowsTestApp
                 //    Cursor.Current = Cursors.Default;
                 //}
 
-                MessageBox.Show(string.Format("Dominio: {0} \n Usuario:{1} \n PC:{2}",
-                        Environment.UserDomainName,
-                        Environment.UserName,
-                        Environment.MachineName));
+
             };
         }
 
@@ -138,6 +134,12 @@ namespace WindowsTestApp
             MessageBox.Show("Boton habilidado!");
         }
 
-
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (var frm = new frmLogin())
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

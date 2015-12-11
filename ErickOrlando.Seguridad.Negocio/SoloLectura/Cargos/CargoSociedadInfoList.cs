@@ -1,10 +1,10 @@
 ﻿using Csla;
 using Csla.Data.EF6;
 using ErickOrlando.Utilidades.Data;
-using Gromero.Seguridad.Datos;
+using ErickOrlando.Seguridad.Datos;
 using System;
 
-namespace Gromero.Seguridad.Negocio.SoloLectura
+namespace ErickOrlando.Seguridad.Negocio.SoloLectura
 {
 	[Serializable]
 	public class CargoSociedadInfoList :

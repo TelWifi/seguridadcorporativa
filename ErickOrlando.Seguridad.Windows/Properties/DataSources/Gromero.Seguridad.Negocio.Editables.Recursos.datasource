@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="Recursos" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>Gromero.Seguridad.Negocio.Editables.Recursos, Gromero.Seguridad.Negocio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22b50cffaca4dc6e</TypeInfo>
+   <TypeInfo>ErickOrlando.Seguridad.Negocio.Editables.Recursos, ErickOrlando.Seguridad.Negocio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22b50cffaca4dc6e</TypeInfo>
 </GenericObjectDataSource>

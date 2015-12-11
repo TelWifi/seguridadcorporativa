@@ -2,7 +2,7 @@
 using Csla.Data;
 using System;
 
-namespace Gromero.Corporativo.SoloLectura
+namespace ErickOrlando.Corporativo.SoloLectura
 {
 	[Serializable]
 	public class AppInfo : ReadOnlyBase<AppInfo>, IEquatable<AppInfo>

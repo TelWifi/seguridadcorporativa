@@ -6,7 +6,7 @@ using GRomeroAD.DirectoryServices;
 using System.Collections.ObjectModel;
 using ErickOrlando.Utilidades.Data;
 
-namespace Gromero.Seguridad.Negocio.SoloLectura
+namespace ErickOrlando.Seguridad.Negocio.SoloLectura
 {
 	public class UsuarioADInfoList : ObservableCollection<Directorio>
 	{

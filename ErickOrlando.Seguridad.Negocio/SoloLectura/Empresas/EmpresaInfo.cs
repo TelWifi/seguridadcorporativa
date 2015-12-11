@@ -1,8 +1,8 @@
 using System;
 using Csla;
-using Gromero.Seguridad.Datos;
+using ErickOrlando.Seguridad.Datos;
 
-namespace Gromero.Seguridad.Negocio.SoloLectura
+namespace ErickOrlando.Seguridad.Negocio.SoloLectura
 {
 	[Serializable]
 	public class EmpresaInfo : ReadOnlyBase<EmpresaInfo>

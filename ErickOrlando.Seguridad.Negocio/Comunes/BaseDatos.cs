@@ -1,5 +1,5 @@
 ﻿
-namespace Gromero.Seguridad.Negocio
+namespace ErickOrlando.Seguridad.Negocio
 {
 	public class BaseDatos
 	{

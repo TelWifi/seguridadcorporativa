@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gromero.Seguridad.Negocio.Comunes
+namespace ErickOrlando.Seguridad.Negocio.Comunes
 {
     /// <summary>
     /// Representa un Objeto que es Recursivo

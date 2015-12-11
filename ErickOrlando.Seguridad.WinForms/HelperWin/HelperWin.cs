@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gromero.Seguridad.WinForms.HelperWin
+namespace ErickOrlando.Seguridad.WinForms.HelperWin
 {
     public static class Helper
     {
