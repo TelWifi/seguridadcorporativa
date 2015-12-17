@@ -27,8 +27,8 @@ namespace ErickOrlando.Seguridad.Datos
         public string Correo { get; set; }
         public string Dominio { get; set; }
         public System.DateTime UltimoIngreso { get; set; }
-        public string IdCargoSociedad { get; set; }
         public string Alias { get; set; }
         public string AliasAlterno { get; set; }
+        public string IdCargo { get; set; }
     }
 }

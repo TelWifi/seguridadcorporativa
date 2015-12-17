@@ -9,11 +9,11 @@ using System.Text;
 
 namespace WindowsTestApp
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private string UrlBase = "http://localhost:8080/SeguridadCorp.svc/{0}";
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 

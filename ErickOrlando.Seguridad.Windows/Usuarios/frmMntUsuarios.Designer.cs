@@ -1,33 +1,33 @@
 ﻿namespace ErickOrlando.Seguridad.Windows.Usuarios
 {
-	partial class frmMntUsuarios
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class frmMntUsuarios
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label codigoLabel;
             System.Windows.Forms.Label nombresLabel;
@@ -456,7 +456,7 @@
             // 
             // idCargoSociedadGridLookUpEdit
             // 
-            this.idCargoSociedadGridLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "IdCargoSociedad", true));
+            this.idCargoSociedadGridLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.usuarioBindingSource, "IdCargo", true));
             this.idCargoSociedadGridLookUpEdit.Location = new System.Drawing.Point(511, 174);
             this.idCargoSociedadGridLookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.idCargoSociedadGridLookUpEdit.MenuManager = this.BarraBotones;
@@ -626,37 +626,37 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
+        }
 
-		#endregion
+        #endregion
 
-		private System.Windows.Forms.BindingSource usuarioBindingSource;
-		private DevExpress.XtraEditors.TextEdit codigoTextEdit;
-		private DevExpress.XtraEditors.TextEdit nombresTextEdit;
-		private DevExpress.XtraEditors.TextEdit apellidoPaternoTextEdit;
-		private DevExpress.XtraEditors.TextEdit apellidoMaternoTextEdit;
-		private DevExpress.XtraEditors.TextEdit dNITextEdit;
-		private DevExpress.XtraEditors.CheckEdit estadoCheckEdit;
-		private DevExpress.XtraEditors.LookUpEdit idEmpresaLookUpEdit;
-		private DevExpress.XtraEditors.LookUpEdit idEmpresaPertenenciaLookUpEdit;
-		private System.Windows.Forms.BindingSource empresaInfoListBindingSource;
-		private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
-		private DevExpress.XtraEditors.LookUpEdit tipoTextEdit;
-		private System.Windows.Forms.BindingSource tipoUsuarioInfoListBindingSource;
-		private DevExpress.XtraEditors.TextEdit correoTextEdit;
-		private ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton btnBuscar;
-		private DevExpress.XtraEditors.LookUpEdit dominioTextEdit;
-		private System.Windows.Forms.BindingSource dominioInfoListBindingSource;
-		private DevExpress.XtraEditors.GridLookUpEdit idCargoSociedadGridLookUpEdit;
-		private DevExpress.XtraGrid.Views.Grid.GridView idCargoSociedadGridLookUpEditView;
-		private System.Windows.Forms.BindingSource cargoInfoListBindingSource;
-		private DevExpress.XtraGrid.Columns.GridColumn colCodigoCargo;
-		private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
-		private DevExpress.XtraEditors.TextEdit aliasTextEdit;
-		private DevExpress.XtraEditors.TextEdit aliasAlternativoTextEdit;
-		private DevExpress.XtraEditors.CheckEdit notificarConCorreoCheckEdit;
-		private System.Windows.Forms.Label notificarConCorreoLabel;
+        private System.Windows.Forms.BindingSource usuarioBindingSource;
+        private DevExpress.XtraEditors.TextEdit codigoTextEdit;
+        private DevExpress.XtraEditors.TextEdit nombresTextEdit;
+        private DevExpress.XtraEditors.TextEdit apellidoPaternoTextEdit;
+        private DevExpress.XtraEditors.TextEdit apellidoMaternoTextEdit;
+        private DevExpress.XtraEditors.TextEdit dNITextEdit;
+        private DevExpress.XtraEditors.CheckEdit estadoCheckEdit;
+        private DevExpress.XtraEditors.LookUpEdit idEmpresaLookUpEdit;
+        private DevExpress.XtraEditors.LookUpEdit idEmpresaPertenenciaLookUpEdit;
+        private System.Windows.Forms.BindingSource empresaInfoListBindingSource;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private DevExpress.XtraEditors.LookUpEdit tipoTextEdit;
+        private System.Windows.Forms.BindingSource tipoUsuarioInfoListBindingSource;
+        private DevExpress.XtraEditors.TextEdit correoTextEdit;
+        private ErickOrlando.Utilidades.Windows.Controles.PlantillaBoton btnBuscar;
+        private DevExpress.XtraEditors.LookUpEdit dominioTextEdit;
+        private System.Windows.Forms.BindingSource dominioInfoListBindingSource;
+        private DevExpress.XtraEditors.GridLookUpEdit idCargoSociedadGridLookUpEdit;
+        private DevExpress.XtraGrid.Views.Grid.GridView idCargoSociedadGridLookUpEditView;
+        private System.Windows.Forms.BindingSource cargoInfoListBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colCodigoCargo;
+        private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
+        private DevExpress.XtraEditors.TextEdit aliasTextEdit;
+        private DevExpress.XtraEditors.TextEdit aliasAlternativoTextEdit;
+        private DevExpress.XtraEditors.CheckEdit notificarConCorreoCheckEdit;
+        private System.Windows.Forms.Label notificarConCorreoLabel;
         private System.Windows.Forms.Label aliasAlternativoLabel;
         private System.Windows.Forms.Button importarButton;
-	}
+    }
 }

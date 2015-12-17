@@ -28,16 +28,6 @@
           <Property Name="EstadoRegistro" Type="bit" />
           <Property Name="UltimoCambio" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
-        <EntityType Name="CargoSociedad">
-          <Key>
-            <PropertyRef Name="IdCargoSociedad" />
-          </Key>
-          <Property Name="IdCargoSociedad" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="CodSociedadPropietaria" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="IdCargo" Type="varchar" MaxLength="36" Nullable="false" />
-          <Property Name="EstadoRegistro" Type="bit" />
-          <Property Name="UltimoCambio" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
-        </EntityType>
         <EntityType Name="Claves">
           <Key>
             <PropertyRef Name="IdClave" />
@@ -223,7 +213,7 @@
           <Property Name="Correo" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Dominio" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="UltimoIngreso" Type="datetime" Nullable="false" />
-          <Property Name="IdCargoSociedad" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="IdCargo" Type="varchar" MaxLength="36" Nullable="false" />
           <Property Name="Alias" Type="varchar" MaxLength="12" />
           <Property Name="AliasAlterno" Type="nvarchar" MaxLength="50" />
           <Property Name="EstadoRegistro" Type="bit" />
@@ -346,30 +336,6 @@
             </Principal>
             <Dependent Role="RolesPerfiles">
               <PropertyRef Name="IdRol" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TCMSEGUSE__IDEMP__21B6055D">
-          <End Role="Empresas" Type="Self.Empresas" Multiplicity="1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Empresas">
-              <PropertyRef Name="IdEmpresa" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdEmpresa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TCRSEGCAS__IDCAR__308E3499">
-          <End Role="Cargo" Type="Self.Cargo" Multiplicity="1" />
-          <End Role="CargoSociedad" Type="Self.CargoSociedad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cargo">
-              <PropertyRef Name="IdCargo" />
-            </Principal>
-            <Dependent Role="CargoSociedad">
-              <PropertyRef Name="IdCargo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -505,18 +471,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TCMSEGUSER_TCRSEGCASOC">
-          <End Role="CargoSociedad" Type="Self.CargoSociedad" Multiplicity="1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CargoSociedad">
-              <PropertyRef Name="IdCargoSociedad" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdCargoSociedad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Function Name="usp_ActivaUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
           <Parameter Name="IdClave" Type="varchar" Mode="In" />
@@ -585,26 +539,6 @@
         </Function>
         <Function Name="usp_CargoSelectByDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSociedadDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargoSociedad" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSociedadInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargoSociedad" Type="varchar" Mode="In" />
-          <Parameter Name="CodSociedadPropietaria" Type="varchar" Mode="In" />
-          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSociedadSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSociedadSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="usp_CargoSociedadSelectBySociedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="CodSociedadPropietaria" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="usp_CargoSociedadUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdCargoSociedad" Type="varchar" Mode="In" />
-          <Parameter Name="CodSociedadPropietaria" Type="varchar" Mode="In" />
-          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_CargoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdCargo" Type="varchar" Mode="In" />
@@ -967,7 +901,7 @@
           <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
           <Parameter Name="IdEmpresa" Type="varchar" Mode="In" />
           <Parameter Name="IdEmpresaPertenencia" Type="varchar" Mode="In" />
-          <Parameter Name="IdCargoSociedad" Type="varchar" Mode="In" />
+          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
           <Parameter Name="CodigoUsuario" Type="varchar" Mode="In" />
           <Parameter Name="Nombres" Type="varchar" Mode="In" />
           <Parameter Name="Dominio" Type="varchar" Mode="In" />
@@ -1010,7 +944,7 @@
           <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
           <Parameter Name="IdEmpresa" Type="varchar" Mode="In" />
           <Parameter Name="IdEmpresaPertenencia" Type="varchar" Mode="In" />
-          <Parameter Name="IdCargoSociedad" Type="varchar" Mode="In" />
+          <Parameter Name="IdCargo" Type="varchar" Mode="In" />
           <Parameter Name="CodigoUsuario" Type="varchar" Mode="In" />
           <Parameter Name="Dominio" Type="varchar" Mode="In" />
           <Parameter Name="Nombres" Type="varchar" Mode="In" />
@@ -1026,7 +960,6 @@
         <EntityContainer Name="GROMEROModelStoreContainer">
           <EntitySet Name="Aplicaciones" EntityType="Self.Aplicaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CargoSociedad" EntityType="Self.CargoSociedad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Claves" EntityType="Self.Claves" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dominios" EntityType="Self.Dominios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Empresas" EntityType="Self.Empresas" Schema="dbo" store:Type="Tables" />
@@ -1081,14 +1014,6 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="RolesPerfiles" EntitySet="RolesPerfiles" />
           </AssociationSet>
-          <AssociationSet Name="FK__TCMSEGUSE__IDEMP__21B6055D" Association="Self.FK__TCMSEGUSE__IDEMP__21B6055D">
-            <End Role="Empresas" EntitySet="Empresas" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TCRSEGCAS__IDCAR__308E3499" Association="Self.FK__TCRSEGCAS__IDCAR__308E3499">
-            <End Role="Cargo" EntitySet="Cargo" />
-            <End Role="CargoSociedad" EntitySet="CargoSociedad" />
-          </AssociationSet>
           <AssociationSet Name="FK__TCRSEGREC__IDAPL__4830B400" Association="Self.FK__TCRSEGREC__IDAPL__4830B400">
             <End Role="Aplicaciones" EntitySet="Aplicaciones" />
             <End Role="RecursoAplicacion" EntitySet="RecursoAplicacion" />
@@ -1132,10 +1057,6 @@
           <AssociationSet Name="FK_TARSEGROLESPER_TCMSEGAPLC" Association="Self.FK_TARSEGROLESPER_TCMSEGAPLC">
             <End Role="Aplicaciones" EntitySet="Aplicaciones" />
             <End Role="RolesPerfiles" EntitySet="RolesPerfiles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TCMSEGUSER_TCRSEGCASOC" Association="Self.FK_TCMSEGUSER_TCRSEGCASOC">
-            <End Role="CargoSociedad" EntitySet="CargoSociedad" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -1351,18 +1272,6 @@
           <Parameter Name="Descripcion" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="Cargo" EntityType="SeguridadModel.Cargo" />
-          <EntitySet Name="CargoSociedad" EntityType="SeguridadModel.CargoSociedad" />
-          <AssociationSet Name="FK__TCRSEGCAS__IDCAR__308E3499" Association="SeguridadModel.FK__TCRSEGCAS__IDCAR__308E3499">
-            <End Role="TCMSEGCAR" EntitySet="Cargo" />
-            <End Role="TCRSEGCASOC" EntitySet="CargoSociedad" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TCMSEGUSER_TCRSEGCASOC" Association="SeguridadModel.FK_TCMSEGUSER_TCRSEGCASOC">
-            <End Role="TCRSEGCASOC" EntitySet="CargoSociedad" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
-          <FunctionImport Name="SelectCargoSociedad" EntitySet="CargoSociedad" ReturnType="Collection(SeguridadModel.CargoSociedad)">
-          <Parameter Name="IdCargo" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="SelectCargo" EntitySet="Cargo" ReturnType="Collection(SeguridadModel.Cargo)">
           <Parameter Name="IdCargo" Mode="In" Type="String" />
           </FunctionImport>
@@ -1373,7 +1282,7 @@
           <FunctionImport Name="SelectCargoByDescripcion" EntitySet="Cargo" ReturnType="Collection(SeguridadModel.Cargo)">
           <Parameter Name="Descripcion" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SelectAllCargoSociedad" ReturnType="Collection(SeguridadModel.CargoSociedadComplex)" />
+          <FunctionImport Name="SelectAllCargoSociedad" />
           <AssociationSet Name="FK_TARSEGPERM_TARSEGROLESPER" Association="SeguridadModel.FK_TARSEGPERM_TARSEGROLESPER">
             <End Role="RolesPerfiles" EntitySet="RolesPerfiles" />
             <End Role="Permiso" EntitySet="Permiso" />
@@ -1384,9 +1293,6 @@
           <FunctionImport Name="SelectRecursoForApp" EntitySet="Recurso" ReturnType="Collection(SeguridadModel.Recurso)" />
           <FunctionImport Name="SelectPerfilUsuarioById" ReturnType="Collection(SeguridadModel.PerfilUsuarioComplex)">
           <Parameter Name="IdPerfilUsuario" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SelectCargoSociedadBySociedad" ReturnType="Collection(SeguridadModel.CargoSociedadComplex)">
-          <Parameter Name="CodSociedadPropietaria" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetIdPerfilUsuario" ReturnType="Collection(String)">
             <Parameter Name="IdUsuario" Mode="In" Type="String" />
@@ -1471,9 +1377,9 @@
           <Property Type="String" Name="Correo" Unicode="false" FixedLength="false" MaxLength="200" Nullable="false" />
           <Property Type="String" Name="Dominio" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Type="DateTime" Name="UltimoIngreso" Precision="3" Nullable="false" />
-          <Property Type="String" Name="IdCargoSociedad" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Type="String" Name="Alias" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="AliasAlterno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdCargo" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
           </EntityType>
         <Association Name="FK__TARSEGCLA__IDUSR__4222D4EF">
           <End Role="TCMSEGUSER" Type="SeguridadModel.Usuarios" Multiplicity="1" />
@@ -1891,49 +1797,10 @@
           <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Estado" Nullable="false" />
           </EntityType>
-        <EntityType Name="CargoSociedad">
-          <Key>
-            <PropertyRef Name="IdCargoSociedad" />
-          </Key>
-          <Property Name="IdCargoSociedad" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" Type="String" />
-          <Property Type="String" Name="CodSociedadPropietaria" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCargo" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
-          </EntityType>
-        <Association Name="FK__TCRSEGCAS__IDCAR__308E3499">
-          <End Type="SeguridadModel.Cargo" Role="TCMSEGCAR" Multiplicity="1" />
-          <End Type="SeguridadModel.CargoSociedad" Role="TCRSEGCASOC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TCMSEGCAR">
-              <PropertyRef Name="IdCargo" />
-            </Principal>
-            <Dependent Role="TCRSEGCASOC">
-              <PropertyRef Name="IdCargo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TCMSEGUSER_TCRSEGCASOC">
-          <End Type="SeguridadModel.CargoSociedad" Role="TCRSEGCASOC" Multiplicity="1" />
-          <End Type="SeguridadModel.Usuarios" Role="Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TCRSEGCASOC">
-              <PropertyRef Name="IdCargoSociedad" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdCargoSociedad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <ComplexType Name="CargoSociedadComplex">
-          <Property Type="String" Name="IdCargo" Nullable="false" MaxLength="36" />
-          <Property Type="String" Name="CodigoCargo" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" />
-          <Property Type="String" Name="CodSociedadPropietaria" Nullable="false" MaxLength="20" />
-        </ComplexType>
         <ComplexType Name="UsuarioComplex">
           <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="36" />
           <Property Type="String" Name="EmpresaLabora" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="EmpresaDePertenencia" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="CodSociedadPropietaria" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="Cargo" Nullable="false" MaxLength="250" />
           <Property Type="String" Name="DescripcionCargo" Nullable="false" MaxLength="273" />
           <Property Type="String" Name="CodigoUsuario" Nullable="false" MaxLength="200" />
@@ -2175,6 +2042,7 @@
     <EntitySetMapping Name="Usuarios">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.Usuarios)">
         <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
           <ScalarProperty Name="IdEmpresaPertenencia" ColumnName="IdEmpresaPertenencia" />
@@ -2188,18 +2056,20 @@
           <ScalarProperty Name="Correo" ColumnName="Correo" />
           <ScalarProperty Name="Dominio" ColumnName="Dominio" />
           <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
-          <ScalarProperty Name="IdCargoSociedad" ColumnName="IdCargoSociedad" />
           <ScalarProperty Name="Alias" ColumnName="Alias" />
           <ScalarProperty Name="AliasAlterno" ColumnName="AliasAlterno" />
         </MappingFragment>
       </EntityTypeMapping>
             <EntityTypeMapping TypeName="SeguridadModel.Usuarios">
               <ModificationFunctionMapping>
+                <DeleteFunction FunctionName="GROMEROModel.Store.usp_UsuarioDelete">
+                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
+                </DeleteFunction>
                 <InsertFunction FunctionName="GROMEROModel.Store.usp_UsuarioInsert">
-                  <ScalarProperty Name="AliasAlterno" ParameterName="AliasAlterno" />
                   <ScalarProperty Name="Tipo" ParameterName="Tipo" />
                   <ScalarProperty Name="Estado" ParameterName="Estado" />
                   <ScalarProperty Name="DNI" ParameterName="DNI" />
+                  <ScalarProperty Name="AliasAlterno" ParameterName="AliasAlterno" />
                   <ScalarProperty Name="Alias" ParameterName="Alias" />
                   <ScalarProperty Name="Correo" ParameterName="Correo" />
                   <ScalarProperty Name="ApellidoMaterno" ParameterName="ApellidoMaterno" />
@@ -2207,15 +2077,15 @@
                   <ScalarProperty Name="Dominio" ParameterName="Dominio" />
                   <ScalarProperty Name="Nombres" ParameterName="Nombres" />
                   <ScalarProperty Name="CodigoUsuario" ParameterName="CodigoUsuario" />
-                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" />
+                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" />
                   <ScalarProperty Name="IdEmpresaPertenencia" ParameterName="IdEmpresaPertenencia" />
                   <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" />
                   <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
                 </InsertFunction>
                 <UpdateFunction FunctionName="GROMEROModel.Store.usp_UsuarioUpdate">
-                  <ScalarProperty Name="AliasAlterno" ParameterName="AliasAlterno" Version="Current" />
                   <ScalarProperty Name="Tipo" ParameterName="Tipo" Version="Current" />
                   <ScalarProperty Name="Estado" ParameterName="Estado" Version="Current" />
+                  <ScalarProperty Name="AliasAlterno" ParameterName="AliasAlterno" Version="Current" />
                   <ScalarProperty Name="Alias" ParameterName="Alias" Version="Current" />
                   <ScalarProperty Name="DNI" ParameterName="DNI" Version="Current" />
                   <ScalarProperty Name="Correo" ParameterName="Correo" Version="Current" />
@@ -2224,14 +2094,11 @@
                   <ScalarProperty Name="Nombres" ParameterName="Nombres" Version="Current" />
                   <ScalarProperty Name="Dominio" ParameterName="Dominio" Version="Current" />
                   <ScalarProperty Name="CodigoUsuario" ParameterName="CodigoUsuario" Version="Current" />
-                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" Version="Current" />
+                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" Version="Current" />
                   <ScalarProperty Name="IdEmpresaPertenencia" ParameterName="IdEmpresaPertenencia" Version="Current" />
                   <ScalarProperty Name="IdEmpresa" ParameterName="IdEmpresa" Version="Current" />
                   <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" Version="Current" />
                 </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_UsuarioDelete">
-                  <ScalarProperty Name="IdUsuario" ParameterName="IdUsuario" />
-                </DeleteFunction>
               </ModificationFunctionMapping>
             </EntityTypeMapping>
     </EntitySetMapping>
@@ -2591,44 +2458,8 @@
               </ModificationFunctionMapping>
             </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CargoSociedad">
-      <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.CargoSociedad)">
-        <MappingFragment StoreEntitySet="CargoSociedad">
-                <ScalarProperty Name="IdCargoSociedad" ColumnName="IdCargoSociedad" />
-          <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-            <EntityTypeMapping TypeName="SeguridadModel.CargoSociedad">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="GROMEROModel.Store.usp_CargoSociedadInsert">
-                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" />
-                  <ScalarProperty Name="CodSociedadPropietaria" ParameterName="CodSociedadPropietaria" />
-                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="GROMEROModel.Store.usp_CargoSociedadUpdate">
-                  <ScalarProperty Name="IdCargo" ParameterName="IdCargo" Version="Current" />
-                  <ScalarProperty Name="CodSociedadPropietaria" ParameterName="CodSociedadPropietaria" Version="Current" />
-                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="GROMEROModel.Store.usp_CargoSociedadDelete">
-                  <ScalarProperty Name="IdCargoSociedad" ParameterName="IdCargoSociedad" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-    </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SelectAllAplicacion" FunctionName="GROMEROModel.Store.usp_AplicacionSelectAll" />
           <FunctionImportMapping FunctionImportName="SelectAllCargo" FunctionName="GROMEROModel.Store.usp_CargoSelectAll" />
-          <FunctionImportMapping FunctionImportName="SelectAllCargoSociedad" FunctionName="GROMEROModel.Store.usp_CargoSociedadSelectAll">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SeguridadModel.CargoSociedadComplex">
-                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
-                <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SelectAllEmpresas" FunctionName="GROMEROModel.Store.usp_EmpresaSelectAll" />
           <FunctionImportMapping FunctionImportName="SelectAllPerfilUsuario" FunctionName="GROMEROModel.Store.usp_PerfilUsuarioSelectAll">
             <ResultMapping>
@@ -2665,7 +2496,6 @@
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
                 <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
                 <ScalarProperty Name="Cargo" ColumnName="Cargo" />
                 <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
                 <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
@@ -2689,17 +2519,6 @@
           <FunctionImportMapping FunctionImportName="SelectCargo" FunctionName="GROMEROModel.Store.usp_CargoSelect" />
           <FunctionImportMapping FunctionImportName="SelectCargoByCodigo" FunctionName="GROMEROModel.Store.usp_CargoSelectByCodigo" />
           <FunctionImportMapping FunctionImportName="SelectCargoByDescripcion" FunctionName="GROMEROModel.Store.usp_CargoSelectByDescripcion" />
-          <FunctionImportMapping FunctionImportName="SelectCargoSociedad" FunctionName="GROMEROModel.Store.usp_CargoSociedadSelect" />
-          <FunctionImportMapping FunctionImportName="SelectCargoSociedadBySociedad" FunctionName="GROMEROModel.Store.usp_CargoSociedadSelectBySociedad">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SeguridadModel.CargoSociedadComplex">
-                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
-                <ScalarProperty Name="CodigoCargo" ColumnName="CodigoCargo" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SelectEmpresa" FunctionName="GROMEROModel.Store.usp_EmpresaSelect" />
           <FunctionImportMapping FunctionImportName="SelectEmpresaByCodigo" FunctionName="GROMEROModel.Store.usp_EmpresaSelectByCodigo" />
           <FunctionImportMapping FunctionImportName="SelectEmpresaByNombreCorto" FunctionName="GROMEROModel.Store.usp_EmpresaSelectBySName" />
@@ -2923,14 +2742,12 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectUsuario" FunctionName="GROMEROModel.Store.usp_UsuarioSelect" />
           <FunctionImportMapping FunctionImportName="SelectUsuarioByApeMat" FunctionName="GROMEROModel.Store.usp_UsuarioSelectByApeMat">
             <ResultMapping>
               <ComplexTypeMapping TypeName="SeguridadModel.UsuarioComplex">
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
                 <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
                 <ScalarProperty Name="Cargo" ColumnName="Cargo" />
                 <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
                 <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
@@ -2953,7 +2770,6 @@
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
                 <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
                 <ScalarProperty Name="Cargo" ColumnName="Cargo" />
                 <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
                 <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
@@ -2976,7 +2792,6 @@
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
                 <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
                 <ScalarProperty Name="Cargo" ColumnName="Cargo" />
                 <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
                 <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
@@ -2999,7 +2814,6 @@
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
                 <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
                 <ScalarProperty Name="Cargo" ColumnName="Cargo" />
                 <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
                 <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
@@ -3022,7 +2836,6 @@
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
                 <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
                 <ScalarProperty Name="Cargo" ColumnName="Cargo" />
                 <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
                 <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
@@ -3045,7 +2858,6 @@
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="EmpresaLabora" ColumnName="EmpresaLabora" />
                 <ScalarProperty Name="EmpresaDePertenencia" ColumnName="EmpresaDePertenencia" />
-                <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
                 <ScalarProperty Name="Cargo" ColumnName="Cargo" />
                 <ScalarProperty Name="DescripcionCargo" ColumnName="DescripcionCargo" />
                 <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
@@ -3089,6 +2901,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SelectAllDominios" FunctionName="GROMEROModel.Store.usp_DominiosSelectAll" />
+          <FunctionImportMapping FunctionImportName="SelectUsuario" FunctionName="GROMEROModel.Store.usp_UsuarioSelect" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -3253,9 +3066,6 @@
           <ConnectorPoint PointX="12.34375" PointY="2.797587890625" />
         </AssociationConnector>
         <EntityTypeShape EntityType="SeguridadModel.Cargo" Width="1.5" PointX="0.5" PointY="3.75" />
-        <EntityTypeShape EntityType="SeguridadModel.CargoSociedad" Width="1.5" PointX="0.5" PointY="6.5" />
-        <AssociationConnector Association="SeguridadModel.FK__TCRSEGCAS__IDCAR__308E3499" />
-        <AssociationConnector Association="SeguridadModel.FK_TCMSEGUSER_TCRSEGCASOC" />
         <AssociationConnector Association="SeguridadModel.FK_TARSEGPERM_TARSEGROLESPER" />
         <EntityTypeShape EntityType="SeguridadModel.Dominios" Width="1.5" PointX="12.375" PointY="8.75" />
         </Diagram>

@@ -96,6 +96,8 @@
     <Compile Include="Entidades\ActivarUsuario.cs" />
     <Compile Include="Entidades\CambiarClave.cs" />
     <Compile Include="Entidades\ComparaClaves.cs" />
+    <Compile Include="Entidades\Dominios\DominioInfo.cs" />
+    <Compile Include="Entidades\Dominios\DominioInfoList.cs" />
     <Compile Include="Entidades\FiltroUsuarios.cs" />
     <Compile Include="Entidades\PermisosEfectivosInfoList.cs" />
     <Compile Include="Entidades\PermisosEfectivosInfo.cs" />

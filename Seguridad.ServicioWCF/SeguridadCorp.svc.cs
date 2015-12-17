@@ -8,12 +8,6 @@ namespace Seguridad.ServicioWCF
 {
     public class SeguridadCorp : ISeguridadCorp
     {
-
-        public bool CambiarClave(RequestCambioClave request)
-        {
-            return SeguridadBL.CambiarClave(request);
-        }
-
         public ResponseCambioClave CambiarClaveWeb(RequestCambioClave request)
         {
             ResponseCambioClave response = new ResponseCambioClave();
@@ -73,11 +67,6 @@ namespace Seguridad.ServicioWCF
         public ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuarios(RequestInfoBasicaUsuarioDTO request)
         {
             return SeguridadBL.GetInfoBasicaUsuarios(request);
-        }
-
-        public IEnumerable<ResponseCargo> ListarCargosPorSociedad(RequestListaCargo request)
-        {
-            return SeguridadBL.ListarCargoPorSociedad(request);
         }
 
         public ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuariosByCodigo(RequestInfoBasicaUsuarioDTO request)

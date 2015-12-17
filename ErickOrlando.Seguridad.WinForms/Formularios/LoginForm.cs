@@ -40,6 +40,14 @@ namespace ErickOrlando.Seguridad.WinForms
             Load += (s, e) =>
                 {
                     txtUser.Text = Environment.UserName;
+                    try
+                    {
+                        DominiosBindingSource.DataSource = DominioInfoList.GetDominioInfoList();
+                        DominiosBindingSource.ResetBindings(false);
+                    }
+                    catch (Exception)
+                    {
+                    }
                     if (Environment.MachineName == Environment.UserDomainName)
                         cboDominio.Text = "Local";
                     else

@@ -275,7 +275,7 @@ namespace ErickOrlando.Seguridad.Negocio.Editables
                         Id = usuario.IdUsuario;
                         IdEmpresa = usuario.IdEmpresa;
                         IdEmpresaPertenencia = usuario.IdEmpresaPertenencia;
-                        IdCargo = usuario.IdCargoSociedad;
+                        IdCargo = usuario.IdCargo;
                         Codigo = usuario.CodigoUsuario;
                         Dominio = usuario.Dominio;
                         Nombres = usuario.Nombres;
@@ -313,7 +313,7 @@ namespace ErickOrlando.Seguridad.Negocio.Editables
                 usuario.IdUsuario = Id;
                 usuario.IdEmpresa = IdEmpresa;
                 usuario.IdEmpresaPertenencia = IdEmpresaPertenencia;
-                usuario.IdCargoSociedad = IdCargo;
+                usuario.IdCargo = IdCargo;
                 usuario.CodigoUsuario = Codigo;
                 usuario.Dominio = Dominio;
                 usuario.Nombres = Nombres;

@@ -16,7 +16,6 @@ namespace ErickOrlando.Seguridad.Datos
         public string IdUsuario { get; set; }
         public string EmpresaLabora { get; set; }
         public string EmpresaDePertenencia { get; set; }
-        public string CodSociedadPropietaria { get; set; }
         public string Cargo { get; set; }
         public string DescripcionCargo { get; set; }
         public string CodigoUsuario { get; set; }

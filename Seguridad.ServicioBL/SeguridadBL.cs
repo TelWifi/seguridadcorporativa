@@ -27,11 +27,6 @@ namespace Seguridad.ServicioBL
             return true;
         }
 
-        public static bool CambiarClave(RequestCambioClave request)
-        {
-            return true;
-        }
-
         private static Result ValidacionCambiarClaveWeb(RequestCambioClave request)
         {
             try
@@ -351,7 +346,7 @@ namespace Seguridad.ServicioBL
                         ValorBusqueda = request.IdPerfilUsuario
                     }).FirstOrDefault();
 
-                var dominios = DominioInfoList.GetDominioInfoList();
+                var dominios = ErickOrlando.Seguridad.Entidades.DominioInfoList.GetDominioInfoList();
 
                 foreach (var dominio in dominios)
                 {
@@ -792,28 +787,6 @@ namespace Seguridad.ServicioBL
 
             }
             return resultado;
-        }
-
-        #endregion
-
-        #region Listas
-
-        public static IEnumerable<ResponseCargo> ListarCargoPorSociedad(RequestListaCargo request)
-        {
-            var response = new List<ResponseCargo>();
-            using (var contexto = new SeguridadEntities())
-            {
-                var query = contexto.SelectCargoSociedadBySociedad(request.CodSociedadPropietaria);
-                foreach (var item in query)
-                {
-                    response.Add(new ResponseCargo
-                    {
-                        Codigo = item.CodigoCargo,
-                        Descripcion = item.Descripcion
-                    });
-                }
-            }
-            return response;
         }
 
         #endregion

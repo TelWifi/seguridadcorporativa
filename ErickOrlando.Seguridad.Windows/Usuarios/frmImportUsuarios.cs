@@ -119,7 +119,7 @@ namespace ErickOrlando.Seguridad.Windows.Usuarios
             TipoUsuarioInfoList tipoUsuarioInfoList = TipoUsuarioInfoList.GetTipoUsuarioInfoList();
             EmpresaInfoList empresaInfoList = EmpresaInfoList.GetEmpresaInfoList();
             DominioInfoList dominioInfoList = DominioInfoList.GetDominioInfoList();
-            CargoSociedadInfoList cargoSociedadInfoList = CargoSociedadInfoList.GetCargoSociedadInfoList();
+            CargoInfoList cargoInfoList = CargoInfoList.GetCargoInfoList();
             UsuarioInfoList usuarioInfoList = UsuarioInfoList.GetUsuarioInfoList(new FiltroCriteria { NombreCampo = "", ValorBusqueda = "" });
 
             usuarioList.ForEach(x =>
@@ -162,7 +162,7 @@ namespace ErickOrlando.Seguridad.Windows.Usuarios
                         if (tipoUsuarioInfoList.Where(xy => xy.Codigo == x.Codigo).Any())
                             throw new Exception("No existe el tipo descrito");
 
-                        if(dominioInfoList.Where(xy => xy.NombreCorto == x.Dominio).Any())
+                        if (dominioInfoList.Where(xy => xy.NombreCorto == x.Dominio).Any())
                             throw new Exception("No existe el dominio descrito");
 
                         var empresaInfoListFilter = empresaInfoList.Where(xy => xy.RazonSocial.ToUpper().Contains(x.IdEmpresa.ToUpper())).ToList();
@@ -177,7 +177,7 @@ namespace ErickOrlando.Seguridad.Windows.Usuarios
                         else
                             throw new Exception("No existe la empresa de pertenencia descrita");
 
-                        var cargoSociedadInfoListFilter = cargoSociedadInfoList.Where(xy => xy.Descripcion.ToUpper().Contains(x.IdCargo.ToUpper())).ToList();
+                        var cargoSociedadInfoListFilter = cargoInfoList.Where(xy => xy.Descripcion.ToUpper().Contains(x.IdCargo.ToUpper())).ToList();
                         if (cargoSociedadInfoListFilter.Any())
                             x.IdCargo = cargoSociedadInfoListFilter.FirstOrDefault().ID;
                         else
@@ -269,7 +269,7 @@ namespace ErickOrlando.Seguridad.Windows.Usuarios
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show(ex.Message, "Seleccionar",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                XtraMessageBox.Show(ex.Message, "Seleccionar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

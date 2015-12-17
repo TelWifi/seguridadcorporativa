@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
@@ -43,15 +42,20 @@
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.cboDominio = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DominiosBindingSource = new System.Windows.Forms.BindingSource();
+            this.cboDominio = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colNombreCorto = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lnkCambiarClave.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboDominio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DominiosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDominio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -161,18 +165,6 @@
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "Dominio:";
             // 
-            // cboDominio
-            // 
-            this.cboDominio.EditValue = "";
-            this.cboDominio.Location = new System.Drawing.Point(327, 89);
-            this.cboDominio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cboDominio.Name = "cboDominio";
-            this.cboDominio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboDominio.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboDominio.Size = new System.Drawing.Size(239, 22);
-            this.cboDominio.TabIndex = 1;
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -188,6 +180,45 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // DominiosBindingSource
+            // 
+            this.DominiosBindingSource.DataSource = typeof(ErickOrlando.Seguridad.Entidades.DominioInfo);
+            // 
+            // cboDominio
+            // 
+            this.cboDominio.EditValue = "";
+            this.cboDominio.Location = new System.Drawing.Point(327, 89);
+            this.cboDominio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboDominio.Name = "cboDominio";
+            this.cboDominio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboDominio.Properties.DataSource = this.DominiosBindingSource;
+            this.cboDominio.Properties.DisplayMember = "NombreCorto";
+            this.cboDominio.Properties.NullText = "";
+            this.cboDominio.Properties.PopupSizeable = false;
+            this.cboDominio.Properties.ValueMember = "NombreCorto";
+            this.cboDominio.Properties.View = this.gridLookUpEdit1View;
+            this.cboDominio.Size = new System.Drawing.Size(239, 22);
+            this.cboDominio.TabIndex = 1;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colNombreCorto});
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsBehavior.Editable = false;
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // colNombreCorto
+            // 
+            this.colNombreCorto.Caption = "Dominio";
+            this.colNombreCorto.FieldName = "NombreCorto";
+            this.colNombreCorto.Name = "colNombreCorto";
+            this.colNombreCorto.Visible = true;
+            this.colNombreCorto.VisibleIndex = 0;
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
@@ -198,7 +229,6 @@
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(623, 334);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.cboDominio);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lnkCambiarClave);
@@ -207,6 +237,7 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.cboDominio);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -217,9 +248,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lnkCambiarClave.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboDominio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DominiosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDominio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,8 +268,11 @@
 		private DevExpress.XtraEditors.SimpleButton btnLogin;
 		private DevExpress.XtraEditors.SimpleButton btnCancelar;
 		private DevExpress.XtraEditors.LabelControl labelControl3;
-		private DevExpress.XtraEditors.ComboBoxEdit cboDominio;
 		private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.BindingSource DominiosBindingSource;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn colNombreCorto;
+        private DevExpress.XtraEditors.GridLookUpEdit cboDominio;
     }
 }

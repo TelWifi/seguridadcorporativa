@@ -42,7 +42,6 @@ namespace ErickOrlando.Seguridad.Datos
         public virtual DbSet<RecursoAplicacion> RecursoAplicacion { get; set; }
         public virtual DbSet<RecursoPerfil> RecursoPerfil { get; set; }
         public virtual DbSet<Cargo> Cargo { get; set; }
-        public virtual DbSet<CargoSociedad> CargoSociedad { get; set; }
         public virtual DbSet<Dominios> Dominios { get; set; }
     
         public virtual ObjectResult<Empresas> SelectAllEmpresas()
@@ -575,24 +574,6 @@ namespace ErickOrlando.Seguridad.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Recurso>("SelectRecursoByDescripcion", mergeOption, descripcionParameter);
         }
     
-        public virtual ObjectResult<CargoSociedad> SelectCargoSociedad(string idCargo)
-        {
-            var idCargoParameter = idCargo != null ?
-                new ObjectParameter("IdCargo", idCargo) :
-                new ObjectParameter("IdCargo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CargoSociedad>("SelectCargoSociedad", idCargoParameter);
-        }
-    
-        public virtual ObjectResult<CargoSociedad> SelectCargoSociedad(string idCargo, MergeOption mergeOption)
-        {
-            var idCargoParameter = idCargo != null ?
-                new ObjectParameter("IdCargo", idCargo) :
-                new ObjectParameter("IdCargo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CargoSociedad>("SelectCargoSociedad", mergeOption, idCargoParameter);
-        }
-    
         public virtual ObjectResult<Cargo> SelectCargo(string idCargo)
         {
             var idCargoParameter = idCargo != null ?
@@ -657,9 +638,9 @@ namespace ErickOrlando.Seguridad.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cargo>("SelectCargoByDescripcion", mergeOption, descripcionParameter);
         }
     
-        public virtual ObjectResult<CargoSociedadComplex> SelectAllCargoSociedad()
+        public virtual int SelectAllCargoSociedad()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CargoSociedadComplex>("SelectAllCargoSociedad");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SelectAllCargoSociedad");
         }
     
         public virtual ObjectResult<SelectRecursoDetalle_Result> SelectRecursoDetalleByIdRecurso(string idRecurso)
@@ -688,15 +669,6 @@ namespace ErickOrlando.Seguridad.Datos
                 new ObjectParameter("IdPerfilUsuario", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PerfilUsuarioComplex>("SelectPerfilUsuarioById", idPerfilUsuarioParameter);
-        }
-    
-        public virtual ObjectResult<CargoSociedadComplex> SelectCargoSociedadBySociedad(string codSociedadPropietaria)
-        {
-            var codSociedadPropietariaParameter = codSociedadPropietaria != null ?
-                new ObjectParameter("CodSociedadPropietaria", codSociedadPropietaria) :
-                new ObjectParameter("CodSociedadPropietaria", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CargoSociedadComplex>("SelectCargoSociedadBySociedad", codSociedadPropietariaParameter);
         }
     
         public virtual ObjectResult<string> GetIdPerfilUsuario(string idUsuario, string idAplicacion)

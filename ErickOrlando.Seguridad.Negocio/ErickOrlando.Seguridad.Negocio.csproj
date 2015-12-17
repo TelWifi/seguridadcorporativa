@@ -144,8 +144,6 @@
     <Compile Include="SoloLectura\Aplicaciones\AplicacionInfoList.cs" />
     <Compile Include="SoloLectura\Cargos\CargoInfo.cs" />
     <Compile Include="SoloLectura\Cargos\CargoInfoList.cs" />
-    <Compile Include="SoloLectura\Cargos\CargoSociedadInfo.cs" />
-    <Compile Include="SoloLectura\Cargos\CargoSociedadInfoList.cs" />
     <Compile Include="SoloLectura\Dominios\DominioInfo.cs" />
     <Compile Include="SoloLectura\Dominios\DominioInfoList.cs" />
     <Compile Include="SoloLectura\Empresas\EmpresaInfo.cs" />

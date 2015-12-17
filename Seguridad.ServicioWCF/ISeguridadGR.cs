@@ -16,10 +16,6 @@ namespace Seguridad.ServicioWCF
     {
         [OperationContract]
         [WebInvoke(UriTemplate = "/CambiarClave", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        bool CambiarClave(RequestCambioClave request);
-
-        [OperationContract]
-        [WebInvoke(UriTemplate = "/CambiarClaveWeb", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         ResponseCambioClave CambiarClaveWeb(RequestCambioClave request);
 
         [OperationContract]
@@ -65,11 +61,6 @@ namespace Seguridad.ServicioWCF
         [OperationContract]
         [WebInvoke(UriTemplate = "/InsertUsuarios", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         List<ResponseUsuarioInsert> InsertUsuarios(List<RequestDTOUsuarioInsert> lstRequest);
-
-
-        [OperationContract]
-        [WebInvoke(UriTemplate = "/ListarCargosPorSociedad", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        IEnumerable<ResponseCargo> ListarCargosPorSociedad(RequestListaCargo request);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetInfoBasicaUsuariosByCodigo", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]

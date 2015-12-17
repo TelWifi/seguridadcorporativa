@@ -62,9 +62,9 @@
             // 
             // btnEncriptar
             // 
-            this.btnEncriptar.Location = new System.Drawing.Point(230, 38);
+            this.btnEncriptar.Location = new System.Drawing.Point(223, 36);
             this.btnEncriptar.Name = "btnEncriptar";
-            this.btnEncriptar.Size = new System.Drawing.Size(75, 23);
+            this.btnEncriptar.Size = new System.Drawing.Size(77, 29);
             this.btnEncriptar.TabIndex = 3;
             this.btnEncriptar.Text = "Encriptar";
             this.btnEncriptar.UseVisualStyleBackColor = true;

@@ -94,12 +94,6 @@
     <Compile Include="Cargo.cs">
       <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>
-    <Compile Include="CargoSociedad.cs">
-      <DependentUpon>Seguridad.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CargoSociedadComplex.cs">
-      <DependentUpon>Seguridad.tt</DependentUpon>
-    </Compile>
     <Compile Include="Claves.cs">
       <DependentUpon>Seguridad.tt</DependentUpon>
     </Compile>

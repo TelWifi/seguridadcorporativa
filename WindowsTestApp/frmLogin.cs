@@ -28,7 +28,7 @@ namespace WindowsTestApp
 
                 Clipboard.SetText(resultado);
                 lblResultado.Text = string.Format("Resultado: {0}", resultado);
-                MessageBox.Show("Texto copiado al portapapeles");
+                MessageBox.Show("Texto copiado al portapapeles", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex)
