@@ -91,7 +91,7 @@ namespace ErickOrlando.Utilidades.Windows
         [Category("Plantilla"), Description("Control de Etiqueta en una Barra de Estado")]
         public BarStaticItem EtiquetaEstado { get; set; }
 
-        [Category("Plantilla"), Description("Control GridView que se usar\x00e1 en el Formulario")]
+        [Category("Plantilla"), Description("Control GridView que se usara en el Formulario")]
         public GridView InfoListDataGridView { get; set; }
 
         [Description("Control BindingSource que se usar\x00e1 en el Formulario"), Category("Plantilla")]

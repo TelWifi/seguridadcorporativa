@@ -17,7 +17,5 @@ namespace ErickOrlando.Seguridad.Datos
         public string IdCargoSociedad { get; set; }
         public string CodSociedadPropietaria { get; set; }
         public string IdCargo { get; set; }
-        public Nullable<bool> EstadoRegistro { get; set; }
-        public byte[] UltimoCambio { get; set; }
     }
 }

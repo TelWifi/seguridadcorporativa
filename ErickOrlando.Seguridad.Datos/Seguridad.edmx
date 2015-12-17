@@ -1898,8 +1898,6 @@
           <Property Name="IdCargoSociedad" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" Type="String" />
           <Property Type="String" Name="CodSociedadPropietaria" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdCargo" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
-          <Property Name="EstadoRegistro" Type="Boolean" />
-          <Property Name="UltimoCambio" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           </EntityType>
         <Association Name="FK__TCRSEGCAS__IDCAR__308E3499">
           <End Type="SeguridadModel.Cargo" Role="TCMSEGCAR" Multiplicity="1" />
@@ -2596,8 +2594,6 @@
     <EntitySetMapping Name="CargoSociedad">
       <EntityTypeMapping TypeName="IsTypeOf(SeguridadModel.CargoSociedad)">
         <MappingFragment StoreEntitySet="CargoSociedad">
-          <ScalarProperty Name="UltimoCambio" ColumnName="UltimoCambio" />
-                <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />
                 <ScalarProperty Name="IdCargoSociedad" ColumnName="IdCargoSociedad" />
           <ScalarProperty Name="CodSociedadPropietaria" ColumnName="CodSociedadPropietaria" />
           <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />

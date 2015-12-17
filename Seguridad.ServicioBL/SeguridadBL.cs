@@ -1,4 +1,5 @@
 ﻿using Csla;
+using Csla.Rules;
 using ErickOrlando.Seguridad;
 using ErickOrlando.Seguridad.Datos;
 using ErickOrlando.Seguridad.Entidades;
@@ -428,7 +429,7 @@ namespace Seguridad.ServicioBL
 
                 usuario.IdEmpresa = request.IdEmpresa;
                 usuario.IdEmpresaPertenencia = request.IdEmpresaPertenencia;
-                usuario.IdCargoSociedad = request.IdCargo;
+                usuario.IdCargo = request.IdCargo;
                 usuario.Nombres = request.Nombres;
                 usuario.Alias = request.Alias;
                 usuario.Dominio = request.Dominio;
@@ -463,7 +464,6 @@ namespace Seguridad.ServicioBL
 
                 perfil.IdAplicacion = request.IdAplicacion;
                 perfil.IdUsuario = usuarioCreado.ID;
-
                 perfil.Usuario = usuarioCreado.Nombres;
                 perfil.Aplicacion = request.Aplicacion;
                 perfil.Caduca = request.Caduca;
@@ -551,6 +551,17 @@ namespace Seguridad.ServicioBL
                 result.MensajeError = "";
 
             }
+            catch (ValidationException)
+            {
+                var msg1 = usuario.BrokenRulesCollection.ToString();
+                var msg2 = perfil.BrokenRulesCollection.ToString();
+                if (string.IsNullOrEmpty(msg1))
+                    result.MensajeError = msg2;
+                else if (string.IsNullOrEmpty(msg2))
+                    result.MensajeError = msg1;
+                else
+                    result.MensajeError = string.Format("{0} {1}", msg1, msg2);
+            }
             catch (DataPortalException ex)
             {
                 result.MensajeError = ex.BusinessException.Message;
@@ -586,7 +597,7 @@ namespace Seguridad.ServicioBL
 
                     usuario.IdEmpresa = request.IdEmpresa;
                     usuario.IdEmpresaPertenencia = request.IdEmpresaPertenencia;
-                    usuario.IdCargoSociedad = request.IdCargo;
+                    usuario.IdCargo = request.IdCargo;
                     usuario.Nombres = request.Nombres;
                     usuario.Alias = request.Alias;
                     usuario.Dominio = request.Dominio;
