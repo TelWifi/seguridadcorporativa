@@ -65,14 +65,14 @@ namespace Seguridad.ServicioBL
         public static ResponseCambioClave CambiarClaveWeb(RequestCambioClave request)
         {
             ResponseCambioClave response = new ResponseCambioClave();
-
+            var publicCrypter = new SimpleInteroperableEncryption();
             //SI SE HA SOLICITADO CONTRASEÑA, SE VALIDA LA CONTRASEÑA ANTIGUA
             if (request.TipoCambioClave == TipoCambioClave.Ui)
             {
                 ResponseLoginUsuario responseLogin = Login(new RequestLogin
                 {
                     CodigoUsuario = request.CodigoUsuario,
-                    Clave = request.ClaveAntigua,
+                    Clave = publicCrypter.Decrypt(request.ClaveAntigua),
                     Dominio = request.Dominio,
                     AcronimoAplicacion = request.Acronimo
                 });
@@ -80,7 +80,7 @@ namespace Seguridad.ServicioBL
                 if (responseLogin.ResultadoLogin == false)
                     throw new Exception("La contraseña es incorrecta.");
             }
-            SimpleInteroperableEncryption publicCrypter = new SimpleInteroperableEncryption();
+
 
             if (request.TipoCambioClave == TipoCambioClave.Sys)
                 request.ClaveAntigua = request.ClaveNuevaConfirmada = request.ClaveNueva = publicCrypter.Decrypt(request.ClaveNueva);
@@ -420,8 +420,6 @@ namespace Seguridad.ServicioBL
 
 
                 //Creacion de nuevo usuario
-
-
                 usuario.IdEmpresa = request.IdEmpresa;
                 usuario.IdEmpresaPertenencia = request.IdEmpresaPertenencia;
                 usuario.IdCargo = request.IdCargo;
@@ -436,18 +434,11 @@ namespace Seguridad.ServicioBL
                 usuario.Estado = true;
                 usuario.NotificarConCorreo = request.NotificacionConCorreo;
                 usuario.Tipo = request.Tipo;
-                usuario.Save();
-
-
-
-
+                usuario = usuario.Save();
 
 
                 //Recuperando usuario creado
-                FiltroCriteria crit = new FiltroCriteria { NombreCampo = "Codigo", ValorBusqueda = request.Codigo };
-                var listaUsuarios = UsuarioInfoList.GetUsuarioInfoList(crit);
-                var usuarioCreado = listaUsuarios.Where(x => x.Dominio ==
-                    request.Dominio).SingleOrDefault();
+                var usuarioCreado = usuario;
 
                 //Estableciendo variables de entorno
                 Csla.ApplicationContext.GlobalContext["Placa"] = Environment.MachineName;
@@ -458,7 +449,7 @@ namespace Seguridad.ServicioBL
                 //Creacion de perfil
 
                 perfil.IdAplicacion = request.IdAplicacion;
-                perfil.IdUsuario = usuarioCreado.ID;
+                perfil.IdUsuario = usuarioCreado.Id;
                 perfil.Usuario = usuarioCreado.Nombres;
                 perfil.Aplicacion = request.Aplicacion;
                 perfil.Caduca = request.Caduca;
@@ -502,7 +493,7 @@ namespace Seguridad.ServicioBL
 
                 perfil.Save();
 
-                string Clave = "";
+                string Clave = string.Empty;
 
                 if (usuario.Tipo == "E")
                 {
@@ -539,11 +530,11 @@ namespace Seguridad.ServicioBL
                         }
                     }
                 }
-                result.IdUsuario = usuarioCreado.ID;
+                result.IdUsuario = usuarioCreado.Id;
                 result.Clave = Clave;
                 result.Codigo = request.Codigo;
                 result.Alias = request.Alias;
-                result.MensajeError = "";
+                result.MensajeError = string.Empty;
 
             }
             catch (ValidationException)
@@ -604,13 +595,10 @@ namespace Seguridad.ServicioBL
                     usuario.Estado = true;
                     usuario.NotificarConCorreo = request.NotificacionConCorreo;
                     usuario.Tipo = request.Tipo;
-                    usuario.Save();
+                    usuario = usuario.Save();
 
                     //Recuperando usuario creado
-                    FiltroCriteria crit = new FiltroCriteria { NombreCampo = "Codigo", ValorBusqueda = request.Codigo };
-                    var listaUsuarios = UsuarioInfoList.GetUsuarioInfoList(crit);
-                    var usuarioCreado = listaUsuarios.Where(x => x.Dominio ==
-                        request.Dominio).SingleOrDefault();
+                    var usuarioCreado = usuario;
 
                     //Estableciendo variables de entorno
                     Csla.ApplicationContext.GlobalContext["Placa"] = Environment.MachineName;
@@ -619,7 +607,7 @@ namespace Seguridad.ServicioBL
                     //Creacion de perfil
 
                     perfil.IdAplicacion = request.IdAplicacion;
-                    perfil.IdUsuario = usuarioCreado.ID;
+                    perfil.IdUsuario = usuarioCreado.Id;
 
                     perfil.Usuario = usuarioCreado.Nombres;
                     perfil.Aplicacion = request.Aplicacion;
@@ -664,7 +652,7 @@ namespace Seguridad.ServicioBL
 
                     perfil.Save();
 
-                    string Clave = "";
+                    string Clave = string.Empty;
 
                     if (usuario.Tipo == "E")
                     {
@@ -700,11 +688,11 @@ namespace Seguridad.ServicioBL
                             }
                         }
                     }
-                    result.IdUsuario = usuarioCreado.ID;
+                    result.IdUsuario = usuarioCreado.Id;
                     result.Clave = Clave;
                     result.Codigo = request.Codigo;
                     result.Alias = request.Alias;
-                    result.MensajeError = "";
+                    result.MensajeError = string.Empty;
                 }
                 catch (DataPortalException ex)
                 {

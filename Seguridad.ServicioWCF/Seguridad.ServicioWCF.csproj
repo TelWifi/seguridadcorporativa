@@ -140,6 +140,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ErickOrlando.Seguridad.Datos\ErickOrlando.Seguridad.Datos.csproj">
+      <Project>{09faa615-acf4-4946-9f87-29d41f0426b6}</Project>
+      <Name>ErickOrlando.Seguridad.Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Seguridad.Entidades\Seguridad.Entidades.csproj">
       <Project>{edf03b78-4b8a-4f14-8213-6180f7e8d3ea}</Project>
       <Name>Seguridad.Entidades</Name>
