@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Seguridad.Entidades
 {
-    public class ResponseInfoUsuarioDTO
+    public class ResponseInfoUsuarioDTO : BaseResponse
     {
         public string IdUsuario { get; set; }
         public string CodigoUsuario { get; set; }

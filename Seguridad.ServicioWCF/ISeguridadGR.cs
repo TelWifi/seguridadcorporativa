@@ -28,7 +28,7 @@ namespace Seguridad.ServicioWCF
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/CerrarSesion", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        bool CerrarSesion(string IdUsuario);
+        BaseResponse CerrarSesion(RequestInfoUsuario request);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/ConsultarPermisos", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
@@ -36,19 +36,11 @@ namespace Seguridad.ServicioWCF
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/ListarUsuarios", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        IEnumerable<ResponseListaUsuarios> ListarUsuarios(RequestListarUsuario request);
+        ResponseDTOListaUsuario ListarUsuarios(RequestListarUsuario request);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/ListarUsuariosPorCargo", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request);
-
-        [OperationContract]
-        [WebInvoke(UriTemplate = "/GetNombreUsuarioByCodigoUsuario", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        string GetNombreUsuarioByCodigoUsuario(string request);
-
-        [OperationContract]
-        [WebInvoke(UriTemplate = "/GetNombreUsuario", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        string GetNombreUsuario(string request);
+        ResponseDTOCargoUsuario ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetInfoBasicaUsuarios", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
@@ -66,6 +58,5 @@ namespace Seguridad.ServicioWCF
         [WebInvoke(UriTemplate = "/GetInfoBasicaUsuariosByCodigo", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuariosByCodigo(RequestInfoBasicaUsuarioDTO request);
 
-        //TODO:agregar CrearUsuario
     }
 }

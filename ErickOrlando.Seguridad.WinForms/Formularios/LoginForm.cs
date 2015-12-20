@@ -244,8 +244,8 @@ namespace ErickOrlando.Seguridad.WinForms
                     Dominio = cboDominio.Text
                 });
 
-                if (!respuesta.ResultadoLogin)
-                    throw new SecurityException(respuesta.MensajeError);
+                if (!respuesta.Resultado.Success)
+                    throw new SecurityException(respuesta.Resultado.Message);
 
                 InfoUsuario.Initialize();
                 InfoUsuario.Instancia.IdPerfilUsuario = respuesta.IdPerfilUsuario;

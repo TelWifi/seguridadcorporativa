@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Seguridad.Entidades
 {
@@ -13,10 +10,11 @@ namespace Seguridad.Entidades
         /// </summary>
         public Result()
         {
-            this.Success = false;
-            this.ErrCode = "";
-            this.Message = "";
-            this.Messages = new List<Result>();
+            IdError = Guid.NewGuid();
+            Success = false;
+            ErrCode = string.Empty;
+            Message = string.Empty;
+            Messages = new List<Result>();
         }
 
         /// <summary>

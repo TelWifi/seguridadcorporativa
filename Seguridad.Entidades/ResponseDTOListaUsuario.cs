@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Seguridad.Entidades
 {
-    public class ResponseCargo : BaseResponse
+    public class ResponseDTOListaUsuario : BaseResponse
     {
-        public string Codigo { get; set; }
-        public string Descripcion { get; set; }
+        public IEnumerable<ResponseListaUsuarios> ListaUsuarios { get; set; }
     }
 }

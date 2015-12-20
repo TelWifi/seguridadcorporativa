@@ -22,9 +22,21 @@ namespace Seguridad.ServicioBL
 
         #region Login de Usuarios
 
-        public static bool CerrarSesion(string IdUsuario)
+        public static bool CerrarSesion(RequestInfoUsuario request)
         {
-            return true;
+            using (var context = new SeguridadEntities())
+            {
+                var perfilUsuario = (from perf in context.PerfilUsuario
+                                     where perf.IdPerfilUsuario == request.IdPerfilUsuario
+                                     select perf).SingleOrDefault();
+                if (perfilUsuario != null)
+                {
+                    perfilUsuario.Logueado = false;
+                }
+                var result = context.SaveChanges();
+
+                return (result > 0);
+            }
         }
 
         private static Result ValidacionCambiarClaveWeb(RequestCambioClave request)
@@ -77,7 +89,7 @@ namespace Seguridad.ServicioBL
                     AcronimoAplicacion = request.Acronimo
                 });
 
-                if (responseLogin.ResultadoLogin == false)
+                if (!responseLogin.Resultado.Success)
                     throw new Exception("La contraseña es incorrecta.");
             }
 
@@ -187,20 +199,20 @@ namespace Seguridad.ServicioBL
                 if (!result)
                     throw new SecurityException("El usuario o clave no son válidos!");
 
-                response.ResultadoLogin = result;
+                response.Resultado.Success = result;
                 response.IdPerfilUsuario = InfoUsuario.Instancia.IdPerfilUsuario;
 
             }
             catch (DataPortalException ex)
             {
-                response.MensajeError = ex.BusinessException.Message;
+                response.Resultado.Message = ex.BusinessException.Message;
             }
             catch (Exception ex)
             {
                 var msg = ex.Message;
                 if (ex.InnerException != null)
                     msg = ex.InnerException.Message;
-                response.MensajeError = msg;
+                response.Resultado.Message = msg;
             }
 
             return response;
@@ -213,39 +225,10 @@ namespace Seguridad.ServicioBL
         public static ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuariosByCodigo(RequestInfoBasicaUsuarioDTO request)
         {
             var response = new ResponseInfoBasicaUsuarioDTO();
-            var listaUsuarios = new List<ResponseListaUsuarios>();
 
-            using (var contexto = new SeguridadEntities())
-            {
-                var query = contexto.Usuarios
-                    .Where(u => request.CodigosUsuario.Contains(u.CodigoUsuario))
-                    .Select(u =>
-                        new
-                        {
-                            IdUsuario = u.IdUsuario,
-                            CodigoUsuario = u.CodigoUsuario,
-                            Correo = u.Correo,
-                            DNI = u.DNI,
-                            Nombres = u.Nombres,
-                            ApellidoPaterno = u.ApellidoPaterno,
-                            ApellidoMaterno = u.ApellidoMaterno
-                        });
+            var query = ReturnInfoUsuario().Where(u => request.CodigosUsuario.Contains(u.CodigoUsuario));
 
-                foreach (var item in query)
-                {
-                    listaUsuarios.Add(new ResponseListaUsuarios
-                    {
-                        IdUsuario = item.IdUsuario,
-                        CodigoUsuario = item.CodigoUsuario,
-                        Correo = item.Correo,
-                        DNI = item.DNI,
-                        NombresCompletos = string.Format("{0} {1} {2}",
-                            item.Nombres, item.ApellidoPaterno, item.ApellidoMaterno)
-                    });
-                }
-
-                response.ListaInfoBasicaUsuarios = listaUsuarios.ToList().AsEnumerable();
-            }
+            response.ListaInfoBasicaUsuarios = query.ToList();
 
             return response;
         }
@@ -253,82 +236,12 @@ namespace Seguridad.ServicioBL
         public static ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuarios(RequestInfoBasicaUsuarioDTO request)
         {
             var response = new ResponseInfoBasicaUsuarioDTO();
-            var listaUsuarios = new List<ResponseListaUsuarios>();
 
-            using (var contexto = new SeguridadEntities())
-            {
-                var query = contexto.Usuarios
-                    .Where(u => request.CodigosUsuario.Contains(u.IdUsuario))
-                    .Select(u =>
-                        new
-                        {
-                            IdUsuario = u.IdUsuario,
-                            CodigoUsuario = u.CodigoUsuario,
-                            Correo = u.Correo,
-                            DNI = u.DNI,
-                            Nombres = u.Nombres,
-                            ApellidoPaterno = u.ApellidoPaterno,
-                            ApellidoMaterno = u.ApellidoMaterno
-                        });
+            var query = ReturnInfoUsuario().Where(u => request.CodigosUsuario.Contains(u.IdUsuario));
 
-                foreach (var item in query)
-                {
-                    listaUsuarios.Add(new ResponseListaUsuarios
-                    {
-                        IdUsuario = item.IdUsuario,
-                        CodigoUsuario = item.CodigoUsuario,
-                        Correo = item.Correo,
-                        DNI = item.DNI,
-                        NombresCompletos = string.Format("{0} {1} {2}",
-                            item.Nombres, item.ApellidoPaterno, item.ApellidoMaterno)
-                    });
-                }
-
-                response.ListaInfoBasicaUsuarios = listaUsuarios.ToList().AsEnumerable();
-            }
+            response.ListaInfoBasicaUsuarios = query.ToList();
 
             return response;
-        }
-
-        public static string GetNombreUsuarioByCodigoUsuario(string request)
-        {
-            var resultado = string.Empty;
-            using (var contexto = new SeguridadEntities())
-            {
-                var query = (from c in contexto.Usuarios
-                             where c.Correo == request
-                             select c).ToList();
-
-                foreach (var item in query)
-                {
-                    resultado = string.Format("{0} {1} {2}",
-                                    item.Nombres,
-                                    item.ApellidoPaterno,
-                                    item.ApellidoMaterno);
-                }
-            }
-
-            return resultado;
-        }
-
-        public static string GetNombreUsuario(string request)
-        {
-            var resultado = string.Empty;
-            using (var contexto = new SeguridadEntities())
-            {
-
-                var query = contexto.SelectUsuario(request);
-
-                foreach (var item in query)
-                {
-                    resultado = string.Format("{0} {1} {2}",
-                                    item.Nombres,
-                                    item.ApellidoPaterno,
-                                    item.ApellidoMaterno);
-                }
-            }
-
-            return resultado;
         }
 
         public static ResponseInfoUsuarioDTO GetInfoUsuario(RequestInfoUsuario request)
@@ -499,7 +412,7 @@ namespace Seguridad.ServicioBL
                 {
 
                     //Creacion de contraseña
-                    Clave = GenerarContrasenia();
+                    Clave = GenerarClaveAleatoria();
                     //Hay que intentar el Login para identificar si se debe crear la contraseña.
 
                     try
@@ -534,7 +447,7 @@ namespace Seguridad.ServicioBL
                 result.Clave = Clave;
                 result.Codigo = request.Codigo;
                 result.Alias = request.Alias;
-                result.MensajeError = string.Empty;
+                result.Resultado.Message = string.Empty;
 
             }
             catch (ValidationException)
@@ -542,22 +455,22 @@ namespace Seguridad.ServicioBL
                 var msg1 = usuario.BrokenRulesCollection.ToString();
                 var msg2 = perfil.BrokenRulesCollection.ToString();
                 if (string.IsNullOrEmpty(msg1))
-                    result.MensajeError = msg2;
+                    result.Resultado.Message = msg2;
                 else if (string.IsNullOrEmpty(msg2))
-                    result.MensajeError = msg1;
+                    result.Resultado.Message = msg1;
                 else
-                    result.MensajeError = string.Format("{0} {1}", msg1, msg2);
+                    result.Resultado.Message = string.Format("{0} {1}", msg1, msg2);
             }
             catch (DataPortalException ex)
             {
-                result.MensajeError = ex.BusinessException.Message;
+                result.Resultado.Message = ex.BusinessException.Message;
             }
             catch (Exception ex)
             {
                 var msg = ex.Message;
                 if (ex.InnerException != null)
                     msg = ex.InnerException.Message;
-                result.MensajeError = msg;
+                result.Resultado.Message = msg;
             }
             return result;
 
@@ -658,7 +571,7 @@ namespace Seguridad.ServicioBL
                     {
 
                         //Creacion de contraseña
-                        Clave = GenerarContrasenia();
+                        Clave = GenerarClaveAleatoria();
                         //Hay que intentar el Login para identificar si se debe crear la contraseña.
 
                         try
@@ -692,18 +605,18 @@ namespace Seguridad.ServicioBL
                     result.Clave = Clave;
                     result.Codigo = request.Codigo;
                     result.Alias = request.Alias;
-                    result.MensajeError = string.Empty;
+                    result.Resultado.Message = string.Empty;
                 }
                 catch (DataPortalException ex)
                 {
-                    result.MensajeError = request.Alias + " :" + ex.BusinessException.Message;
+                    result.Resultado.Message = request.Alias + " :" + ex.BusinessException.Message;
                 }
                 catch (Exception ex)
                 {
                     var msg = ex.Message;
                     if (ex.InnerException != null)
                         msg = ex.InnerException.Message;
-                    result.MensajeError = request.Alias + " :" + msg;
+                    result.Resultado.Message = request.Alias + " :" + msg;
                 }
 
                 lstResult.Add(result);
@@ -781,7 +694,7 @@ namespace Seguridad.ServicioBL
 
         #region Metodos Privados
 
-        public static List<string> getPermisos(List<ResponseOpcionUI> menu)
+        private static List<string> GetPermisos(List<ResponseOpcionUI> menu)
         {
             List<string> permisos = new List<string>();
             List<ResponseOpcionUI> res = (from xx in menu where xx.Codigo != string.Empty select xx).ToList();
@@ -791,13 +704,13 @@ namespace Seguridad.ServicioBL
                     permisos.Add(item.Codigo);
                 if (item.Opciones != null && item.Opciones.Count > 0)
                 {
-                    permisos.AddRange(getPermisos(item.Opciones));
+                    permisos.AddRange(GetPermisos(item.Opciones));
                 }
             }
             return permisos;
         }
 
-        public static IEnumerable<ResponseOpcionUI> ListarOpciones(PerfilUsuarioInfo perfilNegocio, IEnumerable<string> roles)
+        private static IEnumerable<ResponseOpcionUI> ListarOpciones(PerfilUsuarioInfo perfilNegocio, IEnumerable<string> roles)
         {
             var response = new List<ResponseOpcionUI>();
             //var lis = new List<ResponseOpcionUI>();
@@ -986,8 +899,7 @@ namespace Seguridad.ServicioBL
             }
         }
 
-
-        public static string GenerarContrasenia()
+        private static string GenerarClaveAleatoria()
         {
             string generado = string.Empty;
 
@@ -1009,6 +921,30 @@ namespace Seguridad.ServicioBL
                     generado += string.Format("{0}", (char)minus);
             }
             return generado;
+        }
+
+        private static IQueryable<ResponseListaUsuarios> ReturnInfoUsuario()
+        {
+            using (var contexto = new SeguridadEntities())
+            {
+                var query = from u in contexto.Usuarios
+                            join c in contexto.Claves on u.IdUsuario equals c.IdUsuario into gp
+                            from userexterno in gp.DefaultIfEmpty()
+                            join cargo in contexto.Cargo on u.IdCargo equals cargo.IdCargo
+                            where userexterno.Ultimo == true
+                            select new ResponseListaUsuarios
+                            {
+                                IdUsuario = u.IdUsuario,
+                                CodigoCargo = cargo.CodigoCargo,
+                                Cargo = cargo.Descripcion,
+                                CodigoUsuario = u.CodigoUsuario,
+                                Correo = u.Correo,
+                                DNI = u.DNI,
+                                NombresCompletos = u.Nombres + " " + u.ApellidoPaterno + " " + u.ApellidoMaterno,
+                                PreguntaSecreta = (userexterno == null) ? string.Empty : userexterno.Pregunta,
+                            };
+                return query;
+            }
         }
 
 

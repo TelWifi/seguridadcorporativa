@@ -1,42 +1,81 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Seguridad.Entidades;
 using Seguridad.ServicioBL;
 
 namespace Seguridad.ServicioWCF
 {
+    [AiLogException]
     public class SeguridadCorp : ISeguridadCorp
     {
         public ResponseCambioClave CambiarClaveWeb(RequestCambioClave request)
         {
-            ResponseCambioClave response = new ResponseCambioClave();
+
+            var response = new ResponseCambioClave();
             try
             {
                 response = SeguridadBL.CambiarClaveWeb(request);
-                response.Result = new Result { Success = true };
-
-                return response;
+                response.Resultado.Success = true;
             }
             catch (Exception ex)
             {
-                return new ResponseCambioClave { Result = new Result { Success = false, Message = ex.Message } };
+                response.Resultado.Message = ex.Message;
+                response.Resultado.ErrCode = ex.GetHashCode().ToString();
+                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
             }
+            return response;
+
         }
 
         public ResponseLoginUsuario Login(RequestLogin request)
         {
-            return SeguridadBL.Login(request);
+            var response = new ResponseLoginUsuario();
+            try
+            {
+                response = SeguridadBL.Login(request);
+            }
+            catch (Exception ex)
+            {
+                response.Resultado.Message = ex.Message;
+                response.Resultado.ErrCode = ex.GetHashCode().ToString();
+                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+            }
+            return response;
         }
 
         public ResponseInfoUsuarioDTO GetInfoUsuario(RequestInfoUsuario request)
         {
-            return SeguridadBL.GetInfoUsuario(request);
+
+            var response = new ResponseInfoUsuarioDTO();
+            try
+            {
+                response = SeguridadBL.GetInfoUsuario(request);
+                response.Resultado.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Resultado.Message = ex.Message;
+                response.Resultado.ErrCode = ex.GetHashCode().ToString();
+                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+            }
+            return response;
         }
 
-        public bool CerrarSesion(string IdUsuario)
+        public BaseResponse CerrarSesion(RequestInfoUsuario request)
         {
-            return SeguridadBL.CerrarSesion(IdUsuario);
+
+            var response = new BaseResponse();
+            try
+            {
+                response.Resultado.Success = SeguridadBL.CerrarSesion(request);
+            }
+            catch (Exception ex)
+            {
+                response.Resultado.Message = ex.Message;
+                response.Resultado.ErrCode = ex.GetHashCode().ToString();
+                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+            }
+            return response;
         }
 
         public bool ConsultarPermisos(RequestConsultaPermiso request)
@@ -44,40 +83,94 @@ namespace Seguridad.ServicioWCF
             return SeguridadBL.ConsultarPermisos(request);
         }
 
-        public IEnumerable<ResponseListaUsuarios> ListarUsuarios(RequestListarUsuario request)
+        public ResponseDTOListaUsuario ListarUsuarios(RequestListarUsuario request)
         {
-            return SeguridadBL.ListarUsuarios(request);
+
+            var response = new ResponseDTOListaUsuario();
+            try
+            {
+                response.ListaUsuarios = SeguridadBL.ListarUsuarios(request);
+                response.Resultado.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Resultado.Message = ex.Message;
+                response.Resultado.ErrCode = ex.GetHashCode().ToString();
+                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+            }
+            return response;
         }
 
-        public IEnumerable<ResponseUsuarioCargo> ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
+        public ResponseDTOCargoUsuario ListarUsuariosPorCargo(RequestDTOUsuarioPorCargo request)
         {
-            return SeguridadBL.ListarUsuariosPorCargo(request);
-        }
 
-        public string GetNombreUsuarioByCodigoUsuario(string request)
-        {
-            return SeguridadBL.GetNombreUsuarioByCodigoUsuario(request);
-        }
-
-        public string GetNombreUsuario(string request)
-        {
-            return SeguridadBL.GetNombreUsuario(request);
+            var response = new ResponseDTOCargoUsuario();
+            try
+            {
+                response.ListaUsuarioCargo = SeguridadBL.ListarUsuariosPorCargo(request);
+                response.Resultado.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Resultado.Message = ex.Message;
+                response.Resultado.ErrCode = ex.GetHashCode().ToString();
+                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+            }
+            return response;
         }
 
         public ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuarios(RequestInfoBasicaUsuarioDTO request)
         {
-            return SeguridadBL.GetInfoBasicaUsuarios(request);
+
+            var response = new ResponseInfoBasicaUsuarioDTO();
+            try
+            {
+                response = SeguridadBL.GetInfoBasicaUsuarios(request);
+                response.Resultado.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Resultado.Message = ex.Message;
+                response.Resultado.ErrCode = ex.GetHashCode().ToString();
+                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+            }
+            return response;
         }
 
         public ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuariosByCodigo(RequestInfoBasicaUsuarioDTO request)
         {
-            return SeguridadBL.GetInfoBasicaUsuariosByCodigo(request);
+
+            var response = new ResponseInfoBasicaUsuarioDTO();
+            try
+            {
+                response = SeguridadBL.GetInfoBasicaUsuariosByCodigo(request);
+                response.Resultado.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Resultado.Message = ex.Message;
+                response.Resultado.ErrCode = ex.GetHashCode().ToString();
+                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+            }
+            return response;
         }
 
         public ResponseUsuarioInsert InsertUsuario(RequestDTOUsuarioInsert request)
         {
-            //return new ResponseUsuarioInsert();
-            return SeguridadBL.InsertUsuario(request);
+
+            var response = new ResponseUsuarioInsert();
+            try
+            {
+                response = SeguridadBL.InsertUsuario(request);
+                response.Resultado.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Resultado.Message = ex.Message;
+                response.Resultado.ErrCode = ex.GetHashCode().ToString();
+                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+            }
+            return response;
         }
 
         public List<ResponseUsuarioInsert> InsertUsuarios(List<RequestDTOUsuarioInsert> lstRequest)

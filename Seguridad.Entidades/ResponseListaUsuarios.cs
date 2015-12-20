@@ -14,5 +14,6 @@ namespace Seguridad.Entidades
         public string Correo { get; set; }
         public string CodigoCargo { get; set; }
         public string Cargo { get; set; }
+        public string PreguntaSecreta { get; set; }
     }
 }

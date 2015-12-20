@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Seguridad.Entidades
 {
-    public class ResponseInfoBasicaUsuarioDTO
+    public class ResponseInfoBasicaUsuarioDTO : BaseResponse
     {
         public IEnumerable<ResponseListaUsuarios> ListaInfoBasicaUsuarios { get; set; }
 

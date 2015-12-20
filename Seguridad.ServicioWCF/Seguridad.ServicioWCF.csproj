@@ -117,6 +117,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AiLogExceptionAttribute.cs" />
     <Compile Include="ISeguridadGR.cs" />
     <Compile Include="SeguridadCorp.svc.cs">
       <DependentUpon>SeguridadCorp.svc</DependentUpon>

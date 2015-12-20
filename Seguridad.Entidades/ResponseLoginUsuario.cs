@@ -5,10 +5,8 @@ using System.Web;
 
 namespace Seguridad.Entidades
 {
-    public class ResponseLoginUsuario
+    public class ResponseLoginUsuario : BaseResponse
     {
         public string IdPerfilUsuario { get; set; }
-        public bool ResultadoLogin { get; set; }
-        public string MensajeError { get; set; }
     }
 }
