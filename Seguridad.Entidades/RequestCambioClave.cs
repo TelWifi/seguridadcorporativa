@@ -19,5 +19,6 @@ namespace Seguridad.Entidades
         public string ClaveNuevaConfirmada { get; set; }
         public string Dominio { get; set; }
         public string Acronimo { get; set; }
+        public string RespuestaSecreta { get; set; }
     }
 }

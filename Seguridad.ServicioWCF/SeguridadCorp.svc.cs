@@ -8,7 +8,7 @@ namespace Seguridad.ServicioWCF
     [AiLogException]
     public class SeguridadCorp : ISeguridadCorp
     {
-        public ResponseCambioClave CambiarClaveWeb(RequestCambioClave request)
+        public ResponseCambioClave CambiarClave(RequestCambioClave request)
         {
 
             var response = new ResponseCambioClave();
@@ -21,7 +21,8 @@ namespace Seguridad.ServicioWCF
             {
                 response.Resultado.Message = ex.Message;
                 response.Resultado.ErrCode = ex.GetHashCode().ToString();
-                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+                if (ex.InnerException != null)
+                    response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
             }
             return response;
 
@@ -38,7 +39,8 @@ namespace Seguridad.ServicioWCF
             {
                 response.Resultado.Message = ex.Message;
                 response.Resultado.ErrCode = ex.GetHashCode().ToString();
-                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+                if (ex.InnerException != null)
+                    response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
             }
             return response;
         }
@@ -56,7 +58,8 @@ namespace Seguridad.ServicioWCF
             {
                 response.Resultado.Message = ex.Message;
                 response.Resultado.ErrCode = ex.GetHashCode().ToString();
-                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+                if (ex.InnerException != null)
+                    response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
             }
             return response;
         }
@@ -73,7 +76,8 @@ namespace Seguridad.ServicioWCF
             {
                 response.Resultado.Message = ex.Message;
                 response.Resultado.ErrCode = ex.GetHashCode().ToString();
-                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+                if (ex.InnerException != null)
+                    response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
             }
             return response;
         }
@@ -96,7 +100,8 @@ namespace Seguridad.ServicioWCF
             {
                 response.Resultado.Message = ex.Message;
                 response.Resultado.ErrCode = ex.GetHashCode().ToString();
-                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+                if (ex.InnerException != null)
+                    response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
             }
             return response;
         }
@@ -114,7 +119,8 @@ namespace Seguridad.ServicioWCF
             {
                 response.Resultado.Message = ex.Message;
                 response.Resultado.ErrCode = ex.GetHashCode().ToString();
-                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+                if (ex.InnerException != null)
+                    response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
             }
             return response;
         }
@@ -126,13 +132,13 @@ namespace Seguridad.ServicioWCF
             try
             {
                 response = SeguridadBL.GetInfoBasicaUsuarios(request);
-                response.Resultado.Success = true;
             }
             catch (Exception ex)
             {
                 response.Resultado.Message = ex.Message;
                 response.Resultado.ErrCode = ex.GetHashCode().ToString();
-                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+                if (ex.InnerException != null)
+                    response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
             }
             return response;
         }
@@ -144,13 +150,13 @@ namespace Seguridad.ServicioWCF
             try
             {
                 response = SeguridadBL.GetInfoBasicaUsuariosByCodigo(request);
-                response.Resultado.Success = true;
             }
             catch (Exception ex)
             {
                 response.Resultado.Message = ex.Message;
                 response.Resultado.ErrCode = ex.GetHashCode().ToString();
-                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+                if (ex.InnerException != null)
+                    response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
             }
             return response;
         }
@@ -168,7 +174,8 @@ namespace Seguridad.ServicioWCF
             {
                 response.Resultado.Message = ex.Message;
                 response.Resultado.ErrCode = ex.GetHashCode().ToString();
-                response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
+                if (ex.InnerException != null)
+                    response.Resultado.Messages.Add(new Result { Message = ex.InnerException.Message });
             }
             return response;
         }

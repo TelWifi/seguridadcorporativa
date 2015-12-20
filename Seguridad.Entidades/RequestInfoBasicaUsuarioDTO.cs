@@ -8,6 +8,7 @@ namespace Seguridad.Entidades
 {
     public class RequestInfoBasicaUsuarioDTO
     {
-        public IList<string> CodigosUsuario { get; set; }
+        public string CodigoUsuario { get; set; }
+        public string Dominio { get; set; }
     }
 }

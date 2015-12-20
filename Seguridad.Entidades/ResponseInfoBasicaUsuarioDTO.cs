@@ -8,7 +8,7 @@ namespace Seguridad.Entidades
 {
     public class ResponseInfoBasicaUsuarioDTO : BaseResponse
     {
-        public IEnumerable<ResponseListaUsuarios> ListaInfoBasicaUsuarios { get; set; }
+        public ResponseInfoUsuarios InfoBasica { get; set; }
 
     }
 }

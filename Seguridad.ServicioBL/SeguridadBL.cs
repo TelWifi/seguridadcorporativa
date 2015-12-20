@@ -78,22 +78,57 @@ namespace Seguridad.ServicioBL
         {
             ResponseCambioClave response = new ResponseCambioClave();
             var publicCrypter = new SimpleInteroperableEncryption();
+
+            var info = GetInfoBasicaUsuariosByCodigo(new RequestInfoBasicaUsuarioDTO
+            {
+                CodigoUsuario = request.CodigoUsuario,
+                Dominio = request.Dominio
+            });
+
+            if (!info.Resultado.Success)
+                throw new InvalidOperationException("El usuario no existe!");
+
+            if (info.InfoBasica.Tipo != "E")
+                throw new InvalidOperationException("Sólo los usuarios externos pueden cambiar su contraseña");
+
             //SI SE HA SOLICITADO CONTRASEÑA, SE VALIDA LA CONTRASEÑA ANTIGUA
             if (request.TipoCambioClave == TipoCambioClave.Ui)
             {
-                ResponseLoginUsuario responseLogin = Login(new RequestLogin
-                {
-                    CodigoUsuario = request.CodigoUsuario,
-                    Clave = publicCrypter.Decrypt(request.ClaveAntigua),
-                    Dominio = request.Dominio,
-                    AcronimoAplicacion = request.Acronimo
-                });
 
-                if (!responseLogin.Resultado.Success)
-                    throw new Exception("La contraseña es incorrecta.");
+                // Comprobamos si el campo de Respuesta Secreta se encuentra lleno para validar 
+                // que el usuario se olvidó se contraseña y posteriormente hacer el cambio.
+                if (string.IsNullOrEmpty(request.RespuestaSecreta))
+                {
+                    ResponseLoginUsuario responseLogin = Login(new RequestLogin
+                    {
+                        CodigoUsuario = request.CodigoUsuario,
+                        Clave = publicCrypter.Decrypt(request.ClaveAntigua),
+                        Dominio = request.Dominio,
+                        AcronimoAplicacion = request.Acronimo
+                    });
+
+                    if (!responseLogin.Resultado.Success)
+                        throw new Exception("La contraseña es incorrecta.");
+                }
+                else
+                {
+                    // Comprobamos que la respuesta a la pregunta Secreta sea válida.
+                    using (var ctx = new SeguridadEntities())
+                    {
+                        var clave = (from clav in ctx.Claves
+                                     where clav.IdUsuario == info.InfoBasica.IdUsuario
+                                     && clav.Ultimo
+                                     select new { RespuestaSecreta = clav.Respuesta }).FirstOrDefault();
+                        if (clave != null)
+                        {
+                            if (clave.RespuestaSecreta != GRCrypto.Encriptar(request.RespuestaSecreta))
+                                throw new SecurityException("La respuesta secreta no coincide!");
+                        }
+                    }
+                }
             }
 
-
+            // En caso sea un reseteo de clave
             if (request.TipoCambioClave == TipoCambioClave.Sys)
                 request.ClaveAntigua = request.ClaveNuevaConfirmada = request.ClaveNueva = publicCrypter.Decrypt(request.ClaveNueva);
             else
@@ -103,35 +138,16 @@ namespace Seguridad.ServicioBL
                 request.ClaveNueva = publicCrypter.Decrypt(request.ClaveNueva);
                 request.ClaveNuevaConfirmada = publicCrypter.Decrypt(request.ClaveNuevaConfirmada);
             }
+
             Result result = ValidacionCambiarClaveWeb(request);
             if (result.Success == false)
                 throw new Exception(result.Message);
 
-            string codigoUsuario = "";
-            string correo = "";
-            string nombres = "";
-
-            // VALIDAR SI EL USUARIO EXISTE
-            using (var contexto = new SeguridadEntities())
-            {
-                var query = (from c in contexto.Usuarios
-                             where c.CodigoUsuario == request.CodigoUsuario
-                                && c.Estado == true
-                             select c);
-
-                if (!query.Any())
-                    throw new Exception(string.Format("No se pudo encontrar el usuario {0}", request.CodigoUsuario));
-
-
-                codigoUsuario = query.First().CodigoUsuario;
-                correo = query.First().Correo;
-                nombres = string.Format("{0} {1} {2}", query.First().Nombres, query.First().ApellidoPaterno, query.First().ApellidoMaterno);
-            }
-
+            bool primeraClave = false;
             try
             {
-                //ESTA LINEA VALIDA SI EL USUARIO TIENE CLAVE REGISTRADA
-                bool r = GRPrincipal.Load(codigoUsuario, request.Dominio);
+                //Validamos si tiene Clave registrada.
+                GRPrincipal.Load(request.CodigoUsuario, request.Dominio);
             }
             catch (DataPortalException ex)
             {
@@ -139,24 +155,32 @@ namespace Seguridad.ServicioBL
                 {
                     if (ex.BusinessException.GetType() == typeof(UsuarioSinClaveException))
                     {   //SI LA EXCEPCION ES USUARIOSINCLAVE SE LE CREA UNA CLAVE
-                        ActivarUsuario activarUsuario = ActivarUsuario.GetActivarUsuario(new FiltroUsuarios { Usuario = codigoUsuario, Dominio = request.Dominio });
-                        activarUsuario.PreguntaSecreta = activarUsuario.RespuestaSecreta = codigoUsuario;
+                        ActivarUsuario activarUsuario = ActivarUsuario.GetActivarUsuario(new FiltroUsuarios
+                        { Usuario = request.CodigoUsuario, Dominio = request.Dominio });
+
+                        activarUsuario.PreguntaSecreta = activarUsuario.RespuestaSecreta = request.CodigoUsuario;
                         activarUsuario.ClaveSecreta = activarUsuario.ConfirmarClave = request.ClaveNueva;
 
                         activarUsuario.Save();
+                        primeraClave = true;
                     }
                 }
             }
 
-            // OBTENEMOS LOS DATOS
-            CambiarClave cambiarClave = ErickOrlando.Seguridad.Entidades.CambiarClave.GetCambiarClave(new FiltroUsuarios { Usuario = codigoUsuario, Dominio = request.Dominio });
-            cambiarClave.ClaveNueva = cambiarClave.ConfirmarClave = request.ClaveNueva;
-            cambiarClave.RespuestaSecreta = cambiarClave.SecretAnswer;
-            cambiarClave.Save(false);
+            if (!primeraClave)
+            {
+                var cambiarClave = CambiarClave.GetCambiarClave(new FiltroUsuarios
+                { Usuario = request.CodigoUsuario, Dominio = request.Dominio });
+                cambiarClave.ClaveNueva = cambiarClave.ConfirmarClave = request.ClaveNueva;
+                cambiarClave.RespuestaSecreta = string.IsNullOrEmpty(request.RespuestaSecreta)
+                        ? cambiarClave.SecretAnswer : request.RespuestaSecreta;
+                CambiarClave.ByPassClave = true;
+                cambiarClave.Save();
+            }
 
-            response.Correo = correo;
-            response.Nombres = nombres;
-            response.CodigoUsuario = codigoUsuario;
+            response.Correo = info.InfoBasica.Correo;
+            response.Nombres = info.InfoBasica.NombresCompletos;
+            response.CodigoUsuario = request.CodigoUsuario;
 
             return response;
         }
@@ -225,10 +249,14 @@ namespace Seguridad.ServicioBL
         public static ResponseInfoBasicaUsuarioDTO GetInfoBasicaUsuariosByCodigo(RequestInfoBasicaUsuarioDTO request)
         {
             var response = new ResponseInfoBasicaUsuarioDTO();
-
-            var query = ReturnInfoUsuario().Where(u => request.CodigosUsuario.Contains(u.CodigoUsuario));
-
-            response.ListaInfoBasicaUsuarios = query.ToList();
+            using (var ctx = new SeguridadEntities())
+            {
+                var query = ReturnInfoUsuario(ctx)
+                    .Where(u => u.CodigoUsuario == request.CodigoUsuario
+                    && u.Dominio == request.Dominio);
+                response.InfoBasica = query.FirstOrDefault();
+                response.Resultado.Success = (response.InfoBasica != null);
+            }
 
             return response;
         }
@@ -237,9 +265,13 @@ namespace Seguridad.ServicioBL
         {
             var response = new ResponseInfoBasicaUsuarioDTO();
 
-            var query = ReturnInfoUsuario().Where(u => request.CodigosUsuario.Contains(u.IdUsuario));
+            using (var ctx = new SeguridadEntities())
+            {
+                var query = ReturnInfoUsuario(ctx).Where(u => u.IdUsuario == request.CodigoUsuario);
 
-            response.ListaInfoBasicaUsuarios = query.ToList();
+                response.InfoBasica = query.FirstOrDefault();
+                response.Resultado.Success = (response.InfoBasica != null);
+            }
 
             return response;
         }
@@ -637,17 +669,17 @@ namespace Seguridad.ServicioBL
         #endregion
 
         #region Listas de Usuario
-        public static IEnumerable<ResponseListaUsuarios> ListarUsuarios(RequestListarUsuario request)
+        public static IEnumerable<ResponseInfoUsuarios> ListarUsuarios(RequestListarUsuario request)
         {
 
             using (var contexto = new SeguridadEntities())
             {
-                var resultado = new List<ResponseListaUsuarios>();
+                var resultado = new List<ResponseInfoUsuarios>();
                 var query = contexto.SelectAllUsuarios();
 
                 foreach (var item in query)
                 {
-                    resultado.Add(new ResponseListaUsuarios
+                    resultado.Add(new ResponseInfoUsuarios
                     {
                         IdUsuario = item.IdUsuario,
                         CodigoUsuario = item.CodigoUsuario,
@@ -923,28 +955,27 @@ namespace Seguridad.ServicioBL
             return generado;
         }
 
-        private static IQueryable<ResponseListaUsuarios> ReturnInfoUsuario()
+        private static IQueryable<ResponseInfoUsuarios> ReturnInfoUsuario(SeguridadEntities contexto)
         {
-            using (var contexto = new SeguridadEntities())
-            {
-                var query = from u in contexto.Usuarios
-                            join c in contexto.Claves on u.IdUsuario equals c.IdUsuario into gp
-                            from userexterno in gp.DefaultIfEmpty()
-                            join cargo in contexto.Cargo on u.IdCargo equals cargo.IdCargo
-                            where userexterno.Ultimo == true
-                            select new ResponseListaUsuarios
-                            {
-                                IdUsuario = u.IdUsuario,
-                                CodigoCargo = cargo.CodigoCargo,
-                                Cargo = cargo.Descripcion,
-                                CodigoUsuario = u.CodigoUsuario,
-                                Correo = u.Correo,
-                                DNI = u.DNI,
-                                NombresCompletos = u.Nombres + " " + u.ApellidoPaterno + " " + u.ApellidoMaterno,
-                                PreguntaSecreta = (userexterno == null) ? string.Empty : userexterno.Pregunta,
-                            };
-                return query;
-            }
+            var query = from u in contexto.Usuarios
+                        join c in contexto.Claves on u.IdUsuario equals c.IdUsuario into gp
+                        from userexterno in gp.DefaultIfEmpty()
+                        join cargo in contexto.Cargo on u.IdCargo equals cargo.IdCargo
+                        where userexterno.Ultimo == true
+                        select new ResponseInfoUsuarios
+                        {
+                            IdUsuario = u.IdUsuario,
+                            CodigoCargo = cargo.CodigoCargo,
+                            Cargo = cargo.Descripcion,
+                            CodigoUsuario = u.CodigoUsuario,
+                            Correo = u.Correo,
+                            Tipo = u.Tipo,
+                            DNI = u.DNI,
+                            NombresCompletos = u.Nombres + " " + u.ApellidoPaterno + " " + u.ApellidoMaterno,
+                            Dominio = u.Dominio,
+                            PreguntaSecreta = (userexterno == null) ? string.Empty : userexterno.Pregunta,
+                        };
+            return query;
         }
 
 

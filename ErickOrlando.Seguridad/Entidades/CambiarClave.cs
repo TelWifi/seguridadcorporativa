@@ -104,6 +104,10 @@ namespace ErickOrlando.Seguridad.Entidades
             get { return GetProperty(ConfirmarClaveProperty); }
             set { SetProperty(ConfirmarClaveProperty, value); }
         }
+        /// <summary>
+        /// ByPass de Clave
+        /// </summary>
+        public static bool ByPassClave { get; set; }
         #endregion
 
         #region Business Rules
@@ -136,7 +140,7 @@ namespace ErickOrlando.Seguridad.Entidades
         /// </summary>
         public new CambiarClave Save()
         {
-            if (GRCrypto.Encriptar(RespuestaSecreta) != SecretAnswer)
+            if (GRCrypto.Encriptar(RespuestaSecreta) != SecretAnswer && !ByPassClave)
                 throw new InvalidOperationException("La respuesta secreta no coincide!");
             return base.Save();
         }

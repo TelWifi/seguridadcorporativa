@@ -16,7 +16,7 @@ namespace Seguridad.ServicioWCF
     {
         [OperationContract]
         [WebInvoke(UriTemplate = "/CambiarClave", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        ResponseCambioClave CambiarClaveWeb(RequestCambioClave request);
+        ResponseCambioClave CambiarClave(RequestCambioClave request);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/Login", Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]

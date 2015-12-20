@@ -8,6 +8,6 @@ namespace Seguridad.Entidades
 {
     public class ResponseDTOListaUsuario : BaseResponse
     {
-        public IEnumerable<ResponseListaUsuarios> ListaUsuarios { get; set; }
+        public IEnumerable<ResponseInfoUsuarios> ListaUsuarios { get; set; }
     }
 }

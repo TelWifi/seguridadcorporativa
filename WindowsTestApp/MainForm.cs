@@ -53,17 +53,16 @@ namespace WindowsTestApp
                 var response = util.DeserializarJSON<RequestInfoBasicaUsuarioDTO, ResponseInfoBasicaUsuarioDTO>
                     (new RequestInfoBasicaUsuarioDTO
                     {
-                        CodigosUsuario = new List<string> { "evelascom", "jgutierrezs" }
+                        CodigoUsuario = "evelascom",
+                        Dominio = "Local"
                     }, string.Format(UrlBase, "GetInfoBasicaUsuarios"));
 
                 var cadena = new StringBuilder();
-                foreach (var item in response.ListaInfoBasicaUsuarios)
-                {
-                    cadena.AppendLine(
-                        string.Format("Nombres Completos: {0} \n Correo: {1}",
-                            item.NombresCompletos,
-                            item.Correo));
-                }
+
+                cadena.AppendLine(
+                    string.Format("Nombres Completos: {0} \n Correo: {1}",
+                        response.InfoBasica.NombresCompletos,
+                        response.InfoBasica.Correo));
 
                 MessageBox.Show(cadena.ToString(), Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
