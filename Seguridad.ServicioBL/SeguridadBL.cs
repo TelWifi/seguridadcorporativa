@@ -362,12 +362,67 @@ namespace Seguridad.ServicioBL
                     return result;
 
 
+                string IdAplicacion = string.Empty;
+                string IdEmpresa = string.Empty;
+                string IdEmpresaPertenencia = string.Empty;
+                string IdRol = string.Empty;
+                string IdCargo = string.Empty;
 
+                using (var ctx = new SeguridadEntities())
+                {
+                    // Buscamos el ID de la Aplicacion.
+                    IdAplicacion = (from app in ctx.Aplicaciones
+                                    where app.Acronimo == request.Acronimo
+                                    select app.IdAplicacion).SingleOrDefault();
+
+                    if (string.IsNullOrEmpty(IdAplicacion))
+                        throw new ApplicationException(string.Format("La Aplicación {0} no existe!", request.Acronimo));
+
+                    // Buscamos el ID de la Empresa.
+                    IdEmpresa = (from emp in ctx.Empresas
+                                 where emp.RUC == request.RUCEmpresa
+                                 select emp.IdEmpresa).SingleOrDefault();
+
+                    if (string.IsNullOrEmpty(IdEmpresa))
+                        throw new ApplicationException(string.Format("La Empresa con el RUC {0} no existe!", request.RUCEmpresa));
+
+                    if (request.RUCEmpresa != request.RUCEmpresaPertenencia)
+                    {
+                        // Buscamos el ID de la Empresa Pertenencia.
+                        IdEmpresaPertenencia = (from emp in ctx.Empresas
+                                                where emp.RUC == request.RUCEmpresaPertenencia
+                                                select emp.IdEmpresa).SingleOrDefault();
+
+                        if (string.IsNullOrEmpty(IdEmpresaPertenencia))
+                            throw new ApplicationException(string.Format("La Empresa con el RUC {0} no existe!", request.RUCEmpresaPertenencia));
+
+                    }
+                    else
+                        IdEmpresaPertenencia = IdEmpresa;
+
+                    // Buscamos el ID del Rol.
+                    IdRol = (from roles in ctx.Roles
+                             where roles.IdAplicacion == IdAplicacion
+                             && roles.NombreRol == request.Rol
+                             select roles.IdRol).SingleOrDefault();
+
+                    if (string.IsNullOrEmpty(IdRol))
+                        throw new ApplicationException(string.Format("No se encuentra el Rol {0}", request.Rol));
+
+                    // Buscamos el ID del Cargo.
+                    IdCargo = (from cargo in ctx.Cargo
+                               where cargo.Descripcion == request.Cargo
+                               select cargo.IdCargo).SingleOrDefault();
+
+                    if (string.IsNullOrEmpty(IdCargo))
+                        throw new ApplicationException(string.Format("No se encuentra el cargo {0}", request.Cargo));
+
+                }
 
                 //Creacion de nuevo usuario
-                usuario.IdEmpresa = request.IdEmpresa;
-                usuario.IdEmpresaPertenencia = request.IdEmpresaPertenencia;
-                usuario.IdCargo = request.IdCargo;
+                usuario.IdEmpresa = IdEmpresa;
+                usuario.IdEmpresaPertenencia = IdEmpresaPertenencia;
+                usuario.IdCargo = IdCargo;
                 usuario.Nombres = request.Nombres;
                 usuario.Alias = request.Alias;
                 usuario.Dominio = request.Dominio;
@@ -393,10 +448,11 @@ namespace Seguridad.ServicioBL
 
                 //Creacion de perfil
 
-                perfil.IdAplicacion = request.IdAplicacion;
+
+                perfil.IdAplicacion = IdAplicacion;
                 perfil.IdUsuario = usuarioCreado.Id;
                 perfil.Usuario = usuarioCreado.Nombres;
-                perfil.Aplicacion = request.Aplicacion;
+                perfil.Aplicacion = IdAplicacion;
                 perfil.Caduca = request.Caduca;
                 perfil.VigenciaInicio = DateTime.Now;
                 perfil.VigenciaFin = DateTime.Now.AddYears(1);
@@ -404,8 +460,8 @@ namespace Seguridad.ServicioBL
                 //Asignando rol
                 var rolPerfil = perfil.RolesPerfiles.AddNew();
 
-                rolPerfil.IdRol = request.IdRol;
-                rolPerfil.IdAplicacion = request.IdAplicacion;
+                rolPerfil.IdRol = IdRol;
+                rolPerfil.IdAplicacion = IdAplicacion;
 
                 //Agregando permisos
                 rolPerfil.AgregarPermisos();
@@ -444,12 +500,18 @@ namespace Seguridad.ServicioBL
                 {
 
                     //Creacion de contraseña
-                    Clave = GenerarClaveAleatoria();
+                    if (String.IsNullOrEmpty(request.Clave))
+                        Clave = GenerarClaveAleatoria();
+                    else
+                    {
+                        var crypto = new SimpleInteroperableEncryption();
+                        Clave = crypto.Decrypt(request.Clave);
+                    }
                     //Hay que intentar el Login para identificar si se debe crear la contraseña.
 
                     try
                     {
-                        Csla.ApplicationContext.GlobalContext["Acronimo"] = request.Aplicacion;
+                        Csla.ApplicationContext.GlobalContext["Acronimo"] = request.Acronimo;
 
                         GRPrincipal.Load(usuario.Codigo, usuario.Dominio);
 
@@ -476,9 +538,10 @@ namespace Seguridad.ServicioBL
                     }
                 }
                 result.IdUsuario = usuarioCreado.Id;
-                result.Clave = Clave;
+                result.Clave = (string.IsNullOrEmpty(request.Clave)) ? Clave : string.Empty;
                 result.Codigo = request.Codigo;
                 result.Alias = request.Alias;
+                result.Resultado.Success = true;
                 result.Resultado.Message = string.Empty;
 
             }
@@ -516,140 +579,7 @@ namespace Seguridad.ServicioBL
 
             foreach (var request in lstRequest)
             {
-                result = new ResponseUsuarioInsert();
-                try
-                {
-
-                    var perfil = ErickOrlando.Seguridad.Negocio.Editables.PerfilUsuario.NewPerfilUsuario();
-                    var usuario = Usuario.NewUsuario();
-
-                    //Creacion de nuevo usuario
-
-
-                    usuario.IdEmpresa = request.IdEmpresa;
-                    usuario.IdEmpresaPertenencia = request.IdEmpresaPertenencia;
-                    usuario.IdCargo = request.IdCargo;
-                    usuario.Nombres = request.Nombres;
-                    usuario.Alias = request.Alias;
-                    usuario.Dominio = request.Dominio;
-                    usuario.ApellidoMaterno = request.ApellidoMaterno;
-                    usuario.ApellidoPaterno = request.ApellidoPaterno;
-                    usuario.Codigo = request.Codigo;
-                    usuario.Correo = request.Correo;
-                    usuario.DNI = request.DNI;
-                    usuario.Estado = true;
-                    usuario.NotificarConCorreo = request.NotificacionConCorreo;
-                    usuario.Tipo = request.Tipo;
-                    usuario = usuario.Save();
-
-                    //Recuperando usuario creado
-                    var usuarioCreado = usuario;
-
-                    //Estableciendo variables de entorno
-                    Csla.ApplicationContext.GlobalContext["Placa"] = Environment.MachineName;
-                    Csla.ApplicationContext.GlobalContext["Usuario"] = Environment.UserName;
-
-                    //Creacion de perfil
-
-                    perfil.IdAplicacion = request.IdAplicacion;
-                    perfil.IdUsuario = usuarioCreado.Id;
-
-                    perfil.Usuario = usuarioCreado.Nombres;
-                    perfil.Aplicacion = request.Aplicacion;
-                    perfil.Caduca = false;
-                    perfil.VigenciaInicio = DateTime.Now;
-                    perfil.VigenciaFin = DateTime.Now.AddYears(1);
-
-                    //Asignando rol
-                    var rolPerfil = perfil.RolesPerfiles.AddNew();
-
-                    rolPerfil.IdRol = request.IdRol;
-                    rolPerfil.IdAplicacion = request.IdAplicacion;
-
-                    //Agregando permisos
-                    rolPerfil.AgregarPermisos();
-
-                    //Estableciendo recursos
-                    var recursosList = RecursosInfoList.GetRecursosInfoList();
-
-
-                    foreach (var recurso in request.ListaRecursos)
-                    {
-                        string recursoact = recurso.Substring(0, recurso.IndexOf(":")).Trim();
-                        string[] recursodetalle = recurso.Substring(recurso.IndexOf(":") + 1).Trim().Split(',');
-
-                        foreach (var itemrecurso in recursosList.Where(x => x.Descripcion == recursoact))
-                        {
-                            var recursodetalles = from p in itemrecurso.Detalles
-                                                  where recursodetalle.Contains(p.Descripcion)
-                                                  select p;
-
-                            foreach (var itemrecursodetalle in recursodetalles)
-                            {
-                                var recursoitem = perfil.Recursos.AddNew();
-                                recursoitem.Conceder = true;
-                                recursoitem.IdRecursoDetalle = itemrecursodetalle.ID;
-                                perfil.Recursos.Add(recursoitem);
-                            }
-                        }
-
-                    }
-
-                    perfil.Save();
-
-                    string Clave = string.Empty;
-
-                    if (usuario.Tipo == "E")
-                    {
-
-                        //Creacion de contraseña
-                        Clave = GenerarClaveAleatoria();
-                        //Hay que intentar el Login para identificar si se debe crear la contraseña.
-
-                        try
-                        {
-                            Csla.ApplicationContext.GlobalContext["Acronimo"] = request.Aplicacion;
-
-                            GRPrincipal.Load(usuario.Codigo, usuario.Dominio);
-
-                        }
-                        catch (DataPortalException ex)
-                        {
-                            if (ex.BusinessException.GetType() == typeof(UsuarioNoActivoException)
-                               || ex.BusinessException.GetType() == typeof(UsuarioSinClaveException))
-                            {
-                                var activacion = ActivarUsuario.GetActivarUsuario(new FiltroUsuarios
-                                {
-                                    Usuario = usuario.Codigo,
-                                    Dominio = usuario.Dominio
-                                });
-
-                                activacion.PreguntaSecreta = request.PreguntaSecreta;
-                                activacion.RespuestaSecreta = request.RespuestaSecreta;
-                                activacion.ClaveSecreta = Clave;
-                                activacion.ConfirmarClave = Clave;
-
-                                activacion.Save();
-                            }
-                        }
-                    }
-                    result.IdUsuario = usuarioCreado.Id;
-                    result.Clave = Clave;
-                    result.Codigo = request.Codigo;
-                    result.Alias = request.Alias;
-                    result.Resultado.Message = string.Empty;
-                }
-                catch (DataPortalException ex)
-                {
-                    result.Resultado.Message = request.Alias + " :" + ex.BusinessException.Message;
-                }
-                catch (Exception ex)
-                {
-                    var msg = ex.Message;
-                    if (ex.InnerException != null)
-                        msg = ex.InnerException.Message;
-                    result.Resultado.Message = request.Alias + " :" + msg;
-                }
+                result = InsertUsuario(request);
 
                 lstResult.Add(result);
             }

@@ -241,7 +241,7 @@ namespace ErickOrlando.Seguridad.WinForms
                     AcronimoAplicacion = ConfigurationManager.AppSettings["AcronimoAplicacion"],
                     CodigoUsuario = txtUser.Text,
                     Clave = cryptocon.Encrypt(txtPass.Text),
-                    Dominio = cboDominio.Text
+                    Dominio = cboDominio.EditValue.ToString(),
                 });
 
                 if (!respuesta.Resultado.Success)

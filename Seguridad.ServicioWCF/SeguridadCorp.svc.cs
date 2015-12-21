@@ -168,7 +168,6 @@ namespace Seguridad.ServicioWCF
             try
             {
                 response = SeguridadBL.InsertUsuario(request);
-                response.Resultado.Success = true;
             }
             catch (Exception ex)
             {

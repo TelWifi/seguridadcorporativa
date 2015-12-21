@@ -1,33 +1,33 @@
 ﻿namespace ErickOrlando.Seguridad.WinForms
 {
-	partial class LoginForm
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class LoginForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
@@ -196,7 +196,7 @@
             this.cboDominio.Properties.DisplayMember = "NombreCorto";
             this.cboDominio.Properties.NullText = "";
             this.cboDominio.Properties.PopupSizeable = false;
-            this.cboDominio.Properties.ValueMember = "NombreCorto";
+            this.cboDominio.Properties.ValueMember = "NombreLargo";
             this.cboDominio.Properties.View = this.gridLookUpEdit1View;
             this.cboDominio.Size = new System.Drawing.Size(239, 22);
             this.cboDominio.TabIndex = 1;
@@ -256,19 +256,19 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
+        }
 
-		#endregion
+        #endregion
 
-		private DevExpress.XtraEditors.LabelControl labelControl1;
-		private DevExpress.XtraEditors.LabelControl labelControl2;
-		private DevExpress.XtraEditors.TextEdit txtUser;
-		private DevExpress.XtraEditors.TextEdit txtPass;
-		private DevExpress.XtraEditors.HyperLinkEdit lnkCambiarClave;
-		private DevExpress.XtraEditors.SimpleButton btnLogin;
-		private DevExpress.XtraEditors.SimpleButton btnCancelar;
-		private DevExpress.XtraEditors.LabelControl labelControl3;
-		private System.Windows.Forms.ErrorProvider errorProvider1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.TextEdit txtUser;
+        private DevExpress.XtraEditors.TextEdit txtPass;
+        private DevExpress.XtraEditors.HyperLinkEdit lnkCambiarClave;
+        private DevExpress.XtraEditors.SimpleButton btnLogin;
+        private DevExpress.XtraEditors.SimpleButton btnCancelar;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.BindingSource DominiosBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
