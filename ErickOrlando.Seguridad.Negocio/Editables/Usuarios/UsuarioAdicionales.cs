@@ -27,10 +27,10 @@ namespace ErickOrlando.Seguridad.Negocio.Editables
         {
             var Ruta = string.Empty;
             var Cadena = new String[] {
-                    Nombres,
+                    string.Format("{0} {1} {2}", Nombres, ApellidoPaterno, ApellidoMaterno),
                     Codigo,
-                    DateTime.Today.ToString("dd/MM/yyyy"),
-                    DateTime.Today.AddDays(90).ToString("dd/MM/yyyy")
+                    DateTime.Today.ToString("D"),
+                    DateTime.Today.AddDays(90).ToString("D")
                 };
 
             var Contenido = new ContenidoMail();

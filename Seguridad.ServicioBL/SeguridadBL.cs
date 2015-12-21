@@ -417,6 +417,8 @@ namespace Seguridad.ServicioBL
                     if (string.IsNullOrEmpty(IdCargo))
                         throw new ApplicationException(string.Format("No se encuentra el cargo {0}", request.Cargo));
 
+
+                    ctx.Database.Connection.Close();
                 }
 
                 //Creacion de nuevo usuario
@@ -469,27 +471,29 @@ namespace Seguridad.ServicioBL
                 //Estableciendo recursos
                 var recursosList = RecursosInfoList.GetRecursosInfoList();
 
-
-                foreach (var recurso in request.ListaRecursos)
+                if (request.ListaRecursos != null)
                 {
-                    string recursoact = recurso.Substring(0, recurso.IndexOf(":")).Trim();
-                    string[] recursodetalle = recurso.Substring(recurso.IndexOf(":") + 1).Trim().Split(',');
-
-                    foreach (var itemrecurso in recursosList.Where(x => x.Descripcion == recursoact))
+                    foreach (var recurso in request.ListaRecursos)
                     {
-                        var recursodetalles = from p in itemrecurso.Detalles
-                                              where recursodetalle.Contains(p.Descripcion)
-                                              select p;
+                        string recursoact = recurso.Substring(0, recurso.IndexOf(":")).Trim();
+                        string[] recursodetalle = recurso.Substring(recurso.IndexOf(":") + 1).Trim().Split(',');
 
-                        foreach (var itemrecursodetalle in recursodetalles)
+                        foreach (var itemrecurso in recursosList.Where(x => x.Descripcion == recursoact))
                         {
-                            var recursoitem = perfil.Recursos.AddNew();
-                            recursoitem.Conceder = true;
-                            recursoitem.IdRecursoDetalle = itemrecursodetalle.ID;
-                            perfil.Recursos.Add(recursoitem);
-                        }
-                    }
+                            var recursodetalles = from p in itemrecurso.Detalles
+                                                  where recursodetalle.Contains(p.Descripcion)
+                                                  select p;
 
+                            foreach (var itemrecursodetalle in recursodetalles)
+                            {
+                                var recursoitem = perfil.Recursos.AddNew();
+                                recursoitem.Conceder = true;
+                                recursoitem.IdRecursoDetalle = itemrecursodetalle.ID;
+                                perfil.Recursos.Add(recursoitem);
+                            }
+                        }
+
+                    }
                 }
 
                 perfil.Save();
@@ -528,12 +532,20 @@ namespace Seguridad.ServicioBL
                                 Dominio = usuario.Dominio
                             });
 
+                            activacion.NombreUsuario = request.Codigo;
                             activacion.PreguntaSecreta = request.PreguntaSecreta;
                             activacion.RespuestaSecreta = request.RespuestaSecreta;
                             activacion.ClaveSecreta = Clave;
                             activacion.ConfirmarClave = Clave;
 
-                            activacion.Save();
+                            try
+                            {
+                                activacion.Save();
+                            }
+                            catch (ValidationException)
+                            {
+                                throw new InvalidOperationException(activacion.BrokenRulesCollection.ToString());
+                            }
                         }
                     }
                 }
@@ -559,6 +571,10 @@ namespace Seguridad.ServicioBL
             catch (DataPortalException ex)
             {
                 result.Resultado.Message = ex.BusinessException.Message;
+                if (ex.BusinessException.InnerException != null)
+                {
+                    result.Resultado.Messages.Add(new Result { Message = ex.BusinessException.InnerException.Message });
+                }
             }
             catch (Exception ex)
             {
